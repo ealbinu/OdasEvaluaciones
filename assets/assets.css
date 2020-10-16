@@ -1,0 +1,373 @@
+:root {
+  --main: #ED1846;
+  --sec: #005093;
+  --accent: #EB8B2E;
+  --rightcol: #5EB246;
+  --wrongcol: #DB3E34;
+  --clear: #AAE1FA;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+h1 {
+  font-family: 'barnacle_boyregular';
+  font-weight: normal;
+  color: #ED1846;
+}
+h2 {
+  color: #ED1846;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+h2.repaso {
+  background: #005093;
+  color: #fff;
+  display: inline-block;
+  padding: 4px 50px 4px 10px;
+  border-radius: 2px 8px 8px 2px;
+  border: 2px solid #AAE1FA;
+  box-shadow: -4px 4px 0px rgba(0, 0, 0, 0.1);
+  color: #AAE1FA;
+}
+.instruccion {
+  color: #005093;
+  font-size: 1.4rem;
+}
+.instruccion img {
+  max-width: 16px;
+}
+.instruccion .animate__animated {
+  animation-iteration-count: infinite;
+}
+.instruccion:before {
+  content: url(aimg/bullet.svg);
+  display: inline-block;
+  width: 14px;
+  margin-left: -7px;
+  margin-right: 7px;
+}
+.instruccion strong {
+  color: #ED1846;
+  font-family: 'barnacle_boyregular';
+  font-weight: normal;
+}
+strong {
+  font-family: 'barnacle_boyregular';
+  font-weight: normal;
+}
+strong.main {
+  color: #ED1846;
+}
+strong.accent {
+  color: #EB8B2E;
+}
+strong.clear {
+  color: #AAE1FA;
+}
+strong.sec {
+  color: #005093;
+}
+.label strong {
+  font-family: 'barnacle_boyregular';
+  font-weight: normal;
+  color: #EB8B2E;
+  margin-right: 5px;
+}
+.finalizar {
+  border: none;
+  padding: 20px 40px;
+  border-radius: 20px;
+  font-family: 'barnacle_boyregular';
+  font-weight: normal;
+  background: #AAE1FA;
+  font-size: 2rem;
+  color: #005093;
+}
+.finalizar:focus {
+  outline: none;
+}
+.resultado {
+  flex-direction: column;
+  text-align: center;
+}
+.resultado h3 {
+  font-size: 3rem;
+  padding: 20px;
+  color: #ED1846;
+  font-family: 'barnacle_boyregular';
+  font-weight: normal;
+}
+.resultado strong {
+  font-family: 'barnacle_boyregular';
+  color: #5EB246;
+  font-size: 2rem;
+  display: block;
+}
+.resultado .finalizar {
+  padding: 10px 20px;
+  margin: 40px auto;
+  font-size: 1.4rem;
+  max-width: 300px;
+}
+/* COMPONENTS */
+.inputbox {
+  display: flex;
+  justify-content: center;
+}
+.inputbox input,
+.inputbox textarea {
+  border: 2px solid #AAE1FA;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-family: 'barnacle_boyregular';
+  font-weight: normal;
+  color: #005093;
+  text-align: center;
+  font-size: 2rem;
+  outline: none !important;
+  width: 100%;
+}
+.inputbox textarea {
+  height: 100%;
+  resize: none;
+}
+.selectable,
+.selectableoptions {
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.selectable .circledactive,
+.selectableoptions .circledactive {
+  width: 100%;
+  height: 100%;
+  border: 6px solid #ED1846;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  border-radius: 50%;
+}
+.check {
+  display: flex;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin: 20px 10px;
+  align-items: center;
+  padding: 5px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.check .checkbox {
+  flex-basis: 40px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #AAE1FA;
+  margin-right: 10px;
+}
+.check .checkbox img {
+  margin: 10%;
+  width: 80%;
+}
+.choose {
+  font-size: 1.2rem;
+  margin: 20px 10px;
+  padding: 5px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.choose .options {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+.choose .options div {
+  cursor: pointer;
+  border-bottom: 2px solid #AAE1FA;
+}
+.choose .options div.active {
+  border-bottom: 6px solid #ED1846;
+  color: #ED1846;
+}
+.check,
+.choose,
+.inputbox,
+.selectable,
+.selectableoptions,
+.draggableModule,
+.dropdowns {
+  position: relative;
+}
+.check.isright,
+.choose.isright,
+.inputbox.isright,
+.selectable.isright,
+.selectableoptions.isright,
+.draggableModule.isright,
+.dropdowns.isright {
+  border: 2px solid #5EB246;
+}
+.check.iswrong,
+.choose.iswrong,
+.inputbox.iswrong,
+.selectable.iswrong,
+.selectableoptions.iswrong,
+.draggableModule.iswrong,
+.dropdowns.iswrong {
+  border: 2px solid #DB3E34;
+}
+.check .isright,
+.choose .isright,
+.inputbox .isright,
+.selectable .isright,
+.selectableoptions .isright,
+.draggableModule .isright,
+.dropdowns .isright,
+.check .iswrong,
+.choose .iswrong,
+.inputbox .iswrong,
+.selectable .iswrong,
+.selectableoptions .iswrong,
+.draggableModule .iswrong,
+.dropdowns .iswrong {
+  position: absolute;
+  right: -2%;
+  top: -10%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.check .isright:after,
+.choose .isright:after,
+.inputbox .isright:after,
+.selectable .isright:after,
+.selectableoptions .isright:after,
+.draggableModule .isright:after,
+.dropdowns .isright:after,
+.check .iswrong:after,
+.choose .iswrong:after,
+.inputbox .iswrong:after,
+.selectable .iswrong:after,
+.selectableoptions .iswrong:after,
+.draggableModule .iswrong:after,
+.dropdowns .iswrong:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url(aimg/iswrong.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 70%;
+}
+.check .isright,
+.choose .isright,
+.inputbox .isright,
+.selectable .isright,
+.selectableoptions .isright,
+.draggableModule .isright,
+.dropdowns .isright {
+  background: #5EB246;
+}
+.check .isright:after,
+.choose .isright:after,
+.inputbox .isright:after,
+.selectable .isright:after,
+.selectableoptions .isright:after,
+.draggableModule .isright:after,
+.dropdowns .isright:after {
+  background-image: url(aimg/isright.svg);
+}
+.check .iswrong,
+.choose .iswrong,
+.inputbox .iswrong,
+.selectable .iswrong,
+.selectableoptions .iswrong,
+.draggableModule .iswrong,
+.dropdowns .iswrong {
+  background: #DB3E34;
+}
+.draggableModule {
+  position: relative;
+}
+.draggableModule .isright,
+.draggableModule .iswrong {
+  top: -2%;
+}
+.inputbox {
+  justify-content: center;
+  align-items: center;
+}
+.inputbox.iswrong,
+.inputbox.isright {
+  border: 1px solid transparent;
+}
+.inputbox.isright input,
+.inputbox.isright textarea {
+  border: 2px solid #5EB246;
+}
+.inputbox.iswrong input,
+.inputbox.iswrong textarea {
+  border: 2px solid #DB3E34;
+}
+.dropdowns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'barnacle_boyregular';
+  font-size: 1.6rem;
+  border-radius: 20px;
+}
+.dropdowns select {
+  border: 2px solid #AAE1FA;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-weight: normal;
+  color: #005093;
+  outline: none !important;
+  text-align: center;
+}
+/* HIDE INPUT NUMBER ARROWS*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+.imgbgMod {
+  position: relative;
+}
+.imgbgMod .inputbox {
+  position: absolute;
+  width: 20%;
+  left: 1%;
+  top: 1%;
+}
+.imgbgMod .inputbox input {
+  font-size: 1.4.rem;
+}
+@media (max-width: 990px) {
+  .imgbgMod .inputbox input {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 768px) {
+  .imgbgMod .inputbox input {
+    font-size: 1.1rem;
+    padding: 5px;
+  }
+}
+@media (max-width: 680px) {
+  .imgbgMod .inputbox input {
+    font-size: 1rem;
+    padding: 0;
+  }
+}
+/*# sourceMappingURL=assets.css.map */
