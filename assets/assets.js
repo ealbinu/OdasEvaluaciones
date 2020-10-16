@@ -21,10 +21,7 @@ var app = new Vue({
             right: 0,
             total: 0,
             resultado: false,
-            temps: null,
-            temps2: null,
-            temps3: null,
-            tempsobj:{},
+            temps: {},
             finalData:{
                 score: 0,
                 scoresum: 0,

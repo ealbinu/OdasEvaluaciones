@@ -1,7 +1,8 @@
-include ../../assets/pug/_head
-include ../../assets/pug/_scripts
+include ../assets/pug/_head
+include ../assets/pug/_scripts
 
-- title = 'Titulo!!!'
+- grade = '1º'
+- title = 'Español'
 - subtitle = ''
 
 <!DOCTYPE html>
@@ -13,12 +14,20 @@ html(lang="es")
             */
     body
         #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
-            h1 #{title}
+            h1
+                span.grade #{grade}
+                | #{title}
             if subtitle.length>1
                 h2 #{subtitle}
+            
 
-            .instruccion.mt-5 INSTRUCCIONES
 
+            .mt-5
+                .instruccion Selecciona la respuesta correcta.
+                    p Lee el texto y contesta las preguntas 1, 2, 3 y 4.
+                .text-center
+                    popper
+                        img(src="aimg/lectura.png").img-fluid
             .row.mt-3
             
 
@@ -29,4 +38,4 @@ html(lang="es")
             finalize(@evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total")
         +scripts
             script.
-                //app.$set(app, 'temps', [])
+                //app.$set(app.temps, '', {})

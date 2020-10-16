@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Titulo!!!</title>
+    <title>Español</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
@@ -17,8 +17,15 @@
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1>Titulo!!!</h1>
-      <div class="instruccion mt-5">INSTRUCCIONES</div>
+      <h1><span class="grade">1º</span>Español</h1>
+      <div class="mt-5">
+        <div class="instruccion">Selecciona la respuesta correcta.
+          <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>
+        </div>
+        <div class="text-center">
+          <popper><img class="img-fluid" src="aimg/lectura.png"/></popper>
+        </div>
+      </div>
       <div class="row mt-3"></div>
       <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total"></finalize>
     </div>
@@ -32,9 +39,10 @@
     <script src="../../assets/modulos/check.js"></script>
     <script src="../../assets/modulos/inputbox.js"></script>
     <script src="../../assets/modulos/choose.js"></script>
+    <script src="../../assets/modulos/popper.js"></script>
     <script src="../../assets/modulos/finalize.js"></script>
     <script src="../../assets/modulos/utils.js"></script>
     <script src="../../assets/assets.js"></script>
-    <script>//app.$set(app, 'temps', [])</script>
+    <script>//app.$set(app.temps, '', {})</script>
   </body>
 </html>
