@@ -21,6 +21,8 @@ var app = new Vue({
             right: 0,
             total: 0,
             resultado: false,
+            scenes: {},
+            currentScene:0,
             temps: {},
             finalData:{
                 score: 0,
@@ -30,7 +32,8 @@ var app = new Vue({
                 answers: 0,
                 screen: []
             },
-            screen: []
+            screen: [],
+            started: false
         }
     },
     methods: {

@@ -9,25 +9,38 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../../assets/font/stylesheet.css"/>
     <link rel="stylesheet" href="../../assets/assets.css"/>
-    <style>
-      /*
-      .ex1 {}
-      */
-    </style>
+    <style>/* .css */</style>
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
       <h1><span class="grade">1º</span>Español</h1>
-      <div class="mt-5">
-        <div class="instruccion">Selecciona la respuesta correcta.
-          <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>
+      <!-- SCENES ############################################-->
+      <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started">
+        <div class="row">
+          <div class="col mt-5 instruccion" v-if="i.instruction" v-html="i.instruction"></div>
+          <div class="col-md-4 text-center" v-if="i.popper">
+            <popper>
+              <div v-html="i.popper"></div>
+            </popper>
+          </div>
         </div>
-        <div class="text-center">
-          <popper><img class="img-fluid" src="aimg/lectura.png"/></popper>
+        <!-- Pregunta >>>>>>>>>>>>>>>>>-->
+        <div class="row mt-3 pregunta">
+          <!-- >>>> CHOOSE-->
+          <template v-if="i.type=='choose'">
+            <choose :key="index" v-model="r[index]" :ref="refCount()" @isright="right++" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.opciones[i.respuestaNum]" :isactive="currentScene == index"></choose>
+          </template>
         </div>
       </div>
-      <div class="row mt-3"></div>
-      <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total"></finalize>
+      <!-- SCENES FINALIZAR ############################################-->
+      <div class="scene" v-if="currentScene == scenes.length">
+        <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total"></finalize>
+        <!--navigation(:current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1")-->
+      </div>
+      <!-- Counter >>>>>>>>>>-->
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado"></counter>
+      <!-- Navigation >>>>>>>>>>>>>>>-->
+      <navigation :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event"></navigation>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
     <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
@@ -43,6 +56,225 @@
     <script src="../../assets/modulos/finalize.js"></script>
     <script src="../../assets/modulos/utils.js"></script>
     <script src="../../assets/assets.js"></script>
-    <script>//app.$set(app.temps, '', {})</script>
+    <script>
+      app.$set(app, 'currentScene', 0)
+      app.$set(app, 'scenes', [
+          {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
+              popper: '<img src="aimg/lectura.png" class="img-fluid">',
+              type: 'choose', //input
+              pregunta: '¿Dónde conviven el tío Tito, José y su mamá?',
+              opciones: ['<img src="aimg/a1.png">', '<img src="aimg/a2.png">', '<img src="aimg/a3.png">'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
+              popper: '<img src="aimg/lectura.png" class="img-fluid">',
+              type: 'choose', //input
+              pregunta: '¿Con quién vive Ema?',
+              opciones: ['<img src="aimg/b1.png">', '<img src="aimg/b2.png">', '<img src="aimg/b3.png">'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
+              popper: '<img src="aimg/lectura.png" class="img-fluid">',
+              type: 'choose', //input
+              pregunta: '¿Cómo se llama el tío de Ema?',
+              opciones: ['Tito', 'Pepe', 'Manuel'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
+              popper: '<img src="aimg/lectura.png" class="img-fluid">',
+              type: 'choose', //input
+              pregunta: '¿A dónde lleva Pepe a su hija Ana?',
+              opciones: ['<img src="aimg/c1.png">', '<img src="aimg/c2.png">', '<img src="aimg/c3.png">'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //input
+              pregunta: '¿Cuál es una regla de convivencia dentro del salón de clases?',
+              opciones: ['Trabajar en silencio en clase.',' Hablar en voz alta a cada momento.','Recoger los juguetes.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //input
+              pregunta: '¿Cuál es la regla del salón de clases que está siguiendo la niña de la imagen? <img src="aimg/d1.png">',
+              opciones: ['Tocar la puerta antes de entrar.','Tirar la basura en el bote.','Levantar la mano para pedir la palabra.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //input
+              pregunta: '¿Qué función tiene el reglamento del salón de clases?',
+              opciones: ['Promover una convivencia sana.','Dar permiso para llegar tarde a clases.','Ayudar a mantener sucio el salón.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //input
+              pregunta: 'Lee los títulos y selecciona la portada de un texto informativo.',
+              opciones: ['<img src="aimg/e1.png">', '<img src="aimg/e2.png">', '<img src="aimg/e3.png">'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Observa la siguiente información y contesta las preguntas 9 y 10.',
+              popper: '<img src="aimg/f1.png" class="img-fluid">',
+              type: 'choose', //input
+              pregunta: '¿Cuál es el título del texto informativo?',
+              opciones: ['El Sol','La Tierra','La Luna'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Observa la siguiente información y contesta las preguntas 9 y 10.',
+              popper: '<img src="aimg/f1.png" class="img-fluid">',
+              type: 'choose', //input
+              pregunta: 'Es uno de los subtítulos del texto informativo.',
+              opciones: ['La importancia del Sol en el universo',' La importancia de la Luna para la Tierra','Importancia de la energía solar en la Tierra'],
+              respuestaNum: 0
+          }, //pregunta 10
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //input
+              pregunta: '¿Cuál es la palabra <strong>más corta</strong>?',
+              opciones: ['Planeta.','Sol.','Tierra.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //input
+              pregunta: '¿Cuál es la palabra que empieza con la misma letra que el nombre del animal de la imagen? <img src="aimg/g1.png">',
+              opciones: ['Ropero.','Uva.','Gallo.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //input
+              pregunta: '¿Cuántas letras tiene la siguiente palabra? <img src="aimg/h1.png">',
+              opciones: ['7 letras.','10 letras.','9 letras.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //input
+              pregunta: '¿Cuál es una de las funciones del cartel?',
+              opciones: ['Informar sobre un tema.','Divertir al lector.','Invitar a una fiesta.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Observa la imagen y contesta las preguntas 15, 16 y 17.',
+              popper: '<img src="aimg/i1.png">',
+              type: 'choose', //input
+              pregunta: '¿Qué representa la imagen anterior?',
+              opciones: ['Una invitación.','Un cartel.','Un boleto.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Observa la imagen y contesta las preguntas 15, 16 y 17.',
+              popper: '<img src="aimg/i1.png">',
+              type: 'choose', //input
+              pregunta: '¿Cuál es el título de la imagen anterior?',
+              opciones: ['¡Acude al médico!','¡Lávate las manos!', '¡Cuida tu salud!'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Observa la imagen y contesta las preguntas 15, 16 y 17.',
+              popper: '<img src="aimg/i1.png">',
+              type: 'choose', //input
+              pregunta: '¿Qué es lo que ocupa la mayor parte del cartel?',
+              opciones: ['La imagen.','El mensaje.', 'El título.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //input
+              pregunta: 'Son dos palabras que <strong>riman</strong> en la siguiente canción. <img src="aimg/j1.png">',
+              opciones: ['Nicolás / bordar','Casar / leche','Casar / bordar'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //input
+              pregunta: '¿Cuál es el significado de la palabra resaltada en la siguiente estrofa? <img src="aimg/k1.png">',
+              opciones: ['Corre.','Nace.','Flota.'],
+              respuestaNum: 0
+          }, //pregunta 20
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //input
+              pregunta: 'Es uno de los datos que debes mencionar para recomendar un libro.',
+              opciones: ['El nombre del autor.','Una canción.','Una ilustración.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Observa la portada del cuento y contesta las preguntas 21, 22 y 23.',
+              popper: '<img src="aimg/l1.png">',
+              type: 'choose', //input
+              pregunta: '¿Cuál es el título del cuento?',
+              opciones: ['Margarita y su pastel','La niña y sus deseos','El deseo de Margarita'],
+              respuestaNum: 0
+          },
+          
+          {
+              instruction: 'Observa la portada del cuento y contesta las preguntas 21, 22 y 23.',
+              popper: '<img src="aimg/l1.png">',
+              type: 'choose', //input
+              pregunta: '¿Cómo se llama el autor del cuento?',
+              opciones: ['Margarita Palacios.','Omar I. Villalobos.','Cristian López.'],
+              respuestaNum: 0
+          },
+          
+          {
+              instruction: 'Observa la portada del cuento y contesta las preguntas 21, 22 y 23.',
+              popper: '<img src="aimg/l1.png">',
+              type: 'choose', //input
+              pregunta: 'Son las partes que te ayudan a saber de qué se va a tratar un cuento.',
+              opciones: ['La fecha y el autor.','El autor y el número de páginas.','Portada y recomendación.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //input
+              pregunta: 'Son datos que debe llevar una invitación.',
+              opciones: ['La fecha y el lugar.','Colores y adornos.','Títulos y subtítulos.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //input
+              pregunta: 'Selecciona las palabra que comienzan con la misma letra que la palabra <strong>libro</strong>.',
+              opciones: ['Lima, lupa y loma.','Lupa, lima y broma.','Loma, obra y liga.'],
+              respuestaNum: 0
+          },
+          
+          
+      ])
+      
+    </script>
+    <!--      <img src="aimg/lectura.png" class="img-fluid">
+    {
+        instruction: '',
+        popper: '',
+        type: '', //input
+        pregunta: '',
+        opciones: [],
+        respuestaNum: 0
+    },
+    -->
   </body>
 </html>

@@ -22,7 +22,7 @@ Vue.component('popper', {
                 <slot></slot>
             </div>
             <div class="popper__window" v-if="opened">
-                <div class="popper__closer"></div>
+                <div class="popper__closer" @click="opened=false">x</div>
                 <div class="container">
                     <slot></slot>
                 </div>

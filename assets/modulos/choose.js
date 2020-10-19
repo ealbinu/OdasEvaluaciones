@@ -1,5 +1,5 @@
 Vue.component('choose', {
-    props: ['value', 'text', 'options', 'answer', 'num'],
+    props: ['value', 'text', 'options', 'answer', 'num', 'isactive'],
     data() {
         return {
             status: null,
@@ -44,8 +44,8 @@ Vue.component('choose', {
             <div class="label"><strong v-if="num">{{num}}</strong> <span v-html="text"></span></div>
             <div class="options">
                 <template v-for="op in options">  
-                    <div @click="clicked(op)" v-if="status!=op" v-html="op"></div>
-                    <div @click="clicked(op)" v-if="status==op" class="active animate__animated animate__heartBeat" v-html="op"></div>
+                    <div @click="clicked(op)" v-if="status!=op" v-html="op" :class="isactive ? 'animate__animated animate__bounce animate__fast':''"></div>
+                    <div @click="clicked(op)" v-if="status==op" class="active animate__animated animate__rubberBand" v-html="op"></div>
                 </template>
             </div>
         </div>
