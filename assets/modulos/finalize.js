@@ -17,14 +17,14 @@ Vue.component('finalize', {
             <div class="d-flex justify-content-center mt-5 flex-column text-center" v-if="!resultado">
                 <button class="finalizar" @click="areyousure = true" v-if="!areyousure">Finalizar evaluación</button>
                 <template v-if="areyousure">
-                    <p class="yessure">¿Deseas concluír con la evaluación?. Tus resultados se guardarán y ya no podrás cambiar las respuestas.</p>
-                    <button class="finalizar sure" @click="$emit('evaluate')">Concluír evaluación</button>
+                    <p class="yessure">¿Deseas terminar con la evaluación?. Tus resultados se guardarán y ya no podrás cambiar las respuestas.</p>
+                    <button class="finalizar sure" @click="$emit('evaluate')">Terminar evaluación</button>
                 </template>
             </div>
 
             <div class="d-flex justify-content-center mt-5 resultado" v-if="resultado">
                 <h3>Resultado</h3>
-                <div><strong>{{right}} correctas </strong> de {{total}} preguntas</div>
+                <div><strong>{{right}} correcta<span v-if="right>1 || right==0">s</span> </strong> de {{total}} preguntas</div>
                 <!--<button class="finalizar" @click="$emit('reset')">Volver a intentar</button>-->
             </div>
 

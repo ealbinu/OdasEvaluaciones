@@ -32,7 +32,7 @@ Vue.component('navigation', {
     <div class="row navigation  text-center">
     <div class="col paginas">
     <div v-for="(i, index) in scenes" :class="'pagina ' + (currentScene == index ? 'iscurrent':'')" @click="$emit('goto', index)"> <span>{{index+1}}</span> </div>
-    <div :class="'pagina ' + (scenes.length == currentScene ? 'iscurrent':'')" class="pagina" @click="$emit('goto', scenes.length)"></div>
+    <div :class="'pagina ' + (scenes.length == currentScene ? 'iscurrent':'')" class="pagina" @click="$emit('goto', scenes.length)"><span>F</span></div>
     </div>
     <div class="col-4 col-md-3">
         <button @click="$emit('back')" :disabled="currentScene == 0">Anterior</button>
