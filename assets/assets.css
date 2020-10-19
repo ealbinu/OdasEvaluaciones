@@ -93,6 +93,9 @@ strong.sec {
 .finalizar:focus {
   outline: none;
 }
+.finalizar.sure {
+  background: #005093;
+}
 .navigation {
   background: #7C8FBB;
   border-radius: 10px;
@@ -534,11 +537,16 @@ input[type=number] {
   flex-wrap: wrap;
 }
 .paginas .pagina {
-  width: 10px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   background: var(--sec);
-  border-radius: 3px;
-  margin: 2px;
+  border-radius: 50%;
+  margin: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8px;
+  color: #fff;
 }
 .paginas .pagina:hover {
   box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
@@ -640,5 +648,12 @@ input[type=number] {
   background: var(--sec);
   font-size: 1.6rem;
   color: #fff;
+}
+.yessure {
+  font-size: 1.4rem;
+  color: var(--sec);
+  background: #f5f5f5;
+  padding: 10px;
+  border-radius: 10px;
 }
 /*# sourceMappingURL=assets.css.map */

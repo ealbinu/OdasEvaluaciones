@@ -34,7 +34,7 @@ Vue.component('navigation', {
             <button @click="$emit('back')" :disabled="currentScene == 0">Anterior</button>
         </div>
         <div class="col paginas">
-            <div v-for="(i, index) in scenes" :class="'pagina ' + (currentScene == index ? 'iscurrent':'')" @click="$emit('goto', index)"></div>
+            <div v-for="(i, index) in scenes" :class="'pagina ' + (currentScene == index ? 'iscurrent':'')" @click="$emit('goto', index)"> <span>{{index+1}}</span> </div>
             <div :class="'pagina ' + (scenes.length == currentScene ? 'iscurrent':'')" class="pagina" @click="$emit('goto', scenes.length)"></div>
         </div>
         <div class="col-3">
@@ -110,8 +110,8 @@ Vue.component('counter', {
         </div>
         <div class="counterRun" v-if="!started">
             <p>Cuentas con <strong>60 minutos</strong> para completar la evaluación.</p>
-            <p><small>Guardamos constantemente tus respuestas y tiempos. <br>Si tu conexión se ve interrumpida podrás regresar más adelante a completarla.</small></p>
-            <p><strong>¡Mucha suerte!</strong></p>
+            <p><small>Guardamos constantemente tus respuestas y tiempos. <br>Si tu conexión se ve interrumpida podrás regresar a completarla con el tiempo que tengas restante.</small></p>
+            <p><strong>¡Éxito!</strong></p>
             <button @click="startApp">Comenzar</button>
         </div>
     </div>

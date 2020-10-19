@@ -99,6 +99,9 @@ strong {
     font-size: 2rem;
     color: #fff;
     &:focus{outline:none;}
+    &.sure{
+        background: @sec;
+    }
 }
 
 
@@ -504,11 +507,16 @@ input[type=number] {
     align-items: center;
     flex-wrap: wrap;
 	.pagina{
-		width: 10px;
-		height: 14px;
+		width: 16px;
+		height: 16px;
 		background: var(--sec);
-        border-radius: 3px;
-        margin: 2px;
+        border-radius: 50%;
+        margin: 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 8px;
+        color:#fff;
         &:hover{
             box-shadow: 2px 2px 0px rgba(0,0,0,0.2);
         }
@@ -622,4 +630,13 @@ input[type=number] {
         font-size: 1.6rem;
 		color: #fff;
 	}
+}
+
+
+.yessure{
+	font-size: 1.4rem;
+	color: var(--sec);
+	background: #f5f5f5;
+	padding: 10px;
+	border-radius: 10px;
 }
