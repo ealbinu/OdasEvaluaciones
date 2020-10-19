@@ -103,20 +103,30 @@ strong.sec {
 }
 .navigation button {
   border: none;
-  padding: 10px 20px;
+  padding: 4px 10px;
   border-radius: 40px;
   font-family: 'barnacle_boyregular';
   font-weight: normal;
   background: #005093;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  margin: 1px;
   color: #fff;
 }
 .navigation button:focus {
   outline: none;
 }
+.navigation button:active {
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+}
 .navigation button[disabled] {
   background: #7C8FBB;
   color: #005093;
+}
+.navigation button:nth-child(2) {
+  background: #84BF42;
+}
+.navigation button:nth-child(2)[disabled] {
+  background: #7C8FBB;
 }
 .resultado {
   flex-direction: column;
@@ -537,11 +547,11 @@ input[type=number] {
   flex-wrap: wrap;
 }
 .paginas .pagina {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   background: var(--sec);
   border-radius: 50%;
-  margin: 1px;
+  margin-right: 1px;
   display: flex;
   justify-content: center;
   align-items: center;

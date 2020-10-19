@@ -111,18 +111,22 @@ strong {
     padding: 10px 0;
     button{
         border:none;
-        padding: 10px 20px;
+        padding: 4px 10px;
         border-radius: 40px;
         font-family: 'barnacle_boyregular';
         font-weight: normal;
         background: @sec;
-        font-size: 1.2rem;
+        font-size: 1rem;
+        margin: 1px;
         color: #fff;
         &:focus{outline:none;}
+        &:active{ box-shadow: 4px 4px 0px rgba(0,0,0,0.1); }
         &[disabled]{
             background: @clear;
             color: @sec;
         }
+        &:nth-child(2){background: @main;}
+        &:nth-child(2)[disabled]{background: @clear;}
     }
 }
 
@@ -507,11 +511,11 @@ input[type=number] {
     align-items: center;
     flex-wrap: wrap;
 	.pagina{
-		width: 16px;
-		height: 16px;
+		width: 18px;
+		height: 18px;
 		background: var(--sec);
         border-radius: 50%;
-        margin: 1px;
+        margin-right: 1px;
         display: flex;
         justify-content: center;
         align-items: center;
