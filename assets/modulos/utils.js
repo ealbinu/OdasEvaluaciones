@@ -53,7 +53,7 @@ Vue.component('counter', {
         return {
             startSeconds: 3600,
             seconds:0,
-            secSpeed: 210,
+            secSpeed: 50,
             ended: false,
             started: false
         }
