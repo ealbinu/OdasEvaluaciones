@@ -23,7 +23,7 @@ Vue.component('choose', {
             }
             this.status = op
             this.$emit('input', this.status)
-            if(this.status) {
+            if(this.status!=null) {
                 s_ok.play()
             }
         },

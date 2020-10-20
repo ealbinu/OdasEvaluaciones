@@ -43,7 +43,13 @@ var app = new Vue({
         },
         r: {
             deep: true,
-            handler(){ this.buildStoreCall() }
+            handler(){
+                this.buildStoreCall()
+                var _this = this
+                setTimeout(function () {
+                    _this.storeScreencapture()
+                }, 50)
+            }
         }
     },
     methods: {
@@ -135,6 +141,7 @@ var app = new Vue({
                 this.currentTime = time
                 /*RECORDAR PAGINA */
                 this.$set(this, 'currentScene', parseInt(hash[2]) )
+
             }
         },
         hashScorreAndContinue (){
@@ -162,9 +169,13 @@ var app = new Vue({
             }
         },
         storeScreencapture () {
+            if(!this.started){
+                return false
+            }
             var _this = this
             domtoimage.toPng(document.body).then(function (dataUrl) {
-                _this.screen.push(dataUrl)
+                _this.screen[_this.currentScene] = dataUrl
+                console.log(_this.screen.length)
             }).catch(function (error) { console.error(error) })
         }
     },
