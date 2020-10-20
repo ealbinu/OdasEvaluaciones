@@ -38,7 +38,7 @@ html(lang="es")
             // Counter >>>>>>>>>>
             counter(@started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event")
             // Navigation >>>>>>>>>>>>>>>
-            navigation(v-if="started" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event")
+            navigation(v-if="started && resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event")
         +scripts
             script.
                 //app.$set(app, 'currentScene', 0)

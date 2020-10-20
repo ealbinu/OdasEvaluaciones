@@ -33,13 +33,13 @@ var app = new Vue({
             screen: [],
             started: false,
             currentTime: 0,
-            progress: null
+            progress: null,
         }
     },
     watch: {
         currentTime(ov, nv){
             let segundos = 60 - (nv % 60)
-            if(segundos == 1){ this.buildStoreCall(); console.log(0) }
+            if(segundos == 1){ this.buildStoreCall();  }
         },
         r: {
             deep: true,
@@ -139,11 +139,8 @@ var app = new Vue({
         },
         hashScorreAndContinue (){
             var breakHash = window.location.hash.split('&')
-            console.log(breakHash)
             if(breakHash.length>1){
-                console.log('hastwo')
                 for(bh in breakHash){
-
                     if(breakHash[bh].includes('#s')){
                         let setScore = breakHash[bh].replace('#s', '')
                         this.finalData.score = setScore
@@ -155,7 +152,6 @@ var app = new Vue({
                 }
             } else {
                 if(breakHash[0].includes('#s')){
-
                     let setScore = breakHash[0].replace('#s', '')
                     this.finalData.score = parseInt(setScore)
                 }
@@ -164,6 +160,12 @@ var app = new Vue({
                     this.loadDataAndContinue(setData)
                 }
             }
+        },
+        storeScreencapture () {
+            var _this = this
+            domtoimage.toPng(document.body).then(function (dataUrl) {
+                _this.screen.push(dataUrl)
+            }).catch(function (error) { console.error(error) })
         }
     },
     mounted () {
