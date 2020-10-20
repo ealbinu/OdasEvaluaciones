@@ -525,9 +525,15 @@ input[type=number] {
             box-shadow: 2px 2px 0px rgba(0,0,0,0.2);
         }
         &.iscurrent{
-			background: var(--main);
+			background: @accent;
 			box-shadow: 2px 2px 0px rgba(0,0,0,0.2);
-		}
+        }
+        &.isok{
+            background: @main;
+        }
+        &.iswrong{
+            background: @wrongcol;
+        }
 	}
 }
 
@@ -633,7 +639,10 @@ input[type=number] {
         background: var(--sec);
         font-size: 1.6rem;
 		color: #fff;
-	}
+    }
+    &.endtime{
+        background: @wrongcol;
+    }
 }
 
 

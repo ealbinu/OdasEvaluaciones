@@ -18,7 +18,6 @@ html(lang="es")
             if subtitle.length>1
                 h2 #{subtitle}
 
-
             // SCENES ############################################
             .scene(v-for="(i, index) in scenes" v-show="currentScene == index && started")
                 .row
@@ -28,23 +27,21 @@ html(lang="es")
                 .row.mt-3.pregunta
                     // >>>> CHOOSE
                     template(v-if="i.type=='choose'")
-                        choose(:key="index" v-model="r[index]" :ref="refCount()" @isright="right++" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones"  :answer="i.opciones[i.respuestaNum]" :isactive="currentScene == index")
+                        choose(:key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res=false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones"  :answer="i.respuestaNum" :isactive="currentScene == index")
 
 
             // SCENES FINALIZAR ############################################
             .scene(v-if="currentScene == scenes.length")
                 finalize(@evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total")
-                //navigation(:current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1")
 
 
             // Counter >>>>>>>>>>
-            counter(@started="started=true" @ended="finalizar" :resultado="resultado")
+            counter(@started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event")
             // Navigation >>>>>>>>>>>>>>>
-            navigation(:current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event")
-
+            navigation(v-if="started" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event")
         +scripts
             script.
-                app.$set(app, 'currentScene', 0)
+                //app.$set(app, 'currentScene', 0)
                 app.$set(app, 'scenes', [
                     {
                         instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
@@ -52,7 +49,8 @@ html(lang="es")
                         type: 'choose', //input
                         pregunta: '¿Dónde conviven el tío Tito, José y su mamá?',
                         opciones: ['<img src="aimg/a1.png">', '<img src="aimg/a2.png">', '<img src="aimg/a3.png">'],
-                        respuestaNum: 0
+                        respuestaNum: 0,
+                        res: null
                     },
                     {
                         instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
@@ -60,7 +58,8 @@ html(lang="es")
                         type: 'choose', //input
                         pregunta: '¿Con quién vive Ema?',
                         opciones: ['<img src="aimg/b1.png">', '<img src="aimg/b2.png">', '<img src="aimg/b3.png">'],
-                        respuestaNum: 0
+                        respuestaNum: 0,
+                        res: null
                     },
                     {
                         instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
@@ -68,7 +67,8 @@ html(lang="es")
                         type: 'choose', //input
                         pregunta: '¿Cómo se llama el tío de Ema?',
                         opciones: ['Tito', 'Pepe', 'Manuel'],
-                        respuestaNum: 2
+                        respuestaNum: 2,
+                        res: null
                     },
                     {
                         instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
@@ -76,7 +76,8 @@ html(lang="es")
                         type: 'choose', //input
                         pregunta: '¿A dónde lleva Pepe a su hija Ana?',
                         opciones: ['<img src="aimg/c1.png">', '<img src="aimg/c2.png">', '<img src="aimg/c3.png">'],
-                        respuestaNum: 1
+                        respuestaNum: 1,
+                        res: null
                     },
                     {
                         instruction: '',
@@ -84,7 +85,8 @@ html(lang="es")
                         type: 'choose', //input
                         pregunta: '¿Cuál es una regla de convivencia dentro del salón de clases?',
                         opciones: ['Trabajar en silencio en clase.',' Hablar en voz alta a cada momento.','Recoger los juguetes.'],
-                        respuestaNum: 0
+                        respuestaNum: 0,
+                        res: null
                     },
                     {
                         instruction: '',
@@ -92,7 +94,8 @@ html(lang="es")
                         type: 'choose', //input
                         pregunta: '¿Cuál es la regla del salón de clases que está siguiendo la niña de la imagen? <img src="aimg/d1.png">',
                         opciones: ['Tocar la puerta antes de entrar.','Tirar la basura en el bote.','Levantar la mano para pedir la palabra.'],
-                        respuestaNum: 2
+                        respuestaNum: 2,
+                        res: null
                     },
                     {
                         instruction: '',
@@ -108,7 +111,8 @@ html(lang="es")
                         type: 'choose', //input
                         pregunta: 'Lee los títulos y selecciona la portada de un texto informativo.',
                         opciones: ['<img src="aimg/e1.png">', '<img src="aimg/e2.png">', '<img src="aimg/e3.png">'],
-                        respuestaNum: 2
+                        respuestaNum: 2,
+                        res: null
                     },
                     {
                         instruction: 'Observa la siguiente información y contesta las preguntas 9 y 10.',
@@ -116,7 +120,8 @@ html(lang="es")
                         type: 'choose', //input
                         pregunta: '¿Cuál es el título del texto informativo?',
                         opciones: ['El Sol','La Tierra','La Luna'],
-                        respuestaNum: 0
+                        respuestaNum: 0,
+                        res: null
                     },
                     {
                         instruction: 'Observa la siguiente información y contesta las preguntas 9 y 10.',
@@ -124,7 +129,8 @@ html(lang="es")
                         type: 'choose', //input
                         pregunta: 'Es uno de los subtítulos del texto informativo.',
                         opciones: ['La importancia del Sol en el universo',' La importancia de la Luna para la Tierra','Importancia de la energía solar en la Tierra'],
-                        respuestaNum: 2
+                        respuestaNum: 2,
+                        res: null
                     }, //pregunta 10
                     {
                         instruction: '',
@@ -132,7 +138,8 @@ html(lang="es")
                         type: 'choose', //input
                         pregunta: '¿Cuál es la palabra <strong>más corta</strong>?',
                         opciones: ['Planeta.','Sol.','Tierra.'],
-                        respuestaNum: 1
+                        respuestaNum: 1,
+                        res: null
                     },
                     {
                         instruction: '',
@@ -140,7 +147,8 @@ html(lang="es")
                         type: 'choose', //input
                         pregunta: '¿Cuál es la palabra que empieza con la misma letra que el nombre del animal de la imagen? <img src="aimg/g1.png">',
                         opciones: ['Ropero.','Uva.','Gallo.'],
-                        respuestaNum: 2
+                        respuestaNum: 2,
+                        res: null
                     },
                     {
                         instruction: '',
@@ -148,7 +156,8 @@ html(lang="es")
                         type: 'choose', //input
                         pregunta: '¿Cuántas letras tiene la siguiente palabra? <img src="aimg/h1.png">',
                         opciones: ['7 letras.','10 letras.','9 letras.'],
-                        respuestaNum: 1
+                        respuestaNum: 1,
+                        res: null
                     },
                     {
                         instruction: '',
@@ -156,7 +165,8 @@ html(lang="es")
                         type: 'choose', //input
                         pregunta: '¿Cuál es una de las funciones del cartel?',
                         opciones: ['Informar sobre un tema.','Divertir al lector.','Invitar a una fiesta.'],
-                        respuestaNum: 0
+                        respuestaNum: 0,
+                        res: null
                     },
                     {
                         instruction: 'Observa la imagen y contesta las preguntas 15, 16 y 17.',
@@ -164,7 +174,8 @@ html(lang="es")
                         type: 'choose', //input
                         pregunta: '¿Qué representa la imagen anterior?',
                         opciones: ['Una invitación.','Un cartel.','Un boleto.'],
-                        respuestaNum: 1
+                        respuestaNum: 1,
+                        res: null
                     },
                     {
                         instruction: 'Observa la imagen y contesta las preguntas 15, 16 y 17.',
@@ -172,7 +183,8 @@ html(lang="es")
                         type: 'choose', //input
                         pregunta: '¿Cuál es el título de la imagen anterior?',
                         opciones: ['¡Acude al médico!','¡Lávate las manos!', '¡Cuida tu salud!'],
-                        respuestaNum: 2
+                        respuestaNum: 2,
+                        res: null
                     },
                     {
                         instruction: 'Observa la imagen y contesta las preguntas 15, 16 y 17.',
@@ -180,7 +192,8 @@ html(lang="es")
                         type: 'choose', //input
                         pregunta: '¿Qué es lo que ocupa la mayor parte del cartel?',
                         opciones: ['La imagen.','El mensaje.', 'El título.'],
-                        respuestaNum: 0
+                        respuestaNum: 0,
+                        res: null
                     },
                     {
                         instruction: '',
@@ -188,7 +201,8 @@ html(lang="es")
                         type: 'choose', //input
                         pregunta: 'Son dos palabras que <strong>riman</strong> en la siguiente canción. <img src="aimg/j1.png">',
                         opciones: ['Nicolás / bordar','Casar / leche','Casar / bordar'],
-                        respuestaNum: 2
+                        respuestaNum: 2,
+                        res: null
                     },
                     {
                         instruction: '',
@@ -196,7 +210,8 @@ html(lang="es")
                         type: 'choose', //input
                         pregunta: '¿Cuál es el significado de la palabra resaltada en la siguiente estrofa? <img src="aimg/k1.png">',
                         opciones: ['Corre.','Nace.','Flota.'],
-                        respuestaNum: 1
+                        respuestaNum: 1,
+                        res: null
                     }, //pregunta 20
                     {
                         instruction: '',
@@ -204,7 +219,8 @@ html(lang="es")
                         type: 'choose', //input
                         pregunta: 'Es uno de los datos que debes mencionar para recomendar un libro.',
                         opciones: ['El nombre del autor.','Una canción.','Una ilustración.'],
-                        respuestaNum: 0
+                        respuestaNum: 0,
+                        res: null
                     },
                     {
                         instruction: 'Observa la portada del cuento y contesta las preguntas 21, 22 y 23.',
@@ -212,7 +228,8 @@ html(lang="es")
                         type: 'choose', //input
                         pregunta: '¿Cuál es el título del cuento?',
                         opciones: ['Margarita y su pastel','La niña y sus deseos','El deseo de Margarita'],
-                        respuestaNum: 2
+                        respuestaNum: 2,
+                        res: null
                     },
                     
                     {
@@ -221,7 +238,8 @@ html(lang="es")
                         type: 'choose', //input
                         pregunta: '¿Cómo se llama el autor del cuento?',
                         opciones: ['Margarita Palacios.','Omar I. Villalobos.','Cristian López.'],
-                        respuestaNum: 1
+                        respuestaNum: 1,
+                        res: null
                     },
                     
                     {
@@ -230,7 +248,8 @@ html(lang="es")
                         type: 'choose', //input
                         pregunta: 'Son las partes que te ayudan a saber de qué se va a tratar un cuento.',
                         opciones: ['La fecha y el autor.','El autor y el número de páginas.','Portada y recomendación.'],
-                        respuestaNum: 0
+                        respuestaNum: 0,
+                        res: null
                     },
                     {
                         instruction: '',
@@ -238,7 +257,8 @@ html(lang="es")
                         type: 'choose', //input
                         pregunta: 'Son datos que debe llevar una invitación.',
                         opciones: ['La fecha y el lugar.','Colores y adornos.','Títulos y subtítulos.'],
-                        respuestaNum: 0
+                        respuestaNum: 0,
+                        res: null
                     },
                     {
                         instruction: '',
@@ -246,7 +266,8 @@ html(lang="es")
                         type: 'choose', //input
                         pregunta: 'Selecciona las palabra que comienzan con la misma letra que la palabra <strong>libro</strong>.',
                         opciones: ['Lima, lupa y loma.','Lupa, lima y broma.','Loma, obra y liga.'],
-                        respuestaNum: 0
+                        respuestaNum: 0,
+                        res: null
                     },
                     
                     

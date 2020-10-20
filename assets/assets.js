@@ -8,9 +8,6 @@ var s_win = new Howl({ src: ['../../assets/asound/win.mp3'] });
 var counterRef = 0
 
 
-
-
-
 /* ################ */
 /* VUE INIT */
 var app = new Vue({
@@ -33,10 +30,35 @@ var app = new Vue({
                 screen: []
             },
             screen: [],
-            started: false
+            started: false,
+            currentTime: 0,
+        }
+    },
+    watch: {
+        r: {
+            deep: true,
+            handler(){
+                this.buildStoreCall()
+            }
         }
     },
     methods: {
+        buildStoreCall () {
+                let time = this.currentTime + '/'
+                let arra = []
+                for(i in this.r){
+                    if(this.r[i] == null ) {
+                        arra.push(-1)
+                    } else {
+                        arra.push(this.r[i])
+                    }
+                }
+                let arrayt = '[' + arra.toString() + ']' + '/'
+                let stringr = time + arrayt + this.currentScene
+                console.log(stringr)
+                let stringr64 = window.btoa(stringr)
+                window.location.hash = '#d'+stringr64
+        },
         refCount($e){
             let ct = 'rf_'+counterRef
             counterRef = counterRef+1
@@ -46,8 +68,6 @@ var app = new Vue({
         finalizar () {
             s_win.play()
             this.total = this.r.length
-
-
             for(var i in this.$refs){
                 if(this.$refs[i]!=undefined){
                     if(Array.isArray(this.$refs[i])){
@@ -60,17 +80,12 @@ var app = new Vue({
                 }
             }
             this.resultado = true
-
-
             /* screenshot */
             var _this = this
             domtoimage.toPng(document.body).then(function (dataUrl) {
                 _this.screen.push(dataUrl)
                 _this.ended()
             }).catch(function (error) { console.error(error) })
-
-
-
             //this.ended()
         },
         ended () {
@@ -90,12 +105,35 @@ var app = new Vue({
             document.head.appendChild(s)
 
         },
+        loadDataAndContinue(){
+            let hash = window.location.hash ? window.location.hash.replace('#d', '') : null
+            if(hash){
+                hash = window.atob(hash)
+                hash = hash.split('/')
+                /* Time */
+                var time = parseInt(hash[0])
+                /* Answers */
+                let data = JSON.parse(hash[1])
+
+                /* set time and data */
+                for(d in data){ if(data[d] !== null){ this.r[d] = data[d] } else { this.r[d] = null }}
+                this.currentTime = time
+                /*RECORDAR PAGINA */
+                this.$set(this, 'currentScene', parseInt(hash[2]) )
+                console.log(this.currentScene)
+            }
+        }
+
     },
     mounted () {
         var h = parseInt(window.location.hash ? window.location.hash.replace('#s', '') : 100)
-        this.finalData.score = h ? h : 100
+        
+        //this.finalData.score = h ? h : 100
 
+        /* Screen capture */
         this.loadScreencap()
+
+        this.loadDataAndContinue()
     }
 })
 

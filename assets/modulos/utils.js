@@ -28,11 +28,14 @@ Vue.component('imgbg', {
 
 Vue.component('navigation', {
     props: ['currentScene', 'scenes'],
+    mounted(){
+        console.log('NAVIG:', this.currentScene)
+    },
     template: `
     <div class="row navigation  text-center">
     <div class="col paginas">
-    <div v-for="(i, index) in scenes" :class="'pagina ' + (currentScene == index ? 'iscurrent':'')" @click="$emit('goto', index)"> <span>{{index+1}}</span> </div>
-    <div :class="'pagina ' + (scenes.length == currentScene ? 'iscurrent':'')" class="pagina" @click="$emit('goto', scenes.length)"><span>F</span></div>
+    <div v-for="(i, index) in scenes" :class="'pagina ' + (currentScene == index ? 'iscurrent':'') + (i.res?' isok':'') + (i.res==false?' iswrong':'')" @click="$emit('goto', index)"> <span>{{index+1}}</span> </div>
+    <div :class="'pagina ' + (scenes.length == currentScene ? 'iscurrent':'')" @click="$emit('goto', scenes.length)"><span>F</span></div>
     </div>
     <div class="col-4 col-md-3">
         <button @click="$emit('back')" :disabled="currentScene == 0">Anterior</button>
@@ -46,7 +49,7 @@ Vue.component('navigation', {
 
 
 Vue.component('counter', {
-    props: ['resultado'],
+    props: ['resultado', 'currentTime'],
     data () {
         return {
             startSeconds: 3600,
@@ -72,10 +75,16 @@ Vue.component('counter', {
             }
         }
     },
+    watch: {
+        currentTime (ov, nv) {
+            this.seconds = this.currentTime
+        }
+    },
     methods: {
         runApp(){
             var runTimer = setInterval(() => {
                 this.seconds++
+                this.$emit('settime', this.seconds)
                 if(this.seconds == (this.startSeconds)){
                     clearInterval(runTimer)
                     this.ended = true
@@ -96,7 +105,6 @@ Vue.component('counter', {
         }
     },
     mounted() {
-        
     },
     template: `
     <div>
@@ -107,11 +115,21 @@ Vue.component('counter', {
             <div :class="'col-md-4 col-6 ' + barstatus " v-if="ended"><div class="counter__clock">00:00</div></div>
             <div :class="'col-md-4 col-6 ' + barstatus " v-if="!started"><div class="counter__clock">60:00</div></div>
         </div>
-        <div class="counterRun" v-if="!started">
+        <div class="counterRun" v-if="!started && currentTime==0">
             <p>Cuentas con <strong>60 minutos</strong> para completar la evaluación.</p>
             <p><small>Guardamos constantemente tus respuestas y tiempos. <br>Si tu conexión se ve interrumpida podrás regresar a completarla con el tiempo que tengas restante.</small></p>
             <p><strong>¡Éxito!</strong></p>
             <button @click="startApp">Comenzar</button>
+        </div>
+        <div class="counterRun" v-if="!started && currentTime!=0">
+            <p>¡Continúa con tu evaluación!</p>
+            <p>Aún tienes un tiempo restante de <strong>{{clockview}}</strong>.</p>
+            <p><strong>¡Éxito!</strong></p>
+            <button @click="startApp">Continuar</button>
+        </div>
+        <div class="counterRun endtime" v-if="percentage==100">
+            <p><strong>Tu tiempo se terminó.</strong></p>
+            <p>Se ha entregado tu evaluación con las respuestas que llevabas hasta el momento.<p>
         </div>
     </div>
     `

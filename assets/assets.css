@@ -562,8 +562,14 @@ input[type=number] {
   box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
 }
 .paginas .pagina.iscurrent {
-  background: var(--main);
+  background: #EB8B2E;
   box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+.paginas .pagina.isok {
+  background: #84BF42;
+}
+.paginas .pagina.iswrong {
+  background: #DB3E34;
 }
 .navigation {
   position: fixed;
@@ -658,6 +664,9 @@ input[type=number] {
   background: var(--sec);
   font-size: 1.6rem;
   color: #fff;
+}
+.counterRun.endtime {
+  background: #DB3E34;
 }
 .yessure {
   font-size: 1.4rem;

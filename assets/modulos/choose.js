@@ -32,20 +32,26 @@ Vue.component('choose', {
             if(this.status == this.answer) {
                 this.$emit('isright', true)
                 this.result = true
+            } else {
+                this.$emit('iswrong')
             }
         }
     },
     mounted () {
         this.$emit('input', null)
+        if(this.value !== null){
+            this.status = this.value
+            this.$emit('input', this.status)
+        }
     },
     template: `
         <div class="choose" :class="setclass">
             <div class="result" v-if="evaluate" :class="setclass + ' animate__animated animate__heartBeat'"></div>
             <div class="label"><strong v-if="num">{{num}}</strong> <span v-html="text"></span></div>
             <div class="options">
-                <template v-for="op in options">  
-                    <div @click="clicked(op)" v-if="status!=op" v-html="op" :class="isactive ? 'animate__animated animate__bounce animate__fast':''"></div>
-                    <div @click="clicked(op)" v-if="status==op" class="active animate__animated animate__rubberBand" v-html="op"></div>
+                <template v-for="(op, index) in options">  
+                    <div @click="clicked(index)" v-if="status!=index" v-html="op" :class="isactive ? 'animate__animated animate__bounce animate__fast':''"></div>
+                    <div @click="clicked(index)" v-if="status==index" class="active animate__animated animate__rubberBand" v-html="op"></div>
                 </template>
             </div>
         </div>
