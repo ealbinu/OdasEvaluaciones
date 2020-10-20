@@ -22,7 +22,7 @@ var app = new Vue({
             currentScene:0,
             temps: {},
             finalData:{
-                score: 0,
+                score: 100,
                 scoresum: 0,
                 oks: 0,
                 errors: 0,
@@ -37,11 +37,13 @@ var app = new Vue({
         }
     },
     watch: {
+        currentTime(ov, nv){
+            let segundos = 60 - (nv % 60)
+            if(segundos == 1){ this.buildStoreCall(); console.log(0) }
+        },
         r: {
             deep: true,
-            handler(){
-                this.buildStoreCall()
-            }
+            handler(){ this.buildStoreCall() }
         }
     },
     methods: {
@@ -62,7 +64,7 @@ var app = new Vue({
                 this.progress = stringr64
                 
 
-                window.location.hash = '#d'+stringr64
+                window.location.hash = '#s'+this.finalData.score+'&#d'+stringr64
 
                 var endData = JSON.stringify({progreso: stringr64})
                 window.top.postMessage(endData, "*")
@@ -115,8 +117,8 @@ var app = new Vue({
             document.head.appendChild(s)
 
         },
-        loadDataAndContinue(){
-            let hash = window.location.hash ? window.location.hash.replace('#d', '') : null
+        loadDataAndContinue(hashData){
+            let hash = hashData
             if(hash){
                 hash = window.atob(hash)
                 hash = hash.split('/')
@@ -130,20 +132,43 @@ var app = new Vue({
                 this.currentTime = time
                 /*RECORDAR PAGINA */
                 this.$set(this, 'currentScene', parseInt(hash[2]) )
+            }
+        },
+        hashScorreAndContinue (){
+            var breakHash = window.location.hash.split('&')
+            console.log(breakHash)
+            if(breakHash.length>1){
+                console.log('hastwo')
+                for(bh in breakHash){
 
+                    if(breakHash[bh].includes('#s')){
+                        let setScore = breakHash[bh].replace('#s', '')
+                        this.finalData.score = setScore
+                    }
+                    if(breakHash[bh].includes('#d')){
+                        let setData = breakHash[bh].replace('#d', '')
+                        this.loadDataAndContinue(setData)
+                    }
+                }
+            } else {
+                if(breakHash[0].includes('#s')){
+
+                    let setScore = breakHash[0].replace('#s', '')
+                    this.finalData.score = parseInt(setScore)
+                }
+                if(breakHash[0].includes('#d')){
+                    let setData = breakHash[0].replace('#d', '')
+                    this.loadDataAndContinue(setData)
+                }
             }
         }
-
     },
     mounted () {
-        var h = parseInt(window.location.hash ? window.location.hash.replace('#s', '') : 100)
-        
-        this.finalData.score = h ? h : 100
-
+        this.hashScorreAndContinue()
         /* Screen capture */
         this.loadScreencap()
 
-        this.loadDataAndContinue()
+        
     }
 })
 

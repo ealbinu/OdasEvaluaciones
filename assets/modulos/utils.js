@@ -53,7 +53,7 @@ Vue.component('counter', {
         return {
             startSeconds: 3600,
             seconds:0,
-            secSpeed: 20,
+            secSpeed: 210,
             ended: false,
             started: false
         }
@@ -63,6 +63,9 @@ Vue.component('counter', {
             let restante = this.startSeconds-this.seconds
             let minutos = Math.floor(restante/60)
             let segundos = 60 - (this.seconds % 60)
+            if(segundos == 60) {
+                segundos = 0
+            }
             return (minutos<10?'0':'')+minutos + ':' + (segundos<10?'0':'')+segundos
         },
         percentage () { return (this.seconds * 100) / this.startSeconds },
@@ -110,9 +113,9 @@ Vue.component('counter', {
         <div class="row counter justify-content-center align-items-center text-center">
             <div :class="'counterbar'" :style="'width:'+percentage+'%;'"></div>
             <div class="col-md-4 col-6 tiempores"> Tiempo restante: </div>
-            <div :class="'col-md-4 col-6 ' + barstatus " v-if="!ended && started"><div class="counter__clock">{{clockview}}</div></div>
+            <div :class="'col-md-4 col-6 ' + barstatus " v-if="!ended && percentage>0"><div class="counter__clock">{{clockview}}</div></div>
             <div :class="'col-md-4 col-6 ' + barstatus " v-if="ended"><div class="counter__clock">00:00</div></div>
-            <div :class="'col-md-4 col-6 ' + barstatus " v-if="!started"><div class="counter__clock">60:00</div></div>
+            <div :class="'col-md-4 col-6 ' + barstatus " v-if="percentage==0"><div class="counter__clock">60:00</div></div>
         </div>
         <div class="counterRun" v-if="!started && currentTime==0">
             <p>Cuentas con <strong>60 minutos</strong> para completar la evaluación.</p>
