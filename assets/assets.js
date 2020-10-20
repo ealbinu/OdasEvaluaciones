@@ -48,6 +48,9 @@ var app = new Vue({
     },
     methods: {
         buildStoreCall () {
+            if(!this.started){
+                return false
+            }
                 let time = this.currentTime + '/'
                 let arra = []
                 for(i in this.r){
