@@ -29,7 +29,6 @@ Vue.component('imgbg', {
 Vue.component('navigation', {
     props: ['currentScene', 'scenes'],
     mounted(){
-        console.log('NAVIG:', this.currentScene)
     },
     template: `
     <div class="row navigation  text-center">
@@ -129,7 +128,7 @@ Vue.component('counter', {
         </div>
         <div class="counterRun endtime" v-if="percentage==100">
             <p><strong>Tu tiempo se terminó.</strong></p>
-            <p>Se ha entregado tu evaluación con las respuestas que llevabas hasta el momento.<p>
+            <p>Se ha entregado tu evaluación con las respuestas que llevabas hasta el momento.</p>
         </div>
     </div>
     `

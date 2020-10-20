@@ -27,11 +27,13 @@ var app = new Vue({
                 oks: 0,
                 errors: 0,
                 answers: 0,
-                screen: []
+                screen: [],
+                progress: null
             },
             screen: [],
             started: false,
             currentTime: 0,
+            progress: null
         }
     },
     watch: {
@@ -55,9 +57,16 @@ var app = new Vue({
                 }
                 let arrayt = '[' + arra.toString() + ']' + '/'
                 let stringr = time + arrayt + this.currentScene
-                console.log(stringr)
+
                 let stringr64 = window.btoa(stringr)
+                this.progress = stringr64
+                
+
                 window.location.hash = '#d'+stringr64
+
+                var endData = JSON.stringify({progreso: stringr64})
+                window.top.postMessage(endData, "*")
+                
         },
         refCount($e){
             let ct = 'rf_'+counterRef
@@ -95,6 +104,7 @@ var app = new Vue({
             _this.finalData.errors = _this.total-_this.right
             _this.finalData.answers = _this.total
             _this.finalData.screen = _this.screen
+            _this.finalData.progress = _this.progress
             var endData = JSON.stringify(_this.finalData)
             window.top.postMessage(endData, "*")
         },
@@ -120,7 +130,7 @@ var app = new Vue({
                 this.currentTime = time
                 /*RECORDAR PAGINA */
                 this.$set(this, 'currentScene', parseInt(hash[2]) )
-                console.log(this.currentScene)
+
             }
         }
 
@@ -128,7 +138,7 @@ var app = new Vue({
     mounted () {
         var h = parseInt(window.location.hash ? window.location.hash.replace('#s', '') : 100)
         
-        //this.finalData.score = h ? h : 100
+        this.finalData.score = h ? h : 100
 
         /* Screen capture */
         this.loadScreencap()
