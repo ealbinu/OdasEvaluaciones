@@ -72,8 +72,6 @@ var app = new Vue({
                 let stringr64 = window.btoa(stringr)
                 this.progress = stringr64
 
-                
-
                 //window.location.hash = '#s'+this.finalData.score+'&#d'+stringr64
 
                 var endData = JSON.stringify({progreso: stringr64})

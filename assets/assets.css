@@ -96,6 +96,12 @@ strong.sec {
 .finalizar.sure {
   background: #005093;
 }
+.finalizar.small {
+  font-size: 1rem;
+  max-width: 200px;
+  padding: 5px 10px;
+  background: #EB8B2E;
+}
 .navigation {
   background: #7C8FBB;
   border-radius: 10px;
@@ -582,6 +588,25 @@ input[type=number] {
     font-size: 0.9rem;
     padding: 4px 10px;
   }
+}
+.counterRun .navigation {
+  width: 100%;
+  position: static;
+}
+.counterRun .navigation .pagina {
+  margin: 0 2px;
+}
+.counterRun .navigation button {
+  font-size: 0.8rem;
+  padding: 2px 6px;
+}
+.counterRun .popper .popper__opener {
+  background: #fff;
+  width: 140px;
+  height: 70px;
+}
+.counterRun .popper .popper__hand {
+  background-size: 40px;
 }
 #app {
   padding: 100px 0;

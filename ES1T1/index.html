@@ -34,7 +34,7 @@
       </div>
       <!-- SCENES FINALIZAR ############################################-->
       <div class="scene" v-if="currentScene == scenes.length">
-        <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total"></finalize>
+        <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1"></finalize>
       </div>
       <!-- Counter >>>>>>>>>>-->
       <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event"></counter>

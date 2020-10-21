@@ -19,7 +19,8 @@ Vue.component('finalize', {
                 <template v-if="areyousure">
                     <p class="yessure">¿Deseas terminar con la evaluación?. Tus resultados se guardarán y ya no podrás cambiar las respuestas.</p>
                     <button class="finalizar sure" @click="$emit('evaluate')">Terminar evaluación</button>
-                </template>
+                    </template>
+                <div class="text-center"><button class="finalizar small mt-5" @click="areyousure=false; $emit('goback')">Regresar a la evaluación</button></div>
             </div>
 
             <div class="d-flex justify-content-center mt-5 resultado" v-if="resultado">

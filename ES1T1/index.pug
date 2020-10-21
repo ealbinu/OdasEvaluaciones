@@ -32,7 +32,7 @@ html(lang="es")
 
             // SCENES FINALIZAR ############################################
             .scene(v-if="currentScene == scenes.length")
-                finalize(@evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total")
+                finalize(@evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1")
 
 
             // Counter >>>>>>>>>>

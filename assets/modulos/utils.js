@@ -118,9 +118,26 @@ Vue.component('counter', {
             <div :class="'col-md-4 col-6 ' + barstatus " v-if="percentage==0"><div class="counter__clock">60:00</div></div>
         </div>
         <div class="counterRun" v-if="!started && currentTime==0">
-            <p>Cuentas con <strong>60 minutos</strong> para completar la evaluación.</p>
-            <p><small>Guardamos constantemente tus respuestas y tiempos. <br>Si tu conexión se ve interrumpida podrás regresar a completarla con el tiempo que tengas restante.</small></p>
-            <p><strong>¡Éxito!</strong></p>
+            <p>Tendrás <strong>60 minutos</strong> para completar la evaluación a partir de que des clic en el botón "comenzar".</p>
+            <p><small>Podrás cambiar de pregunta utilizando los botones <strong>Anterior</strong> y <strong>Siguiente</strong> o dando clic en los botones numéricos que se encuentran en la parte inferior.</small></p>
+            <div class="row navigation  text-center">
+                <div class="col paginas">
+                    <div class="pagina">1</div><div class="pagina">2</div><div class="pagina">3</div>
+                    <div class="pagina">4</div><div class="pagina">5</div><div class="pagina">6</div>
+                </div>
+                <div class="col-4"><button>Anterior</button> <button>Siguiente</button> </div>
+            </div>
+            <p class="mt-4"><small>Para responder algunas de las preguntas deberás consultar una imagen o texto de referencia, podrás consultarla dando clic en la imagen que se encuentra en la esquina superior derecha.</small></p>
+            <div class="popper">
+                <div class="popper__opener animate__animated animate__pulse animate__infinite animate__slower">
+                    <div class="popper__hand animate__animated animate__pulse animate__infinite"></div>
+                </div>
+            </div>
+            
+            <!--
+                <p><small>Guardamos constantemente tus respuestas y tiempos. <br>Si tu conexión se ve interrumpida podrás regresar a completarla con el tiempo que tengas restante.</small></p>
+            -->
+            <p class="mt-5"><strong>¡Éxito!</strong></p>
             <button @click="startApp">Comenzar</button>
         </div>
         <div class="counterRun" v-if="!started && currentTime!=0">
