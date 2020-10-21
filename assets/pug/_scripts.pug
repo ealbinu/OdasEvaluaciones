@@ -1,3 +1,4 @@
+- var version = 3
 mixin scripts
     script(src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js")
     script(src="https://unpkg.com/vue@2.6.11/dist/vue.js")
@@ -10,9 +11,9 @@ mixin scripts
     script(src="../../assets/modulos/inputbox.js")
     script(src="../../assets/modulos/choose.js")
     script(src="../../assets/modulos/popper.js")
-    script(src="../../assets/modulos/finalize.js")
-    script(src="../../assets/modulos/counter.js?v=2")
-    script(src="../../assets/modulos/utils.js?v=2")
-    script(src="../../assets/assets.js?v=2")
+    script(src="../../assets/modulos/finalize.js?v="+version)
+    script(src="../../assets/modulos/counter.js?v="+version)
+    script(src="../../assets/modulos/utils.js?v="+version)
+    script(src="../../assets/assets.js?v="+version)
     if block
         block
