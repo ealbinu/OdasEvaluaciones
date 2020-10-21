@@ -98,6 +98,7 @@ Vue.component('counter', {
                 <p><strong>¿Deseas comenzar la evaluación?</strong></p>
                 <p>Tendrás <strong>60 minutos</strong> para completarla.</p>    
                 <button @click="startApp">Comenzar</button>
+                <button class="cancelar" @click="verification=false">Regresar</button>
             </template>
         </div>
         <div class="counterRun" v-if="!started && currentTime!=0">
