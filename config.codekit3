@@ -299,6 +299,16 @@
 		"sC": 0,
 		"tS": 0
 		},
+	"\/assets\/modulos\/counter.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/assets\/modulos\/counter-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
 	"\/assets\/modulos\/dragdropMod.js": {
 		"ft": 64,
 		"ma": 0,
