@@ -1,0 +1,100 @@
+include ../assets/pug/_head
+include ../assets/pug/_scripts
+
+- grade = '1º'
+- title = 'Formación Cívica y Ética'
+- subtitle = ''
+
+<!DOCTYPE html>
+html(lang="es")
+    +head
+        style.
+            /* .css */
+    body
+        #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
+            h1
+                span.grade #{grade}
+                | #{title}
+            if subtitle.length>1
+                h2 #{subtitle}
+
+            // SCENES ############################################
+            .scene(v-for="(i, index) in scenes" v-show="currentScene == index && started")
+                .row
+                    .col.mt-5.instruccion(v-if="i.instruction" v-html="i.instruction")
+                    .col-md-4.text-center(v-if="i.popper"): popper: div(v-html="i.popper")
+                // Pregunta >>>>>>>>>>>>>>>>>
+                .row.mt-3.pregunta
+                    // >>>> CHOOSE
+                    template(v-if="i.type=='choose'")
+                        choose(:key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res=false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones"  :answer="i.respuestaNum" :isactive="currentScene == index")
+
+
+            // SCENES FINALIZAR ############################################
+            .scene(v-if="currentScene == scenes.length")
+                finalize(@evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1")
+
+
+            // Counter >>>>>>>>>>
+            counter(@started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event")
+            // Navigation >>>>>>>>>>>>>>>
+            navigation(v-if="started && resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event")
+        +scripts
+            script.
+                //app.$set(app, 'currentScene', 0)
+                app.$set(app, 'scenes', [
+
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: 'Es el alimento que es importante para tu sano crecimiento.',
+                        opciones: ['<img src="aimg/1a.png">', '<img src="aimg/1b.png">', '<img src="aimg/1c.png">'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: 'Es la imagen que representa uno de tus derechos.',
+                        opciones: ['<img src="aimg/2a.png">', '<img src="aimg/2b.png">', '<img src="aimg/2c.png">'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: 'Es la imagen que representa el derecho a la recreación.',
+                        opciones: ['<img src="aimg/3a.png">', '<img src="aimg/3b.png">', '<img src="aimg/3c.png">'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: 'Es la actividad que puedes hacer por ti mismo.',
+                        opciones: ['<img src="aimg/4a.png">', '<img src="aimg/4b.png">', '<img src="aimg/4c.png">'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: 'Es el niño al que le corresponde la consecuencia de barrer el salón de clases.',
+                        opciones: ['<img src="aimg/5a.png">', '<img src="aimg/5b.png">', '<img src="aimg/5c.png">'],
+                        respuestaNum: 1
+                    },
+                    
+                    
+                    
+                ])
+            
+            //      <img src="aimg/lectura.png" class="img-fluid">
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: '', //input
+                        pregunta: '',
+                        opciones: [],
+                        respuestaNum: 0
+                    },
