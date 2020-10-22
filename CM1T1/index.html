@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Conocimiento del Medio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../assets/font/stylesheet.css?v=4"/>
+    <link rel="stylesheet" href="../../assets/assets.css?v=4"/>
+    <style>/* .css */</style>
+  </head>
+  <body>
+    <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
+      <h1><span class="grade">1º</span>Conocimiento del Medio</h1>
+      <!-- SCENES ############################################-->
+      <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started">
+        <div class="row">
+          <div class="col mt-5 instruccion" v-if="i.instruction" v-html="i.instruction"></div>
+          <div class="col-md-4 text-center" v-if="i.popper">
+            <popper>
+              <div v-html="i.popper"></div>
+            </popper>
+          </div>
+        </div>
+        <!-- Pregunta >>>>>>>>>>>>>>>>>-->
+        <div class="row mt-3 pregunta">
+          <!-- >>>> CHOOSE-->
+          <template v-if="i.type=='choose'">
+            <choose :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res=false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.respuestaNum" :isactive="currentScene == index"></choose>
+          </template>
+        </div>
+      </div>
+      <!-- SCENES FINALIZAR ############################################-->
+      <div class="scene" v-if="currentScene == scenes.length">
+        <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1"></finalize>
+      </div>
+      <!-- Counter >>>>>>>>>>-->
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event"></counter>
+      <!-- Navigation >>>>>>>>>>>>>>>-->
+      <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event"></navigation>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
+    <script src="../../assets/modulos/dragdropMod.js"></script>
+    <script src="../../assets/modulos/dropdowns.js"></script>
+    <script src="../../assets/modulos/selectable.js"></script>
+    <script src="../../assets/modulos/selectableoptions.js"></script>
+    <script src="../../assets/modulos/check.js"></script>
+    <script src="../../assets/modulos/inputbox.js"></script>
+    <script src="../../assets/modulos/choose.js"></script>
+    <script src="../../assets/modulos/popper.js"></script>
+    <script src="../../assets/modulos/finalize.js?v=4"></script>
+    <script src="../../assets/modulos/counter.js?v=4"></script>
+    <script src="../../assets/modulos/utils.js?v=4"></script>
+    <script src="../../assets/assets.js?v=4"></script>
+    <script>
+      //app.$set(app, 'currentScene', 0)
+      app.$set(app, 'scenes', [
+      
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //choose - input
+              pregunta: '¿Cuál imagen representa una responsabilidad que tienes en tu casa?',
+              opciones: ['<img src="aimg/1a.png">', '<img src="aimg/1b.png">', '<img src="aimg/1c.png">'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //choose - input
+              pregunta: '¿Cuál es el niño que <strong>no</strong> sigue las reglas en el patio a la hora de recreo?',
+              opciones: ['<img src="aimg/2a.png">', '<img src="aimg/2b.png">', '<img src="aimg/2c.png">'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //choose - input
+              pregunta: 'Es la acción que evita que ocurran accidentes dentro del salón de clases.',
+              opciones: ['Pedir la palabra para participar.','Llamar a los compañeros por su nombre.','Caminar con cuidado.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //choose - input
+              pregunta: '¿Dónde se aplica la siguiente regla? <img src="aimg/4.png" class="img-fluid">',
+              opciones: ['En un videojuego.','En el salón de clases.','En la biblioteca.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //choose - input
+              pregunta: '¿Qué partes del cuerpo usamos para correr?',
+              opciones: ['Los dedos.','La cabeza.','Las piernas.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //choose - input
+              pregunta: 'Es un rasgo físico que te hace diferente a los demás.',
+              opciones: ['El nombre de mi mascota.','El color de mi piel.','El día de mi cumpleaños.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //choose - input
+              pregunta: '¿Cuál es la imagen que te produce <strong>felicidad</strong>?',
+              opciones: ['<img src="aimg/7a.png">', '<img src="aimg/7b.png">', '<img src="aimg/7c.png">'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //choose - input
+              pregunta: '¿Cuál es el documento oficial que te da identidad, y en el que aparecen datos como tu nombre, el nombre de tus padres y tu fecha de nacimiento?',
+              opciones: ['<img src="aimg/8a.png">', '<img src="aimg/8b.png">', '<img src="aimg/8c.png">'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Observa la imagen y contesta las preguntas 9, 10 y 11.',
+              popper: '<img src="aimg/91011.png" class="img-fluid">',
+              type: 'choose', //choose - input
+              pregunta: 'Es el lugar que está a la <strong>derecha</strong> del hospital.',
+              opciones: ['<img src="aimg/9a.png">', '<img src="aimg/9b.png">', '<img src="aimg/9c.png">'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Observa la imagen y contesta las preguntas 9, 10 y 11.',
+              popper: '<img src="aimg/91011.png" class="img-fluid">',
+              type: 'choose', //choose - input
+              pregunta: '¿Qué lugar está <strong>enfrente</strong> de la estación de policías?',
+              opciones: ['<img src="aimg/10a.png">', '<img src="aimg/10b.png">', '<img src="aimg/10c.png">'],
+              respuestaNum: 1
+          },
+          {
+              instruction: 'Observa la imagen y contesta las preguntas 9, 10 y 11.',
+              popper: '<img src="aimg/91011.png" class="img-fluid">',
+              type: 'choose', //choose - input
+              pregunta: 'Es el lugar que se encuentra <strong>enfrente</strong> del cine.',
+              opciones: ['<img src="aimg/11a.png">', '<img src="aimg/11b.png">', '<img src="aimg/11c.png">'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //choose - input
+              pregunta: '¿Cuál de las siguientes imágenes <strong>no</strong> representa un elemento natural?',
+              opciones: ['<img src="aimg/12a.png">', '<img src="aimg/12b.png">', '<img src="aimg/12c.png">'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //choose - input
+              pregunta: 'Selecciona el dibujo que representa a un animal doméstico.',
+              opciones: ['<img src="aimg/13a.png">', '<img src="aimg/13b.png">', '<img src="aimg/13c.png">'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //choose - input
+              pregunta: 'Es una responsabilidad que cumplimos en casa.',
+              opciones: ['Levantar la mano para participar.','Tender mi cama.','Cruzar por las esquinas.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', //choose - input
+              pregunta: '¿Cuál de las siguientes opciones no es un día de la semana?',
+              opciones: ['Lunes.','Sábado.','Noviembre.'],
+              respuestaNum: 2
+          },
+          
+          
+          
+      ])
+      
+    </script>
+    <!--      <img src="aimg/lectura.png" class="img-fluid">
+    {
+        instruction: '',
+        popper: '',
+        type: '', //input
+        pregunta: '',
+        opciones: [],
+        respuestaNum: 0
+    },
+    -->
+  </body>
+</html>

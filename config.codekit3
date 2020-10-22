@@ -555,8 +555,8 @@
 		"oA": 0,
 		"oAP": "\/CM1T1\/aimg\/1a.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -566,8 +566,8 @@
 		"oA": 0,
 		"oAP": "\/CM1T1\/aimg\/1b.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -577,8 +577,8 @@
 		"oA": 0,
 		"oAP": "\/CM1T1\/aimg\/1c.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -588,8 +588,8 @@
 		"oA": 0,
 		"oAP": "\/CM1T1\/aimg\/2a.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -599,8 +599,8 @@
 		"oA": 0,
 		"oAP": "\/CM1T1\/aimg\/2b.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -610,8 +610,8 @@
 		"oA": 0,
 		"oAP": "\/CM1T1\/aimg\/2c.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -621,8 +621,8 @@
 		"oA": 0,
 		"oAP": "\/CM1T1\/aimg\/7a.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -632,8 +632,8 @@
 		"oA": 0,
 		"oAP": "\/CM1T1\/aimg\/7b.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -643,8 +643,8 @@
 		"oA": 0,
 		"oAP": "\/CM1T1\/aimg\/7c.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -654,8 +654,8 @@
 		"oA": 0,
 		"oAP": "\/CM1T1\/aimg\/8a.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -665,8 +665,8 @@
 		"oA": 0,
 		"oAP": "\/CM1T1\/aimg\/8b.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -676,8 +676,8 @@
 		"oA": 0,
 		"oAP": "\/CM1T1\/aimg\/8c.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -724,6 +724,33 @@
 		"opt": 0,
 		"oT": 1,
 		"q": 100
+		},
+	"\/CM1T1\/aimg\/Captura de Pantalla 2020-10-22 a la(s) 13.07.31.png": {
+		"ft": 32768,
+		"iS": 24829,
+		"oA": 0,
+		"oAP": "\/CM1T1\/aimg\/Captura de Pantalla 2020-10-22 a la(s) 13.07.31.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/CM1T1\/index.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/CM1T1\/index.html",
+		"oF": 0
+		},
+	"\/CM1T1\/index.pug": {
+		"cB": 0,
+		"cOD": 1,
+		"ft": 512,
+		"oA": 0,
+		"oAP": "\/CM1T1\/index.html",
+		"oF": 0,
+		"oS": 0
 		},
 	"\/CNAME": {
 		"cB": 0,
