@@ -1,0 +1,286 @@
+include ../assets/pug/_head
+include ../assets/pug/_scripts
+
+- grade = '1º'
+- title = 'Matemáticas'
+- subtitle = ''
+
+<!DOCTYPE html>
+html(lang="es")
+    +head
+        style.
+            /* .css */
+    body
+        #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
+            h1
+                span.grade #{grade}
+                | #{title}
+            if subtitle.length>1
+                h2 #{subtitle}
+
+            // SCENES ############################################
+            .scene(v-for="(i, index) in scenes" v-show="currentScene == index && started")
+                .row
+                    .col.mt-5.instruccion(v-if="i.instruction" v-html="i.instruction")
+                    .col-md-4.text-center(v-if="i.popper"): popper: div(v-html="i.popper")
+                // Pregunta >>>>>>>>>>>>>>>>>
+                .row.mt-3.pregunta
+                    // >>>> CHOOSE
+                    template(v-if="i.type=='choose'")
+                        choose(:key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res=false" :num="(index+1)+'.'" :text="i.pregunta" :options="buildOpImgs(i.opciones, i.opcionesImgsPrefix)"  :answer="i.respuestaNum" :isactive="currentScene == index")
+
+
+            // SCENES FINALIZAR ############################################
+            .scene(v-if="currentScene == scenes.length")
+                finalize(@evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1")
+
+
+            // Counter >>>>>>>>>>
+            counter(@started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event")
+            // Navigation >>>>>>>>>>>>>>>
+            navigation(v-if="started && resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event")
+        +scripts
+            script.
+                //app.$set(app, 'currentScene', 0)
+                app.$set(app, 'scenes', [
+
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: '¿Cuál es la colección que tiene menos elementos?',
+                        opcionesImgsPrefix: '1',
+                        opciones: [],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: '¿Cuál es la colección que tiene menos elementos? <img src="aimg/2.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['8 pelotas.','9 pelotas.','10 pelotas.'],
+                        respuestaNum: 1,
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: '¿Cuáles de las siguientes colecciones tienen la misma cantidad de elementos? <img src="aimg/3.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Chicles y caramelos.','Galletas y paletas.','Caramelos y paletas.'],
+                        respuestaNum: 0,
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: '¿Cuántas galletas hay si juntas los 2 platos? <img src="aimg/4.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['8 galletas.','9 galletas.','10 galletas.'],
+                        respuestaNum: 2,
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: 'Pepe tiene 7 frutas en una bolsa. Si agrega 3 frutas más, ¿cuántas frutas tendrá?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['10 frutas.','9 frutas.','8 frutas.'],
+                        respuestaNum: 0,
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: '¿Cuántos lápices faltan para completar 10? <img src="aimg/6.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['3 lápices.','5 lápices.','8 lápices.'],
+                        respuestaNum: 2,
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: '¿Cuáles son las figuras geométricas que se usaron para formar la siguiente figura? <img src="aimg/7.png" class="img-fluid">',
+                        opcionesImgsPrefix: '7',
+                        opciones: [],
+                        respuestaNum: 1,
+                    },
+                    {
+                        instruction: 'Observa la imagen y contesta las preguntas 8, 9, 10 y 11.',
+                        popper: '<img src="aimg/891011.png" class="img-fluid">',
+                        type: 'choose', //choose - input
+                        pregunta: '¿Cuántos carros hay en la montaña rusa?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['4 carros.','9 carros.','10 carros.'],
+                        respuestaNum: 1,
+                    },
+                    {
+                        instruction: 'Observa la imagen y contesta las preguntas 8, 9, 10 y 11.',
+                        popper: '<img src="aimg/891011.png" class="img-fluid">',
+                        type: 'choose', //choose - input
+                        pregunta: '¿Cuántas monedas de $10 y de $1 se necesitan para comprar un boleto para la montaña rusa?',
+                        opcionesImgsPrefix: '9',
+                        opciones: [],
+                        respuestaNum: 0,
+                    },
+                    {
+                        instruction: 'Observa la imagen y contesta las preguntas 8, 9, 10 y 11.',
+                        popper: '<img src="aimg/891011.png" class="img-fluid">',
+                        type: 'choose', //choose - input
+                        pregunta: 'Si al señor que vende los globos le compraron 5, ¿cuántos globos le quedaron?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['10 globos.','9 globos.','7 globos.'],
+                        respuestaNum: 2,
+                    },
+                    {
+                        instruction: 'Observa la imagen y contesta las preguntas 8, 9, 10 y 11.',
+                        popper: '<img src="aimg/891011.png" class="img-fluid">',
+                        type: 'choose', //choose - input
+                        pregunta: 'Si Manuel tiene una moneda de $10 y 5 de $1, ¿a qué juego se puede subir?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Rueda de la fortuna.','Sillitas voladoras.','Montaña rusa.'],
+                        respuestaNum: 1,
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: 'De acuerdo a la siguiente tabla, ¿cuántos niños prefieren a un perro como mascota? <img src="aimg/12.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['13 niños.','10 niños.','18 niños.'],
+                        respuestaNum: 2,
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: '¿Cuál es la actividad que deben realizar los niños <strong>después</strong> de plantar un árbol?',
+                        opcionesImgsPrefix: '13',
+                        opciones: [],
+                        respuestaNum: 2,
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: 'Si hoy es sábado, ¿qué día fue ayer?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Martes.','Viernes.','Lunes.'],
+                        respuestaNum: 1,
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: '¿Cuántos días tiene una semana?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['5 días.','8 días.','7 días.'],
+                        respuestaNum: 2,
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: '¿Cuántos cuadrados puedes obtener de un rectángulo? <img src="aimg/16.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['3 cuadrados.','4 cuadrados.','2 cuadrados.'],
+                        respuestaNum: 2,
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: '¿Cuál es el objeto <strong>más largo</strong>?',
+                        opcionesImgsPrefix: '17',
+                        opciones: [],
+                        respuestaNum: 1,
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: '¿Cuál es el objeto <strong>más pequeño</strong>?',
+                        opcionesImgsPrefix: '18',
+                        opciones: [],
+                        respuestaNum: 1,
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: 'Cristian compró 3 bolsitas de 10 paletas cada una. ¿Cuántas paletas compró en total?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['30 paletas.','35 paletas.','25 paletas.'],
+                        respuestaNum: 0,
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: 'Son los números que faltan en la siguiente serie numérica. <img src="aimg/20.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['21, 25, 27 y 29.','21, 23, 27 y 29.','21, 27, 28 y 30.'],
+                        respuestaNum: 0,
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: 'Pedro tiene 16 canicas dentro de una bolsa. Si agregó 4 canicas, ¿cuántas canicas tiene en total?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['20 canicas.','15 canicas.','10 canicas.'],
+                        respuestaNum: 0,
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: 'Selecciona la operación con el resultado correcto.',
+                        opcionesImgsPrefix: '22',
+                        opciones: [],
+                        respuestaNum: 2,
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: 'Elige la operación con el resultado correcto.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['<img src="aimg/23a.png">', '<img src="aimg/23a.png">'],
+                        respuestaNum: 0,
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: 'Selecciona el número de objetos que faltan para completar el total. <img src="aimg/24a.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['1', '2', '3', '4', '5', '6'],
+                        respuestaNum: 1,
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: 'Selecciona el número de objetos que faltan para completar el total. <img src="aimg/24b.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['1', '2', '3', '4', '5', '6'],
+                        respuestaNum: 5,
+                    },
+                    
+                    
+                    
+                    
+                ])
+            
+            //      <img src="aimg/lectura.png" class="img-fluid">
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: '', //input
+                        pregunta: '',
+                        opciones: [],
+                        respuestaNum: 0
+                    },

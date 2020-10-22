@@ -53,6 +53,17 @@ var app = new Vue({
         }
     },
     methods: {
+        buildOpImgs(opciones, opcionesImgsPrefix){
+            if(opcionesImgsPrefix == null){
+                return opciones
+            } else {
+                var imgs3 = []
+                imgs3.push('<img src="aimg/'+opcionesImgsPrefix+'a.png">')
+                imgs3.push('<img src="aimg/'+opcionesImgsPrefix+'b.png">')
+                imgs3.push('<img src="aimg/'+opcionesImgsPrefix+'c.png">')
+                return imgs3
+            }
+        },
         buildStoreCall () {
             if(!this.started){
                 return false
