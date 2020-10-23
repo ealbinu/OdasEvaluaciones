@@ -1142,6 +1142,22 @@
 		"oT": 1,
 		"q": 100
 		},
+	"\/CM2T1\/index.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/CM2T1\/index.html",
+		"oF": 0
+		},
+	"\/CM2T1\/index.pug": {
+		"cB": 0,
+		"cOD": 1,
+		"ft": 512,
+		"oA": 0,
+		"oAP": "\/CM2T1\/index.html",
+		"oF": 0,
+		"oS": 0
+		},
 	"\/CM3T1\/aimg\/23.png": {
 		"ft": 32768,
 		"iS": 18439,

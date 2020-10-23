@@ -1,0 +1,169 @@
+include ../assets/pug/_head
+include ../assets/pug/_body
+include ../assets/pug/_scripts
+
+- grade = '2º'
+- title = 'Conocimiento del Medio'
+- subtitle = ''
+
+<!DOCTYPE html>
+html(lang="es")
+    +head
+        style.
+            .palabrascorrectas .options {
+                flex-wrap: wrap;
+            }
+            .palabrascorrectas .options > div {
+                width: 30%;
+            }
+
+    body
+        #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
+            h1
+                span.grade #{grade}
+                | #{title}
+            if subtitle.length>1
+                h2 #{subtitle}
+
+            +body
+
+        +scripts
+            script.
+                //app.$set(app, 'currentScene', 0)
+                app.$set(app, 'scenes', [
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es un cambio físico que se observa durante el crecimiento.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Aumento de estatura.','Crecen menos las uñas.','Se cae el cabello.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es la acción que realizas para cuidar tu cuerpo?',
+                        opcionesImgsPrefix: '2',
+                        opciones: [],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el documento que sirve para registrar las vacunas que se te han aplicado?',
+                        opcionesImgsPrefix: '3',
+                        opciones: [],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el sentido con el que se pueden ver los objetos que nos rodean.',
+                        opcionesImgsPrefix: '4',
+                        opciones: [],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué sensaciones podemos distinguir con el sentido del tacto?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['La temperatura y la textura de los objetos.','Los olores y el calor.','Los sonidos y colores.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es una acción que te ayuda a cuidar el sentido de la vista.',
+                        opcionesImgsPrefix: '6',
+                        opciones: [],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es una celebración maya en la que se acostumbra que participen todos los miembros de la familia.',
+                        opcionesImgsPrefix: '7',
+                        opciones: [],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es una costumbre que nos identifica como mexicanos?',
+                        opcionesImgsPrefix: '8',
+                        opciones: [],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Selecciona la opción que completa la oración. <img src="aimg/9.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['acuáticos','terrestres','ovíparos'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es un ejemplo de un animal que se arrastra.',
+                        opcionesImgsPrefix: '10',
+                        opciones: [],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es un ejemplo de una actividad que haces por la <strong>noche</strong>.',
+                        opcionesImgsPrefix: '11',
+                        opciones: [],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál de los siguientes es un animal <strong>diurno</strong>?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Gorrión.','Búho.','Murciélago.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es un juego de <strong>antes</strong>.',
+                        opcionesImgsPrefix: '13',
+                        opciones: [],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es un juego de antes y que todavía se sigue jugando?',
+                        opcionesImgsPrefix: '14',
+                        opciones: [],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es un juguete de <strong>antes</strong>.',
+                        opcionesImgsPrefix: '15',
+                        opciones: [],
+                        respuestaNum: 0
+                    },
+                ])
