@@ -1,0 +1,259 @@
+include ../assets/pug/_head
+include ../assets/pug/_body
+include ../assets/pug/_scripts
+
+- grade = '3º'
+- title = 'Ciencias Naturales'
+- subtitle = ''
+
+<!DOCTYPE html>
+html(lang="es")
+    +head
+        style.
+            .palabrascorrectas .options {
+                flex-wrap: wrap;
+            }
+            .palabrascorrectas .options > div {
+                width: 30%;
+            }
+
+    body
+        #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
+            h1
+                span.grade #{grade}
+                | #{title}
+            if subtitle.length>1
+                h2 #{subtitle}
+
+            +body
+
+        +scripts
+            script.
+                //app.$set(app, 'currentScene', 0)
+                app.$set(app, 'scenes', [
+                    {
+                        instruction: 'Selecciona la respuesta correcta.',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son ejemplos de animales que carecen de esqueleto.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Pez y gallina.','Lombriz y oruga.','Perro y toro.','Caballo y oso.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el nombre de las estructuras que forman parte del esqueleto y son las encargadas de dar soporte y protección a los órganos del cuerpo?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Huesos.','Cartílagos.','Tejidos.','Nervios.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuántos huesos tiene el esqueleto de una persona adulta?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['252 huesos.','232 huesos.','170 huesos.','206 huesos.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la acción que ayuda a tu cuerpo a crecer, desarrollarse y funcionar de manera correcta.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Alimentarse correctamente.','Dormir todo el día.','Evitar hacer alguna actividad física.','Comer golosinas todos los días.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se le llama al conjunto de alimentos que se consumen por día?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Nutrimento.','Digestión.','Dieta.','Alimentación.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el esquema que ilustra los tres grupos de alimentos y cómo debemos combinarlos en nuestra alimentación diaria.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Pirámide vegana.','Pirámide alimenticia.','Jarra del Buen Beber.','Plato del Bien Comer.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se les llama a los animales que se alimentan tanto de plantas como de carne de otros animales?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Omnívoros.','Carnívoros.','Insectívoros.','Herbívoros.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son láminas delgadas irrigadas de sangre, y por medio de ellas los peces absorben el oxígeno.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Tráqueas.','Pulmones.','Branquias.','Pieles.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el nombre que recibe la unión entre los huesos?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Articulaciones.','Ligamentos.','Músculos.','Cartílagos.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es un órgano que forma parte del aparato digestivo.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El páncreas.','Los pulmones.','El diafragma.','La tráquea.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuáles son los beneficios de poner en práctica los hábitos de higiene?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Ayudan a evitar el contagio de enfermedades.','Mantienen lo huesos en buen estado.','Fortalecen los músculos del cuerpo. ','Previenen lesiones.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuáles son los alimentos que se deben consumir con mayor frecuencia?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Cereales.','Leguminosas.','Productos de origen animal.','Frutas y verduras.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se le llama al conjunto de huesos, articulaciones, cartílagos y ligamentos que conforman el cuerpo humano?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Sistema nervioso.','Sistema óseo.','Sistema muscular.','Sistema articular.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el nombre que recibe el conjunto de sistemas óseo, muscular y nervioso.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Aparato respiratorio.','Aparato óseo.','Aparato locomotor.','Aparato cardiovascular.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'En un accidente de fractura, lo primero que se debe evitar es:',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Levantar al lesionado.','Aplicar un torniquete.','Sentar al lesionado.','Mover al lesionado.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál acción representa una situación de riesgo?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Guardar secretos.','Platicar con la maestra o el maestro.','Aceptar regalos de mis papás.','Tener convivencia familiar.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es una acción que ayuda a evitar una situación de abuso.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Caminar en lugares oscuros y solitarios.','Evitar salir a la calle sin permiso de nuestros padres.','Aceptar cosas de extraños.','Alejarse de una persona cuando nos sintamos contentos.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué característica de los huesos permite que el esqueleto le dé soporte al cuerpo?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['La flexibilidad.','La delicadeza.','La dureza.','La resistencia.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el aparato del cuerpo humano encargado de llevar a cabo el proceso de digestión?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Digestivo.','Inmunológico.','Muscular.','Cardiovascular.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Sistema del cuerpo humano cuya función es eliminar las sustancias de desecho del organismo.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Circulatorio.','Muscular.','Endocrino.','Excretor.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la bebida que se aconseja consumir con todos los alimentos, según la guía nutrimental para los mexicanos.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Café.','Agua simple potable.','Refresco.','Jugo.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿En qué parte del aparato digestivo se absorben los nutrimentos?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['En el estómago.','En el hígado.','En el intestino delgado.','En el intestino grueso.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Elige la opción que relacione el tipo de respiración con el animal que la lleva a cabo. <img src="aimg/23.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['1-C, 2-D, 3-A, 4-B','1-B, 2-D, 3-C, 4-A','1-B, 2-A, 3-D, 4-C','1-D, 2-A, 3-C, 4-B'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué elemento se obtiene del aire a través de la respiración?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Oxígeno.','Hidrógeno.','Carbono.','Helio.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es un ejemplo de movimiento involuntario.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Levantarse de una silla.','Lanzar una moneda al aire.','Latir del corazón.','Mantener el equilibrio.'],
+                        respuestaNum: 2
+                    },
+                ])

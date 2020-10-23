@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Ciencias Naturales</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../assets/font/stylesheet.css?v=4"/>
+    <link rel="stylesheet" href="../../assets/assets.css?v=4"/>
+    <style>
+      .palabrascorrectas .options {
+          flex-wrap: wrap;
+      }
+      .palabrascorrectas .options > div {
+          width: 30%;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
+      <h1><span class="grade">3º</span>Ciencias Naturales</h1>
+      <!-- SCENES ############################################-->
+      <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started">
+        <div class="row">
+          <div class="col mt-5 instruccion" v-if="i.instruction" v-html="i.instruction"></div>
+          <div class="col-md-4 text-center" v-if="i.popper">
+            <popper>
+              <div v-html="i.popper"></div>
+            </popper>
+          </div>
+        </div>
+        <!-- Pregunta >>>>>>>>>>>>>>>>>-->
+        <div class="row mt-3 pregunta">
+          <!-- >>>> CHOOSE-->
+          <template v-if="i.type=='choose'">
+            <choose :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res=false" :num="(index+1)+'.'" :text="i.pregunta" :options="buildOpImgs(i.opciones, i.opcionesImgsPrefix)" :answer="i.respuestaNum" :isactive="currentScene == index" :settings="i.settings"></choose>
+          </template>
+          <!-- >>>> SELECTABLEOPTIONS-->
+          <template v-else-if="i.type=='selectableoptions'">
+            <selectableoptions :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res = false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.respuestaNum" :customclass="i.settings.class" :isactive="currentScene == index">
+              <template v-slot:option="{option}">{{option.o}}</template>
+            </selectableoptions>
+          </template>
+        </div>
+      </div>
+      <!-- SCENES FINALIZAR ############################################-->
+      <div class="scene" v-if="currentScene == scenes.length">
+        <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1"></finalize>
+      </div>
+      <!-- Counter >>>>>>>>>>-->
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event"></counter>
+      <!-- Navigation >>>>>>>>>>>>>>>-->
+      <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event"></navigation>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
+    <script src="../../assets/modulos/dragdropMod.js"></script>
+    <script src="../../assets/modulos/dropdowns.js"></script>
+    <script src="../../assets/modulos/selectable.js"></script>
+    <script src="../../assets/modulos/selectableoptions.js"></script>
+    <script src="../../assets/modulos/check.js"></script>
+    <script src="../../assets/modulos/inputbox.js"></script>
+    <script src="../../assets/modulos/choose.js"></script>
+    <script src="../../assets/modulos/popper.js"></script>
+    <script src="../../assets/modulos/finalize.js?v=4"></script>
+    <script src="../../assets/modulos/counter.js?v=4"></script>
+    <script src="../../assets/modulos/utils.js?v=4"></script>
+    <script src="../../assets/assets.js?v=4"></script>
+    <script>
+      //app.$set(app, 'currentScene', 0)
+      app.$set(app, 'scenes', [
+          {
+              instruction: 'Selecciona la respuesta correcta.',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son ejemplos de animales que carecen de esqueleto.',
+              opcionesImgsPrefix: null,
+              opciones: ['Pez y gallina.','Lombriz y oruga.','Perro y toro.','Caballo y oso.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el nombre de las estructuras que forman parte del esqueleto y son las encargadas de dar soporte y protección a los órganos del cuerpo?',
+              opcionesImgsPrefix: null,
+              opciones: ['Huesos.','Cartílagos.','Tejidos.','Nervios.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuántos huesos tiene el esqueleto de una persona adulta?',
+              opcionesImgsPrefix: null,
+              opciones: ['252 huesos.','232 huesos.','170 huesos.','206 huesos.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la acción que ayuda a tu cuerpo a crecer, desarrollarse y funcionar de manera correcta.',
+              opcionesImgsPrefix: null,
+              opciones: ['Alimentarse correctamente.','Dormir todo el día.','Evitar hacer alguna actividad física.','Comer golosinas todos los días.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cómo se le llama al conjunto de alimentos que se consumen por día?',
+              opcionesImgsPrefix: null,
+              opciones: ['Nutrimento.','Digestión.','Dieta.','Alimentación.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el esquema que ilustra los tres grupos de alimentos y cómo debemos combinarlos en nuestra alimentación diaria.',
+              opcionesImgsPrefix: null,
+              opciones: ['Pirámide vegana.','Pirámide alimenticia.','Jarra del Buen Beber.','Plato del Bien Comer.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cómo se les llama a los animales que se alimentan tanto de plantas como de carne de otros animales?',
+              opcionesImgsPrefix: null,
+              opciones: ['Omnívoros.','Carnívoros.','Insectívoros.','Herbívoros.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son láminas delgadas irrigadas de sangre, y por medio de ellas los peces absorben el oxígeno.',
+              opcionesImgsPrefix: null,
+              opciones: ['Tráqueas.','Pulmones.','Branquias.','Pieles.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el nombre que recibe la unión entre los huesos?',
+              opcionesImgsPrefix: null,
+              opciones: ['Articulaciones.','Ligamentos.','Músculos.','Cartílagos.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es un órgano que forma parte del aparato digestivo.',
+              opcionesImgsPrefix: null,
+              opciones: ['El páncreas.','Los pulmones.','El diafragma.','La tráquea.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuáles son los beneficios de poner en práctica los hábitos de higiene?',
+              opcionesImgsPrefix: null,
+              opciones: ['Ayudan a evitar el contagio de enfermedades.','Mantienen lo huesos en buen estado.','Fortalecen los músculos del cuerpo. ','Previenen lesiones.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuáles son los alimentos que se deben consumir con mayor frecuencia?',
+              opcionesImgsPrefix: null,
+              opciones: ['Cereales.','Leguminosas.','Productos de origen animal.','Frutas y verduras.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cómo se le llama al conjunto de huesos, articulaciones, cartílagos y ligamentos que conforman el cuerpo humano?',
+              opcionesImgsPrefix: null,
+              opciones: ['Sistema nervioso.','Sistema óseo.','Sistema muscular.','Sistema articular.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el nombre que recibe el conjunto de sistemas óseo, muscular y nervioso.',
+              opcionesImgsPrefix: null,
+              opciones: ['Aparato respiratorio.','Aparato óseo.','Aparato locomotor.','Aparato cardiovascular.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'En un accidente de fractura, lo primero que se debe evitar es:',
+              opcionesImgsPrefix: null,
+              opciones: ['Levantar al lesionado.','Aplicar un torniquete.','Sentar al lesionado.','Mover al lesionado.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál acción representa una situación de riesgo?',
+              opcionesImgsPrefix: null,
+              opciones: ['Guardar secretos.','Platicar con la maestra o el maestro.','Aceptar regalos de mis papás.','Tener convivencia familiar.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es una acción que ayuda a evitar una situación de abuso.',
+              opcionesImgsPrefix: null,
+              opciones: ['Caminar en lugares oscuros y solitarios.','Evitar salir a la calle sin permiso de nuestros padres.','Aceptar cosas de extraños.','Alejarse de una persona cuando nos sintamos contentos.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué característica de los huesos permite que el esqueleto le dé soporte al cuerpo?',
+              opcionesImgsPrefix: null,
+              opciones: ['La flexibilidad.','La delicadeza.','La dureza.','La resistencia.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el aparato del cuerpo humano encargado de llevar a cabo el proceso de digestión?',
+              opcionesImgsPrefix: null,
+              opciones: ['Digestivo.','Inmunológico.','Muscular.','Cardiovascular.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Sistema del cuerpo humano cuya función es eliminar las sustancias de desecho del organismo.',
+              opcionesImgsPrefix: null,
+              opciones: ['Circulatorio.','Muscular.','Endocrino.','Excretor.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la bebida que se aconseja consumir con todos los alimentos, según la guía nutrimental para los mexicanos.',
+              opcionesImgsPrefix: null,
+              opciones: ['Café.','Agua simple potable.','Refresco.','Jugo.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿En qué parte del aparato digestivo se absorben los nutrimentos?',
+              opcionesImgsPrefix: null,
+              opciones: ['En el estómago.','En el hígado.','En el intestino delgado.','En el intestino grueso.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Elige la opción que relacione el tipo de respiración con el animal que la lleva a cabo. <img src="aimg/23.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['1-C, 2-D, 3-A, 4-B','1-B, 2-D, 3-C, 4-A','1-B, 2-A, 3-D, 4-C','1-D, 2-A, 3-C, 4-B'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué elemento se obtiene del aire a través de la respiración?',
+              opcionesImgsPrefix: null,
+              opciones: ['Oxígeno.','Hidrógeno.','Carbono.','Helio.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es un ejemplo de movimiento involuntario.',
+              opcionesImgsPrefix: null,
+              opciones: ['Levantarse de una silla.','Lanzar una moneda al aire.','Latir del corazón.','Mantener el equilibrio.'],
+              respuestaNum: 2
+          },
+      ])
+    </script>
+  </body>
+</html>
