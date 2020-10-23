@@ -1,0 +1,160 @@
+include ../assets/pug/_head
+include ../assets/pug/_body
+include ../assets/pug/_scripts
+
+- grade = '3º'
+- title = 'Español'
+- subtitle = ''
+
+<!DOCTYPE html>
+html(lang="es")
+    +head
+        style.
+            .palabrascorrectas .options {
+                flex-wrap: wrap;
+            }
+            .palabrascorrectas .options > div {
+                width: 30%;
+            }
+
+    body
+        #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
+            h1
+                span.grade #{grade}
+                | #{title}
+            if subtitle.length>1
+                h2 #{subtitle}
+
+            +body
+
+        +scripts
+            script.
+                //app.$set(app, 'currentScene', 0)
+                app.$set(app, 'scenes', [
+                    {
+                        instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+                        popper: '<img src="aimg/lectura.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Por qué los seres humanos llevaron a los lobos a ese bosque?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Para que migraran hacia el sur del conti- nente.','Para que restablecieran el equilibrio natu- ral del bosque.','Para que convivieran con los coyotes.','Para que ayudaran a otros lobos a migrar.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+                        popper: '<img src="aimg/lectura.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Quién es el primer lobo que habla?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El lobo alfa.','La loba alfa.','El lobo viejo.','El lobo más pequeño.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+                        popper: '<img src="aimg/lectura.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Otras manadas de lobos para hacer amistad.','Un mejor clima y más presas para ali- mentarse.','Un bosque más grande donde cupieran todos.','Una manada de osos para convivir y cazar focas.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+                        popper: '<img src="aimg/lectura.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿En qué continente se encuentra el bosque en donde estaban los lobos?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Europa.','Asia.','África.','América.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el verbo en infinitivo que completa correctamente la siguiente regla. <img src="aimg/5.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Respeta','Tomar','Trate','Cuidaré'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el nombre de los textos que utilizan el doble sentido y el juego de palabras para hacer reír?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Los poemas.','Las canciones.','Los cuentos.','Los chistes.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se llama el documento que contiene las reglas en una biblioteca?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Reglamento.','Ficha bibliográfica.','Ficha de préstamo.','Tarjeta de clasificación.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el nombre que reciben algunos chistes que sólo entienden las personas que conocen el suceso al que hacen referencia.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Nacionales.','Internacionales.','Locales.','Universales.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué función tiene el discurso directo?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Dar una forma de interpretar lo que se ha hablado en otro espacio.','Mostrar el diálogo entre dos personas o más en el mismo espacio y tiempo.','Introducir el diálogo que existe entre varias personas.','Expresar la plática entre personas que se encuentran a distancias muy alejadas.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué signo de puntuación se utiliza en el discurso directo?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Guion largo.','De admiración.','De interrogación.','De exclamación.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Para qué se usan los signos de admiración en una oración?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Para demostrar que se trata de oraciones impersonales.','Para expresar asombro, alegría, enojo o queja.','Para indicar que es una pregunta.','Para mencionar que se refiere a un poema.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el nombre del libro en el que se re- gistran el nombre, domicilio y teléfono de muchas personas o servicios?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Instructivo.','Reglamento.','Directorio.','Diccionario.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la lista ordenada de forma alfabética.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Bruno, Fernando, Gabriela, Rosa.','Laura, Érika, Alejandro, Perla.','Mario, Angélica, Hugo, Pedro.','Ángel, Jorge, Mauricio, Eduardo.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿En qué forma verbal están escritas las palabras subrayadas? <img src="aimg/14.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Indicativo.','Infinitivo.','Imperativo.','Subjetivo.'],
+                        respuestaNum: 1
+                    },
+                ])

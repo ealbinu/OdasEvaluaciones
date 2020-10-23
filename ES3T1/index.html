@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Español</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../assets/font/stylesheet.css?v=4"/>
+    <link rel="stylesheet" href="../../assets/assets.css?v=4"/>
+    <style>
+      .palabrascorrectas .options {
+          flex-wrap: wrap;
+      }
+      .palabrascorrectas .options > div {
+          width: 30%;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
+      <h1><span class="grade">3º</span>Español</h1>
+      <!-- SCENES ############################################-->
+      <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started">
+        <div class="row">
+          <div class="col mt-5 instruccion" v-if="i.instruction" v-html="i.instruction"></div>
+          <div class="col-md-4 text-center" v-if="i.popper">
+            <popper>
+              <div v-html="i.popper"></div>
+            </popper>
+          </div>
+        </div>
+        <!-- Pregunta >>>>>>>>>>>>>>>>>-->
+        <div class="row mt-3 pregunta">
+          <!-- >>>> CHOOSE-->
+          <template v-if="i.type=='choose'">
+            <choose :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res=false" :num="(index+1)+'.'" :text="i.pregunta" :options="buildOpImgs(i.opciones, i.opcionesImgsPrefix)" :answer="i.respuestaNum" :isactive="currentScene == index" :settings="i.settings"></choose>
+          </template>
+          <!-- >>>> SELECTABLEOPTIONS-->
+          <template v-else-if="i.type=='selectableoptions'">
+            <selectableoptions :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res = false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.respuestaNum" :customclass="i.settings.class" :isactive="currentScene == index">
+              <template v-slot:option="{option}">{{option.o}}</template>
+            </selectableoptions>
+          </template>
+        </div>
+      </div>
+      <!-- SCENES FINALIZAR ############################################-->
+      <div class="scene" v-if="currentScene == scenes.length">
+        <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1"></finalize>
+      </div>
+      <!-- Counter >>>>>>>>>>-->
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event"></counter>
+      <!-- Navigation >>>>>>>>>>>>>>>-->
+      <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event"></navigation>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
+    <script src="../../assets/modulos/dragdropMod.js"></script>
+    <script src="../../assets/modulos/dropdowns.js"></script>
+    <script src="../../assets/modulos/selectable.js"></script>
+    <script src="../../assets/modulos/selectableoptions.js"></script>
+    <script src="../../assets/modulos/check.js"></script>
+    <script src="../../assets/modulos/inputbox.js"></script>
+    <script src="../../assets/modulos/choose.js"></script>
+    <script src="../../assets/modulos/popper.js"></script>
+    <script src="../../assets/modulos/finalize.js?v=4"></script>
+    <script src="../../assets/modulos/counter.js?v=4"></script>
+    <script src="../../assets/modulos/utils.js?v=4"></script>
+    <script src="../../assets/assets.js?v=4"></script>
+    <script>
+      //app.$set(app, 'currentScene', 0)
+      app.$set(app, 'scenes', [
+          {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+              popper: '<img src="aimg/lectura.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Por qué los seres humanos llevaron a los lobos a ese bosque?',
+              opcionesImgsPrefix: null,
+              opciones: ['Para que migraran hacia el sur del conti- nente.','Para que restablecieran el equilibrio natu- ral del bosque.','Para que convivieran con los coyotes.','Para que ayudaran a otros lobos a migrar.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+              popper: '<img src="aimg/lectura.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Quién es el primer lobo que habla?',
+              opcionesImgsPrefix: null,
+              opciones: ['El lobo alfa.','La loba alfa.','El lobo viejo.','El lobo más pequeño.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+              popper: '<img src="aimg/lectura.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '',
+              opcionesImgsPrefix: null,
+              opciones: ['Otras manadas de lobos para hacer amistad.','Un mejor clima y más presas para ali- mentarse.','Un bosque más grande donde cupieran todos.','Una manada de osos para convivir y cazar focas.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+              popper: '<img src="aimg/lectura.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿En qué continente se encuentra el bosque en donde estaban los lobos?',
+              opcionesImgsPrefix: null,
+              opciones: ['Europa.','Asia.','África.','América.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el verbo en infinitivo que completa correctamente la siguiente regla. <img src="aimg/5.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['Respeta','Tomar','Trate','Cuidaré'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el nombre de los textos que utilizan el doble sentido y el juego de palabras para hacer reír?',
+              opcionesImgsPrefix: null,
+              opciones: ['Los poemas.','Las canciones.','Los cuentos.','Los chistes.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cómo se llama el documento que contiene las reglas en una biblioteca?',
+              opcionesImgsPrefix: null,
+              opciones: ['Reglamento.','Ficha bibliográfica.','Ficha de préstamo.','Tarjeta de clasificación.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el nombre que reciben algunos chistes que sólo entienden las personas que conocen el suceso al que hacen referencia.',
+              opcionesImgsPrefix: null,
+              opciones: ['Nacionales.','Internacionales.','Locales.','Universales.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué función tiene el discurso directo?',
+              opcionesImgsPrefix: null,
+              opciones: ['Dar una forma de interpretar lo que se ha hablado en otro espacio.','Mostrar el diálogo entre dos personas o más en el mismo espacio y tiempo.','Introducir el diálogo que existe entre varias personas.','Expresar la plática entre personas que se encuentran a distancias muy alejadas.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué signo de puntuación se utiliza en el discurso directo?',
+              opcionesImgsPrefix: null,
+              opciones: ['Guion largo.','De admiración.','De interrogación.','De exclamación.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Para qué se usan los signos de admiración en una oración?',
+              opcionesImgsPrefix: null,
+              opciones: ['Para demostrar que se trata de oraciones impersonales.','Para expresar asombro, alegría, enojo o queja.','Para indicar que es una pregunta.','Para mencionar que se refiere a un poema.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el nombre del libro en el que se re- gistran el nombre, domicilio y teléfono de muchas personas o servicios?',
+              opcionesImgsPrefix: null,
+              opciones: ['Instructivo.','Reglamento.','Directorio.','Diccionario.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la lista ordenada de forma alfabética.',
+              opcionesImgsPrefix: null,
+              opciones: ['Bruno, Fernando, Gabriela, Rosa.','Laura, Érika, Alejandro, Perla.','Mario, Angélica, Hugo, Pedro.','Ángel, Jorge, Mauricio, Eduardo.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿En qué forma verbal están escritas las palabras subrayadas? <img src="aimg/14.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['Indicativo.','Infinitivo.','Imperativo.','Subjetivo.'],
+              respuestaNum: 1
+          },
+      ])
+    </script>
+  </body>
+</html>
