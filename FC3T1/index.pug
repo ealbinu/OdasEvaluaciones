@@ -1,0 +1,106 @@
+include ../assets/pug/_head
+include ../assets/pug/_body
+include ../assets/pug/_scripts
+
+- grade = '3º'
+- title = 'Formación Cívica y Ética'
+- subtitle = ''
+
+<!DOCTYPE html>
+html(lang="es")
+    +head
+        style.
+            .palabrascorrectas .options {
+                flex-wrap: wrap;
+            }
+            .palabrascorrectas .options > div {
+                width: 30%;
+            }
+
+    body
+        #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
+            h1
+                span.grade #{grade}
+                | #{title}
+            if subtitle.length>1
+                h2 #{subtitle}
+
+            +body
+
+        +scripts
+            script.
+                //app.$set(app, 'currentScene', 0)
+                app.$set(app, 'scenes', [
+                    {
+                        instruction: 'Selecciona la respuesta correcta.',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Elige una de las capacidades que puedes usar para mejorar el medioambiente.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Hablar asertivamente con las personas para persuadirlas.','Ayudar a los que más lo necesitan.','Realizar campañas de prevención con ayuda de mis amigos.','Dibujar con facilidad figuras humanas.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué es el potencial?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Es una capacidad que tenemos y aún no desarrollamos.','Es nuestra debilidad más grande como persona.','Es el conjunto de cambios de humor que experimentamos.','Es nuestra mayor virtud.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Elige la situación en la que no se respetan tus derechos.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Soy cuidado por mi mamá si me enfermo.','Trabajo todo el día sin poder ir a la escuela.','Juego con mis amigos en el parque.','Tengo una casa en la que vivo con mi familia.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son algunos de tus derechos, excepto uno. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Derecho a la vida.','Derecho a la educación.','Derecho al voto.','Derecho a la salud.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué debes tomar en cuenta antes de tomar una decisión?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Que mi decisión sólo beneficie a los demás.','Que mi decisión me beneficie sin pensar en las consecuencias.','Que mi decisión sea con base en lo que los demás quieran.','Que mi decisión no dañe a los demás.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son personas de confianza a las que pue- des pedir ayuda para tomar una decisión, excepto una. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Papá.','Abuela.','Señor de la tienda.','Hermano mayor.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Angélica tiene examen de Matemáticas mañana, pero sus amigas la invitaron al ci- ne. ¿Cuál es la mejor decisión?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Ir al cine y no estudiar.','No ir al cine y estudiar.','Estudiar cinco minutos antes del examen.','No ir al cine ni estudiar.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son dos elementos que debes analizar an- tes de tomar una decisión.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Datos y estadísticas.','Felicidad y tristeza.','Clima y economía.','Ventajas y desventajas.'],
+                        respuestaNum: 3
+                    },
+                ])
