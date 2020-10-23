@@ -60,6 +60,9 @@ Vue.component('counter', {
         }
     },
     mounted() {
+        if(window.location.hostname=='mbpro.local'){
+            this.startApp()
+        }
     },
     template: `
     <div>

@@ -1,0 +1,261 @@
+include ../assets/pug/_head
+include ../assets/pug/_body
+include ../assets/pug/_scripts
+
+- grade = '2º'
+- title = 'Español'
+- subtitle = ''
+
+<!DOCTYPE html>
+html(lang="es")
+    +head
+        style.
+            .palabrascorrectas .options {
+                flex-wrap: wrap;
+            }
+            .palabrascorrectas .options > div {
+                width: 30%;
+            }
+
+    body
+        #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
+            h1
+                span.grade #{grade}
+                | #{title}
+            if subtitle.length>1
+                h2 #{subtitle}
+
+            +body
+
+        +scripts
+            script.
+                //app.$set(app, 'currentScene', 0)
+                app.$set(app, 'scenes', [
+
+                    {
+                        instruction: 'Selecciona la respuesta correcta.<p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
+                        popper: '<img src="aimg/lectura.png" class="img-fluid">',
+                        type: 'choose', //choose - input
+                        pregunta: '¿Qué hace el papá de Renata mientras la peinan?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Enciende el carro para llevarla a la escuela.','Se recorta el bigote en el baño.','Lee el periódico sentado en el sillón.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: 'Selecciona la respuesta correcta.<p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
+                        popper: '<img src="aimg/lectura.png" class="img-fluid">',
+                        type: 'choose', //choose - input
+                        pregunta: '¿Cómo despierta a Renata su mamá?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Con un despertador.','Con una paleta.','Con un beso.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: 'Selecciona la respuesta correcta.<p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
+                        popper: '<img src="aimg/lectura.png" class="img-fluid">',
+                        type: 'choose', //choose - input
+                        pregunta: '¿Qué hacen a veces cuando llega su papá de trabajar?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Salir al parque un ratito con Firulais.','Leer un cuento y dar las buenas noches.','Cenar todos juntos en familia.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: 'Selecciona la respuesta correcta.<p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
+                        popper: '<img src="aimg/lectura.png" class="img-fluid">',
+                        type: 'choose', //choose - input
+                        pregunta: '¿Por qué dice Renata que fue un gran día y dormirá feliz?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Porque jugó con sus amigas en la escuela.','Porque sacó 10 en el examen de Matemáticas.','Porque sus papás la acompañaron en sus actividades.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: '¿Por qué dice Renata que fue un gran día y dormirá feliz?',
+                        opcionesImgsPrefix: '5',
+                        opciones: [],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: '¿Cuál es la palabra que completa correctamente la rima en la copla? <img src="aimg/6.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['gatos','perros','guajolotes'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: 'Es la palabra que significa lo contrario a <strong>posible</strong>.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Difícil.','Improbable.','Imposible.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: 'Es la parte que puedes consultar en un libro para localizar fácilmente la información que buscas.',
+                        opcionesImgsPrefix: '8',
+                        opciones: [],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: 'Elige la opción que muestra un cartel.',
+                        opcionesImgsPrefix: '9',
+                        opciones: [],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', //choose - input
+                        pregunta: '¿Cuál es el nombre que está escrito correctamente?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['antonio Gutiérrez.','Laura Martínez.','Pedro alvarado.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué libro debes consultar si quieres aprender sobre las águilas?',
+                        opcionesImgsPrefix: '11',
+                        opciones: [],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué palabra rima con <strong>ilusión</strong>?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Alegría.','Felicidad.','Emoción.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: 'Observa la imagen y contesta las preguntas 13 y 14.',
+                        popper: '<img src="aimg/1314.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Qué producto se anuncia en la imagen?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Refresco.','Leche.','Yogur.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: 'Observa la imagen y contesta las preguntas 13 y 14.',
+                        popper: '<img src="aimg/1314.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es la frase más llamativa en el anuncio?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El yogur nutritivo para tus hijos.','Av. Benito Juárez, #22, col. El Manzano.','¡Para que rindan en la escuela, dales yogur La Abuela!'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: 'Observa la imagen y contesta las preguntas 15, 16, 17 y 18.',
+                        popper: '<img src="aimg/15161718.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Qué tipo de texto es el anterior?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Un anuncio.','Un cartel.','Un instructivo.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: 'Observa la imagen y contesta las preguntas 15, 16, 17 y 18.',
+                        popper: '<img src="aimg/15161718.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: 'Selecciona la ilustración que falta en el paso 5.',
+                        opcionesImgsPrefix: '16',
+                        opciones: [],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: 'Observa la imagen y contesta las preguntas 15, 16, 17 y 18.',
+                        popper: '<img src="aimg/15161718.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Cuál oración indica lo que se debe hacer en el paso 2?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Pega cada esquina para formar el rehilete.','Une el hilo al papel y disfrútalo.',' Dobla la hoja otra vez por la mitad.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: 'Observa la imagen y contesta las preguntas 15, 16, 17 y 18.',
+                        popper: '<img src="aimg/15161718.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el título correcto para el instructivo?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Instrucciones para hacer un avioncito.','Instrucciones para hacer una piñata.','Instrucciones para hacer un rehilete.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Elige la palabra que completa correctamente la instrucción. <img src="aimg/19.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Blanca','Dobla','Juega'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Selecciona la opción que corresponde a una frase llamativa para un anuncio.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Av. Juárez #2250. Col. Los Montes.','¡Para ser feliz, compre colores La Lombriz!','Colores Lombriz.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Selecciona la consonante que cambia la palabra <strong>mesa</strong> en otra.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['e u p'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Selecciona las palabras que están escritas correctamente.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['california','California','cAlifornia', 'Esteban', 'esteban', 'Eztevan', 'mexico', 'méxico', 'México'],
+                        respuestaNum: [1, 3, 8],
+                        settings: {class: 'palabrascorrectas'}
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Elige la palabra que rima con amar.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Querer','Triunfar','Entender'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Selecciona la opción que tenga los temas en orden alfabético.',
+                        opcionesImgsPrefix: '24',
+                        opciones: [],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Marca la opción que representa un libro de cuentos.',
+                        opcionesImgsPrefix: '25',
+                        opciones: [],
+                        respuestaNum: 1
+                    },
+                ])

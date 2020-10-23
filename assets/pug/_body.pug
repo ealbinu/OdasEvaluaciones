@@ -1,0 +1,25 @@
+
+mixin body
+    // SCENES ############################################
+    .scene(v-for="(i, index) in scenes" v-show="currentScene == index && started")
+        .row
+            .col.mt-5.instruccion(v-if="i.instruction" v-html="i.instruction")
+            .col-md-4.text-center(v-if="i.popper"): popper: div(v-html="i.popper")
+        // Pregunta >>>>>>>>>>>>>>>>>
+        .row.mt-3.pregunta
+            // >>>> CHOOSE
+            template(v-if="i.type=='choose'")
+                choose(:key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res=false" :num="(index+1)+'.'" :text="i.pregunta" :options="buildOpImgs(i.opciones, i.opcionesImgsPrefix)"  :answer="i.respuestaNum" :isactive="currentScene == index" :settings="i.settings")
+            // >>>> SELECTABLEOPTIONS
+            template(v-else-if="i.type=='selectableoptions'")
+                selectableoptions(:key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res = false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.respuestaNum" :customclass="i.settings.class" :isactive="currentScene == index")
+                    template(v-slot:option="{option}") {{option.o}}
+    // SCENES FINALIZAR ############################################
+    .scene(v-if="currentScene == scenes.length")
+        finalize(@evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1")
+
+
+    // Counter >>>>>>>>>>
+    counter(@started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event")
+    // Navigation >>>>>>>>>>>>>>>
+    navigation(v-if="started && resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event")

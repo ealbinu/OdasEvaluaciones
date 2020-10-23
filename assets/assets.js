@@ -185,7 +185,6 @@ var app = new Vue({
             var _this = this
             domtoimage.toPng(document.body).then(function (dataUrl) {
                 _this.screen[_this.currentScene] = dataUrl
-                console.log(_this.screen.length)
             }).catch(function (error) { console.error(error) })
         }
     },

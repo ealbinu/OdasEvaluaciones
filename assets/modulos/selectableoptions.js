@@ -1,5 +1,5 @@
 Vue.component('selectableoptions', {
-    props: ['value', 'text', 'answer', 'id', 'watch', 'options', 'customclass'],
+    props: ['value', 'text', 'answer', 'id', 'watch', 'options', 'customclass', 'num'],
     data() {
         return {
             status: "",
@@ -48,9 +48,11 @@ Vue.component('selectableoptions', {
                     this.result = true
                 }
             } else {
-                if(this.status == this.answer) {
+                if(this.status == this.answer) {div
                     this.$emit('isright', true)
                     this.result = true
+                } else {
+                    this.$emit('iswrong')
                 }
             }
         }
@@ -60,9 +62,12 @@ Vue.component('selectableoptions', {
     },
     template: `
     <div :class="'row justify-content-center align-items-center selectableoptions '+setclass">
-        <div :class="customclass +' option '+ (option.val == status ? 'on':'off')" v-for="option in options" @click="clicked(option.val)">
-            <slot name="option" :option="option" />
-            <div :class="status == option.val ? 'circledactive' : ''"></div>
+        <div class="label"><strong v-if="num">{{num}}</strong> <span v-html="text"></span></div>
+        <div class="options">
+            <div :class="customclass +' option '+ (option.val == status ? 'on':'off')" v-for="option in options" @click="clicked(option.val)">
+                <slot name="option" :option="option" />
+                <!--<div :class="status == option.val ? 'circledactive' : ''"></div>-->
+            </div>
         </div>
         <div class="result" v-if="evaluate" :class="setclass + ' animate__animated animate__heartBeat'"></div>
     </div>
