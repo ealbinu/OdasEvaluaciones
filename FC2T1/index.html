@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Formación Cívica y Ética</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../assets/font/stylesheet.css?v=4"/>
+    <link rel="stylesheet" href="../../assets/assets.css?v=4"/>
+    <style>
+      .palabrascorrectas .options {
+          flex-wrap: wrap;
+      }
+      .palabrascorrectas .options > div {
+          width: 30%;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
+      <h1><span class="grade">2º</span>Formación Cívica y Ética</h1>
+      <!-- SCENES ############################################-->
+      <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started">
+        <div class="row">
+          <div class="col mt-5 instruccion" v-if="i.instruction" v-html="i.instruction"></div>
+          <div class="col-md-4 text-center" v-if="i.popper">
+            <popper>
+              <div v-html="i.popper"></div>
+            </popper>
+          </div>
+        </div>
+        <!-- Pregunta >>>>>>>>>>>>>>>>>-->
+        <div class="row mt-3 pregunta">
+          <!-- >>>> CHOOSE-->
+          <template v-if="i.type=='choose'">
+            <choose :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res=false" :num="(index+1)+'.'" :text="i.pregunta" :options="buildOpImgs(i.opciones, i.opcionesImgsPrefix)" :answer="i.respuestaNum" :isactive="currentScene == index" :settings="i.settings"></choose>
+          </template>
+          <!-- >>>> SELECTABLEOPTIONS-->
+          <template v-else-if="i.type=='selectableoptions'">
+            <selectableoptions :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res = false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.respuestaNum" :customclass="i.settings.class" :isactive="currentScene == index">
+              <template v-slot:option="{option}">{{option.o}}</template>
+            </selectableoptions>
+          </template>
+        </div>
+      </div>
+      <!-- SCENES FINALIZAR ############################################-->
+      <div class="scene" v-if="currentScene == scenes.length">
+        <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1"></finalize>
+      </div>
+      <!-- Counter >>>>>>>>>>-->
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event"></counter>
+      <!-- Navigation >>>>>>>>>>>>>>>-->
+      <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event"></navigation>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
+    <script src="../../assets/modulos/dragdropMod.js"></script>
+    <script src="../../assets/modulos/dropdowns.js"></script>
+    <script src="../../assets/modulos/selectable.js"></script>
+    <script src="../../assets/modulos/selectableoptions.js"></script>
+    <script src="../../assets/modulos/check.js"></script>
+    <script src="../../assets/modulos/inputbox.js"></script>
+    <script src="../../assets/modulos/choose.js"></script>
+    <script src="../../assets/modulos/popper.js"></script>
+    <script src="../../assets/modulos/finalize.js?v=4"></script>
+    <script src="../../assets/modulos/counter.js?v=4"></script>
+    <script src="../../assets/modulos/utils.js?v=4"></script>
+    <script src="../../assets/assets.js?v=4"></script>
+    <script>
+      //app.$set(app, 'currentScene', 0)
+      app.$set(app, 'scenes', [
+           {
+               instruction: 'Selecciona la respuesta correcta.',
+               popper: '',
+               type: 'choose', 
+               pregunta: '¿Cómo se le llama al grupo de personas que comparten un hogar y están unidos por el cariño?',
+               opcionesImgsPrefix: null,
+               opciones: ['Familia.','Sociedad.','Maestros.'],
+               respuestaNum: 0
+           },
+           {
+               instruction: '',
+               popper: '',
+               type: 'choose', 
+               pregunta: '¿Cuál es la persona encargada de tu protección en la escuela?',
+               opcionesImgsPrefix: '2',
+               opciones: [],
+               respuestaNum: 1
+           },
+           {
+               instruction: '',
+               popper: '',
+               type: 'choose', 
+               pregunta: '¿Cuál es una de las necesidades básicas para que el ser humano sobreviva?',
+               opcionesImgsPrefix: '3',
+               opciones: [],
+               respuestaNum: 2
+           },
+           {
+               instruction: '',
+               popper: '',
+               type: 'choose', 
+               pregunta: '¿Cuál es un derecho que garantiza la integridad emocional?',
+               opcionesImgsPrefix: null,
+               opciones: ['La vida.','El alimento.','La recreación.'],
+               respuestaNum: 2
+           },
+           {
+               instruction: '',
+               popper: '',
+               type: 'choose', 
+               pregunta: 'Es un deber que se tiene en casa.',
+               opcionesImgsPrefix: null,
+               opciones: ['Recoger el cuarto.','Levantar la mano para opinar en clases.','Evitar tirar basura en el parque.'],
+               respuestaNum: 0
+           },
+      ])
+    </script>
+  </body>
+</html>
