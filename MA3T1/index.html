@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Matemáticas</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../assets/font/stylesheet.css?v=4"/>
+    <link rel="stylesheet" href="../../assets/assets.css?v=4"/>
+    <style>
+      .palabrascorrectas .options {
+          flex-wrap: wrap;
+      }
+      .palabrascorrectas .options > div {
+          width: 30%;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
+      <h1><span class="grade">3º</span>Matemáticas</h1>
+      <!-- SCENES ############################################-->
+      <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started">
+        <div class="row">
+          <div class="col mt-5 instruccion" v-if="i.instruction" v-html="i.instruction"></div>
+          <div class="col-md-4 text-center" v-if="i.popper">
+            <popper>
+              <div v-html="i.popper"></div>
+            </popper>
+          </div>
+        </div>
+        <!-- Pregunta >>>>>>>>>>>>>>>>>-->
+        <div class="row mt-3 pregunta">
+          <!-- >>>> CHOOSE-->
+          <template v-if="i.type=='choose'">
+            <choose :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res=false" :num="(index+1)+'.'" :text="i.pregunta" :options="buildOpImgs(i.opciones, i.opcionesImgsPrefix)" :answer="i.respuestaNum" :isactive="currentScene == index" :settings="i.settings"></choose>
+          </template>
+          <!-- >>>> SELECTABLEOPTIONS-->
+          <template v-else-if="i.type=='selectableoptions'">
+            <selectableoptions :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res = false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.respuestaNum" :customclass="i.settings.class" :isactive="currentScene == index">
+              <template v-slot:option="{option}">{{option.o}}</template>
+            </selectableoptions>
+          </template>
+        </div>
+      </div>
+      <!-- SCENES FINALIZAR ############################################-->
+      <div class="scene" v-if="currentScene == scenes.length">
+        <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1"></finalize>
+      </div>
+      <!-- Counter >>>>>>>>>>-->
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event"></counter>
+      <!-- Navigation >>>>>>>>>>>>>>>-->
+      <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event"></navigation>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
+    <script src="../../assets/modulos/dragdropMod.js"></script>
+    <script src="../../assets/modulos/dropdowns.js"></script>
+    <script src="../../assets/modulos/selectable.js"></script>
+    <script src="../../assets/modulos/selectableoptions.js"></script>
+    <script src="../../assets/modulos/check.js"></script>
+    <script src="../../assets/modulos/inputbox.js"></script>
+    <script src="../../assets/modulos/choose.js"></script>
+    <script src="../../assets/modulos/popper.js"></script>
+    <script src="../../assets/modulos/finalize.js?v=4"></script>
+    <script src="../../assets/modulos/counter.js?v=4"></script>
+    <script src="../../assets/modulos/utils.js?v=4"></script>
+    <script src="../../assets/assets.js?v=4"></script>
+    <script>
+      //app.$set(app, 'currentScene', 0)
+      app.$set(app, 'scenes', [
+          {
+              instruction: 'Selecciona la respuesta correcta.',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la descomposición aditiva de 4 598.',
+              opcionesImgsPrefix: null,
+              opciones: ['40 + 5 000 + 900 + 8','4 000 + 500 + 90 + 8','4 000 + 50 + 90 + 8','40 + 500 + 90 + 8'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el número en el que hay 8 decenas.',
+              opcionesImgsPrefix: null,
+              opciones: ['7 853','8 324','5 281','3 968'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Martín compró un kilo de fresas que le costó $40. Si llevaba $100, ¿cuánto dinero le sobró?',
+              opcionesImgsPrefix: null,
+              opciones: ['$56','$60','$62','$52'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el resultado de la siguiente resta? <img src="aimg/4.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['132','136','139','138'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Selecciona el resultado de la siguiente multiplicación. <img src="aimg/5.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['800','600','700','900'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Si en una tienda de mascotas hay 7 peceras con 6 peces cada una, ¿cuántos peces hay en total?',
+              opcionesImgsPrefix: null,
+              opciones: ['40 peces.','36 peces.','44 peces.','42 peces.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Elige el conjunto de multiplicaciones que dan como resultado 28.',
+              opcionesImgsPrefix: null,
+              opciones: ['3 × 6, 5 × 2, 8 × 3.','7 × 4, 4 × 6, 6 × 6.','14 × 2, 6 × 4, 8 × 3.','4 × 7, 7 × 4, 14 × 2.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Alberto compró 60 bolsas de naranjas que contienen 10 naranjas cada una. ¿Cuántas naranjas compró en total?',
+              opcionesImgsPrefix: null,
+              opciones: ['400 naranjas.','500 naranjas.','600 naranjas.','700 naranjas.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Karla compró 8 cajas con 20 chocolates ca- da una. ¿Cuántos chocolates tiene en total?',
+              opcionesImgsPrefix: null,
+              opciones: ['160 chocolates.','140 chocolates.','120 chocolates.','130 chocolates.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Elige la opción que marca cuánto tiempo ha pasado entre la hora marcada en el <strong>reloj 1</strong> y la hora del <strong style="color: #0781BA">reloj 2</strong>. <img src="aimg/10.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['4 horas y 15 minutos.','5 horas y 15 minutos.','4 horas y 25 minutos.','5 horas y 25 minutos.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Alejandro asistirá a un partido de futbol que inicia a las 12:45 p. m. Si tarda 1 hora y 25 minutos para llegar de su casa al estadio, ¿a qué hora debe salir de su casa para llegar a tiempo?',
+              opcionesImgsPrefix: null,
+              opciones: ['A las 11:20 a. m.','A las 12:20 a. m.','A las 11:40 a. m.','A las 11:20 p. m.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Observa la tabla y contesta: ¿Cuánto paga- rías si compras un platillo de cada uno del restaurante “El Cacito”? <img src="aimg/12.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['$228','$213','$203','$223'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué número representa 6 unidades de millar?',
+              opcionesImgsPrefix: null,
+              opciones: ['6 000','60','600','6'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál de las siguientes comparaciones es correcta?',
+              opcionesImgsPrefix: null,
+              opciones: ['147 > 187','456 = 458','227 > 198','367 < 189'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la descomposición aditiva del número 8 634.',
+              opcionesImgsPrefix: null,
+              opciones: ['8 000 + 600 + 30 + 4','800 + 60 + 3 + 4','8 000 + 60 + 3 + 4','80 + 600 + 3 + 4'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cómo se lee correctamente el siguiente número descompuesto? <img src="aimg/16.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['Seiscientos cuarenta y ocho.','Seis mil cuatrocientos ocho.','Seiscientos ocho.','Seis mil cuatrocientos cuarenta y ocho.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el resultado de la siguiente multiplicación. <img src="aimg/17.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['340','360','320','380'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Alejandro compró un ramo con 30 rosas. Si cada rosa cuesta $22, ¿cuánto costó el ramo?',
+              opcionesImgsPrefix: null,
+              opciones: ['$720','$680','$580','$660'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Jorge compró 6 paquetes de galletas. Si ca- da paquete tiene 20 galletas, ¿cuántas ga- lletas tiene Jorge en total?',
+              opcionesImgsPrefix: null,
+              opciones: ['120 galletas.','160 galletas.','140 galletas.','60 galletas.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Rosa tenía ahorrados $200. Si compró unas calcomanías que cuestan $8, ¿cuánto dinero le sobró? <img src="aimg/20.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['$162','$192','$182','$172'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál de las siguientes actividades dura más tiempo?',
+              opcionesImgsPrefix: null,
+              opciones: ['Hornear un pastel durante 50 minutos.','Hacer un viaje en autobús de 2 horas y 30 minutos.','Tener una clase de inglés de 1 hora.','Ver un programa de televisión durante 30 minutos.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el valor posicional del 4 en el número 6 438.',
+              opcionesImgsPrefix: null,
+              opciones: ['8','30','400','6 000'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el resultado de la siguiente resta? <img src="aimg/23.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['272','282','292','252'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuántas unidades tienen 7 millares?',
+              opcionesImgsPrefix: null,
+              opciones: ['700 centenas.','7 centenas.','7 000 unidades.','70 decenas.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuántos árboles hay en el terreno? <img src="aimg/25.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['88 árboles.','77 árboles.','66 árboles.','99 árboles.'],
+              respuestaNum: 1
+          },
+      ])
+    </script>
+  </body>
+</html>
