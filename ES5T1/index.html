@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Español</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../assets/font/stylesheet.css?v=4"/>
+    <link rel="stylesheet" href="../../assets/assets.css?v=4"/>
+    <style></style>
+  </head>
+  <body>
+    <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
+      <h1><span class="grade">4º</span>Español</h1>
+      <!-- SCENES ############################################-->
+      <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started">
+        <div class="row">
+          <div class="col mt-5 instruccion" v-if="i.instruction" v-html="i.instruction"></div>
+          <div class="col-md-4 text-center" v-if="i.popper">
+            <popper>
+              <div v-html="i.popper"></div>
+            </popper>
+          </div>
+        </div>
+        <!-- Pregunta >>>>>>>>>>>>>>>>>-->
+        <div class="row mt-3 pregunta">
+          <!-- >>>> CHOOSE-->
+          <template v-if="i.type=='choose'">
+            <choose :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res=false" :num="(index+1)+'.'" :text="i.pregunta" :options="buildOpImgs(i.opciones, i.opcionesImgsPrefix, i.settings)" :answer="i.respuestaNum" :isactive="currentScene == index" :settings="i.settings"></choose>
+          </template>
+          <!-- >>>> SELECTABLEOPTIONS-->
+          <template v-else-if="i.type=='selectableoptions'">
+            <selectableoptions :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res = false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.respuestaNum" :customclass="i.settings.class" :isactive="currentScene == index">
+              <template v-slot:option="{option}">{{option.o}}</template>
+            </selectableoptions>
+          </template>
+        </div>
+      </div>
+      <!-- SCENES FINALIZAR ############################################-->
+      <div class="scene" v-if="currentScene == scenes.length">
+        <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1"></finalize>
+      </div>
+      <!-- Counter >>>>>>>>>>-->
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event"></counter>
+      <!-- Navigation >>>>>>>>>>>>>>>-->
+      <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event"></navigation>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
+    <script src="../../assets/modulos/dragdropMod.js"></script>
+    <script src="../../assets/modulos/dropdowns.js"></script>
+    <script src="../../assets/modulos/selectable.js"></script>
+    <script src="../../assets/modulos/selectableoptions.js"></script>
+    <script src="../../assets/modulos/check.js"></script>
+    <script src="../../assets/modulos/inputbox.js"></script>
+    <script src="../../assets/modulos/choose.js"></script>
+    <script src="../../assets/modulos/popper.js"></script>
+    <script src="../../assets/modulos/finalize.js?v=4"></script>
+    <script src="../../assets/modulos/counter.js?v=4"></script>
+    <script src="../../assets/modulos/utils.js?v=4"></script>
+    <script src="../../assets/assets.js?v=4"></script>
+    <script>
+      //app.$set(app, 'currentScene', 0)
+      app.$set(app, 'scenes', [
+          {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+              popper: '<img src="aimg/lectura.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Qué tipo de animal es el pingüino emperador?',
+              opcionesImgsPrefix: null,
+              opciones: ['Un crustáceo.','Un mamífero.','Un insecto.','Un ave marina.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+              popper: '<img src="aimg/lectura.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Quién incuba el huevo de la cría del pingüino emperador?',
+              opcionesImgsPrefix: null,
+              opciones: ['La hembra.','El macho.','Un pez.','Una foca.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+              popper: '<img src="aimg/lectura.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Cuál es la esperanza de vida de un pingüino emperador?',
+              opcionesImgsPrefix: null,
+              opciones: ['Entre cinco y diez años.','Entre diez y veinte años.','Entre veinte y cincuenta años.','Entre dos y ocho años.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+              popper: '<img src="aimg/lectura.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Cuál es la enseñanza importante que nos deja la vida del pingüino emperador?',
+              opcionesImgsPrefix: null,
+              opciones: ['En la familia sólo el papá debe colaborar para vivir.','En la familia sólo la mamá debe alimentar a los hijos.','En la familia es importante que todos piensen igual.','En la familia todos deben colaborar para vivir.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el elemento que nos hace reflexionar sobre las virtudes y los defectos humanos en las fábulas?',
+              opcionesImgsPrefix: null,
+              opciones: ['El verso.','La moraleja.','El refrán.','La ficha informativa.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el adverbio en la siguiente oración? <img src="aimg/6.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['cancha','rápidamente','corría','futbol'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Laura debe hacer una investigación sobre las abejas. ¿Qué debe identificar primero?',
+              opcionesImgsPrefix: null,
+              opciones: ['Los temas que van a tratar sus compañeros.','Las personas a las que va a entrevistar.','El tiempo disponible que tiene para investigar.','Las palabras clave sobre el tema.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el elemento que se usa en la publicidad para atraer al consumidor usando juegos de palabras?',
+              opcionesImgsPrefix: null,
+              opciones: ['Estereotipo.','Eslogan.','Refrán.','Fábula.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es una figura retórica?',
+              opcionesImgsPrefix: null,
+              opciones: ['Hipérbole.','Sustantivo.','Adjetivo.','Adverbio.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Lee el siguiente texto y contesta las pregun- tas 10 a 12.',
+              popper: '<img src="aimg/101112.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Qué tipo de texto es el que acabas de leer?',
+              opcionesImgsPrefix: null,
+              opciones: ['Un poema.','Una noticia.','Una obra de teatro.','Una fábula.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: 'Lee el siguiente texto y contesta las pregun- tas 10 a 12.',
+              popper: '<img src="aimg/101112.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Qué nombre recibe la última oración de la fábula?',
+              opcionesImgsPrefix: null,
+              opciones: ['Verso.','Moraleja.','Refrán.','Estrofa.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: 'Lee el siguiente texto y contesta las pregun- tas 10 a 12.',
+              popper: '<img src="aimg/101112.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Cuáles son los personajes de la fábula?',
+              opcionesImgsPrefix: '12',
+              opciones: [],
+              respuestaNum: 2,
+              settings: {imgs:4},
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el adverbio que completa correctamente la siguiente oración.',
+              opcionesImgsPrefix: null,
+              opciones: ['azul','aprendemos','Miguel Hidalgo','rápidamente'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: ' Son palabras que se usan en los anuncios para resaltar las cualidades de un producto o servicio que se ofrece.',
+              opcionesImgsPrefix: null,
+              opciones: ['Verbos.','Adjetivos.','Adverbios.','Sustantivos.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cómo se les llama a las palabras que indican el tiempo en que ocurren los hechos en un suceso?',
+              opcionesImgsPrefix: null,
+              opciones: ['Adverbios de modo.','Nexos de causa.','Nexos temporales.','Textos temporales.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: ' Elige el adjetivo que completa correctamente el eslogan con rima. <img src="aimg/16.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['rápidamente','fuerte','lujosa','de color'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es una característica en común de los refranes y las fábulas?',
+              opcionesImgsPrefix: null,
+              opciones: ['Buscan mostrar los sentimientos de personas.','Tratan sobre animales que hablan.','Buscan dar un consejo o una enseñanza.','Tratan temas de tecnología.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cómo se organizan los textos expositivos?',
+              opcionesImgsPrefix: null,
+              opciones: ['Con versos y estrofas.','Con títulos y subtítulos.','Usando diferentes colores para el texto.','Con organigramas e imágenes.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Lee la oración y selecciona la opción que indica su consecuencia. <img src="aimg/19.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['Andrea se quedó en casa haciendo tarea.','Andrea salió por la noche y llevó un suéter.','Andrea no quiso salir a jugar.','Andrea se fue a la escuela.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el signo de puntuación que se usa para las enumeraciones o el listado de cosas, personas o animales?',
+              opcionesImgsPrefix: null,
+              opciones: ['El punto.','El guion.','La coma.','El acento.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el adverbio causal que completa correctamente la siguiente oración?',
+              opcionesImgsPrefix: null,
+              opciones: ['cuando','debido a','tranquilamente','cansado'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué usan los anuncios para representar a ciertas personas o actividades?',
+              opcionesImgsPrefix: null,
+              opciones: ['Adverbios.','Eslóganes.','Colores pastel.','Estereotipos.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es lo que debe incluir la introducción de un relato histórico.',
+              opcionesImgsPrefix: null,
+              opciones: ['Una moraleja y un refrán.','De qué trata y el periodo que abarca.','Rima y otras figuras retóricas.','Un trabalenguas y verbos en presente.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál elemento no aparece en el índice de un libro?',
+              opcionesImgsPrefix: null,
+              opciones: ['Páginas para encontrar los temas.','Títulos y subtítulos.','Resumen de los temas.','Páginas para encontrar los subtítulos.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué es la propaganda?',
+              opcionesImgsPrefix: null,
+              opciones: ['Los anuncios que tienen una finalidad social o política.','Los anuncios que tienen una función literaria.','Los anuncios que tienen una función científica.','Los anuncios que tienen una finalidad social e informativa.'],
+              respuestaNum: 0
+          },
+      ])
+    </script>
+  </body>
+</html>

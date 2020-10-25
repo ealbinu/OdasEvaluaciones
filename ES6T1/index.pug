@@ -1,0 +1,270 @@
+include ../assets/pug/_head
+include ../assets/pug/_body
+include ../assets/pug/_scripts
+
+- grade = '4º'
+- title = 'Español'
+- subtitle = ''
+
+<!DOCTYPE html>
+html(lang="es")
+    +head
+        style.
+            .palabrascorrectas .options {
+                flex-wrap: wrap;
+            }
+            .palabrascorrectas .options > div {
+                width: 30%;
+            }
+
+    body
+        #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
+            h1
+                span.grade #{grade}
+                | #{title}
+            if subtitle.length>1
+                h2 #{subtitle}
+
+            +body
+
+        +scripts
+            script.
+                //app.$set(app, 'currentScene', 0)
+                app.$set(app, 'scenes', [
+                    {
+                        instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+                        popper: '<img src="aimg/lectura.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: 'Selecciona la oración que represente la idea principal del texto.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Sobre las aventuras de los primos.','Sobre las experiencias de vida con los abuelos.','Sobre la descripción del pueblo San Pedrito.','Sobre los papás de Carmen.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+                        popper: '<img src="aimg/lectura.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se mantenía don Salvador a pesar de ser mayor?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Cansado y triste.','Paciente y sereno.','Serio y tranquilo.','Fuerte y alegre.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+                        popper: '<img src="aimg/lectura.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Qué decía Narcisa sobre la comida?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Que era más rica cuando se hacía con amor.','Que siempre había que usar los mejores ingredientes.','Que había que congelarla después de cocinarla.','Que era mejor comprarla ya preparada.'],
+                        respuestaNum: 0
+                    },
+                    
+                    {
+                        instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+                        popper: '<img src="aimg/lectura.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: 'Según don Salvador, ¿cómo se gana el respeto?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Cuando los demás te regalan muchas cosas.','Cuando tratas mal a los demás.','Cuando te alejas de la gente.','Cuando aprendes a respetar a los demás.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál de las siguientes preguntas está escrita de forma correcta?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['¿Qué especies marinas están en peligro de extinción?','¿Como podemos ayudar a animales marinos?','Cuál es el animal más grande sobre la tierra?','En qué época vivieron los dinosaurios.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el tipo de respuesta reproducida de la fuente de consulta con palabras propias o usando sinónimos.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Respuesta con cita textual.','Respuesta parafraseada.','Respuesta construida.','Respuesta abierta.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son los signos de puntuación que nos indican que un texto tiene una cita textual.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Comillas.','Dos puntos.','Paréntesis.','Punto y seguido.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es un aspecto que debes considerar al investigar la información para preparar una exposición.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Elaborar carteles como material de apoyo.','Dar la bienvenida al público a tu exposición.','Plantear preguntas que guíen la búsqueda de información.','Aprenderte el guion para tu exposición.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál de las imágenes podrías utilizar en un cartel para exponer el tema de los volcanes?',
+                        opcionesImgsPrefix: '9',
+                        opciones: [],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Lee con atención el siguiente texto y elige el encabezado que mejor le corresponda. <img src="aimg/10.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El águila como símbolo de poder.','Lo que comen las águilas.','El águila en peligro de extinción.','La alimentación de las águilas.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Elige la opción que sea un sinónimo para la palabra resaltada en la siguiente oración. <img src="aimg/11.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Comen.','Juegan.','Viven.','Nacen.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Elige la palabra que completa correctamente la siguiente rima. <img src="aimg/12.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['lana','manchitas','Campeche','papel'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿A qué familia léxica pertenecen las palabras <strong>artesano</strong>, <strong>artesanal</strong> y <strong>artístico</strong>?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Pan.','Rallar.','Pintar.','Arte.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: ' ¿Qué tipo de texto es el siguiente? <img src="aimg/14.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Trabalenguas.','Adivinanza.','Calambur.','Copla.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Con cuál de los siguientes símbolos representarías un hospital en un croquis?',
+                        opcionesImgsPrefix: '15',
+                        opciones: [],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la función que cumplen los croquis.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Dar información sobre el contenido de un libro.','Servir como material de apoyo en una exposición.','Dar indicaciones para llegar de un lugar a otro de forma sencilla.','Explicar las características de los mapas.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Con qué elementos puedes señalar el trayecto en un croquis para identificar el camino fácilmente?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Con abreviaturas y siglas.','Con símbolos y signos.','Con líneas y flechas.','Con letras y palabras.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Observa el croquis y elige la opción del lugar que está dos cuadras al oeste de la panadería. <img src="aimg/18.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Parque.','Gasolinera.','Correos.','Escuela.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es la utilidad de un mapa conceptual cuando hacemos una monografía?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Explicar de manera amplia la información.','Plantear la información de forma general.','Identificar temas principales y secundarios, y la relación entre ellos.','Extraer sólo las ideas principales de los textos investigados.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Para qué sirven las oraciones tópicas a la hora de redactar una monografía?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Son la base para redactar los párrafos de cada subtema de la monografía.','Nos indican qué tema es más importante que otro.','Sirven para ordenar alfabéticamente los temas y subtemas.','Nos explican qué tipo de imágenes usar para ilustrar la monografía que escribimos.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Para qué sirve un texto monográfico?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Para entretenernos con rimas y coplas.','Para conocer historias y cuentos de hadas.','Para conocer información sobre un tema en específico.','Para transmitir datos estadísticos sobre una ciudad.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el recurso literario en el cual se compara una situación con otra.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Analogía.','Rima.','Juego de palabras.','Metáfora.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el recurso literario que se usa en los refranes basado en la repetición de sonidos al final de los versos.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Analogía.','Rima.','Juego de palabras.','Metáfora.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Lee el refrán y elige el mensaje implícito que mejor lo explique. <img src="aimg/24.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Los pericos son verdes en todas partes.','Que hay que cuidarse de los pericos que son verdes.','Que quien es bueno para algo, donde sea lo demuestra.','Podemos confiar en los que son verdes como los pericos.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué tipo de palabras están resaltadas en el siguiente texto? <img src="aimg/25.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Verbos y sustantivos.','Adjetivos y adverbios.','Artículos y pronombres.','Nexos y complementos.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Elige el refrán que mejor le quede a la siguiente historia. <img src="aimg/26.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Al mal paso darle prisa.','No por mucho madrugar amanece más temprano.','Camarón que se duerme se lo lleva la corriente.','Perro que ladra no muerde.'],
+                        respuestaNum: 2
+                    },
+                    
+                ])
