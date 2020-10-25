@@ -1,0 +1,199 @@
+include ../assets/pug/_head
+include ../assets/pug/_body
+include ../assets/pug/_scripts
+
+- grade = '4º'
+- title = 'Geografía'
+- subtitle = ''
+
+<!DOCTYPE html>
+html(lang="es")
+    +head
+        style.
+
+    body
+        #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
+            h1
+                span.grade #{grade}
+                | #{title}
+            if subtitle.length>1
+                h2 #{subtitle}
+
+            +body
+
+        +scripts
+            script.
+                //app.$set(app, 'currentScene', 0)
+                app.$set(app, 'scenes', [
+                    {
+                        instruction: 'Selecciona la respuesta correcta.',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son países con los que México tiene fron- teras naturales y artificiales, excepto uno. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Guatemala.','Estados Unidos.','Nicaragua.','Belice.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el nombre que reciben las porciones del océano que pertenecen a México y comprenden desde la línea costera hasta 370.4 kilómetros mar adentro.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Mar patrimonial.','Mar profundo.','Mar territorial.','Mar de fondo.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el tipo de frontera a la que pertenecen lagos, ríos y montañas que marcan los límites de un país.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Limítrofe.','Artificial.','Marítima.','Natural.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es otro nombre con el que se conocen los municipios.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Estados.','Continentes.','Alcaldías.','Entidades federativas.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el documento legal que otorga libertad y soberanía a los estados que integran la república mexicana.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Constitución de 1824.','Constitución de 1917.','Constitución de 1857.','Alcaldía de Iztapalapa.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la entidad federativa que tiene el mayor número de municipios en todo México.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Baja California.','Oaxaca.','Jalisco.','Veracruz.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el documento que nos sirve para obtener información sobre las características de un lugar, así como para localizar desde un municipio hasta un territorio extenso.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Carta de navegación.','Croquis.','Rosa de los vientos.','Mapa.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Para qué sirve la escala en un mapa?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Para hacer los mapas más coloridos y llamativos.','Para hacer que los objetos se vean de tamaño normal en un mapa.','Para representar lugares y objetos muy grandes de manera reducida.','Para marcar la división política de un país.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son las líneas imaginarias que usamos para localizar un punto en el mapa.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Paralelos y meridianos.','Horizontales y verticales.','Rectas y diagonales.','Grados y minutos.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la región de México en la que se encuentran los estados de Veracruz y Yucatán.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Región norte.','Región occidental.','Región sur.','Región oriental.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: ' Son los indígenas que habitan en los valles de Oaxaca y se dedican a hacer bordados en telar y objetos de barro negro.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Mayas.','Zapotecas.','Huicholes.','Triquis.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la forma de relieve que se encuentra cercana al mar y tiene poca pendiente.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Meseta.','Montaña.','Llanura.','Valle.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son llanuras formadas principalmente por un río y situadas entre montañas.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Valles.','Mesetas.','Altiplanicies.','Montañas.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el relieve mexicano formado por una serie de volcanes y valles que atraviesa al país desde Jalisco hasta Veracruz.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Altiplanicie Mexicana.','Llanura costera del Pacífico.','Sistema Volcánico Transversal.','Sierra Madre Oriental.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Nombre que recibe la unión de ríos pequeños en uno principal.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Cuenca hidrológica.','Vertiente.','Cañada.','Barranco.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son las grandes vertientes de ríos que tiene México, excepto una. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Vertiente del interior.','Vertiente del Pacífico.','Vertiente del Atlántico.','Vertiente del Caribe.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son movimientos de la corteza terrestre generados por el movimiento de las placas tectónicas.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Planicies.','Traslación.','Sismos.','Rotación.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es de la capital de México?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Ciudad de México.','Guadalajara.','Monterrey.','Colima.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el nombre del río que sirve como frontera y divide a México de Estados Unidos?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Río Santiago.','Río Lerma.','Río Papaloapan.','Río Bravo.'],
+                        respuestaNum: 3
+                    },
+                ])

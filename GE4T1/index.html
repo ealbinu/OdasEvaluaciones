@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Geografía</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../assets/font/stylesheet.css?v=4"/>
+    <link rel="stylesheet" href="../../assets/assets.css?v=4"/>
+    <style></style>
+  </head>
+  <body>
+    <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
+      <h1><span class="grade">4º</span>Geografía</h1>
+      <!-- SCENES ############################################-->
+      <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started">
+        <div class="row">
+          <div class="col mt-5 instruccion" v-if="i.instruction" v-html="i.instruction"></div>
+          <div class="col-md-4 text-center" v-if="i.popper">
+            <popper>
+              <div v-html="i.popper"></div>
+            </popper>
+          </div>
+        </div>
+        <!-- Pregunta >>>>>>>>>>>>>>>>>-->
+        <div class="row mt-3 pregunta">
+          <!-- >>>> CHOOSE-->
+          <template v-if="i.type=='choose'">
+            <choose :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res=false" :num="(index+1)+'.'" :text="i.pregunta" :options="buildOpImgs(i.opciones, i.opcionesImgsPrefix)" :answer="i.respuestaNum" :isactive="currentScene == index" :settings="i.settings"></choose>
+          </template>
+          <!-- >>>> SELECTABLEOPTIONS-->
+          <template v-else-if="i.type=='selectableoptions'">
+            <selectableoptions :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res = false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.respuestaNum" :customclass="i.settings.class" :isactive="currentScene == index">
+              <template v-slot:option="{option}">{{option.o}}</template>
+            </selectableoptions>
+          </template>
+        </div>
+      </div>
+      <!-- SCENES FINALIZAR ############################################-->
+      <div class="scene" v-if="currentScene == scenes.length">
+        <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1"></finalize>
+      </div>
+      <!-- Counter >>>>>>>>>>-->
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event"></counter>
+      <!-- Navigation >>>>>>>>>>>>>>>-->
+      <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event"></navigation>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
+    <script src="../../assets/modulos/dragdropMod.js"></script>
+    <script src="../../assets/modulos/dropdowns.js"></script>
+    <script src="../../assets/modulos/selectable.js"></script>
+    <script src="../../assets/modulos/selectableoptions.js"></script>
+    <script src="../../assets/modulos/check.js"></script>
+    <script src="../../assets/modulos/inputbox.js"></script>
+    <script src="../../assets/modulos/choose.js"></script>
+    <script src="../../assets/modulos/popper.js"></script>
+    <script src="../../assets/modulos/finalize.js?v=4"></script>
+    <script src="../../assets/modulos/counter.js?v=4"></script>
+    <script src="../../assets/modulos/utils.js?v=4"></script>
+    <script src="../../assets/assets.js?v=4"></script>
+    <script>
+      //app.$set(app, 'currentScene', 0)
+      app.$set(app, 'scenes', [
+          {
+              instruction: 'Selecciona la respuesta correcta.',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son países con los que México tiene fron- teras naturales y artificiales, excepto uno. ¿Cuál es?',
+              opcionesImgsPrefix: null,
+              opciones: ['Guatemala.','Estados Unidos.','Nicaragua.','Belice.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el nombre que reciben las porciones del océano que pertenecen a México y comprenden desde la línea costera hasta 370.4 kilómetros mar adentro.',
+              opcionesImgsPrefix: null,
+              opciones: ['Mar patrimonial.','Mar profundo.','Mar territorial.','Mar de fondo.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el tipo de frontera a la que pertenecen lagos, ríos y montañas que marcan los límites de un país.',
+              opcionesImgsPrefix: null,
+              opciones: ['Limítrofe.','Artificial.','Marítima.','Natural.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es otro nombre con el que se conocen los municipios.',
+              opcionesImgsPrefix: null,
+              opciones: ['Estados.','Continentes.','Alcaldías.','Entidades federativas.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el documento legal que otorga libertad y soberanía a los estados que integran la república mexicana.',
+              opcionesImgsPrefix: null,
+              opciones: ['Constitución de 1824.','Constitución de 1917.','Constitución de 1857.','Alcaldía de Iztapalapa.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la entidad federativa que tiene el mayor número de municipios en todo México.',
+              opcionesImgsPrefix: null,
+              opciones: ['Baja California.','Oaxaca.','Jalisco.','Veracruz.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el documento que nos sirve para obtener información sobre las características de un lugar, así como para localizar desde un municipio hasta un territorio extenso.',
+              opcionesImgsPrefix: null,
+              opciones: ['Carta de navegación.','Croquis.','Rosa de los vientos.','Mapa.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Para qué sirve la escala en un mapa?',
+              opcionesImgsPrefix: null,
+              opciones: ['Para hacer los mapas más coloridos y llamativos.','Para hacer que los objetos se vean de tamaño normal en un mapa.','Para representar lugares y objetos muy grandes de manera reducida.','Para marcar la división política de un país.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son las líneas imaginarias que usamos para localizar un punto en el mapa.',
+              opcionesImgsPrefix: null,
+              opciones: ['Paralelos y meridianos.','Horizontales y verticales.','Rectas y diagonales.','Grados y minutos.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la región de México en la que se encuentran los estados de Veracruz y Yucatán.',
+              opcionesImgsPrefix: null,
+              opciones: ['Región norte.','Región occidental.','Región sur.','Región oriental.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: ' Son los indígenas que habitan en los valles de Oaxaca y se dedican a hacer bordados en telar y objetos de barro negro.',
+              opcionesImgsPrefix: null,
+              opciones: ['Mayas.','Zapotecas.','Huicholes.','Triquis.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la forma de relieve que se encuentra cercana al mar y tiene poca pendiente.',
+              opcionesImgsPrefix: null,
+              opciones: ['Meseta.','Montaña.','Llanura.','Valle.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son llanuras formadas principalmente por un río y situadas entre montañas.',
+              opcionesImgsPrefix: null,
+              opciones: ['Valles.','Mesetas.','Altiplanicies.','Montañas.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el relieve mexicano formado por una serie de volcanes y valles que atraviesa al país desde Jalisco hasta Veracruz.',
+              opcionesImgsPrefix: null,
+              opciones: ['Altiplanicie Mexicana.','Llanura costera del Pacífico.','Sistema Volcánico Transversal.','Sierra Madre Oriental.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Nombre que recibe la unión de ríos pequeños en uno principal.',
+              opcionesImgsPrefix: null,
+              opciones: ['Cuenca hidrológica.','Vertiente.','Cañada.','Barranco.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son las grandes vertientes de ríos que tiene México, excepto una. ¿Cuál es?',
+              opcionesImgsPrefix: null,
+              opciones: ['Vertiente del interior.','Vertiente del Pacífico.','Vertiente del Atlántico.','Vertiente del Caribe.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son movimientos de la corteza terrestre generados por el movimiento de las placas tectónicas.',
+              opcionesImgsPrefix: null,
+              opciones: ['Planicies.','Traslación.','Sismos.','Rotación.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es de la capital de México?',
+              opcionesImgsPrefix: null,
+              opciones: ['Ciudad de México.','Guadalajara.','Monterrey.','Colima.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el nombre del río que sirve como frontera y divide a México de Estados Unidos?',
+              opcionesImgsPrefix: null,
+              opciones: ['Río Santiago.','Río Lerma.','Río Papaloapan.','Río Bravo.'],
+              respuestaNum: 3
+          },
+      ])
+    </script>
+  </body>
+</html>
