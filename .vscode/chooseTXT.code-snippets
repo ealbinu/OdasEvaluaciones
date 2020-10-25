@@ -43,6 +43,21 @@
 			"},",
 		]
 	},
+	"ChooseIMG4": {
+		"prefix": "ci4",
+		"body": [
+			"{",
+				"	instruction: '',",
+				"	popper: '',",
+				"	type: 'choose', ",
+				"	pregunta: '$1',",
+				"	opcionesImgsPrefix: '$2',",
+				"	opciones: [],",
+				"	respuestaNum: $3,",
+				"	settings: {imgs:4},"
+			"},",
+		]
+	},
 	"ChooseFluidIMG": {
 		"prefix": "imgf",
 		"body": [

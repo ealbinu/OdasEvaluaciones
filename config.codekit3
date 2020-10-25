@@ -3781,6 +3781,33 @@
 		"oT": 1,
 		"q": 100
 		},
+	"\/MA4T1\/aimg\/Captura de Pantalla 2020-10-25 a la(s) 15.03.05.png": {
+		"ft": 32768,
+		"iS": 19608,
+		"oA": 0,
+		"oAP": "\/MA4T1\/aimg\/Captura de Pantalla 2020-10-25 a la(s) 15.03.05.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/MA4T1\/index.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/MA4T1\/index.html",
+		"oF": 0
+		},
+	"\/MA4T1\/index.pug": {
+		"cB": 0,
+		"cOD": 1,
+		"ft": 512,
+		"oA": 0,
+		"oAP": "\/MA4T1\/index.html",
+		"oF": 0,
+		"oS": 0
+		},
 	"\/MA5T1\/aimg\/10.png": {
 		"ft": 32768,
 		"iS": 108190,
