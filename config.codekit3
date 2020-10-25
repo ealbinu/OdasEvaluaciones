@@ -2070,6 +2070,13 @@
 		"oT": 1,
 		"q": 100
 		},
+	"\/ES4T1\/index.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/ES4T1\/index.html",
+		"oF": 0
+		},
 	"\/ES4T1\/index.pug": {
 		"cB": 0,
 		"cOD": 1,
@@ -2566,6 +2573,15 @@
 		"opt": 0,
 		"oT": 1,
 		"q": 100
+		},
+	"\/FC4T1\/index.pug": {
+		"cB": 0,
+		"cOD": 1,
+		"ft": 512,
+		"oA": 0,
+		"oAP": "\/FC4T1\/index.html",
+		"oF": 0,
+		"oS": 0
 		},
 	"\/GE5T1\/aimg\/12131415.png": {
 		"ft": 32768,
