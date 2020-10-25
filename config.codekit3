@@ -1218,6 +1218,13 @@
 		"oF": 0,
 		"oS": 0
 		},
+	"\/CN4T1\/index.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/CN4T1\/index.html",
+		"oF": 0
+		},
 	"\/CN4T1\/index.pug": {
 		"cB": 0,
 		"cOD": 1,
@@ -2062,6 +2069,15 @@
 		"opt": 1,
 		"oT": 1,
 		"q": 100
+		},
+	"\/ES4T1\/index.pug": {
+		"cB": 0,
+		"cOD": 1,
+		"ft": 512,
+		"oA": 0,
+		"oAP": "\/ES4T1\/index.html",
+		"oF": 0,
+		"oS": 0
 		},
 	"\/ES5T1\/aimg\/101112.png": {
 		"ft": 32768,
