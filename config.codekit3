@@ -3086,6 +3086,17 @@
 		"oT": 1,
 		"q": 100
 		},
+	"\/MA2T1\/aimg\/18.png": {
+		"ft": 32768,
+		"iS": 172139,
+		"oA": 0,
+		"oAP": "\/MA2T1\/aimg\/18.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"\/MA2T1\/aimg\/18a.png": {
 		"ft": 32768,
 		"iS": 46353,
@@ -3305,6 +3316,22 @@
 		"opt": 1,
 		"oT": 1,
 		"q": 100
+		},
+	"\/MA2T1\/index.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/MA2T1\/index.html",
+		"oF": 0
+		},
+	"\/MA2T1\/index.pug": {
+		"cB": 0,
+		"cOD": 1,
+		"ft": 512,
+		"oA": 0,
+		"oAP": "\/MA2T1\/index.html",
+		"oF": 0,
+		"oS": 0
 		},
 	"\/MA3T1\/aimg\/10.png": {
 		"ft": 32768,

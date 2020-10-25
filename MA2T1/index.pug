@@ -1,0 +1,254 @@
+include ../assets/pug/_head
+include ../assets/pug/_body
+include ../assets/pug/_scripts
+
+- grade = '2º'
+- title = 'Matemáticas'
+- subtitle = ''
+
+<!DOCTYPE html>
+html(lang="es")
+    +head
+        style.
+
+
+    body
+        #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
+            h1
+                span.grade #{grade}
+                | #{title}
+            if subtitle.length>1
+                h2 #{subtitle}
+
+            +body
+
+        +scripts
+            script.
+                //app.$set(app, 'currentScene', 0)
+                app.$set(app, 'scenes', [
+                    {
+                        instruction: 'Selecciona la respuesta correcta. <p>Observa la agenda y contesta las preguntas 1, 2 y 3.</p>',
+                        popper: '<img src="aimg/1.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Qué mes le sigue al que está marcado en la agenda?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Mayo.','Agosto.','Diciembre.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: 'Selecciona la respuesta correcta. <p>Observa la agenda y contesta las preguntas 1, 2 y 3.</p>',
+                        popper: '<img src="aimg/1.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Qué día toca la clase de Matemáticas?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Lunes.','Miércoles.','Sábado.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: 'Selecciona la respuesta correcta. <p>Observa la agenda y contesta las preguntas 1, 2 y 3.</p>',
+                        popper: '<img src="aimg/1.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Qué día de la semana es 3 de noviembre?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Martes.','Miércoles.','Jueves.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la actividad que dura <strong>más</strong> tiempo en realizarse.',
+                        opcionesImgsPrefix: '4',
+                        opciones: [],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Benjamín tiene una canasta de 20 manzanas y otra de 10. Si las quiere guardar en bolsas de 10 piezas cada una, ¿cuántas bolsas necesitará?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['2 bolsas.','3 bolsas.','4 bolsas.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Lupita tiene 86 botones en su costurero. Si quiere hacer torres de 10 piezas, ¿cuántas torres de botones podrá hacer y cuántos botones le sobrarán?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['8 torres y sobran 6.','6 torres y sobran 8.','5 torres y sobran 8.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuántas flores tiene Norma si compró 3 decenas de rosas y 5 jazmines sueltos? <img src="aimg/7.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['53 flores.','63 flores.','35 flores.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'En la juguetería venden trompos en bolsas de 10 piezas cada una y trompos sueltos. Si Ernesto quiere comprar 64, ¿cuántas bolsas y trompos sueltos le darán? <img src="aimg/8.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['4 bolsas y 6 sueltos.','6 bolsas y 4 sueltos.','6 bolsas y 6 sueltos.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Para construir una nave espacial, Adrián utilizó 34 piezas de madera y 45 de plástico. ¿Cuántas piezas utilizó en total?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['97 piezas.','79 piezas.','69 piezas.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la suma que <strong>no</strong> da como resultado <strong>10</strong>.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['4 +3 + 3 = ','5 + 2 + 3 = ','3 + 6 + 2 ='],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Teresa y Pepe recogieron conchitas en la playa. Si Teresa recogió 53 conchitas y Pepe 22, ¿cuántas conchitas recogieron entre los dos? <img src="aimg/11.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['75 conchitas.','57 conchitas.','85 conchitas.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Diana tiene $50 para gastar en la escuela. Si compra una botella de agua de $10 y una torta de $25, ¿cuánto dinero le sobra?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['$25','$10','$15'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la suma que da como resultado <strong>56</strong>.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['23 + 33 = ','28 + 34 = ','17 + 45 = '],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuántas paletas hacen falta para completar <strong>2</strong> decenas? <img src="aimg/14.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['7 paletas.','8 paletas.','9 paletas.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Observa la tabla y elige el taller preferido por los alumnos. <img src="aimg/15.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Taller de ajedrez.','Taller de robótica.','Taller de música.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuáles son los números que faltan en la siguiente serie numérica? <img src="aimg/16.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['3, 6, 9 y 12.', '5, 10, 15 y 20.','8, 12, 24 y 36.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Patricia compró 5 kilogramos de azúcar. Si cada kilogramo cuesta $9, ¿cuánto pagó en total?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['$45','$35','$14'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Observa la imagen y elige la opción que muestra cuántas fresas hay. <img src="aimg/18.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['24 fresas.','18 fresas.','10 fresas.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuántos chocolates hay en total si sumamos las 2 cajas? <img src="aimg/19.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['35 chocolates.','18 chocolates.','40 chocolates.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la figura geométrica con más de 4 lados que se forma al juntar un trapecio y un triángulo.',
+                        opcionesImgsPrefix: '20',
+                        opciones: [],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Escribe los números que faltan en los recuadros.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['PENDIENTE'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Escribe los números que faltan en las siguientes sumas.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['PENDIENTE'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Escribe el número de pulgares que corresponden a la longitud de cada objeto.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['PENDIENTE'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Selecciona el prisma que tiene 6 caras iguales, 12 aristas y 8 vértices.',
+                        opcionesImgsPrefix: '24',
+                        opciones: [],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Observa la imagen y escribe los números que faltan en cada oración.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['PENDIENTE'],
+                        respuestaNum: 0
+                    },
+                ])
