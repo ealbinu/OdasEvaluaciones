@@ -2694,6 +2694,22 @@
 		"oT": 1,
 		"q": 100
 		},
+	"\/HI4T1\/index.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/HI4T1\/index.html",
+		"oF": 0
+		},
+	"\/HI4T1\/index.pug": {
+		"cB": 0,
+		"cOD": 1,
+		"ft": 512,
+		"oA": 0,
+		"oAP": "\/HI4T1\/index.html",
+		"oF": 0,
+		"oS": 0
+		},
 	"\/HI6T1\/aimg\/18.png": {
 		"ft": 32768,
 		"iS": 54939,

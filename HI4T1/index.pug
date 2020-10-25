@@ -1,0 +1,163 @@
+include ../assets/pug/_head
+include ../assets/pug/_body
+include ../assets/pug/_scripts
+
+- grade = '4º'
+- title = 'Historia'
+- subtitle = ''
+
+<!DOCTYPE html>
+html(lang="es")
+    +head
+        style.
+
+    body
+        #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
+            h1
+                span.grade #{grade}
+                | #{title}
+            if subtitle.length>1
+                h2 #{subtitle}
+
+            +body
+
+        +scripts
+            script.
+                //app.$set(app, 'currentScene', 0)
+                app.$set(app, 'scenes', [
+                    {
+                        instruction: 'Selecciona la respuesta correcta.',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Los primeros humanos que poblaron el continente americano cruzaron el estrecho de Bering, después se trasladaron de Rusia hacia ___________, Estados Unidos.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Mesoamérica','Guatemala','Alaska','Panamá'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuáles características de Mesoamérica fa- vorecieron el desarrollo de la agricultura?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['La escasez de lluvias y tierras favorables para la agricultura.','La presencia de montañas, mesetas, desiertos, etcétera.','Su territorio árido y clima caluroso.','Su variedad de climas, así como la abun- dancia de ríos y lagunas.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Nombre del relato maya que explica cómo los dioses crearon al hombre a partir de la masa de maíz.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Huitzilopochtli.','Centéotl.','Popol Vuh.','Coatlicue.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Fueron culturas mesoamericanas del periodo Posclásico.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Olmeca, maya y mixteca.','Tolteca, mexica y purépecha.','Teotihuacana, zapoteca y maya.','Maya, mixteca y olmeca.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es la cultura mesoamericana del periodo Preclásico que se desarrolló en lo que actualmente es Veracruz, y que dio grandes aportaciones, como el primer calendario de Mesoamérica?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Maya.','Tolteca.','Olmeca.','Teotihuacana.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál era la actividad con mayor prioridad en la vida de los mayas?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['La agricultura.','La ganadería.','La pesca.','La religión.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué grupo no pertenecía a la sociedad teotihuacana?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Comerciantes.','Pescadores.','Artesanos.','Guerreros.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Era una de las principales actividades de los zapotecos.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['La alfarería.','El juego de pelota.','El cultivo del maíz.','La construcción de pirámides.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Era una de las actividades frecuentes de los mixtecos y se relacionaba con rituales de fertilidad y las fuerzas de la naturaleza.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El cultivo del maíz.','La construcción de pirámides.','El juego de pelota.','La alfarería.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿En qué año aproximadamente comenzó el cultivo del maíz en México?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['En 5000 a. C.','En 6000 a. C.','En 4000 a. C.','En 3500 a. C.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Área cultural que se desarrolló en el centro y sur de California y en los estados de Chihuahua, Coahuila y Sonora.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Latinoamérica.','Mesoamérica.','Aridoamérica.','Oasisamérica.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son lugares donde se han encontrado restos de los primeros seres humanos que habitaron el país, excepto uno. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El Cedral, San Luis Potosí.','Tepexpan, Estado de México.','Peñón de los Bolaños, Ciudad de México.','El Paso, Texas.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Nombre de zonas en el desierto en las que hay agua y vegetación.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Oasis.','Semi-desierto.','Dunas.','Semiárido.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Escribe <strong>V</strong> si la oración es verdadera o <strong>F</strong> si es falsa.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['PENDIENTE'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Fueron los grupos privilegiados entre la cultura maya, excepto uno. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Médicos.','Alfareros.','Parteras.','Comerciantes.'],
+                        respuestaNum: 1
+                    },
+                ])
