@@ -1,0 +1,244 @@
+include ../assets/pug/_head
+include ../assets/pug/_body
+include ../assets/pug/_scripts
+
+- grade = '4º'
+- title = 'Ciencias Naturales'
+- subtitle = ''
+
+<!DOCTYPE html>
+html(lang="es")
+    +head
+        style.
+
+    body
+        #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
+            h1
+                span.grade #{grade}
+                | #{title}
+            if subtitle.length>1
+                h2 #{subtitle}
+
+            +body
+
+        +scripts
+            script.
+                //app.$set(app, 'currentScene', 0)
+                app.$set(app, 'scenes', [
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se le llama a la representación gráfica que contiene los tres grupos de alimentos y las porciones recomendadas para tener una alimentación sana?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['La Jarra del Buen Beber.','El Plato del Bien Comer.','La pirámide alimenticia.','La guía nutricional.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el grupo de alimentos que proporciona carbohidratos y brinda energía para el funcionamiento de nuestro cuerpo.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Cereales y tubérculos.','Frutas y verduras.','Grasas y azúcares.','Leguminosas y alimentos de origen animal.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el grupo de alimentos que proporciona vitaminas, minerales y fibra?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Cereales y tubérculos.','Frutas y verduras.','Leguminosas y alimentos de origen animal.','Grasas y azúcares.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se llaman las estructuras con las que está formado el cáliz de la flor?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Pétalos.','Estambres.','Sépalos.','Filamentos.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Instrumento que se utiliza para llevar el historial de las vacunas que se han aplicado.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Cartilla militar.','Historial clínico.','Certificado de salud.','Cartilla Nacional de Vacunación.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se le llama a la capacidad que tienen los seres vivos para engendrar nuevos individuos?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Reproducción.','Sistema sexual.','Sexualidad.','Carácter sexual.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuáles de los siguientes son los caracteres sexuales secundarios?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Los órganos internos y externos que identifican a hombres de mujeres.','Las formas físicas externas que hacen diferentes a mujeres y hombres.','Las células sexuales masculinas y femeninas.','Los órganos que aparecen en la etapa de la adolescencia.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son órganos que forman parte del sistema sexual de la mujer, excepto uno. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Útero.','Tubas uterinas.','Ovarios.','Conductos deferentes.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se llaman las células sexuales masculinas?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Espermatozoides.','Óvulos.','Estrógenos.','Progesterona.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el nombre del órgano sexual masculino de una planta con flor.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Gineceo.','Androceo.','Estambre.','Pistilo.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se le llama al órgano sexual femenino de una planta con flor?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Corola.','Estigma.','Gineceo.','Ovario.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se le llama al proceso cuando el polen queda adherido al estigma y se produce la fecundación?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Incubación.','Germinación.','Fotosíntesis.','Polinización.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se le llama el proceso de convencimiento para elegir pareja entre los animales?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Cortejo.','Fecundación.','Apareamiento.','Dispersión.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es un tipo de hongo que ayuda a la fermentación de algunas sustancias.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Penicilliums.','Lactobacilos.','Levaduras.','Estreptococos.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Parte de la flor que contiene el polen.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Anteras.','Corola.','Sépalos.','Estambres.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es la finalidad de las vacunas?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Ayudar al cuerpo a procesar los alimentos.','Ayudar al cuerpo a prevenir enfermedades.','Ayudar al cuerpo a desechar lo que no necesita.','Ayudar al cuerpo a estar nutrido.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Quién aplicó la primera vacuna en contra de la viruela?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Louis Pasteur.','Edward Jenner.','Alexander Fleming.','Blaise Pascal.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué grupo alimenticio se debe consumir poco, según el Plato del Bien Comer?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Frutas y verduras.','Cereales.','Tubérculos.','Alimentos de origen animal.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es una característica que debe tener una dieta para ser saludable.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Reducida.','Equilibrada.','Descuidada.','Desequilibrada.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Su función es sostener a la antera para facilitar la dispersión del polen.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El filamento.','El estigma.','El pétalo.','El sépalo.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se le llama al óvulo fecundado que se desarrolla como un embrión envuelto en un material protector y nutritivo?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Flor.','Raíz.','Antera.','Semilla.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el proceso en el cual la hembra protege y nutre al embrión mientras se encuentra en desarrollo.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Fecundación.','Gestación.','Parto.','Ovulación.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la parte de una planta con flor en donde se encuentran las células sexuales.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Ovario.','Estigma.','Cáliz.','Estilo.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son partes que conforman el órgano sexual femenino de una planta, excepto uno. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Ovario.','Estilo.','Estigma.','Antera.'],
+                        respuestaNum: 3
+                    },
+                ])
