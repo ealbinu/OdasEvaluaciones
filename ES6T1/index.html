@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Español</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../assets/font/stylesheet.css?v=4"/>
+    <link rel="stylesheet" href="../../assets/assets.css?v=4"/>
+    <style>
+      .palabrascorrectas .options {
+          flex-wrap: wrap;
+      }
+      .palabrascorrectas .options > div {
+          width: 30%;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
+      <h1><span class="grade">6º</span>Español</h1>
+      <!-- SCENES ############################################-->
+      <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started">
+        <div class="row">
+          <div class="col mt-5 instruccion" v-if="i.instruction" v-html="i.instruction"></div>
+          <div class="col-md-4 text-center" v-if="i.popper">
+            <popper>
+              <div v-html="i.popper"></div>
+            </popper>
+          </div>
+        </div>
+        <!-- Pregunta >>>>>>>>>>>>>>>>>-->
+        <div class="row mt-3 pregunta">
+          <!-- >>>> CHOOSE-->
+          <template v-if="i.type=='choose'">
+            <choose :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res=false" :num="(index+1)+'.'" :text="i.pregunta" :options="buildOpImgs(i.opciones, i.opcionesImgsPrefix, i.settings)" :answer="i.respuestaNum" :isactive="currentScene == index" :settings="i.settings"></choose>
+          </template>
+          <!-- >>>> SELECTABLEOPTIONS-->
+          <template v-else-if="i.type=='selectableoptions'">
+            <selectableoptions :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res = false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.respuestaNum" :customclass="i.settings.class" :isactive="currentScene == index">
+              <template v-slot:option="{option}">{{option.o}}</template>
+            </selectableoptions>
+          </template>
+        </div>
+      </div>
+      <!-- SCENES FINALIZAR ############################################-->
+      <div class="scene" v-if="currentScene == scenes.length">
+        <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1"></finalize>
+      </div>
+      <!-- Counter >>>>>>>>>>-->
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event"></counter>
+      <!-- Navigation >>>>>>>>>>>>>>>-->
+      <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event"></navigation>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
+    <script src="../../assets/modulos/dragdropMod.js"></script>
+    <script src="../../assets/modulos/dropdowns.js"></script>
+    <script src="../../assets/modulos/selectable.js"></script>
+    <script src="../../assets/modulos/selectableoptions.js"></script>
+    <script src="../../assets/modulos/check.js"></script>
+    <script src="../../assets/modulos/inputbox.js"></script>
+    <script src="../../assets/modulos/choose.js"></script>
+    <script src="../../assets/modulos/popper.js"></script>
+    <script src="../../assets/modulos/finalize.js?v=4"></script>
+    <script src="../../assets/modulos/counter.js?v=4"></script>
+    <script src="../../assets/modulos/utils.js?v=4"></script>
+    <script src="../../assets/assets.js?v=4"></script>
+    <script>
+      //app.$set(app, 'currentScene', 0)
+      app.$set(app, 'scenes', [
+          {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+              popper: '<img src="aimg/lectura.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: 'Es la oración que representa la idea principal del texto.',
+              opcionesImgsPrefix: null,
+              opciones: ['Las cualidades de la hija de Elena.','Las cualidades de una mamá para sacar adelante a su hija.','La importancia de saber alistarse correctamente.','Cómo preparar postres y dulces para vender.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+              popper: '<img src="aimg/lectura.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Qué hizo Nena cuando se quedó sin trabajo?',
+              opcionesImgsPrefix: null,
+              opciones: ['Se puso muy triste en su casa.','Buscó otro trabajo en el periódico.','Salió a caminar a la calle.','Cocinó postres con su hija para vender.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+              popper: '<img src="aimg/lectura.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Quiénes compraban los postres que preparaban Nena y su hija?',
+              opcionesImgsPrefix: null,
+              opciones: ['Los amigos y amigas de Nena.','Los vecinos de Nena.','Las compañeras de la escuela.','La familia de Nena.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+              popper: '<img src="aimg/lectura.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Qué características tiene Nena que la hacen una mamá de otro mundo?',
+              opcionesImgsPrefix: null,
+              opciones: ['Chiquita, temerosa y cálida.','Indiferente, paciente y amable.','Distante, lejana y fría.','Fuerte, valiente y amorosa.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué tipo de pregunta es la siguiente? <img src="aimg/5.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['Abierta.','Retórica.','Cerrada.','Explícita.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Se utilizan cuando se requiere obtener una respuesta amplia sobre un tema.',
+              opcionesImgsPrefix: null,
+              opciones: ['Preguntas abiertas.','Preguntas retóricas.','Preguntas cerradas.','Preguntas explícitas.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuándo se deben acentuar gráficamente las palabras qué, quién, cómo, cuándo y dónde?',
+              opcionesImgsPrefix: null,
+              opciones: ['Cuando se encuentran como núcleo del predicado.','Cuando forman parte de una instrucción.','Cuando están acompañadas de un verbo en infinitivo.','Cuando cumplen una función interrogati- va o exclamativa.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son formas de organizar y sintetizar la información para elaborar guías de autoestudio, excepto una. ¿Cuál es?',
+              opcionesImgsPrefix: null,
+              opciones: ['Cuestionarios.','Esquemas.','Relatos.','Resúmenes.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué debes hacer al contestar una pregunta abierta?',
+              opcionesImgsPrefix: null,
+              opciones: ['Reflexionar antes de escribir.','Borrar la respuesta si no estoy seguro.','Escribir lo primero que me venga a la mente.','Escribir las palabras clave.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿De qué forma están relacionadas las siguientes oraciones? <img src="aimg/10.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['Por coordinación.','Por subordinación.','Por yuxtaposición.','Por comparación.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el texto en el que otra persona narra los sucesos de la vida de alguien más.',
+              opcionesImgsPrefix: null,
+              opciones: ['Autobiografía.','Currículum.','Entrevista.','Biografía.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Elige los adjetivos que completan correctamente la siguiente oración. <img src="aimg/12.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['divertida / simpática','corre / juega','luce / bien','cuadro / óvalo'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el recurso que puedes utilizar para saber más sobre la vida de una persona a la que le escribirás su biografía.',
+              opcionesImgsPrefix: null,
+              opciones: ['Resumen.','Cuadro sinóptico.','Entrevista','Examen.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el texto en el que una persona narra su propia vida.',
+              opcionesImgsPrefix: null,
+              opciones: ['Biografía.','Autobiografía.','Mito.','Resumen.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la forma de relacionar dos oraciones mediante conjunciones, locuciones o pronombres.',
+              opcionesImgsPrefix: null,
+              opciones: ['Subordinación.','Coordinación.','Yuxtaposición.','Derivación.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Selecciona la oración que utiliza la tercera persona gramatical.',
+              opcionesImgsPrefix: null,
+              opciones: ['Soy un niño dormilón.','Tú tienes un perrito blanco.','Él es de Querétaro.','Tengo una muñeca vestida de azul.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la música que se utiliza para dividir las secciones de un programa de radio.',
+              opcionesImgsPrefix: null,
+              opciones: ['Rúbrica.','Cortinilla.','Cápsula.','Fondo musical.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué se escribe en la columna de la derecha en un guion de radio?',
+              opcionesImgsPrefix: null,
+              opciones: ['Las indicaciones técnicas.','El nombre de los patrocinadores.','La duración del programa.','Los textos para los locutores.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el texto escrito en lenguaje informal que puede emplearse en un programa para jóvenes?',
+              opcionesImgsPrefix: null,
+              opciones: ['Buenas tardes a todos nuestros radioes- cuchas.','Es una mañana soleada en la capital del país.','¡Qué onda chavos! Hoy les tenemos un tema súper padre.','Tengo el placer de presentar a nuestro invitado especial de hoy.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son las partes en las que se divide un reportaje.',
+              opcionesImgsPrefix: null,
+              opciones: ['Entrevista, respuestas y opiniones.','Temas, subtemas y bibliografía.','Apartados, divisiones y conclusiones.','Guiones, paréntesis y comillas.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué recurso se utiliza para registrar la información encontrada sobre un tema?',
+              opcionesImgsPrefix: null,
+              opciones: ['Poemas.','Guiones de radio.','Fichas de trabajo.','Autobiografías.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué debes hacer para introducir un texto en discurso directo en tu reportaje?',
+              opcionesImgsPrefix: null,
+              opciones: ['Poner punto y aparte en el párrafo.','Introducir el texto con dos puntos.','Indicar quién hizo la entrevista.','Señalar el nombre de quién habla.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son fuentes en las que puedes obtener información sobre tu localidad para escribir un reportaje, excepto una. ¿Cuál es?',
+              opcionesImgsPrefix: null,
+              opciones: ['Anuncios publicitarios.','Libros y folletos.','Entrevistas y testimonios','Páginas de internet.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: ' Selecciona el tipo de oración que corresponde al siguiente ejemplo. <img src="aimg/24.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['Subordinación.','Yuxtaposición.','Coordinación.','Xxxxx'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: ' Selecciona el tipo de oración que corresponde al siguiente ejemplo. <img src="aimg/24b.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['Coordinación.','Yuxtaposición.','Subordinación.','\Xxxxx'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Selecciona el tipo de texto al que corresponde el siguiente párrafo. <img src="aimg/25.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['Biografía.','Autobiografía.','Leyenda.','Mito.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Relaciona, anotando la letra del inciso correspondiente, las personas que intervienen en el programa de radio con sus funciones.',
+              opcionesImgsPrefix: null,
+              opciones: ['PENDIENTE'],
+              respuestaNum: 0
+          },
+      ])
+    </script>
+  </body>
+</html>
