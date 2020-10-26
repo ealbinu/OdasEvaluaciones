@@ -14,6 +14,11 @@ h1 {
   font-weight: normal;
   color: #84BF42;
 }
+@media (max-width: 992px) {
+  h1 {
+    font-size: 1.3rem;
+  }
+}
 h2 {
   color: #84BF42;
   font-size: 0.9rem;
@@ -123,6 +128,7 @@ strong.sec {
 }
 .navigation button:active {
   box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+  background: #EB8B2E;
 }
 .navigation button[disabled] {
   background: #7C8FBB;
@@ -274,10 +280,20 @@ strong.sec {
   text-align: center;
   padding: 8px;
 }
+@media (max-width: 992px) {
+  .choose .options div img {
+    max-height: 100px;
+  }
+}
 .choose .options div.active {
   border: 4px solid #84BF42;
   color: #84BF42;
   box-shadow: 4px 4px 0 #75A73B;
+}
+@media (max-width: 992px) {
+  .choose {
+    font-size: 1rem;
+  }
 }
 @media (max-width: 768px) {
   .choose .options,
@@ -548,6 +564,11 @@ input[type=number] {
 .options div {
   margin: 10px;
 }
+@media (max-width: 992px) {
+  .options div {
+    margin: 4px;
+  }
+}
 .options div img {
   max-width: 100%;
   height: auto;
@@ -557,6 +578,11 @@ input[type=number] {
 }
 .label {
   font-size: 1.6rem;
+}
+@media (max-width: 992px) {
+  .label {
+    font-size: 1rem;
+  }
 }
 .scene {
   padding: 0px 20px;
@@ -577,10 +603,13 @@ input[type=number] {
   margin: 20px auto;
   max-width: 100%;
 }
+.scene > .row {
+  margin: 0 auto;
+}
 .paginas {
   cursor: pointer;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -617,8 +646,8 @@ input[type=number] {
 }
 @media (max-width: 680px) {
   .navigation button {
-    font-size: 0.9rem;
-    padding: 4px 10px;
+    font-size: 0.8rem;
+    padding: 2px 10px;
   }
 }
 .counterRun .navigation {
@@ -642,6 +671,11 @@ input[type=number] {
 }
 #app {
   padding: 100px 0;
+}
+@media (max-width: 992px) {
+  #app {
+    padding: 40px 0 100px 0;
+  }
 }
 .counter {
   background: var(--main);
@@ -730,6 +764,17 @@ input[type=number] {
 }
 .counterRun.endtime {
   background: #DB3E34;
+}
+@media (max-width: 992px) {
+  .counterRun {
+    padding: 10px 20px;
+  }
+  .counterRun p {
+    font-size: 0.9rem;
+  }
+  .counterRun p small {
+    font-size: 0.9rem;
+  }
 }
 .yessure {
   font-size: 1.4rem;
