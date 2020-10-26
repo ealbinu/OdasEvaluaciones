@@ -9,7 +9,23 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../../assets/font/stylesheet.css?v=6"/>
     <link rel="stylesheet" href="../../assets/assets.css?v=6"/>
-    <style></style>
+    <style>
+      .inputbox {
+          justify-content: flex-start;
+      }
+      .inputbox input {
+          background: var(--accent);
+          color: #fff;
+          max-width: 100px;
+          border: 6px solid var(--clear) !important;
+      }
+      .inputbox .inputbox__after {
+          border: none !important;
+          box-shadow: none !important;
+      }
+      
+      
+    </style>
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
@@ -35,6 +51,16 @@
             <selectableoptions :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res = false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.respuestaNum" :customclass="i.settings.class" :isactive="currentScene == index">
               <template v-slot:option="{option}">{{option.o}}</template>
             </selectableoptions>
+          </template>
+          <template v-if="i.type=='pregunta14'">
+            <div class="choose">
+              <div class="label"><strong>14.</strong><span>Escribe <strong>V</strong> si la oración es verdadera o <strong>F</strong> si es falsa.</span></div>
+              <div class="options">
+                <div class="position-relative">
+                  <inputbox :key="13" v-model="r[13]" :ref="refCount()" @isright="right++" type="text" placeh="-" :answer="['v', 'f', 'v', 'f', 'v']" :after="['Los olmecas usaban la madera y el barro para hacer figurillas y vasijas.', 'Los mayas vivieron en lo que actualmente son los estados de Veracruz y Tamaulipas.', 'En la cultura maya, las mujeres destacaron en los asuntos políticos porque también se tomaba en cuenta el linaje de la madre.', 'Los teotihuacanos construyeron centros religiosos en la ciudad de Monte Albán.', 'Los mixtecos tallaban figuras y producían cerámica de varios colores.']"></inputbox>
+                </div>
+              </div>
+            </div>
           </template>
         </div>
       </div>
@@ -185,10 +211,10 @@
           {
               instruction: '',
               popper: '',
-              type: 'choose', 
-              pregunta: 'Escribe <strong>V</strong> si la oración es verdadera o <strong>F</strong> si es falsa.',
+              type: 'pregunta14', 
+              pregunta: '',
               opcionesImgsPrefix: null,
-              opciones: ['PENDIENTE'],
+              opciones: [''],
               respuestaNum: 0
           },
           {

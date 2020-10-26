@@ -10,6 +10,20 @@ include ../assets/pug/_scripts
 html(lang="es")
     +head
         style.
+            .inputbox {
+                justify-content: flex-start;
+            }
+            .inputbox input {
+                background: var(--accent);
+                color: #fff;
+                max-width: 100px;
+                border: 6px solid var(--clear) !important;
+            }
+            .inputbox .inputbox__after {
+                border: none !important;
+                box-shadow: none !important;
+            }
+
 
     body
         #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
@@ -20,7 +34,14 @@ html(lang="es")
                 h2 #{subtitle}
 
             +body
-
+                template(v-if="i.type=='pregunta14'")
+                    .choose
+                        .label
+                            strong 14.
+                            span Escribe #[strong V] si la oración es verdadera o #[strong F] si es falsa.
+                        .options
+                            .position-relative
+                                inputbox(:key="13" v-model="r[13]" :ref="refCount()" @isright="right++" type="text" placeh="-" :answer="['v', 'f', 'v', 'f', 'v']" :after="['Los olmecas usaban la madera y el barro para hacer figurillas y vasijas.', 'Los mayas vivieron en lo que actualmente son los estados de Veracruz y Tamaulipas.', 'En la cultura maya, las mujeres destacaron en los asuntos políticos porque también se tomaba en cuenta el linaje de la madre.', 'Los teotihuacanos construyeron centros religiosos en la ciudad de Monte Albán.', 'Los mixtecos tallaban figuras y producían cerámica de varios colores.']")
         +scripts
             script.
                 //app.$set(app, 'currentScene', 0)
@@ -145,10 +166,10 @@ html(lang="es")
                     {
                         instruction: '',
                         popper: '',
-                        type: 'choose', 
-                        pregunta: 'Escribe <strong>V</strong> si la oración es verdadera o <strong>F</strong> si es falsa.',
+                        type: 'pregunta14', 
+                        pregunta: '',
                         opcionesImgsPrefix: null,
-                        opciones: ['PENDIENTE'],
+                        opciones: [''],
                         respuestaNum: 0
                     },
                     {

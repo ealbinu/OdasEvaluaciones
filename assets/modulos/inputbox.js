@@ -1,5 +1,5 @@
 Vue.component('inputbox', {
-    props: ['value', 'text', 'answer', 'num', 'type', 'placeh', 'textarea', 'caseSensitive'],
+    props: ['value', 'text', 'answer', 'num', 'type', 'placeh', 'textarea', 'caseSensitive', 'after'],
     data() {
         return {
             status: [],
@@ -54,6 +54,7 @@ Vue.component('inputbox', {
         <div class="inputboxes">
             <div class="inputbox" :class="setclass" v-for="(i, index) in answer">
                 <input v-model="status[index]" :placeholder="placeh" :type="type" @input="inputed" :disabled="evaluate" />
+                <div class="inputbox__after" v-if="after" v-html="after[index]"></div>
                 <div class="result" v-if="evaluate" :class="setclass + ' animate__animated animate__heartBeat'"></div>
             </div>
         </div>
