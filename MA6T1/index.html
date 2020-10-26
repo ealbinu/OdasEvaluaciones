@@ -41,6 +41,13 @@
           border-top: 4px solid var(--sec);
           margin: 2px 0;
       }
+      .choose.w-100 .options {
+          flex-wrap: wrap;
+      }
+      .choose.w-100 .options > div {
+          width: 100%;
+      }
+      
       
       
     </style>
@@ -99,7 +106,235 @@
     <script>
       //app.$set(app, 'currentScene', 0)
       app.$set(app, 'scenes', [
-          
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la opción que muestra los siguientes números en orden ascendente. <img src="aimg/1.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['I, II, IV, III.', 'III, IV, II, I.', 'I, II, III, IV.', 'IV, III, II, I.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el número más próximo al 536 378 que puedes formar con los números siguientes? <img src="aimg/2.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['746 158', '416 758', '518 764','514 678'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Cuatro alumnos han llegado a la final del concurso de Matemáticas. Si después de una hora Antonio contestó <div>5<hr>8</div> del total de preguntas de manera correcta, Bertha <div>7<hr>12</div>, Mónica <div>2<hr>3</div> y Omar <div>3<hr>4</div>, ¿quién ganó el concurso?',
+              opcionesImgsPrefix: null,
+              opciones: ['Antonio.', 'Omar.', 'Bertha.', 'Mónica.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el número mayor de las siguientes cantidades? <img src="aimg/4.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['2.1', '2.098', '0.9899','Ninguno.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el orden correcto, de menor a mayor, de los metros que recorrieron 5 jugadores en una carrera?',
+              opcionesImgsPrefix: null,
+              opciones: ['6.65, 4.78, 3.24, 2.98, 1.54.','1.54, 6.65, 2.98, 4.78, 3.24.','1.54, 4.78, 2.98, 6.65, 3.24.','1.54, 2.98, 3.24, 4.78, 6.65.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Un ciclista ha pedaleado durante dos horas. Si en la primera hora recorrió <div>5<hr>17</div> del trayecto y en la segunda <div>2<hr>9</div>, ¿cuánto ha recorrido?',
+              opcionesImgsPrefix: null,
+              opciones: ['<div>7<hr>27</div>','<div>7<hr>18</div>','<div>1<hr>1</div>','<div>2<hr>6</div>'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el perímetro del siguiente jardín? <img src="aimg/7.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['20.15 m', '20.15 m<sup>2</sup>', '13.75 m', '13. 2 m'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'En la tiendita, <div>1<hr>4</div> de kilogramo de azúcar $9.50. Si compro <div>3<hr>4</div> de kilogramo de azúcar, ¿cuánto debo pagar?',
+              opcionesImgsPrefix: null,
+              opciones: ['$18.00','$28.50', '$27.00','$36.50'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Leticia compró 5 tramos de <div>2<hr>5</div> m de listón rojo y 8 tramos de <div>1<hr>4</div> m de listón verde. ¿Cuántos metros de listón compró en total?',
+              opcionesImgsPrefix: null,
+              opciones: ['2 metros.', '3 metros', '4 metros.', '5 metros.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Gabriela compró <div>3<hr>4</div> de kilogramo de queso. Si <div>1<hr>4</div> de kilogramo tiene un costo de $24.50, ¿cuánto pagó por el queso?',
+              opcionesImgsPrefix: null,
+              opciones: ['$49.00','$98.00','$37.50','$73.50'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Selecciona la opción que representa una figura simétrica.',
+              opcionesImgsPrefix: '11',
+              opciones: [],
+              respuestaNum: 0,
+              settings: {imgs:4},
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es la opción que completa la figura simétricamente? <img src="aimg/12.png" class="img-fluid">',
+              opcionesImgsPrefix: '12',
+              opciones: [],
+              respuestaNum: 1,
+              settings: {imgs:4},
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Observa el croquis y selecciona las coordenadas en las que se ubica la rotonda con la estatua. <img src="aimg/13.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['(3,2)','(3,4)', '(2,3)','(4,3)'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Vanesa compró una falda que le costó $250. Si al pagar le hicieron un descuento del 15 %, ¿cuánto pagó al final?',
+              opcionesImgsPrefix: null,
+              opciones: ['$221.50','$212.50','$235.00','$253.00'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿A cuánto equivale el 10 % de $783?',
+              opcionesImgsPrefix: null,
+              opciones: ['$7 830','$783','$78.30','$7.830'],
+              respuestaNum: 2
+          },
+          {
+              instruction: 'Observa la siguiente gráfica y contesta las preguntas 16 y 17.',
+              popper: '<img src="aimg/1617.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: 'Según el total de alumnos de la escuela “Lázaro Cárdenas”, ¿a cuántos les gusta el rock?',
+              opcionesImgsPrefix: null,
+              opciones: ['105 alumnos.','48 alumnos.','126 alumnos.','84 alumnos.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: 'Observa la siguiente gráfica y contesta las preguntas 16 y 17.',
+              popper: '<img src="aimg/1617.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Cuántos alumnos prefieren la música clásica?',
+              opcionesImgsPrefix: null,
+              opciones: ['105 alumnos.','48 alumnos.','84 alumnos.','126 alumnos.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son los números que corresponden a los puntos marcados en la recta numérica.',
+              opcionesImgsPrefix: null,
+              opciones: ['3 y 4.', '<div>3<hr>4</div> y 2.5.', '1.5 y 4.', '<div>4<hr>5</div> y <div>1<hr>2</div>.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la multiplicación que da como resultado 3 500.',
+              opcionesImgsPrefix: null,
+              opciones: ['3 × 50 = ','35 × 50 = ','350 × 10 = ','350 × 100 = '],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuáles son los resultados de multiplicar 283 × 10, 100 y 1000?',
+              opcionesImgsPrefix: null,
+              opciones: ['2 830, 28 300 y 283 000.','283, 2 830 y 28 300.','28 300, 280 300 y 2 830 000.','283, 283 000 y 28 300 000.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la recta numérica que tiene ubicados los puntos 1.25 y 0.50 correctamente.',
+              opcionesImgsPrefix: '21',
+              opciones: [],
+              respuestaNum: 3,
+              settings: {imgs:4, class:'w-100'},
+          },
+          {
+              instruction: 'Lee el siguiente problema y contesta la pregunta 22 y 23.',
+              popper: '<img src="aimg/2223.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Cuál es la recta numérica que representa el nivel de agua?',
+              opcionesImgsPrefix: '22',
+              opciones: [],
+              respuestaNum: 0,
+              settings: {imgs:4, class:'w-100'},
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuántos metros subió el nivel del agua en los tres días?',
+              opcionesImgsPrefix: null,
+              opciones: ['<div>7<hr>14</div> m','1 m','<div>8<hr>12</div> m','<div>14<hr>7</div> m'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Selecciona la opción en la que están ordenados los números de menor a mayor.',
+              opcionesImgsPrefix: null,
+              opciones: ['0.0345, 0.379, 0.43 y 0.8.','0.8, 0.379, 0.43 y 0.0345.','0.43, 0.8, 0.0345 y 0.379.','0.0345, 0.8, 0.43 y 0.379.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Miguel fue a la tienda y compró un kilogramo de tortillas que le costó $14.00, un kilogramo de huevo en $23.50, una barra de mantequilla de $9.50 y un chicle de 0.50 centavos. ¿Cuánto pagó?',
+              opcionesImgsPrefix: null,
+              opciones: ['$30.00','$47.00','$50.50','$47.50'],
+              respuestaNum: 3
+          },
       ])
     </script>
   </body>
