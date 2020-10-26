@@ -47,7 +47,7 @@
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">4º</span>Matemáticas</h1>
+      <h1><span class="grade">5º</span>Matemáticas</h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started">
         <div class="row">
@@ -103,247 +103,228 @@
               instruction: 'Selecciona la respuesta correcta.',
               popper: '',
               type: 'choose', 
-              pregunta: 'Luisa fue al banco a retirar dinero. Si le dieron 5 billetes de $1 000, 7 billetes de $100, 8 monedas de $10 y 5 monedas de $1, ¿cuánto dinero retiró?',
+              pregunta: 'Meercedes fue al mercado a comprar fruta, compró <div>1<hr>2</div> kg de manzanas, <div>2<hr>4</div> de kg de uvas y <div>6<hr>12</div> de kg de fresas. ¿Cuántos kilogramos de fruta compró en total?',
               opcionesImgsPrefix: null,
-              opciones: ['$1 785','$1 108','$5 785','$5 857'],
+              opciones: ['1<div>3<hr>4</div>kg', '1<div>1<hr>2</div>kg', '<div>2<hr>4</div>kg', '1<div>2<hr>4</div>kg'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Julieta tiene <div>3<hr>4</div> de nieve de chocolate. Si le da <div>2<hr>8</div> a su hermano, ¿cuánta nieve le quedará?',
+              opcionesImgsPrefix: null,
+              opciones: ['<div>3</hr>6<div>','<div>2</hr>4<div>','<div>1</hr>2<div>','<div>1</hr>8<div>'],
               respuestaNum: 2
           },
           {
               instruction: '',
               popper: '',
               type: 'choose', 
-              pregunta: 'Elige la opción con la operación correcta para resolver el siguiente problema. <img src="aimg/2.png" class="img-fluid">',
+              pregunta: '¿Cuántas cifras tendrá el resultado de dividir 12 200 entre 50?',
               opcionesImgsPrefix: null,
-              opciones: ['4 × 1 000 + 7 × 100 + 5 × 10 + 10','4 × 3 + 7 × 25 + 5 × 2 + 9 + 10','4 × 300 + 7 × 250 + 5 × 20 + 9 × 10','4 × 30 + 7 × 25 + 5 × 2 + 9 × 1'],
+              opciones: ['3 cifras.','4 cifras.','2 cifras.','5 cifras.'],
               respuestaNum: 2
           },
           {
               instruction: '',
               popper: '',
               type: 'choose', 
-              pregunta: '¿Cuántos décimos caben en un entero?',
+              pregunta: '¿Cuál es el resultado de la siguiente división? <img src="aimg/4.png" class="img-fluid">',
               opcionesImgsPrefix: null,
-              opciones: ['10','100','1 000','10 000'],
-              respuestaNum: 0
-          },
-          {
-              instruction: '',
-              popper: '',
-              type: 'choose', 
-              pregunta: 'Es el número decimal que resulta de dividir 634 entre 1 000.',
-              opcionesImgsPrefix: null,
-              opciones: ['6.340','63.40','0.634','0.0634'],
-              respuestaNum: 2
-          },
-          {
-              instruction: '',
-              popper: '',
-              type: 'choose', 
-              pregunta: '¿Cuál es la fracción decimal que equivale al número 3.67 metros?',
-              opcionesImgsPrefix: null,
-              opciones: ['<div>367<hr>100</div> m', '<div>367<hr>10</div> m', '<div>367<hr>1000</div> m', '<div>367<hr>10000</div> m'],
-              respuestaNum: 0
-          },
-          {
-              instruction: 'Observa la imagen y contesta las preguntas 6 a 8.',
-              popper: '<img src="aimg/678.png" class="img-fluid">',
-              type: 'choose', 
-              pregunta: '¿Qué fracción de la barda se cubrió con mosaicos de color <strong>verde</strong>?',
-              opcionesImgsPrefix: null,
-              opciones: ['<div>1<hr>4</div>','<div>3<hr>9</div>','<div>1<hr>12</div>','<div>1<hr>2</div>'],
-              respuestaNum: 0
-          },
-          {
-              instruction: 'Observa la imagen y contesta las preguntas 6 a 8.',
-              popper: '<img src="aimg/678.png" class="img-fluid">',
-              type: 'choose', 
-              pregunta: 'Es el color de los mosaicos que cubren <div>5<hr>12</div> de la pared.',
-              opcionesImgsPrefix: null,
-              opciones: ['Amarillo.','Verde.','Azul.','Anaranjado.'],
-              respuestaNum: 2
-          },
-          {
-               instruction: 'Observa la imagen y contesta las preguntas 6 a 8.',
-              popper: '<img src="aimg/678.png" class="img-fluid">',
-              type: 'choose', 
-              pregunta: '¿Qué fracción de la barda se cubrió con los mosaicos de color amarillo y anaranjado?',
-              opcionesImgsPrefix: null,
-              opciones: ['<div>2<hr>4</div>','<div>2<hr>12</div>','<div>2<hr>9</div>','<div>2<hr>6</div>',],
+              opciones: ['56','80','78','46'],
               respuestaNum: 3
           },
           {
               instruction: '',
               popper: '',
               type: 'choose', 
-              pregunta: 'Son las figuras que completan la siguiente sucesión. <img src="aimg/9.png" class="img-fluid">',
-              opcionesImgsPrefix: '9',
-              opciones: [],
-              respuestaNum: 1,
-              settings: {imgs: 4}
-          },
-          {
-              instruction: '',
-              popper: '',
-              type: 'choose', 
-              pregunta: '¿Cuál es la regularidad en la siguiente sucesión? <img src="aimg/10.png" class="img-fluid">',
+              pregunta: 'Alex quiere repartir 282 chocolates en 12 bolsas y que cada una tenga la misma cantidad de chocolates. ¿Cuántos chocolates debe poner en cada bolsa y cuántos sobran?',
               opcionesImgsPrefix: null,
-              opciones: ['La primera disminuye 1 y la segunda aumenta 5.','La primera aumenta de 3 en 3 y la segunda disminuye 4.','La primera aumenta de 4 en 4 y la segunda de 3 en 3.','La primera aumenta de 3 en 3 y la segunda de 4 en 4.'],
-              respuestaNum: 2
-          },
-          {
-              instruction: '',
-              popper: '',
-              type: 'choose', 
-              pregunta: 'Andrea se fue de compras con su mamá. Si quiere comprar un vestido que cuesta $359.90, una blusa de $245.50 y unos zapatos de $648.80, ¿cuánto tiene que pagar en total?',
-              opcionesImgsPrefix: null,
-              opciones: ['$2 154.40','$1 254.20','$2 451.80','$1 432.50'],
+              opciones: ['26 y sobran 3.','23 y sobran 6.','32 y sobran 2.','22 y sobran 5.'],
               respuestaNum: 1
           },
           {
               instruction: '',
               popper: '',
               type: 'choose', 
-              pregunta: 'La mamá de Omar compró unos tenis de $789.90 y un par de calcetines de $36.50. Si pagó con un billete de $1 000, ¿cuánto le dieron de cambio',
-              opcionesImgsPrefix: null,
-              opciones: ['$193.50','$173.60','$183.40','$273.60'],
-              respuestaNum: 2
-          },
-          {
-              instruction: '',
-              popper: '',
-              type: 'choose', 
-              pregunta: 'Si 1 kilogramo de peras cuesta $25, ¿cuánto cuestan 10 kilogramos?',
-              opcionesImgsPrefix: null,
-              opciones: ['$250','$360','$520','$460'],
-              respuestaNum: 0
-          },
-          {
-              instruction: '',
-              popper: '',
-              type: 'choose', 
-              pregunta: 'ara hacer collares, Brisa tiene perlas y cuarzos de color rosa, azul y morado. Si sólo puede usar 2 colores distintos por collar, ¿cuántos collares diferentes puede hacer Brisa?',
-              opcionesImgsPrefix: null,
-              opciones: ['8 collares.','7 collares.','6 collares.','9 collares.'],
-              respuestaNum: 2
-          },
-          {
-              instruction: '',
-              popper: '',
-              type: 'choose', 
-              pregunta: 'En el jardín de la escuela, un pintor hizo un mural que mide 5 m de alto por 8 m de largo. ¿Cuál es la superficie total del mural?',
-              opcionesImgsPrefix: null,
-              opciones: ['32 m<sup>2</sup>','40 m<sup>2</sup>','32.1 m<sup>2</sup>','23 m<sup>2</sup>'],
-              respuestaNum: 1
-          },
-          {
-              instruction: '',
-              popper: '',
-              type: 'choose', 
-              pregunta: 'Es la imagen vista desde arriba del siguiente cuerpo geométrico. <img src="aimg/16.png" class="img-fluid">',
-              opcionesImgsPrefix: '16',
+              pregunta: 'Selecciona la opción que representa rectas secantes.',
+              opcionesImgsPrefix: '6',
               opciones: [],
               respuestaNum: 2,
-              settings:{imgs:4}
-          },
-          {
-              instruction: '',
-              popper: '',
-              type: 'choose', 
-              pregunta: '¿Cuál es el nombre del triángulo que tiene dos lados iguales?',
-              opcionesImgsPrefix: null,
-              opciones: ['Equilátero.','Escaleno.','Rectángulo.','Isósceles.'],
-              respuestaNum: 3
-          },
-          {
-              instruction: '',
-              popper: '',
-              type: 'choose', 
-              pregunta: 'Es el triángulo que tiene un ángulo de 90º.',
-              opcionesImgsPrefix: '18',
-              opciones: [],
-              respuestaNum: 1,
               settings: {imgs:4},
           },
           {
               instruction: '',
               popper: '',
               type: 'choose', 
-              pregunta: '¿Cuál es la hora que representa el siguiente reloj?',
+              pregunta: '¿Qué tipo de ángulo se formó en la siguiente imagen? <img src="aimg/7.png" class="img-fluid">',
               opcionesImgsPrefix: null,
-              opciones: ['Las 8 horas y 35 minutos.','Las 18 horas y 7 minutos','Las 8 horas y 7 minutos.','Las 8 horas y 35 minutos.'],
+              opciones: ['Agudo.','Recto.','Obtuso.','Llano.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Observa el siguiente mapa y contesta las preguntas 8 y 9.',
+              popper: '<img src="aimg/89.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿En qué calles se ubica la escuela?',
+              opcionesImgsPrefix: null,
+              opciones: ['En av. Torremolinos, entre Oasis y Dunas.','En av. Dunas y av. Oasis.','En av. Valdepeñas y Oasis.','En av. de la Mancha y Dunas.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Observa el siguiente mapa y contesta las preguntas 8 y 9.',
+              popper: '<img src="aimg/89.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: 'Es el lugar que se ubica entre la avenida de la Mancha y la calle Palma.',
+              opcionesImgsPrefix: null,
+              opciones: ['La cafetería.','El parque.','El restaurante.','El mercado.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Karla compró un perfume como el que se muestra en la imagen. ¿Cuántos mililitros tendrá si compra 3 perfumes más? <img src="aimg/10.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['1 800 ml','2 250 ml','2 650 ml','3 000 ml'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuántos mililitros hay en una botella de 2 litros?',
+              opcionesImgsPrefix: null,
+              opciones: ['1 500 ml','3 250 ml','2 000 ml','2 500 ml'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Don Juan tiene 8 bolsas de 750 gramos de harina. ¿Cuántos kilogramos de harina tiene en total?',
+              opcionesImgsPrefix: null,
+              opciones: ['8 kg','6 kg','4 kg','10 kg'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿A cuántos años equivalen 6 siglos?',
+              opcionesImgsPrefix: null,
+              opciones: ['600 años.','60 años.','6 años.','6 000 años.'],
               respuestaNum: 0
           },
           {
               instruction: '',
               popper: '',
               type: 'choose', 
-              pregunta: 'Araceli tiene que asistir al médico cada 22 días. Si la última cita fue el 3 de marzo, ¿cuándo es su siguiente cita?',
+              pregunta: 'Lulú les dijo a sus sobrinos que tiene 3 décadas y un lustro. ¿Cuántos años tiene?',
               opcionesImgsPrefix: null,
-              opciones: ['El 15 de marzo.','El 25 de marzo.','El 22 de marzo.','El 21 de marzo.'],
-              respuestaNum: 1
-          },
-          {
-              instruction: 'Observa la etiqueta y contesta las preguntas 21 a 23.',
-              popper: '<img src="aimg/212223.png" class="img-fluid">',
-              type: 'choose', 
-              pregunta: '¿Cuántas calorías contiene en total el paquete de galletas?',
-              opcionesImgsPrefix: null,
-              opciones: ['177 kcal','744 kcal','254 kcal','1 164 kcal'],
-              respuestaNum: 2
-          },
-          {
-              instruction: 'Observa la etiqueta y contesta las preguntas 21 a 23.',
-              popper: '<img src="aimg/212223.png" class="img-fluid">',
-              type: 'choose', 
-              pregunta: ' ¿Cuántos gramos de proteínas contiene una galleta?',
-              opcionesImgsPrefix: null,
-              opciones: ['22 g','100 g','6.48 g','3.37 g'],
+              opciones: ['40 años.','45 años.','25 años.','35 años.'],
               respuestaNum: 3
           },
           {
-              instruction: 'Observa la etiqueta y contesta las preguntas 21 a 23.',
-              popper: '<img src="aimg/212223.png" class="img-fluid">',
+              instruction: '',
+              popper: '',
               type: 'choose', 
-              pregunta: 'Es la cantidad de grasa total que contiene el paquete de galletas.',
+              pregunta: 'Édgar se duerme a las 23 horas con 30 minutos. Si pone su alarma para despertar a las 7 horas, ¿cuántas horas y minutos va a dormir?',
               opcionesImgsPrefix: null,
-              opciones: ['331.05 g','70 g','134.06 g','130.00 g'],
+              opciones: ['7 horas con 30 minutos.','8 horas con 30 minutos.','6 horas con 30 minutos.','9 horas con 30 minutos'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'El año 1514 pertenece al siglo:',
+              opcionesImgsPrefix: null,
+              opciones: ['XV','XVI','XVII','XVIII'],
               respuestaNum: 1
           },
           {
               instruction: '',
               popper: '',
               type: 'choose', 
-              pregunta: '¿Cuál es el número de la posición donde se encuentra ubicada la estrella? <img src="aimg/24.png" class="img-fluid">',
+              pregunta: '¿Entre qué años se encuentra el siglo XIX?',
               opcionesImgsPrefix: null,
-              opciones: ['34','36','40','44'],
-              respuestaNum: 2
+              opciones: ['Entre 1501 y 1600.','Entre 1601 y 1700.','Entre 1701 y 1800.','Entre 1801 y 1900.'],
+              respuestaNum: 3
           },
           {
               instruction: '',
               popper: '',
               type: 'choose', 
-              pregunta: 'Es la figura que representa <div>3<hr>3</div>',
-              opcionesImgsPrefix: '25',
+              pregunta: '¿Cuál opción representa un ángulo obtuso?',
+              opcionesImgsPrefix: '18',
               opciones: [],
-              respuestaNum: 1,
+              respuestaNum: 3,
               settings: {imgs:4},
           },
           {
               instruction: '',
               popper: '',
               type: 'choose', 
-              pregunta: 'Marca las fracciones equivalentes a <div>10<hr>40</div>',
-              opcionesImgsPrefix: null,
-              opciones: ['<div>3<hr>15</div>','<div>2<hr>8</div>','<div>1<hr>4</div>','<div>8<hr>32</div>','<div>6<hr>24</div>','<div>5<hr>25</div>','<div>4<hr>16</div>', '<div>8<hr>3</div>'],
-              respuestaNum: [1,2,3,4,6]
+              pregunta: '¿Cuál figura está formada por dos pares de rectas paralelas?',
+              opcionesImgsPrefix: '19',
+              opciones: [],
+              respuestaNum: 0,
+              settings: {imgs:4},
           },
           {
               instruction: '',
               popper: '',
               type: 'choose', 
-              pregunta: 'César compró un balón de futbol de $145.90 y unas rodilleras de $318.50. Si pagó con un billete de $500.00, ¿cuánto le sobró?',
+              pregunta: '¿Cuántos envases de 250 ml se pueden llenar con 2.5 l de agua?',
               opcionesImgsPrefix: null,
-              opciones: ['$148.90','$145.00','$145.90','$130.50'],
+              opciones: ['8 envases.','10 envases.','12 envases.','11 envases.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Carlos compró una chamarra de $894 y la pagará en 6 abonos de la misma cantidad cada mes. ¿Cuánto pagará al mes?',
+              opcionesImgsPrefix: null,
+              opciones: ['$156','$178','$149','$185'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la fracción que representa el resultado de la siguiente operación. <img src="aimg/22.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['3<div>1<hr>4</div>','3<div>1<hr>2</div>','2<div>3<hr>2</div>','2<div>1<hr>2</div>'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuántas cifras tendrá el resultado de la siguiente división? <img src="aimg/23.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['2 cifras.','3 cifras.','4 cifras.','5 cifras.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Si Marco va a la tlapalería y compra 2 <div>2<hr>4</div> m de manguera y sólo utiliza <div>3<hr>2</div> m, ¿cuántos metros de manguera le quedarían?',
+              opcionesImgsPrefix: null,
+              opciones: ['1<div>1<hr4></div>m','1<div>3<hr>4</div>m','1m','2m'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Carlos vendió 30 jugos de naranja en un día y ganó $1 440. ¿Cuánto dinero ganó al día siguiente si vendió 50 jugos?',
+              opcionesImgsPrefix: null,
+              opciones: ['$3 550','$1 486','$2 400','$4 200'],
               respuestaNum: 2
           },
       ])

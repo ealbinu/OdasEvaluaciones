@@ -1,0 +1,288 @@
+include ../assets/pug/_head
+include ../assets/pug/_body
+include ../assets/pug/_scripts
+
+- grade = '5º'
+- title = 'Matemáticas'
+- subtitle = ''
+
+<!DOCTYPE html>
+html(lang="es")
+    +head
+        style.
+            .choose .options > div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .choose .options > div > div {
+                border: none;
+                padding: 0;
+                box-shadow: none;
+                max-width: 200px;
+            }
+            .choose .options > div > div hr {
+                border-top: 4px solid var(--sec);
+                margin: 2px 0;
+            }
+
+            .choose .label div {
+                display: inline-block;
+                align-items: center;
+                box-shadow: none;
+                max-width: 40px;
+                text-align: center;
+                font-size: 1.2rem;
+                padding: 0 10px;
+                vertical-align: middle;
+                border-radius: 4px;
+            }
+            .choose .label hr {
+                border-top: 4px solid var(--sec);
+                margin: 2px 0;
+            }
+
+
+    body
+        #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
+            h1
+                span.grade #{grade}
+                | #{title}
+            if subtitle.length>1
+                h2 #{subtitle}
+
+            +body
+
+        +scripts
+            script.
+                //app.$set(app, 'currentScene', 0)
+                app.$set(app, 'scenes', [
+                    {
+                        instruction: 'Selecciona la respuesta correcta.',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Meercedes fue al mercado a comprar fruta, compró <div>1<hr>2</div> kg de manzanas, <div>2<hr>4</div> de kg de uvas y <div>6<hr>12</div> de kg de fresas. ¿Cuántos kilogramos de fruta compró en total?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['1<div>3<hr>4</div>kg', '1<div>1<hr>2</div>kg', '<div>2<hr>4</div>kg', '1<div>2<hr>4</div>kg'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Julieta tiene <div>3<hr>4</div> de nieve de chocolate. Si le da <div>2<hr>8</div> a su hermano, ¿cuánta nieve le quedará?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['<div>3</hr>6<div>','<div>2</hr>4<div>','<div>1</hr>2<div>','<div>1</hr>8<div>'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuántas cifras tendrá el resultado de dividir 12 200 entre 50?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['3 cifras.','4 cifras.','2 cifras.','5 cifras.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el resultado de la siguiente división? <img src="aimg/4.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['56','80','78','46'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Alex quiere repartir 282 chocolates en 12 bolsas y que cada una tenga la misma cantidad de chocolates. ¿Cuántos chocolates debe poner en cada bolsa y cuántos sobran?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['26 y sobran 3.','23 y sobran 6.','32 y sobran 2.','22 y sobran 5.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Selecciona la opción que representa rectas secantes.',
+                        opcionesImgsPrefix: '6',
+                        opciones: [],
+                        respuestaNum: 2,
+                        settings: {imgs:4},
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué tipo de ángulo se formó en la siguiente imagen? <img src="aimg/7.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Agudo.','Recto.','Obtuso.','Llano.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: 'Observa el siguiente mapa y contesta las preguntas 8 y 9.',
+                        popper: '<img src="aimg/89.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿En qué calles se ubica la escuela?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['En av. Torremolinos, entre Oasis y Dunas.','En av. Dunas y av. Oasis.','En av. Valdepeñas y Oasis.','En av. de la Mancha y Dunas.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: 'Observa el siguiente mapa y contesta las preguntas 8 y 9.',
+                        popper: '<img src="aimg/89.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: 'Es el lugar que se ubica entre la avenida de la Mancha y la calle Palma.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['La cafetería.','El parque.','El restaurante.','El mercado.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Karla compró un perfume como el que se muestra en la imagen. ¿Cuántos mililitros tendrá si compra 3 perfumes más? <img src="aimg/10.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['1 800 ml','2 250 ml','2 650 ml','3 000 ml'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuántos mililitros hay en una botella de 2 litros?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['1 500 ml','3 250 ml','2 000 ml','2 500 ml'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Don Juan tiene 8 bolsas de 750 gramos de harina. ¿Cuántos kilogramos de harina tiene en total?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['8 kg','6 kg','4 kg','10 kg'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿A cuántos años equivalen 6 siglos?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['600 años.','60 años.','6 años.','6 000 años.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Lulú les dijo a sus sobrinos que tiene 3 décadas y un lustro. ¿Cuántos años tiene?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['40 años.','45 años.','25 años.','35 años.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Édgar se duerme a las 23 horas con 30 minutos. Si pone su alarma para despertar a las 7 horas, ¿cuántas horas y minutos va a dormir?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['7 horas con 30 minutos.','8 horas con 30 minutos.','6 horas con 30 minutos.','9 horas con 30 minutos'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'El año 1514 pertenece al siglo:',
+                        opcionesImgsPrefix: null,
+                        opciones: ['XV','XVI','XVII','XVIII'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Entre qué años se encuentra el siglo XIX?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Entre 1501 y 1600.','Entre 1601 y 1700.','Entre 1701 y 1800.','Entre 1801 y 1900.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál opción representa un ángulo obtuso?',
+                        opcionesImgsPrefix: '18',
+                        opciones: [],
+                        respuestaNum: 3,
+                        settings: {imgs:4},
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál figura está formada por dos pares de rectas paralelas?',
+                        opcionesImgsPrefix: '19',
+                        opciones: [],
+                        respuestaNum: 0,
+                        settings: {imgs:4},
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuántos envases de 250 ml se pueden llenar con 2.5 l de agua?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['8 envases.','10 envases.','12 envases.','11 envases.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Carlos compró una chamarra de $894 y la pagará en 6 abonos de la misma cantidad cada mes. ¿Cuánto pagará al mes?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['$156','$178','$149','$185'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la fracción que representa el resultado de la siguiente operación. <img src="aimg/22.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['3<div>1<hr>4</div>','3<div>1<hr>2</div>','2<div>3<hr>2</div>','2<div>1<hr>2</div>'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuántas cifras tendrá el resultado de la siguiente división? <img src="aimg/23.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['2 cifras.','3 cifras.','4 cifras.','5 cifras.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Si Marco va a la tlapalería y compra 2 <div>2<hr>4</div> m de manguera y sólo utiliza <div>3<hr>2</div> m, ¿cuántos metros de manguera le quedarían?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['1<div>1<hr4></div>m','1<div>3<hr>4</div>m','1m','2m'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Carlos vendió 30 jugos de naranja en un día y ganó $1 440. ¿Cuánto dinero ganó al día siguiente si vendió 50 jugos?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['$3 550','$1 486','$2 400','$4 200'],
+                        respuestaNum: 2
+                    },
+                ])
