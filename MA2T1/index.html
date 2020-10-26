@@ -9,7 +9,105 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../../assets/font/stylesheet.css?v=6"/>
     <link rel="stylesheet" href="../../assets/assets.css?v=6"/>
-    <style></style>
+    <style>
+      .pregunta21 .inputbox {
+          position: absolute;
+          width: 20% !important;
+      }
+      .pregunta21 .inputbox:nth-child(1) {
+          top: 66%;
+          left: 9%;
+      }
+      .pregunta21 .inputbox:nth-child(2) {
+          top: 47%;
+          left: 9%;
+      }
+      .pregunta21 .inputbox:nth-child(3) {
+          top: 8.5%;
+          left: 28%;
+      }
+      .pregunta21 .inputbox:nth-child(4) {
+          top: 27.5%;
+          left: 67%;
+      }
+      .pregunta21 .inputbox:nth-child(5) {
+          top: 47%;
+          left: 67%;
+      }
+      @media (max-width: 992px){
+          .pregunta21.choose .options div img{
+          max-height: 100%;
+          }
+      }
+      @media (max-width: 768px){
+          .inputbox input{
+              font-size: 1rem;
+              padding: 0;
+          }
+      }
+      .pregunta22 .inputbox {
+          display: flex;
+          justify-content: center;
+      }
+      .pregunta22 input {
+          max-width: 80px;
+          border: 4px solid var(--clear) !important;
+      }
+      .pregunta22 .inputbox__before,
+      .pregunta22 .inputbox__after {
+          border: none !important;
+          box-shadow: none !important;
+      }
+      
+      .pregunta23 .inputbox {
+          display: flex;
+          justify-content: center;
+      }
+      .pregunta23 input {
+          max-width: 80px;
+          border: 4px solid var(--clear) !important;
+      }
+      .pregunta23 .inputbox__before,
+      .pregunta23 .inputbox__after {
+          border: none !important;
+          box-shadow: none !important;
+      }
+      
+      .pregunta23 .inputboxes .inputbox:nth-child(1) {
+          background: #E0F0EE;
+          border-color: #ADB9BA;
+      }
+      .pregunta23 .inputboxes .inputbox:nth-child(2) {
+          background: #FAE9D1;
+          border-color: #ADB9BA;
+      }
+      .pregunta23 .inputboxes .inputbox:nth-child(3) {
+          background: #E8F2DA;
+          border-color: #ADB9BA;
+      }
+      .pregunta23 .inputboxes .inputbox input {
+          border-color: #ADB9BA !important;
+      }
+      
+      /**/
+      .pregunta25 .inputbox {
+          display: flex;
+          justify-content: center;
+      }
+      .pregunta25 input {
+          max-width: 80px;
+          border: 4px solid var(--clear) !important;
+      }
+      .pregunta25 .inputbox__before,
+      .pregunta25 .inputbox__after {
+          border: none !important;
+          box-shadow: none !important;
+      }
+      
+      
+      
+      
+    </style>
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
@@ -43,6 +141,33 @@
                 <div class="position-relative"><img src="aimg/21.png"/>
                   <inputbox :key="20" v-model="r[20]" :ref="refCount()" @isright="right++" type="number" placeh="#" :answer="[74, 64, 45, 57, 67]"></inputbox>
                 </div>
+              </div>
+            </div>
+          </template>
+          <template v-if="i.type=='pregunta22'">
+            <div class="choose pregunta22">
+              <div class="label"><strong>22.</strong> <span>Escribe los números que faltan en las siguientes sumas.</span></div>
+              <div class="options">
+                <inputbox :key="21" v-model="r[21]" :ref="refCount()" @isright="right++" type="number" placeh="#" :answer="[50,75,80]" :before="['50 +', '', '']" :after="[' = 100', ' + 25 = 100', ' + 20 = 100']"></inputbox>
+              </div>
+            </div>
+          </template>
+          <template v-if="i.type=='pregunta23'">
+            <div class="choose pregunta23">
+              <div class="label"><strong>23.</strong> <span>Escribe el número de pulgares que corresponden a la longitud de cada objeto.</span></div>
+              <div class="row"><img class="img-fluid" src="aimg/23a.png"/></div>
+              <div class="row"><img class="img-fluid" src="aimg/23b.png"/></div>
+              <div class="row"><img class="img-fluid" src="aimg/23c.png"/></div>
+              <div class="options">
+                <inputbox :key="21" v-model="r[21]" :ref="refCount()" @isright="right++" type="number" placeh="#" :answer="[8,5,1]" :before="['Mide ','Mide ','Mide ']" :after="[' pulgares.',' pulgares.',' pulgares.']"></inputbox>
+              </div>
+            </div>
+          </template>
+          <template v-if="i.type=='pregunta25'">
+            <div class="choose pregunta25">
+              <div class="label"><strong>25.</strong> <span>Observa la imagen y escribe los números que faltan en cada oración.</span><img class="img-fluid" src="aimg/25.png"/></div>
+              <div class="options">
+                <inputbox :key="21" v-model="r[21]" :ref="refCount()" @isright="right++" type="number" placeh="#" :answer="[1,2,4]" :before="['Con 1 jarra puedo llenar ','Con 1 vaso puedo llenar ','Con 4 vasos puedo llenar ']" :after="[' vasos y 4 tazas.',' tazas.',' jarras.']"></inputbox>
               </div>
             </div>
           </template>
@@ -261,7 +386,7 @@
               type: 'pregunta21', 
               pregunta: 'Escribe los números que faltan en los recuadros.',
               opcionesImgsPrefix: null,
-              opciones: ['PENDIENTE'],
+              opciones: [''],
               respuestaNum: 0
           },
           {
@@ -270,7 +395,7 @@
               type: 'pregunta22', 
               pregunta: 'Escribe los números que faltan en las siguientes sumas.',
               opcionesImgsPrefix: null,
-              opciones: ['PENDIENTE'],
+              opciones: [''],
               respuestaNum: 0
           },
           {
@@ -279,7 +404,7 @@
               type: 'pregunta23', 
               pregunta: 'Escribe el número de pulgares que corresponden a la longitud de cada objeto.',
               opcionesImgsPrefix: null,
-              opciones: ['PENDIENTE'],
+              opciones: [''],
               respuestaNum: 0
           },
           {

@@ -1,5 +1,5 @@
 Vue.component('inputbox', {
-    props: ['value', 'text', 'answer', 'num', 'type', 'placeh', 'textarea', 'caseSensitive', 'after'],
+    props: ['value', 'text', 'answer', 'num', 'type', 'placeh', 'textarea', 'caseSensitive', 'before','after'],
     data() {
         return {
             status: [],
@@ -26,22 +26,11 @@ Vue.component('inputbox', {
         verify () { 
             this.evaluate = true
 
+            const theanswer = this.type=='text' ? this.answer.map(item => item.toLowerCase().trim()) :  this.answer.map(item => parseInt(item))
+            const userAnswer = this.type=='text' ? this.status.map(item => item.toLowerCase().trim()) : this.status.map(item => parseInt(item))
 
-            const theanswer = this.type=='text' ? this.answer.map(item => item.toLowerCase().trim()) : this.answer
-            const userAnswer = this.type=='text' ? this.status.map(item => item.toLowerCase().trim()) : this.status
-            console.log(userAnswer)
 
-            /*
-            if(this.type == 'text' && this.caseSensitive==undefined){
-                theanswer = theanswer.toString().toLowerCase()
-                userAnswer = userAnswer.toLowerCase().trim()
-                
-                if(userAnswer.length>3){
-                    userAnswer = userAnswer.replace(/\.$/, "")
-                }
-            }
-            */
-            if(_.isEqual(theanswer.sort(), userAnswer.sort())){            
+            if(_.isEqual(theanswer.sort(), userAnswer.sort())){
                 this.$emit('isright', true)
                 this.result = true
             }
@@ -53,6 +42,7 @@ Vue.component('inputbox', {
     template: `
         <div class="inputboxes">
             <div class="inputbox" :class="setclass" v-for="(i, index) in answer">
+                <div class="inputbox__before" v-if="before" v-html="before[index]"></div>
                 <input v-model="status[index]" :placeholder="placeh" :type="type" @input="inputed" :disabled="evaluate" />
                 <div class="inputbox__after" v-if="after" v-html="after[index]"></div>
                 <div class="result" v-if="evaluate" :class="setclass + ' animate__animated animate__heartBeat'"></div>
