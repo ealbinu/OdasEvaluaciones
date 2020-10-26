@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Ciencias Naturales</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../assets/font/stylesheet.css?v=4"/>
+    <link rel="stylesheet" href="../../assets/assets.css?v=4"/>
+    <style></style>
+  </head>
+  <body>
+    <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
+      <h1><span class="grade">5º</span>Ciencias Naturales</h1>
+      <!-- SCENES ############################################-->
+      <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started">
+        <div class="row">
+          <div class="col mt-5 instruccion" v-if="i.instruction" v-html="i.instruction"></div>
+          <div class="col-md-4 text-center" v-if="i.popper">
+            <popper>
+              <div v-html="i.popper"></div>
+            </popper>
+          </div>
+        </div>
+        <!-- Pregunta >>>>>>>>>>>>>>>>>-->
+        <div class="row mt-3 pregunta">
+          <!-- >>>> CHOOSE-->
+          <template v-if="i.type=='choose'">
+            <choose :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res=false" :num="(index+1)+'.'" :text="i.pregunta" :options="buildOpImgs(i.opciones, i.opcionesImgsPrefix, i.settings)" :answer="i.respuestaNum" :isactive="currentScene == index" :settings="i.settings"></choose>
+          </template>
+          <!-- >>>> SELECTABLEOPTIONS-->
+          <template v-else-if="i.type=='selectableoptions'">
+            <selectableoptions :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res = false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.respuestaNum" :customclass="i.settings.class" :isactive="currentScene == index">
+              <template v-slot:option="{option}">{{option.o}}</template>
+            </selectableoptions>
+          </template>
+        </div>
+      </div>
+      <!-- SCENES FINALIZAR ############################################-->
+      <div class="scene" v-if="currentScene == scenes.length">
+        <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1"></finalize>
+      </div>
+      <!-- Counter >>>>>>>>>>-->
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event"></counter>
+      <!-- Navigation >>>>>>>>>>>>>>>-->
+      <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event"></navigation>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
+    <script src="../../assets/modulos/dragdropMod.js"></script>
+    <script src="../../assets/modulos/dropdowns.js"></script>
+    <script src="../../assets/modulos/selectable.js"></script>
+    <script src="../../assets/modulos/selectableoptions.js"></script>
+    <script src="../../assets/modulos/check.js"></script>
+    <script src="../../assets/modulos/inputbox.js"></script>
+    <script src="../../assets/modulos/choose.js"></script>
+    <script src="../../assets/modulos/popper.js"></script>
+    <script src="../../assets/modulos/finalize.js?v=4"></script>
+    <script src="../../assets/modulos/counter.js?v=4"></script>
+    <script src="../../assets/modulos/utils.js?v=4"></script>
+    <script src="../../assets/assets.js?v=4"></script>
+    <script>
+      //app.$set(app, 'currentScene', 0)
+      app.$set(app, 'scenes', [
+          {
+              instruction: 'Selecciona la respuesta correcta.',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Se le llama así a la variedad y cantidad de alimentos que se consumen diariamente.',
+              opcionesImgsPrefix: null,
+              opciones: ['Dieta.','Alimentación.','Nutrición.','Nutrimentos.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Mediante este proceso el organismo otiene los nutrimentos necesarios de los alimentos.',
+              opcionesImgsPrefix: null,
+              opciones: ['Dieta.', 'Nutrición.', 'Alimentación.', 'Hidratación.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son los nutrimentos de origen animal que ayudan al organismo a formar y reparar los tejidos.',
+              opcionesImgsPrefix: null,
+              opciones: ['Carbohidratos.','Lípidos.', 'Proteínas.',' Minerales.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son los nutrimentos que proporcionan energía y se encuentran principalmente en cereales y tubérculos.',
+              opcionesImgsPrefix: null,
+              opciones: ['Lípidos.','Proteínas.','Minerales.','Carbohidratos.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son características que debe cumplir una dieta para que sea saludable, excepto una. ¿Cuál es?',
+              opcionesImgsPrefix: null,
+              opciones: ['Insuficiente.','Equilibrada.','Completa.','Variada.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es una enfermedad que consiste en la acumulación excesiva de grasa en el cuerpo.',
+              opcionesImgsPrefix: null,
+              opciones: ['Anorexia. Desnutrición.','Obesidad.','Bulimia.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es la sustancia que regula todas las funciones del cuerpo humano?',
+              opcionesImgsPrefix: null,
+              opciones: ['Hipófisis.','Tiroides.','Hormonas.','Glándulas.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el método anticonceptivo que se coloca debajo de la piel del brazo y libera hormonas al cuerpo de la mujer.',
+              opcionesImgsPrefix: null,
+              opciones: ['Pastillas anticonceptivas.','Parche anticonceptivo.','Anillo anticonceptivo.','Implante anticonceptivo.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el proceso mediante el cual el óvulo es expulsado del cuerpo de la mujer después de no ser fecundado.',
+              opcionesImgsPrefix: null,
+              opciones: ['Menstruación.','Ovulación.','Fecundación.','Reproducción.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cómo se le llama al periodo que transcurre desde que el óvulo es fecundado hasta el momento del parto?',
+              opcionesImgsPrefix: null,
+              opciones: ['Madurez.','Embarazo.','ITS.','Billings.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es la primera etapa en el proceso de reproducción del ser humano?',
+              opcionesImgsPrefix: null,
+              opciones: ['El embarazo.','El parto.','La fecundación.','El nacimiento.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cómo se le llama a la variedad de seres vivos que se encuentran en la Tierra?',
+              opcionesImgsPrefix: null,
+              opciones: ['Ecosistema.','Flora.', 'Fauna.','Biodiversidad.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son un ejemplo del reino protista.',
+              opcionesImgsPrefix: null,
+              opciones: ['Las amibas.','Las setas.','Los hongos.','Los animales.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cómo se le llama al conjunto de especies que se relacionan entre ellas y los factores abióticos en un área determinada?',
+              opcionesImgsPrefix: null,
+              opciones: ['Biodiversidad.','Ecosistema.','Flora.','Fauna.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Método anticonceptivo natural que consiste en evitar la actividad sexual durante los días fértiles de la mujer.',
+              opcionesImgsPrefix: null,
+              opciones: ['DIU.','Píldora.', 'Billings.', 'Inyecciones.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es una de las principales enfermedades que se generan debido al consumo del tabaco.',
+              opcionesImgsPrefix: null,
+              opciones: ['SIDA.','Gripa.','Artritis.','Bronquitis.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿A qué reino representan las bacterias?',
+              opcionesImgsPrefix: null,
+              opciones: ['Al monera.','Al protista.','Al fungi.','Al animal.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es un factor determinante para la biodiversidad de un lugar?',
+              opcionesImgsPrefix: null,
+              opciones: ['La altura.','El clima.','La humedad.','El suelo.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Ecosistema que se caracteriza por sus grandes llanuras.',
+              opcionesImgsPrefix: null,
+              opciones: ['Bosque tropical.','Estuario.','Pastizal.','Desierto.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el ecosistema que se caracteriza por la escasez de lluvia la mayor parte del año?',
+              opcionesImgsPrefix: null,
+              opciones: ['Patizal.','Bosque tropical.','Estuario.','Desierto.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Ecosistema donde podemos encontrar corales, moluscos y tortugas.',
+              opcionesImgsPrefix: null,
+              opciones: ['Zona de arrecifes.','Estuario.','Pastizal.','Desierto.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué enfermedad puede ser provocada por el consumo de tabaco?',
+              opcionesImgsPrefix: null,
+              opciones: ['Cáncer.','Diabetes.','Influencia.','Sarampión.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son características de una dieta equilibrada, excepto una. ¿Cuál es?',
+              opcionesImgsPrefix: null,
+              opciones: ['Completa.','Equilibrada.','Cardiovascular.','Inocua.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Se le llama así a la etapa del desarrollo que se caracteriza por una serie de cambios físicos, intelectuales y emocionales.',
+              opcionesImgsPrefix: null,
+              opciones: ['Niñez.','Madurez emocional.','Adolescencia.','Madurez sexual.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es un animal que habita en los bosques de coníferas.',
+              opcionesImgsPrefix: null,
+              opciones: ['Oso pardo.','Cóndor andino.','Dromedario.','Correcaminos.'],
+              respuestaNum: 0
+          },
+      ])
+    </script>
+  </body>
+</html>
