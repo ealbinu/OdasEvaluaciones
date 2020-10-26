@@ -1,0 +1,163 @@
+include ../assets/pug/_head
+include ../assets/pug/_body
+include ../assets/pug/_scripts
+
+- grade = '5º'
+- title = 'Historia'
+- subtitle = ''
+
+<!DOCTYPE html>
+html(lang="es")
+    +head
+        style.
+
+    body
+        #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
+            h1
+                span.grade #{grade}
+                | #{title}
+            if subtitle.length>1
+                h2 #{subtitle}
+
+            +body
+
+        +scripts
+            script.
+                //app.$set(app, 'currentScene', 0)
+                app.$set(app, 'scenes', [
+                    {
+                        instruction: 'Selecciona la respuesta correcta.',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se le llama a la facultad que tienen los ciudadanos de un país para elegir libremente a sus gobernantes?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Soberanía.','Anarquía.','Monarquía.','Liberación.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Quién fue elegido emperador cuando España se negó a mandar un príncipe al trono de México?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Vicente Guerrero.','Agustín de Iturbide.','Miguel Hidalgo.','Porfirio Díaz.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál fue la primera carta magna de nuestro país?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['La Constitución de 1857.','La Constitución de 1917.','La Constitución de 1824.','La Constitución de 1811.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se definía el número de electores durante la República Centralista?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['De acuerdo a la edad de las personas.','Según la casta a la que pertenecían.','Por su ubicación geográfica.','De acuerdo a sus ingresos económicos.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué país no reconocía la independencia de México debido a sus compromisos políticos con España?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Inglaterra.','Francia.','Alemania.','EUA.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Fue un acuerdo que se firmó en 1848 y en el cual México aceptó la pérdida de Nuevo México y California.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El Plan de Iguala.','El Tratado de Guadalupe-Hidalgo.','El Plan de la Noria.','El Plan de Ayala.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Dónde se celebró por primera vez el Grito de Independencia como una conmemoración cívica el 16 de septiembre de 1812?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['En Taxco, Guerrero.','En Huixtla, Chiapas.','En Huichapan, Hidalgo.','En Dolores, Guanajuato.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Eran oficios que desempeñaban las personas que migraban del campo a la ciudad durante el Virreinato, excepto uno. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Vendedor ambulante.','Cargador en mercados.','Aguador.','Banquero.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo deseaban los conservadores que fuera el gobierno en México?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Democrático, gobernado por un rey.','Monárquico, gobernado por un miembro de la realeza europea.','Monárquico, gobernado por un descendiente de Cuauhtémoc.','Democrático, gobernado por un ciudadano mexicano.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Fueron los personajes que encabezaron al grupo liberal y que proclamaron el Plan de Ayutla, excepto uno. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Antonio López de Santa Anna.','Juan Álvarez.','Ignacio Comonfort.','Florencio Villarreal.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Con qué otro nombre se le conoce a la guerra de Reforma?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Guerra de los Pasteles. Guerra de Texas.','Guerra de los Tres Años.','Guerra de Independencia.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Quién lideró al ejército mexicano logrando una importante victoria contra las tropas francesas en Puebla el 5 de mayo de 1862?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['','Miguel Hidalgo.','Félix Zuloaga.','Benito Juárez.','Ignacio Zaragoza.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son acuerdos de las Leyes de Reforma que promulgó Benito Juárez, excepto uno. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Los bienes de la Iglesia serían ahora bienes de la nación.','Se establecía una sola y única religión para todo el país.','El gobierno administraría cementerios y hospitales.','Sólo se reconocerían muertes, nacimientos y matrimonios registrados en el Registro Civil.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿A qué presidente se desconocía en el Plan de Ayutla presentado por los liberales?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Porfirio Díaz.','Benito Juárez.','Antonio López de Santa Anna.','Sebastián Lerdo de Tejada.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál era uno de los principales problemas que presentaban los caminos que conectaban las distintas ciudades durante el siglo XIX?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Eran muy largos y calurosos por lo que los viajeros debían viajar cortas distancias.','Estaban llenos de baches y no había puentes para cruzar ríos.','La falta de seguridad debido a que había muchos bandidos en los caminos que atacaban viajeros y mercantes.','La falta de posadas para que los viajeros pudieran llegar y descansar cada noche.'],
+                        respuestaNum: 2
+                    },
+                ])

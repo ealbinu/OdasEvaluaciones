@@ -2685,6 +2685,13 @@
 		"oT": 1,
 		"q": 100
 		},
+	"\/GE5T1\/index.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/GE5T1\/index.html",
+		"oF": 0
+		},
 	"\/GE5T1\/index.pug": {
 		"cB": 0,
 		"cOD": 1,
@@ -2784,6 +2791,22 @@
 		"ft": 512,
 		"oA": 0,
 		"oAP": "\/HI4T1\/index.html",
+		"oF": 0,
+		"oS": 0
+		},
+	"\/HI5T1\/index.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/HI5T1\/index.html",
+		"oF": 0
+		},
+	"\/HI5T1\/index.pug": {
+		"cB": 0,
+		"cOD": 1,
+		"ft": 512,
+		"oA": 0,
+		"oAP": "\/HI5T1\/index.html",
 		"oF": 0,
 		"oS": 0
 		},
