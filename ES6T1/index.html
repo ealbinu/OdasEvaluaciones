@@ -16,6 +16,35 @@
       .palabrascorrectas .options > div {
           width: 30%;
       }
+      @media (max-width: 992px) {
+          .choose .options .position-relative img {
+              max-height: 100% !important;
+          }
+      }
+      @media (max-width: 768px) {
+          .choose .inputbox input {
+              font-size: 0.8rem;
+              padding: 0;
+          }
+      }
+      .inputbox {
+          position: absolute;
+          width: 14% !important;
+          left: 32%;
+      }
+      .inputbox:nth-child(1) {
+          top: 6%;
+      }
+      .inputbox:nth-child(2) {
+          top: 29%;
+      }
+      .inputbox:nth-child(3) {
+          top: 51%;
+      }
+      .inputbox:nth-child(4) {
+          top: 73%;
+      }
+      
       
     </style>
   </head>
@@ -44,6 +73,16 @@
               <template v-slot:option="{option}">{{option.o}}</template>
             </selectableoptions>
           </template>
+          <template v-if="i.type=='pregunta27'">
+            <div class="choose">
+              <div class="label"><strong>27.</strong><span>Relaciona, anotando la letra del inciso correspondiente, las personas que intervienen en el programa de radio con sus funciones.</span></div>
+              <div class="options">
+                <div class="position-relative"><img src="aimg/26.png"/>
+                  <inputbox :key="27" v-model="r[27]" :ref="refCount()" @isright="right++" type="text" placeh="-" :answer="['b', 'd', 'a', 'c']"></inputbox>
+                </div>
+              </div>
+            </div>
+          </template>
         </div>
       </div>
       <!-- SCENES FINALIZAR ############################################-->
@@ -51,7 +90,7 @@
         <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1"></finalize>
       </div>
       <!-- Counter >>>>>>>>>>-->
-      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event"></counter>
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total"></counter>
       <!-- Navigation >>>>>>>>>>>>>>>-->
       <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event"></navigation>
     </div>
@@ -310,7 +349,7 @@
           {
               instruction: '',
               popper: '',
-              type: 'choose', 
+              type: 'pregunta27', 
               pregunta: 'Relaciona, anotando la letra del inciso correspondiente, las personas que intervienen en el programa de radio con sus funciones.',
               opcionesImgsPrefix: null,
               opciones: ['PENDIENTE'],

@@ -1,6 +1,6 @@
 
 Vue.component('counter', {
-    props: ['resultado', 'currentTime'],
+    props: ['resultado', 'currentTime', 'right', 'total'],
     data () {
         return {
             startSeconds: 3600,
@@ -60,11 +60,11 @@ Vue.component('counter', {
         }
     },
     mounted() {
-        /*
+
         if(window.location.hostname=='mbpro.local'){
             this.startApp()
         }
-        */
+
     },
     template: `
     <div>
@@ -115,6 +115,10 @@ Vue.component('counter', {
         <div class="counterRun endtime" v-if="percentage==100">
             <p><strong>Tu tiempo se terminó.</strong></p>
             <p>Se ha entregado tu evaluación con las respuestas que llevabas hasta el momento.</p>
+            <div class="d-flex justify-content-center mt-5 resultado" v-if="resultado">
+                <h3>Resultado</h3>
+                <div><strong>{{right}} correcta<span v-if="right>1 || right==0">s</span> </strong> de {{total}} preguntas</div>
+            </div>
         </div>
     </div>
     `

@@ -16,6 +16,35 @@ html(lang="es")
             .palabrascorrectas .options > div {
                 width: 30%;
             }
+            @media (max-width: 992px) {
+                .choose .options .position-relative img {
+                    max-height: 100% !important;
+                }
+            }
+            @media (max-width: 768px) {
+                .choose .inputbox input {
+                    font-size: 0.8rem;
+                    padding: 0;
+                }
+            }
+            .inputbox {
+                position: absolute;
+                width: 14% !important;
+                left: 32%;
+            }
+            .inputbox:nth-child(1) {
+                top: 6%;
+            }
+            .inputbox:nth-child(2) {
+                top: 29%;
+            }
+            .inputbox:nth-child(3) {
+                top: 51%;
+            }
+            .inputbox:nth-child(4) {
+                top: 73%;
+            }
+
 
     body
         #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
@@ -26,7 +55,15 @@ html(lang="es")
                 h2 #{subtitle}
 
             +body
-
+                template(v-if="i.type=='pregunta27'")
+                    .choose
+                        .label
+                            strong 27.
+                            span Relaciona, anotando la letra del inciso correspondiente, las personas que intervienen en el programa de radio con sus funciones.
+                        .options
+                            .position-relative
+                                img(src="aimg/26.png")
+                                inputbox(:key="27" v-model="r[27]" :ref="refCount()" @isright="right++" type="text" placeh="-" :answer="['b', 'd', 'a', 'c']")
         +scripts
             script.
                 //app.$set(app, 'currentScene', 0)
@@ -268,7 +305,7 @@ html(lang="es")
                     {
                         instruction: '',
                         popper: '',
-                        type: 'choose', 
+                        type: 'pregunta27', 
                         pregunta: 'Relaciona, anotando la letra del inciso correspondiente, las personas que intervienen en el programa de radio con sus funciones.',
                         opcionesImgsPrefix: null,
                         opciones: ['PENDIENTE'],

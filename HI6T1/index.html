@@ -43,7 +43,7 @@
         <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1"></finalize>
       </div>
       <!-- Counter >>>>>>>>>>-->
-      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event"></counter>
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total"></counter>
       <!-- Navigation >>>>>>>>>>>>>>>-->
       <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event"></navigation>
     </div>
@@ -69,7 +69,7 @@
               instruction: 'Selecciona la respuesta correcta.',
               popper: '',
               type: 'choose', 
-              pregunta: '¿Cómo se le llama al periodo en el que apareció el ser humano y migró de África al res- to de los continentes?',
+              pregunta: '¿Cómo se le llama al periodo en el que apareció el ser humano y migró de África al resto de los continentes?',
               opcionesImgsPrefix: null,
               opciones: ['Prehistoria.','Homínidos.','Edad de Piedra.','Carbonífero.'],
               respuestaNum: 0

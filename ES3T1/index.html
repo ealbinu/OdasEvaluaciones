@@ -51,7 +51,7 @@
         <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1"></finalize>
       </div>
       <!-- Counter >>>>>>>>>>-->
-      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event"></counter>
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total"></counter>
       <!-- Navigation >>>>>>>>>>>>>>>-->
       <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event"></navigation>
     </div>
@@ -95,7 +95,7 @@
               instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
               popper: '<img src="aimg/lectura.png" class="img-fluid">',
               type: 'choose', 
-              pregunta: '',
+              pregunta: '¿Qué esperaban encontrar en el norte los lobos?',
               opcionesImgsPrefix: null,
               opciones: ['Otras manadas de lobos para hacer amistad.','Un mejor clima y más presas para alimentarse.','Un bosque más grande donde cupieran todos.','Una manada de osos para convivir y cazar focas.'],
               respuestaNum: 1

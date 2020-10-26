@@ -14,12 +14,14 @@ mixin body
             template(v-else-if="i.type=='selectableoptions'")
                 selectableoptions(:key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res = false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.respuestaNum" :customclass="i.settings.class" :isactive="currentScene == index")
                     template(v-slot:option="{option}") {{option.o}}
+            if block
+                block
     // SCENES FINALIZAR ############################################
     .scene(v-if="currentScene == scenes.length")
         finalize(@evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1")
 
 
     // Counter >>>>>>>>>>
-    counter(@started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event")
+    counter(@started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total")
     // Navigation >>>>>>>>>>>>>>>
     navigation(v-if="started && resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event")

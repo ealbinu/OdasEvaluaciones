@@ -2,7 +2,7 @@ Vue.component('inputbox', {
     props: ['value', 'text', 'answer', 'num', 'type', 'placeh', 'textarea', 'caseSensitive'],
     data() {
         return {
-            status: "",
+            status: [],
             evaluate: false,
             result: false
         }
@@ -21,18 +21,17 @@ Vue.component('inputbox', {
             if(this.evaluate) {
                 return false
             }
-            this.$emit('input', this.status)
-            if(this.status) {
-                s_ok.play()
-            } else {
-                s_error.play()
-            }
+            s_ok.play()
         },
         verify () { 
             this.evaluate = true
-            var theanswer = this.answer
-            let userAnswer = this.status
-            
+
+
+            const theanswer = this.type=='text' ? this.answer.map(item => item.toLowerCase().trim()) : this.answer
+            const userAnswer = this.type=='text' ? this.status.map(item => item.toLowerCase().trim()) : this.status
+            console.log(userAnswer)
+
+            /*
             if(this.type == 'text' && this.caseSensitive==undefined){
                 theanswer = theanswer.toString().toLowerCase()
                 userAnswer = userAnswer.toLowerCase().trim()
@@ -40,10 +39,9 @@ Vue.component('inputbox', {
                 if(userAnswer.length>3){
                     userAnswer = userAnswer.replace(/\.$/, "")
                 }
-
             }
-            
-            if(userAnswer == theanswer) {
+            */
+            if(_.isEqual(theanswer.sort(), userAnswer.sort())){            
                 this.$emit('isright', true)
                 this.result = true
             }
@@ -53,12 +51,11 @@ Vue.component('inputbox', {
         this.$emit('input', "")
     },
     template: `
-        <div class="inputbox" :class="setclass">
-            <slot name="before"></slot>
-            <input v-model="status" :placeholder="placeh" :type="type" @input="inputed" :disabled="evaluate" v-if="textarea==undefined" />
-            <textarea v-model="status" :placeholder="placeh" @input="inputed" :disabled="evaluate" v-if="textarea!=undefined"></textarea>
-            <slot name="after"></slot>
-            <div class="result" v-if="evaluate" :class="setclass + ' animate__animated animate__heartBeat'"></div>
+        <div class="inputboxes">
+            <div class="inputbox" :class="setclass" v-for="(i, index) in answer">
+                <input v-model="status[index]" :placeholder="placeh" :type="type" @input="inputed" :disabled="evaluate" />
+                <div class="result" v-if="evaluate" :class="setclass + ' animate__animated animate__heartBeat'"></div>
+            </div>
         </div>
     `
 })
