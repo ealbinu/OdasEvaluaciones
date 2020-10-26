@@ -1,0 +1,201 @@
+include ../assets/pug/_head
+include ../assets/pug/_body
+include ../assets/pug/_scripts
+
+- grade = '6º'
+- title = 'Geografía'
+- subtitle = ''
+
+<!DOCTYPE html>
+html(lang="es")
+    +head
+        style.
+
+    body
+        #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
+            h1
+                span.grade #{grade}
+                | #{title}
+            if subtitle.length>1
+                h2 #{subtitle}
+
+            +body
+
+        +scripts
+            script.
+                //app.$set(app, 'currentScene', 0)
+                app.$set(app, 'scenes', [
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el elemento cartográfico que permite representar la relación entre la longitud real de un objeto y la equivalencia en unidades en un mapa.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Croquis.','Plano.','Escala gráfica.','Globo terráqueo.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué es lo que indica la escala de un mapa?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Las veces que se ha magnificado el tamaño de un mapa.','Las veces que se ha reducido la superficie que se representa en él.','La orientación de los puntos cardinales.','El significado de la simbología.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿De qué depende que la representación de un lugar en un mapa sea más chica o más grande?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['De la escala.','De la simbología.','Del título.','De la rosa de los vientos.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿En qué tipo de mapas se puede apreciar con mayor precisión las carreteras, ríos y calles de localidades urbanas o rurales?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Mundiales.','Continentales.','Municipales.','Regionales.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Desde qué perspectiva se debe realizar la representación de un plano?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Desde un lado.','Desde una esquina.','Desde abajo.','Desde arriba.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuáles son los elementos de un plano que nos orientan en la dirección en la que debemos desplazarnos?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Puntos cardinales.','Simbologías.','Escalas.','Coordenadas.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Selecciona la palabra que completa la siguiente oración. <img src="aimg/7.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['rosa de los vientos','cuadrícula','simbología','numerología'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el nombre que se les asigna a las fotografías que muestran numerosos detalles con gran nitidez de un lugar.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Imágenes geográficas.','Fotografías sensoriales.','Imágenes satelitales.','Fotografías aéreas.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Con cuántos satélites funciona el sistema del GPS?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['80','42','24','33'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el tipo de tecnología que puede mostrar información en capas para prevenir situaciones de riesgo?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['SIG.','SAP.','GPS.','NPS.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: 'Observa el plano y contesta las preguntas 11 a 13.',
+                        popper: '<img src="aimg/111213.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Qué lugar se encuentra en las coordenadas (4,C)?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Teatro Juárez.','Templo San José.','Teatro Principal.','Estacionamiento.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: 'Observa el plano y contesta las preguntas 11 a 13.',
+                        popper: '<img src="aimg/111213.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Cuáles son las coordenadas para localizar el Palacio Legislativo?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['(1,A)','(3,B)','(4,B)','(4,C)'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: 'Observa el plano y contesta las preguntas 11 a 13.',
+                        popper: '<img src="aimg/111213.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el símbolo con el que puedes localizar los principales templos de la ciudad?',
+                        opcionesImgsPrefix: '13',
+                        opciones: [],
+                        respuestaNum: 0,
+                        settings: {imgs:4},
+
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuánto tarda la Tierra en completar el mo- vimiento de traslación?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['403 días.','23 horas y 56 minutos.','365 días y 6 horas.','2 años.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es una de las consecuencias del movimiento de traslación de la Tierra.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Las estaciones del año.','El equinoccio.','El día y la noche.','La aurora boreal.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Cuando los rayos del Sol caen verticalmente sobre los trópicos de Cáncer y Capricornio se produce:',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Un arcoíris.','Un aurora boreal.','Un solsticio.','Un equinoccio.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Se encuentra formada por la corteza terrestre y por la parte superior del manto.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El núcleo.','La litosfera.','Una placa tectónica.','La corteza oceánica.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué es lo que provoca la inestabilidad de la corteza terrestre?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Los sismos.','Los huracanes.','Las mareas.','Las inundaciones.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Selecciona la opción que completa el siguiente párrafo. <img src="aimg/19.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['ríos','temblores','relieves','huracanes'],
+                        respuestaNum: 2
+                    },
+                ])

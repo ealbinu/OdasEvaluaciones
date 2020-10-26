@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Historia</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../assets/font/stylesheet.css?v=4"/>
+    <link rel="stylesheet" href="../../assets/assets.css?v=4"/>
+    <style></style>
+  </head>
+  <body>
+    <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
+      <h1><span class="grade">6º</span>Historia</h1>
+      <!-- SCENES ############################################-->
+      <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started">
+        <div class="row">
+          <div class="col mt-5 instruccion" v-if="i.instruction" v-html="i.instruction"></div>
+          <div class="col-md-4 text-center" v-if="i.popper">
+            <popper>
+              <div v-html="i.popper"></div>
+            </popper>
+          </div>
+        </div>
+        <!-- Pregunta >>>>>>>>>>>>>>>>>-->
+        <div class="row mt-3 pregunta">
+          <!-- >>>> CHOOSE-->
+          <template v-if="i.type=='choose'">
+            <choose :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res=false" :num="(index+1)+'.'" :text="i.pregunta" :options="buildOpImgs(i.opciones, i.opcionesImgsPrefix, i.settings)" :answer="i.respuestaNum" :isactive="currentScene == index" :settings="i.settings"></choose>
+          </template>
+          <!-- >>>> SELECTABLEOPTIONS-->
+          <template v-else-if="i.type=='selectableoptions'">
+            <selectableoptions :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res = false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.respuestaNum" :customclass="i.settings.class" :isactive="currentScene == index">
+              <template v-slot:option="{option}">{{option.o}}</template>
+            </selectableoptions>
+          </template>
+        </div>
+      </div>
+      <!-- SCENES FINALIZAR ############################################-->
+      <div class="scene" v-if="currentScene == scenes.length">
+        <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1"></finalize>
+      </div>
+      <!-- Counter >>>>>>>>>>-->
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event"></counter>
+      <!-- Navigation >>>>>>>>>>>>>>>-->
+      <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event"></navigation>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
+    <script src="../../assets/modulos/dragdropMod.js"></script>
+    <script src="../../assets/modulos/dropdowns.js"></script>
+    <script src="../../assets/modulos/selectable.js"></script>
+    <script src="../../assets/modulos/selectableoptions.js"></script>
+    <script src="../../assets/modulos/check.js"></script>
+    <script src="../../assets/modulos/inputbox.js"></script>
+    <script src="../../assets/modulos/choose.js"></script>
+    <script src="../../assets/modulos/popper.js"></script>
+    <script src="../../assets/modulos/finalize.js?v=4"></script>
+    <script src="../../assets/modulos/counter.js?v=4"></script>
+    <script src="../../assets/modulos/utils.js?v=4"></script>
+    <script src="../../assets/assets.js?v=4"></script>
+    <script>
+      //app.$set(app, 'currentScene', 0)
+      app.$set(app, 'scenes', [
+          {
+              instruction: 'Selecciona la respuesta correcta.',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cómo se le llama al periodo en el que apareció el ser humano y migró de África al res- to de los continentes?',
+              opcionesImgsPrefix: null,
+              opciones: ['Prehistoria.','Homínidos.','Edad de Piedra.','Carbonífero.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el periodo en el que el ser humano empezó a producir alimentos mediante la agricultura y la domesticación de animales.',
+              opcionesImgsPrefix: null,
+              opciones: ['Neolítico.','Paleolítico.','Nomadismo.','Edad de Piedra.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Fue el único Homo que no se extinguió gracias a su capacidad para trabajar organizadamente y transmitir sus conocimientos.',
+              opcionesImgsPrefix: null,
+              opciones: ['Habilis.','Erectus.','Sapiens sapiens.','Neanderthalensis.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Fue un factor que generó las principales diferencias físicas entre los seres humanos.',
+              opcionesImgsPrefix: null,
+              opciones: ['La elaboración de figurillas de piedra y hueso representando a las mujeres de diferentes formas.','La adaptación que lograron algunos homínidos después de la glaciación.','El consumo de los alimentos locales en las diferentes regiones.','La creación de nuevas herramientas de piedra para cazar.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Actividad coordinada en la que participaban tanto hombres como mujeres, y exigía comunicarse para saber dónde y cómo atrapar a los animales.',
+              opcionesImgsPrefix: null,
+              opciones: ['La escultura.','La recolección.','La caza.','La construcción.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Fue el tercer continente en ser poblado.',
+              opcionesImgsPrefix: null,
+              opciones: ['América.','Asia.','Oceanía.','Europa.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es la región en donde se practicó por primera vez la agricultura de riego?',
+              opcionesImgsPrefix: null,
+              opciones: ['Asia menor.','Asia mayor.','Europa.','América.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Con qué material se elaboraban las armas y utensilios durante la época de la prehistoria?',
+              opcionesImgsPrefix: null,
+              opciones: ['Con madera.','Con huesos.','Con hierro.','Con pieles.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son obras que se encontraban en las primeras ciudades y favorecieron el crecimiento de la población, excepto una. ¿Cuál es?',
+              opcionesImgsPrefix: null,
+              opciones: ['Ceremoniales.','Gubernamentales.','Zoológicos.','Comerciales.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son los ríos entre los que se fundó Mesopotamia.',
+              opcionesImgsPrefix: null,
+              opciones: ['Tigris y Éufrates.','Támesis y Sena.','Nilo y Éufrates.','Honang-Ho y Yang-Tse-Kiang.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Fue la primera civilización que creó un sistema legal conocido como Código de Hammurabi.',
+              opcionesImgsPrefix: null,
+              opciones: ['Mesopotamia.','China.','India.','Egipto.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Según los chinos y egipcios, ¿quiénes les daban el poder a sus gobernantes?',
+              opcionesImgsPrefix: null,
+              opciones: ['El pueblo.','Los animales.','Los dioses.','Los sacerdotes.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué tipo de gobierno tenían en común las civilizaciones de Mesopotamia, India, Egipto y China?',
+              opcionesImgsPrefix: null,
+              opciones: ['Capitalista.','Socialista.','Republicano.','Centralizado.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué pueblo del Mediterráneo se considera el origen de la civilización moderna?',
+              opcionesImgsPrefix: null,
+              opciones: ['Los fenicios.','Los griegos.','Los cartagineses.','Los israelíes.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué polis griega estaba gobernada por reyes y sus habitantes eran educados para la guerra?',
+              opcionesImgsPrefix: null,
+              opciones: ['Esparta.','Atenas.','Tebas.','Mileto.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Fue la alternativa al gobierno de una sola persona y se basaba en la participación de los ciudadanos griegos para la toma de decisiones.',
+              opcionesImgsPrefix: null,
+              opciones: ['Democracia.','Monarquía.','Imperio.','Socialismo.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Rey macedonio que encabezó la formación del Imperio heleno en el siglo IV a. C.',
+              opcionesImgsPrefix: null,
+              opciones: ['Jerjes el Grande.','Alejandro Magno.','Rey Midas.','Leónidas'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Elige la opción que completa correctamente el siguiente texto. <img src="aimg/18.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['juegos olímpicos','juegos estatales','juegos invernales','juegos griegos.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son productos que se cultivaban con la técnica de la agricultura de riego en los diferentes continentes, excepto uno. ¿Cuál es?',
+              opcionesImgsPrefix: null,
+              opciones: ['El trigo.','El arroz.','La cebada.','El jitomate.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son dos inventos desarrollados por las civilizaciones agrícolas.',
+              opcionesImgsPrefix: null,
+              opciones: ['El reloj y la brújula.','La escritura y las matemáticas.','El lápiz y la hoja de papel.','El ábaco y la pólvora.'],
+              respuestaNum: 1
+          },
+      ])
+    </script>
+  </body>
+</html>

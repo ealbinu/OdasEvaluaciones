@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Geografía</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../assets/font/stylesheet.css?v=4"/>
+    <link rel="stylesheet" href="../../assets/assets.css?v=4"/>
+    <style></style>
+  </head>
+  <body>
+    <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
+      <h1><span class="grade">6º</span>Geografía</h1>
+      <!-- SCENES ############################################-->
+      <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started">
+        <div class="row">
+          <div class="col mt-5 instruccion" v-if="i.instruction" v-html="i.instruction"></div>
+          <div class="col-md-4 text-center" v-if="i.popper">
+            <popper>
+              <div v-html="i.popper"></div>
+            </popper>
+          </div>
+        </div>
+        <!-- Pregunta >>>>>>>>>>>>>>>>>-->
+        <div class="row mt-3 pregunta">
+          <!-- >>>> CHOOSE-->
+          <template v-if="i.type=='choose'">
+            <choose :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res=false" :num="(index+1)+'.'" :text="i.pregunta" :options="buildOpImgs(i.opciones, i.opcionesImgsPrefix, i.settings)" :answer="i.respuestaNum" :isactive="currentScene == index" :settings="i.settings"></choose>
+          </template>
+          <!-- >>>> SELECTABLEOPTIONS-->
+          <template v-else-if="i.type=='selectableoptions'">
+            <selectableoptions :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res = false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.respuestaNum" :customclass="i.settings.class" :isactive="currentScene == index">
+              <template v-slot:option="{option}">{{option.o}}</template>
+            </selectableoptions>
+          </template>
+        </div>
+      </div>
+      <!-- SCENES FINALIZAR ############################################-->
+      <div class="scene" v-if="currentScene == scenes.length">
+        <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1"></finalize>
+      </div>
+      <!-- Counter >>>>>>>>>>-->
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event"></counter>
+      <!-- Navigation >>>>>>>>>>>>>>>-->
+      <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event"></navigation>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
+    <script src="../../assets/modulos/dragdropMod.js"></script>
+    <script src="../../assets/modulos/dropdowns.js"></script>
+    <script src="../../assets/modulos/selectable.js"></script>
+    <script src="../../assets/modulos/selectableoptions.js"></script>
+    <script src="../../assets/modulos/check.js"></script>
+    <script src="../../assets/modulos/inputbox.js"></script>
+    <script src="../../assets/modulos/choose.js"></script>
+    <script src="../../assets/modulos/popper.js"></script>
+    <script src="../../assets/modulos/finalize.js?v=4"></script>
+    <script src="../../assets/modulos/counter.js?v=4"></script>
+    <script src="../../assets/modulos/utils.js?v=4"></script>
+    <script src="../../assets/assets.js?v=4"></script>
+    <script>
+      //app.$set(app, 'currentScene', 0)
+      app.$set(app, 'scenes', [
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el elemento cartográfico que permite representar la relación entre la longitud real de un objeto y la equivalencia en unidades en un mapa.',
+              opcionesImgsPrefix: null,
+              opciones: ['Croquis.','Plano.','Escala gráfica.','Globo terráqueo.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué es lo que indica la escala de un mapa?',
+              opcionesImgsPrefix: null,
+              opciones: ['Las veces que se ha magnificado el tamaño de un mapa.','Las veces que se ha reducido la superficie que se representa en él.','La orientación de los puntos cardinales.','El significado de la simbología.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿De qué depende que la representación de un lugar en un mapa sea más chica o más grande?',
+              opcionesImgsPrefix: null,
+              opciones: ['De la escala.','De la simbología.','Del título.','De la rosa de los vientos.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿En qué tipo de mapas se puede apreciar con mayor precisión las carreteras, ríos y calles de localidades urbanas o rurales?',
+              opcionesImgsPrefix: null,
+              opciones: ['Mundiales.','Continentales.','Municipales.','Regionales.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Desde qué perspectiva se debe realizar la representación de un plano?',
+              opcionesImgsPrefix: null,
+              opciones: ['Desde un lado.','Desde una esquina.','Desde abajo.','Desde arriba.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuáles son los elementos de un plano que nos orientan en la dirección en la que debemos desplazarnos?',
+              opcionesImgsPrefix: null,
+              opciones: ['Puntos cardinales.','Simbologías.','Escalas.','Coordenadas.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Selecciona la palabra que completa la siguiente oración. <img src="aimg/7.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['rosa de los vientos','cuadrícula','simbología','numerología'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el nombre que se les asigna a las fotografías que muestran numerosos detalles con gran nitidez de un lugar.',
+              opcionesImgsPrefix: null,
+              opciones: ['Imágenes geográficas.','Fotografías sensoriales.','Imágenes satelitales.','Fotografías aéreas.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Con cuántos satélites funciona el sistema del GPS?',
+              opcionesImgsPrefix: null,
+              opciones: ['80','42','24','33'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el tipo de tecnología que puede mostrar información en capas para prevenir situaciones de riesgo?',
+              opcionesImgsPrefix: null,
+              opciones: ['SIG.','SAP.','GPS.','NPS.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Observa el plano y contesta las preguntas 11 a 13.',
+              popper: '<img src="aimg/111213.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Qué lugar se encuentra en las coordenadas (4,C)?',
+              opcionesImgsPrefix: null,
+              opciones: ['Teatro Juárez.','Templo San José.','Teatro Principal.','Estacionamiento.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: 'Observa el plano y contesta las preguntas 11 a 13.',
+              popper: '<img src="aimg/111213.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Cuáles son las coordenadas para localizar el Palacio Legislativo?',
+              opcionesImgsPrefix: null,
+              opciones: ['(1,A)','(3,B)','(4,B)','(4,C)'],
+              respuestaNum: 1
+          },
+          {
+              instruction: 'Observa el plano y contesta las preguntas 11 a 13.',
+              popper: '<img src="aimg/111213.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Cuál es el símbolo con el que puedes localizar los principales templos de la ciudad?',
+              opcionesImgsPrefix: '13',
+              opciones: [],
+              respuestaNum: 0,
+              settings: {imgs:4},
+      
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuánto tarda la Tierra en completar el mo- vimiento de traslación?',
+              opcionesImgsPrefix: null,
+              opciones: ['403 días.','23 horas y 56 minutos.','365 días y 6 horas.','2 años.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es una de las consecuencias del movimiento de traslación de la Tierra.',
+              opcionesImgsPrefix: null,
+              opciones: ['Las estaciones del año.','El equinoccio.','El día y la noche.','La aurora boreal.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Cuando los rayos del Sol caen verticalmente sobre los trópicos de Cáncer y Capricornio se produce:',
+              opcionesImgsPrefix: null,
+              opciones: ['Un arcoíris.','Un aurora boreal.','Un solsticio.','Un equinoccio.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Se encuentra formada por la corteza terrestre y por la parte superior del manto.',
+              opcionesImgsPrefix: null,
+              opciones: ['El núcleo.','La litosfera.','Una placa tectónica.','La corteza oceánica.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué es lo que provoca la inestabilidad de la corteza terrestre?',
+              opcionesImgsPrefix: null,
+              opciones: ['Los sismos.','Los huracanes.','Las mareas.','Las inundaciones.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Selecciona la opción que completa el siguiente párrafo. <img src="aimg/19.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['ríos','temblores','relieves','huracanes'],
+              respuestaNum: 2
+          },
+      ])
+    </script>
+  </body>
+</html>
