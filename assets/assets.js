@@ -61,8 +61,10 @@ var app = new Vue({
                 imgs3.push('<img src="aimg/'+opcionesImgsPrefix+'a.png">')
                 imgs3.push('<img src="aimg/'+opcionesImgsPrefix+'b.png">')
                 imgs3.push('<img src="aimg/'+opcionesImgsPrefix+'c.png">')
-                if(settings.imgs==4){
-                    imgs3.push('<img src="aimg/'+opcionesImgsPrefix+'d.png">')
+                if(settings){
+                    if(settings.imgs==4){
+                        imgs3.push('<img src="aimg/'+opcionesImgsPrefix+'d.png">')
+                    }
                 }
                 return imgs3
             }
