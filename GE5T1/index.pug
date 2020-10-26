@@ -1,0 +1,163 @@
+include ../assets/pug/_head
+include ../assets/pug/_body
+include ../assets/pug/_scripts
+
+- grade = '5º'
+- title = 'Geografía'
+- subtitle = ''
+
+<!DOCTYPE html>
+html(lang="es")
+    +head
+        style.
+
+    body
+        #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
+            h1
+                span.grade #{grade}
+                | #{title}
+            if subtitle.length>1
+                h2 #{subtitle}
+
+            +body
+
+        +scripts
+            script.
+                //app.$set(app, 'currentScene', 0)
+                app.$set(app, 'scenes', [
+                    {
+                        instruction: 'Selecciona la respuesta correcta.',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se le llaman al sistema de referencia con el que se puede localizar un lugar en la superficie del planeta?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Coordenadas.','Líneas.','Escalas.','Fronteras.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se llaman las corrientes de agua que fluyen sobre la superficie terrestre?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Lagunas.','Penínsulas.','Ríos.','Lagos.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son las zonas térmicas que van desde los trópicos hasta los círculos polares, y cuyo clima es templado.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Las zonas tropicales.','Las zonas cálidas.','Las zonas templadas.','Las zonas polares.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se le llama al movimiento de las placas tectónicas cuando se presionan unas a otras?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['De separación.','De deslizamiento lateral.','De convergencia.','De modificación.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la opción que menciona un ejemplo de frontera natural.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El muro entre EUA y México.','La valla entre Israel y Egipto.','El alambrado en la Franja de Gaza, Palestina.','Las cataratas del Niágara que dividen a EUA y Canadá.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se puede determinar si la población de un lugar se encuentra concentrada o dispersa?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Analizando el número de nacimientos.','Calculando la densidad de población.','Analizando a los habitantes menores de 30 años.','Calculando el número de fallecimientos al año.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son líneas horizontales que rodean la tierra. El ecuador es un ejemplo.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Longitudes.','Latitudes.','Meridianos.','Paralelos.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuáles son los principales paralelos del hemisferio sur?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El semicírculo de Greenwich y el círculo polar antártico.','El ecuador y el círculo polar ártico.','El trópico de Capricornio y el círculo polar antártico.','El trópico de Cáncer y el círculo polar ártico.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el tipo de relieve constituido por montañas, mesetas, depresiones y llanuras.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['De sierra.','Oceánico.','Continental.','Terrestre.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son los movimientos vibratorios que se liberan cuando las placas tectónicas chocan entre sí.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Huracanes.','Sismos.','Lagunas.','Relieves.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el proceso natural que desgasta los suelos y cambia los paisajes.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Epicentro.','Continente.','Erosión.','Hipocentro.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: 'Observa el mapa y contesta las preguntas 12 a 15.',
+                        popper: '<img src="aimg/12131415.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Qué continente está marcado con el número 5?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['África.','Oceanía.','América.','Europa.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: 'Observa el mapa y contesta las preguntas 12 a 15.',
+                        popper: '<img src="aimg/12131415.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Con cuál número se identifica el continente europeo?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['4','1','3','5'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: 'Observa el mapa y contesta las preguntas 12 a 15.',
+                        popper: '<img src="aimg/12131415.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Qué continente está marcado con el número 2?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['África.','Oceanía.','Asia.','Europa.'],
+                        respuestaNum: ''
+                    },
+                    {
+                        instruction: 'Observa el mapa y contesta las preguntas 12 a 15.',
+                        popper: '<img src="aimg/12131415.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿En qué continente se encuentra México?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['En Europa.','En Norteamérica.','En Oceanía.','En América.'],
+                        respuestaNum: 3
+                    },
+                ])
