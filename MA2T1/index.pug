@@ -21,6 +21,14 @@ html(lang="es")
                 h2 #{subtitle}
 
             +body
+                template(v-if="i.type=='pregunta21'")
+                    .choose.pregunta21
+                        .label #[strong 21.] #[span Escribe los números que faltan en los recuadros.]
+                        .options
+                            .position-relative
+                                img(src="aimg/21.png")
+                                inputbox(:key="20" v-model="r[20]" :ref="refCount()" @isright="right++" type="number" placeh="#" :answer="[74, 64, 45, 57, 67]")
+
 
         +scripts
             script.
@@ -209,7 +217,7 @@ html(lang="es")
                     {
                         instruction: '',
                         popper: '',
-                        type: 'choose', 
+                        type: 'pregunta21', 
                         pregunta: 'Escribe los números que faltan en los recuadros.',
                         opcionesImgsPrefix: null,
                         opciones: ['PENDIENTE'],
@@ -218,7 +226,7 @@ html(lang="es")
                     {
                         instruction: '',
                         popper: '',
-                        type: 'choose', 
+                        type: 'pregunta22', 
                         pregunta: 'Escribe los números que faltan en las siguientes sumas.',
                         opcionesImgsPrefix: null,
                         opciones: ['PENDIENTE'],
@@ -227,7 +235,7 @@ html(lang="es")
                     {
                         instruction: '',
                         popper: '',
-                        type: 'choose', 
+                        type: 'pregunta23', 
                         pregunta: 'Escribe el número de pulgares que corresponden a la longitud de cada objeto.',
                         opcionesImgsPrefix: null,
                         opciones: ['PENDIENTE'],
@@ -245,7 +253,7 @@ html(lang="es")
                     {
                         instruction: '',
                         popper: '',
-                        type: 'choose', 
+                        type: 'pregunta25', 
                         pregunta: 'Observa la imagen y escribe los números que faltan en cada oración.',
                         opcionesImgsPrefix: null,
                         opciones: ['PENDIENTE'],

@@ -36,6 +36,16 @@
               <template v-slot:option="{option}">{{option.o}}</template>
             </selectableoptions>
           </template>
+          <template v-if="i.type=='pregunta21'">
+            <div class="choose pregunta21">
+              <div class="label"><strong>21.</strong> <span>Escribe los números que faltan en los recuadros.</span></div>
+              <div class="options">
+                <div class="position-relative"><img src="aimg/21.png"/>
+                  <inputbox :key="20" v-model="r[20]" :ref="refCount()" @isright="right++" type="number" placeh="#" :answer="[74, 64, 45, 57, 67]"></inputbox>
+                </div>
+              </div>
+            </div>
+          </template>
         </div>
       </div>
       <!-- SCENES FINALIZAR ############################################-->
@@ -248,7 +258,7 @@
           {
               instruction: '',
               popper: '',
-              type: 'choose', 
+              type: 'pregunta21', 
               pregunta: 'Escribe los números que faltan en los recuadros.',
               opcionesImgsPrefix: null,
               opciones: ['PENDIENTE'],
@@ -257,7 +267,7 @@
           {
               instruction: '',
               popper: '',
-              type: 'choose', 
+              type: 'pregunta22', 
               pregunta: 'Escribe los números que faltan en las siguientes sumas.',
               opcionesImgsPrefix: null,
               opciones: ['PENDIENTE'],
@@ -266,7 +276,7 @@
           {
               instruction: '',
               popper: '',
-              type: 'choose', 
+              type: 'pregunta23', 
               pregunta: 'Escribe el número de pulgares que corresponden a la longitud de cada objeto.',
               opcionesImgsPrefix: null,
               opciones: ['PENDIENTE'],
@@ -284,7 +294,7 @@
           {
               instruction: '',
               popper: '',
-              type: 'choose', 
+              type: 'pregunta25', 
               pregunta: 'Observa la imagen y escribe los números que faltan en cada oración.',
               opcionesImgsPrefix: null,
               opciones: ['PENDIENTE'],
