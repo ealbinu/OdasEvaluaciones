@@ -1250,6 +1250,22 @@
 		"oF": 0,
 		"oS": 0
 		},
+	"\/CN6T1\/index.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/CN6T1\/index.html",
+		"oF": 0
+		},
+	"\/CN6T1\/index.pug": {
+		"cB": 0,
+		"cOD": 1,
+		"ft": 512,
+		"oA": 0,
+		"oAP": "\/CN6T1\/index.html",
+		"oF": 0,
+		"oS": 0
+		},
 	"\/CNAME": {
 		"cB": 0,
 		"ft": 8192,

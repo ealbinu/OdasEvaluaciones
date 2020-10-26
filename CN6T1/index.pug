@@ -1,0 +1,226 @@
+include ../assets/pug/_head
+include ../assets/pug/_body
+include ../assets/pug/_scripts
+
+- grade = '6º'
+- title = 'Ciencias Naturales'
+- subtitle = ''
+
+<!DOCTYPE html>
+html(lang="es")
+    +head
+        style.
+
+    body
+        #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
+            h1
+                span.grade #{grade}
+                | #{title}
+            if subtitle.length>1
+                h2 #{subtitle}
+
+            +body
+
+        +scripts
+            script.
+                //app.$set(app, 'currentScene', 0)
+                app.$set(app, 'scenes', [
+                    {
+                        instruction: 'Selecciona la respuesta correcta.',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el líquido indispensable para la vida de todos los seres vivos.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Café.','Refresco.','Agua simple potable. ','Jugo.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es un beneficio que proporciona a nuestro cuerpo el consumir agua simple potable.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Facilita los procesos de digestión.','Ayuda a retener los virus en el organismo.','Contiene sustancias dañinas.','Retrasa la recuperación de energía en el cuerpo humano.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el nombre de la guía que ofrece recomendaciones sobre la cantidad de líquidos que se deben consumir diariamente?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El Plato del Bien Comer.','La Jarra del Buen Beber.','La pirámide alimenticia.','La guía del agua.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es un hábito importante para lograr un estilo de vida saludable?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Ver todo el día la televisión.','Evitar realizar alguna actividad física.','Comer todos los días carne.','Hacer ejercicio.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuántos huesos conforman el esqueleto humano?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['220','180','206','190'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es la función del cerebelo en el cuerpo humano?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Regular la temperatura y la percepción del hambre.','Mantener el equilibrio y coordinar los movimientos finos.','Transmitir los mensajes entre el cerebro y el cuerpo.','Almacenar la información e interpretar lo que ven los ojos.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el aparato que nos permite introducir aire a los pulmones.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Circulatorio.','Digestivo.','Respiratorio.','Inmunológico.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son órganos que forman parte del aparato circulatorio.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El corazón, las venas, las arterias y la sangre.','La boca, el esófago, el intestino grueso y delgado.','Los huesos, los músculos, el cartílago y los ligamentos.','Las fosas nasales, la faringe, la laringe y la tráquea.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el proceso por el cual se transmiten los caracteres de los progenitores a sus descendientes.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Las células.','La herencia.','El fenotipo.','El genotipo.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuáles son las estructuras donde se encuentra la información genética?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El ADN.','La herencia.','El fenotipo.','Los cromosomas.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Nombre de la resina fosilizada producida por los árboles de coníferas.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Congelado.','Hueso.','Ámbar.','Coprolito.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son los fósiles con los cuales es posible conocer la dieta de muchos organismos ya extintos.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Huesos.', 'Microfósiles.', 'Dientes.', 'Coprolitos.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Nombre del aparato del cuerpo humano que nos permite movernos y mantenernos en pie.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Digestivo.','Excretor.','Respiratorio.','Locomotor.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Quién determina el sexo del nuevo ser?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['La madre.','El padre.','El bebé.','Los abuelos.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿De qué otra manera se les conoce a los glóbulos blancos de nuestro sistema inmunológico?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Bacterias.','Leucocitos.','Linfocitos.','Monocitos.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Personaje que propuso la teoría de la evolución mediante la selección natural.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Louis Pasteur.','Carlos Linneo.','Charles Robert Darwin.','Jean-Baptiste Lamarck.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son ejemplos de factores físicos, excepto uno. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Agua.','Aire.','Suelo.','Plantas.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Es un órgano que forma parte del aparato digestivo?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Laringe.','Tráquea.','Estómago.','Alvéolos.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son factores de riesgo para contraer cáncer de mama, excepto uno. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Ser mayor de 35 años.','Continuar menstruando después de los 50 años.','Tener una dieta balanceada.','Utilizar hormonas durante la menopausia.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Las actividades humanas alteran las condiciones ambientales y generan:',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Que las especies sufran un proceso acele- rado de extinción.','Que las especies se defiendan mediante ataques.','Que las especies vivan en condiciones apropiadas.','Que las especies aumenten su reproduc- ción.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo está dividido el sistema nervioso central?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Encéfalo y médula espinal.','Fibras nerviosas y tálamo.','Nervios y cerebelo.','Hipotálamo y médula ósea.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son las estrategias que conforman las tres erres, excepto una. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Reducir.','Rotar.','Reutilizar.','Reciclar.'],
+                        respuestaNum: 1
+                    },
+                ])
