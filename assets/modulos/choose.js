@@ -33,10 +33,11 @@ Vue.component('choose', {
             if(this.evaluate) {
                 return false
             }
-            this.$emit('input', this.status)
+            
             if(this.multiple==false){
-            /* SINGLE */ // ############################ 
+                /* SINGLE */ // ############################ 
                 this.status = op
+                this.$emit('input', this.status)
                 if(this.status!=null) {
                     s_ok.play()
                 }
@@ -49,6 +50,7 @@ Vue.component('choose', {
                 } else {
                     this.multipleAnswers.splice(i,1)
                 }
+                this.$emit('input', this.multipleAnswers)
             }
         },
         verify () { 

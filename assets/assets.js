@@ -43,7 +43,7 @@ var app = new Vue({
         },
         r: {
             deep: true,
-            handler(){
+            handler(vold, vnew){
                 this.buildStoreCall()
                 var _this = this
                 _this.storeScreencapture()
@@ -88,10 +88,11 @@ var app = new Vue({
                 let arrayt = '[' + arra.toString() + ']' + '/'
                 let stringr = time + arrayt + this.currentScene
 
+                console.log(stringr)
                 let stringr64 = window.btoa(stringr)
                 this.progress = stringr64
 
-                //window.location.hash = '#s'+this.finalData.score+'&#d'+stringr64
+                window.location.hash = '#s'+this.finalData.score+'&#d'+stringr64
 
                 var endData = JSON.stringify({progreso: stringr64})
                 window.top.postMessage(endData, "*")
@@ -153,6 +154,7 @@ var app = new Vue({
                 var time = parseInt(hash[0])
                 /* Answers */
                 let data = JSON.parse(hash[1])
+                console.log(data)
 
                 /* set time and data */
                 for(d in data){ if(data[d] !== null){ this.r[d] = data[d] } else { this.r[d] = null }}
@@ -196,8 +198,6 @@ var app = new Vue({
             domtoimage.toPng(node).then(function (dataUrl) {
                 _this.screen[_this.currentScene] = null
                 _this.screen[_this.currentScene] = dataUrl
-                console.log('Generando screenshot: ' +_this.currentScene)
-                console.log('Screenshots: ', _this.screen.length)
             }).catch(function (error) { console.error(error) })
             
         }
