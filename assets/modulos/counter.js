@@ -5,7 +5,7 @@ Vue.component('counter', {
         return {
             startSeconds: 3600,
             seconds:0,
-            secSpeed: 250,
+            secSpeed: 10,
             ended: false,
             started: false,
             verification: false
@@ -60,10 +60,11 @@ Vue.component('counter', {
         }
     },
     mounted() {
-
+        /*
         if(window.location.hostname=='mbpro.local'){
             this.startApp()
         }
+        */
 
     },
     template: `

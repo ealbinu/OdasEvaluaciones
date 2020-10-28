@@ -28,7 +28,13 @@
         <div class="row mt-3 pregunta">
           <!-- >>>> CHOOSE-->
           <template v-if="i.type=='choose'">
-            <choose :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res=false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.respuestaNum" :isactive="currentScene == index"></choose>
+            <choose :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res=false" :num="(index+1)+'.'" :text="i.pregunta" :options="buildOpImgs(i.opciones, i.opcionesImgsPrefix, i.settings)" :answer="i.respuestaNum" :isactive="currentScene == index" :settings="i.settings"></choose>
+          </template>
+          <!-- >>>> SELECTABLEOPTIONS-->
+          <template v-else-if="i.type=='selectableoptions'">
+            <selectableoptions :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res = false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.respuestaNum" :customclass="i.settings.class" :isactive="currentScene == index">
+              <template v-slot:option="{option}">{{option.o}}</template>
+            </selectableoptions>
           </template>
         </div>
       </div>
@@ -37,7 +43,7 @@
         <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1"></finalize>
       </div>
       <!-- Counter >>>>>>>>>>-->
-      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event"></counter>
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total"></counter>
       <!-- Navigation >>>>>>>>>>>>>>>-->
       <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event"></navigation>
     </div>

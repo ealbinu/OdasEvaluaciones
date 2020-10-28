@@ -46,9 +46,12 @@ var app = new Vue({
             handler(){
                 this.buildStoreCall()
                 var _this = this
+                _this.storeScreencapture()
+                /*
                 setTimeout(function () {
                     _this.storeScreencapture()
                 }, 50)
+                */
             }
         }
     },
@@ -188,9 +191,15 @@ var app = new Vue({
                 return false
             }
             var _this = this
-            domtoimage.toPng(document.body).then(function (dataUrl) {
+            var node = document.body
+            var node = document.getElementsByClassName('scene')[this.currentScene]
+            domtoimage.toPng(node).then(function (dataUrl) {
+                _this.screen[_this.currentScene] = null
                 _this.screen[_this.currentScene] = dataUrl
+                console.log('Generando screenshot: ' +_this.currentScene)
+                console.log('Screenshots: ', _this.screen.length)
             }).catch(function (error) { console.error(error) })
+            
         }
     },
     mounted () {
