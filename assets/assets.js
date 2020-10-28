@@ -43,7 +43,7 @@ var app = new Vue({
         },
         r: {
             deep: true,
-            handler(vold, vnew){
+            handler(){
                 this.buildStoreCall()
                 var _this = this
                 _this.storeScreencapture()
