@@ -5,7 +5,7 @@ Vue.component('counter', {
         return {
             startSeconds: 3600,
             seconds:0,
-            secSpeed: 10,
+            secSpeed: 250,
             ended: false,
             started: false,
             verification: false
