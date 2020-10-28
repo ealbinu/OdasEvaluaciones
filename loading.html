@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo iFrame</title>
+    <style>
+        iframe{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <iframe src="/ES1T1/" frameborder="0" scrolling="no" onload="resizeIframe(this)"></iframe>
+    <script>
+        function resizeIframe(obj) {
+            obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+        }
+    </script>
+</body>
+</html>
