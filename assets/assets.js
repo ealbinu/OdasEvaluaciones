@@ -34,6 +34,7 @@ var app = new Vue({
             started: false,
             currentTime: 0,
             progress: null,
+            stillMissing: true
         }
     },
     watch: {
@@ -47,6 +48,7 @@ var app = new Vue({
                 this.buildStoreCall()
                 var _this = this
                 _this.storeScreencapture()
+                this.stillMissing = !_.every(this.r, function(num) { return num != undefined })
                 /*
                 setTimeout(function () {
                     _this.storeScreencapture()
@@ -88,7 +90,6 @@ var app = new Vue({
                 let arrayt = '[' + arra.toString() + ']' + '/'
                 let stringr = time + arrayt + this.currentScene
 
-                console.log(stringr)
                 let stringr64 = window.btoa(stringr)
                 this.progress = stringr64
 
@@ -154,7 +155,6 @@ var app = new Vue({
                 var time = parseInt(hash[0])
                 /* Answers */
                 let data = JSON.parse(hash[1])
-                console.log(data)
 
                 /* set time and data */
                 for(d in data){ if(data[d] !== null){ this.r[d] = data[d] } else { this.r[d] = null }}

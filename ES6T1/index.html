@@ -86,13 +86,17 @@
         </div>
       </div>
       <!-- SCENES FINALIZAR ############################################-->
-      <div class="scene" v-if="currentScene == scenes.length">
+      <div class="scene lastscene" v-if="currentScene == scenes.length">
+        <template v-if="stillMissing">
+          <div class="falta">Te falta contestar las siguientes preguntas:</div>
+          <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event" :answereds="r" :onlypages="true"></navigation>
+        </template>
         <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1"></finalize>
       </div>
       <!-- Counter >>>>>>>>>>-->
       <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total"></counter>
       <!-- Navigation >>>>>>>>>>>>>>>-->
-      <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event"></navigation>
+      <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event" :answereds="r"></navigation>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
     <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>

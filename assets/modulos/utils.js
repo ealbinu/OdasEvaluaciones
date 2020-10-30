@@ -27,20 +27,19 @@ Vue.component('imgbg', {
 
 
 Vue.component('navigation', {
-    props: ['currentScene', 'scenes'],
+    props: ['currentScene', 'scenes', 'answereds', 'onlypages'],
     mounted(){
     },
     template: `
     <div class="row navigation  text-center">
-    <div class="col paginas">
-    <div v-for="(i, index) in scenes" :class="'pagina ' + (currentScene == index ? 'iscurrent':'') + (i.res?' isok':'') + (i.res==false?' iswrong':'')" @click="$emit('goto', index)"> <span>{{index+1}}</span> </div>
-    <div :class="'pagina ' + (scenes.length == currentScene ? 'iscurrent':'')" @click="$emit('goto', scenes.length)"><span>F</span></div>
-    </div>
-    <div class="col-4 col-md-3">
-        <button @click="$emit('back')" :disabled="currentScene == 0">Anterior</button>
-        <button @click="$emit('next')" :disabled="currentScene == scenes.length">Siguiente</button>
-    </div>
-
+        <div class="col paginas">
+            <div v-for="(i, index) in scenes" :class="'pagina ' + (currentScene == index ? 'iscurrent':'') + (i.res?' isok':'') + (i.res==false?' iswrong':'') + (answereds[index]!=undefined ? ' isanswered':'')" @click="$emit('goto', index)"> <span>{{index+1}}</span> </div>
+            <div :class="'pagina ' + (scenes.length == currentScene ? 'iscurrent':'')" @click="$emit('goto', scenes.length)"><span>F</span></div>
+        </div>
+        <div class="col-4 col-md-3" v-if="onlypages==undefined">
+            <button @click="$emit('back')" :disabled="currentScene == 0">Anterior</button>
+            <button @click="$emit('next')" :disabled="currentScene == scenes.length">Siguiente</button>
+        </div>
     </div>
     `
 })

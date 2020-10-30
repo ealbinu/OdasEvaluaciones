@@ -1,6 +1,6 @@
 
 Vue.component('counter', {
-    props: ['resultado', 'currentTime', 'right', 'total'],
+    props: ['resultado', 'currentTime', 'right', 'total', 'segundos'],
     data () {
         return {
             startSeconds: 3600,
@@ -60,11 +60,14 @@ Vue.component('counter', {
         }
     },
     mounted() {
-        /*
+        if(this.segundos){
+            this.startSeconds = this.segundos
+        }
+        
         if(window.location.hostname=='mbpro.local'){
             this.startApp()
         }
-        */
+
 
     },
     template: `
@@ -74,23 +77,32 @@ Vue.component('counter', {
             <div class="col-md-4 col-6 tiempores"> Tiempo restante: </div>
             <div :class="'col-md-4 col-6 ' + barstatus " v-if="!ended && percentage>0"><div class="counter__clock">{{clockview}}</div></div>
             <div :class="'col-md-4 col-6 ' + barstatus " v-if="ended"><div class="counter__clock">00:00</div></div>
-            <div :class="'col-md-4 col-6 ' + barstatus " v-if="percentage==0"><div class="counter__clock">60:00</div></div>
+            <div :class="'col-md-4 col-6 ' + barstatus " v-if="percentage==0"><div class="counter__clock">{{startSeconds/60}}:00</div></div>
         </div>
         <div class="counterRun" v-if="!started && currentTime==0">
             <template v-if="!verification">
-            <p>Tendrás <strong>60 minutos</strong> para completar la evaluación a partir de que des clic en el botón "comenzar".</p>
+            <p>Tendrás <strong>{{startSeconds/60}} minutos</strong> para completar la evaluación a partir de que des clic en el botón "comenzar".</p>
+            <!--
             <p><small>Podrás cambiar de pregunta utilizando los botones <strong>Anterior</strong> y <strong>Siguiente</strong> o dando clic en los botones numéricos que se encuentran en la parte inferior.</small></p>
+            -->
+            <p><small>Cambia de pregunta presionando <strong>Anterior</strong> y <strong>Siguiente</strong> o dando click en el número de pregunta.</small></p>
             <div class="row navigation  text-center">
                 <div class="col paginas">
-                    <div class="pagina">1</div><div class="pagina">2</div><div class="pagina">3</div>
-                    <div class="pagina">4</div><div class="pagina">5</div><div class="pagina">6</div>
+                    <div class="pagina">1</div><div class="pagina">2</div><div class="pagina">3</div><div class="pagina">4</div>
                 </div>
                 <div class="col-4"><button>Anterior</button> <button>Siguiente</button> </div>
             </div>
+            <!--
             <p class="mt-3"><small>Para responder algunas de las preguntas deberás consultar una imagen o texto de referencia, podrás consultarla dando clic en la imagen que se encuentra en la esquina superior derecha.</small></p>
-            <div class="popper">
-                <div class="popper__opener animate__animated animate__pulse animate__infinite animate__slower">
-                    <div class="popper__hand animate__animated animate__pulse animate__infinite"></div>
+            -->
+            <div class="row justify-content-center align-items-center extraconsulta">
+                <div class="col-8">
+                <p class="mt-3"><small>En algunas preguntas podrás consultar una imagen o texto de referencia que se encuentra en la esquina superior derecha.</small></p>
+                </div>
+                <div class="popper col">
+                    <div class="popper__opener animate__animated animate__pulse animate__infinite animate__slower">
+                        <div class="popper__hand animate__animated animate__pulse animate__infinite"></div>
+                    </div>
                 </div>
             </div>
             
@@ -102,14 +114,14 @@ Vue.component('counter', {
             </template>
             <template v-if="verification">
                 <p><strong>¿Deseas comenzar la evaluación?</strong></p>
-                <p>Tendrás <strong>60 minutos</strong> para completarla.</p>    
+                <p>Tendrás <strong>{{startSeconds/60}} minutos</strong> para completarla.</p>    
                 <button @click="startApp">Comenzar</button>
                 <button class="cancelar" @click="verification=false">Regresar</button>
             </template>
         </div>
         <div class="counterRun" v-if="!started && currentTime!=0">
             <p>¡Continúa con tu evaluación!</p>
-            <p>Aún tienes un tiempo restante de <strong>{{clockview}}</strong>.</p>
+            <p>Aún tienes un tiempo restante de <strong>{{clockview}}</strong> minutos.</p>
             <p><strong>¡Éxito!</strong></p>
             <button @click="startApp">Continuar</button>
         </div>
@@ -118,7 +130,7 @@ Vue.component('counter', {
             <p>Se ha entregado tu evaluación con las respuestas que llevabas hasta el momento.</p>
             <div class="d-flex justify-content-center mt-5 resultado" v-if="resultado">
                 <h3>Resultado</h3>
-                <div><strong>{{right}} correcta<span v-if="right>1 || right==0">s</span> </strong> de {{total}} preguntas</div>
+                <div><strong>{{right}} respuestas correcta<span v-if="right>1 || right==0">s</span> </strong> de {{total}} preguntas</div>
             </div>
         </div>
     </div>

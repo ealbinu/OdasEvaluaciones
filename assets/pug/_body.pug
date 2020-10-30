@@ -1,5 +1,5 @@
 
-mixin body
+mixin body(segundos)
     // SCENES ############################################
     .scene(v-for="(i, index) in scenes" v-show="currentScene == index && started")
         .row
@@ -17,11 +17,14 @@ mixin body
             if block
                 block
     // SCENES FINALIZAR ############################################
-    .scene(v-if="currentScene == scenes.length")
+    .scene(v-if="currentScene == scenes.length").lastscene
+        template(v-if="stillMissing")
+            .falta Te falta contestar las siguientes preguntas:
+            navigation(v-if="started && resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event" :answereds="r" :onlypages="true")
         finalize(@evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1")
-
+    
 
     // Counter >>>>>>>>>>
-    counter(@started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total")
+    counter(@started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total" :segundos=segundos)
     // Navigation >>>>>>>>>>>>>>>
-    navigation(v-if="started && resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event")
+    navigation(v-if="started && resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event" :answereds="r")

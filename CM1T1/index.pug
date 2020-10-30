@@ -19,7 +19,7 @@ html(lang="es")
             if subtitle.length>1
                 h2 #{subtitle}
 
-            +body
+            +body(2400)
 
         +scripts
             script.
@@ -142,7 +142,7 @@ html(lang="es")
                         instruction: '',
                         popper: '',
                         type: 'choose', //choose - input
-                        pregunta: '¿Cuál de las siguientes opciones no es un día de la semana?',
+                        pregunta: '¿Cuál de las siguientes opciones <strong>no</strong> es un día de la semana?',
                         opciones: ['Lunes.','Sábado.','Noviembre.'],
                         respuestaNum: 2
                     },

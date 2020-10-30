@@ -39,13 +39,17 @@
         </div>
       </div>
       <!-- SCENES FINALIZAR ############################################-->
-      <div class="scene" v-if="currentScene == scenes.length">
+      <div class="scene lastscene" v-if="currentScene == scenes.length">
+        <template v-if="stillMissing">
+          <div class="falta">Te falta contestar las siguientes preguntas:</div>
+          <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event" :answereds="r" :onlypages="true"></navigation>
+        </template>
         <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1"></finalize>
       </div>
       <!-- Counter >>>>>>>>>>-->
       <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total"></counter>
       <!-- Navigation >>>>>>>>>>>>>>>-->
-      <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event"></navigation>
+      <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event" :answereds="r"></navigation>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
     <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
@@ -270,7 +274,7 @@
               type: 'choose', //input
               pregunta: 'Son las partes que te ayudan a saber de qué se va a tratar un cuento.',
               opciones: ['La fecha y el autor.','El autor y el número de páginas.','Portada y recomendación.'],
-              respuestaNum: 0,
+              respuestaNum: 2,
               res: null
           },
           {
@@ -286,7 +290,7 @@
               instruction: '',
               popper: '',
               type: 'choose', //input
-              pregunta: 'Selecciona las palabra que comienzan con la misma letra que la palabra <strong>libro</strong>.',
+              pregunta: 'Selecciona las palabras que comienzan con la misma letra que la palabra <strong>libro</strong>.',
               opciones: ['Lima, lupa y loma.','Lupa, lima y broma.','Loma, obra y liga.'],
               respuestaNum: 0,
               res: null
