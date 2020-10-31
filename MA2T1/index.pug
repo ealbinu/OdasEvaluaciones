@@ -115,7 +115,7 @@ html(lang="es")
             if subtitle.length>1
                 h2 #{subtitle}
 
-            +body
+            +body(3600)
                 template(v-if="i.type=='pregunta21'")
                     .choose.pregunta21
                         .label #[strong 21.] #[span Escribe los números que faltan en los recuadros.]

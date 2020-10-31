@@ -18,7 +18,7 @@ mixin body(segundos)
                 block
     // SCENES FINALIZAR ############################################
     .scene(v-if="currentScene == scenes.length").lastscene
-        template(v-if="stillMissing")
+        template(v-if="stillMissing && !resultado")
             .falta Te falta contestar las siguientes preguntas:
             navigation(v-if="started && resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event" :answereds="r" :onlypages="true")
         finalize(@evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1")
