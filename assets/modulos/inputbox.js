@@ -21,9 +21,10 @@ Vue.component('inputbox', {
             if(this.evaluate) {
                 return false
             }
+            this.$emit('input', this.status)
             s_ok.play()
         },
-        verify () { 
+        verify () {
             this.evaluate = true
 
             const theanswer = this.type=='text' ? this.answer.map(item => item.toLowerCase().trim()) :  this.answer.map(item => parseInt(item))
@@ -37,7 +38,11 @@ Vue.component('inputbox', {
         }
     },
     mounted () {
-        this.$emit('input', "")
+        this.$emit('input', [])
+        if(this.value !== null && this.value !== "" && this.value !== undefined){
+            this.status = this.value
+            this.$emit('input', this.status)
+        }
     },
     template: `
         <div class="inputboxes">

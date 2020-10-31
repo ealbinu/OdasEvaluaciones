@@ -87,9 +87,13 @@ var app = new Vue({
                         arra.push(this.r[i])
                     }
                 }
-                let arrayt = '[' + arra.toString() + ']' + '/'
+
+
+
+                let arrayt = JSON.stringify(arra) + '/'
                 let stringr = time + arrayt + this.currentScene
 
+                console.log('GUARDADO:',stringr)
                 let stringr64 = window.btoa(stringr)
                 this.progress = stringr64
 
@@ -154,10 +158,50 @@ var app = new Vue({
                 /* Time */
                 var time = parseInt(hash[0])
                 /* Answers */
+
                 let data = JSON.parse(hash[1])
 
-                /* set time and data */
-                for(d in data){ if(data[d] !== null){ this.r[d] = data[d] } else { this.r[d] = null }}
+                console.log('CARGADO:',data)
+
+
+                /* set data */
+                for(d in data){
+                    //NUMERICO
+                    if(typeof data[d] == 'number'){
+                        console.log(d,data[d], typeof data[d], 'number')
+                        if(data[d] >= 0){
+                            this.r[d] = data[d]
+                        } else { 
+                            this.r[d] = undefined
+                        }
+                    }
+                    //STRING
+                    else if(typeof data[d] == 'string' ){
+                        console.log(d,data[d], typeof data[d], 'string')
+                        if(data[d].trim() !== ""){
+                            this.r[d] = data[d]
+                        } else { 
+                            this.r[d] = ""
+                        }
+                    }
+                    //ARRAY
+                    else {
+                        console.log(d,data[d], typeof data[d], 'array')
+                        if(data[d].length>0){
+                            this.r[d] = data[d]
+                            /*
+                            for(i in data[d]){
+                                this.r[d].push(data[d][i])
+                            }
+                            */
+
+                        } else { 
+                            this.r[d] = undefined
+                        }
+                    }
+                }
+
+                /* set time */
                 this.currentTime = time
                 /*RECORDAR PAGINA */
                 this.$set(this, 'currentScene', parseInt(hash[2]) )

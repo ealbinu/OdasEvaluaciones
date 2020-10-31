@@ -33,7 +33,7 @@ Vue.component('navigation', {
     template: `
     <div class="row navigation  text-center">
         <div class="col paginas">
-            <div v-for="(i, index) in scenes" :class="'pagina ' + (currentScene == index ? 'iscurrent':'') + (i.res?' isok':'') + (i.res==false?' iswrong':'') + (answereds[index]!=undefined ? ' isanswered':'')" @click="$emit('goto', index)"> <span>{{index+1}}</span> </div>
+            <div v-for="(i, index) in scenes" :class="'pagina ' + (currentScene == index ? 'iscurrent':'') + (i.res?' isok':'') + (i.res==false?' iswrong':'') + (answereds[index]!=undefined && answereds[index]!='' ? ' isanswered':'')" @click="$emit('goto', index)"> <span>{{index+1}}</span> </div>
             <div :class="'pagina ' + (scenes.length == currentScene ? 'iscurrent':'')" @click="$emit('goto', scenes.length)"><span>F</span></div>
         </div>
         <div class="col-4 col-md-3" v-if="onlypages==undefined">

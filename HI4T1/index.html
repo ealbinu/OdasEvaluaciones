@@ -57,7 +57,47 @@
               <div class="label"><strong>14.</strong><span>Escribe <strong>V</strong> si la oración es verdadera o <strong>F</strong> si es falsa.</span></div>
               <div class="options">
                 <div class="position-relative">
-                  <inputbox :key="13" v-model="r[13]" :ref="refCount()" @isright="right++" type="text" placeh="-" :answer="['v', 'f', 'v', 'f', 'v']" :after="['Los olmecas usaban la madera y el barro para hacer figurillas y vasijas.', 'Los mayas vivieron en lo que actualmente son los estados de Veracruz y Tamaulipas.', 'En la cultura maya, las mujeres destacaron en los asuntos políticos porque también se tomaba en cuenta el linaje de la madre.', 'Los teotihuacanos construyeron centros religiosos en la ciudad de Monte Albán.', 'Los mixtecos tallaban figuras y producían cerámica de varios colores.']"></inputbox>
+                  <inputbox :key="13" v-model="r[13]" :ref="refCount()" @isright="right++" type="text" placeh="-" :answer="['v']" :after="['Los olmecas usaban la madera y el barro para hacer figurillas y vasijas.']"></inputbox>
+                </div>
+              </div>
+            </div>
+          </template>
+          <template v-if="i.type=='pregunta15'">
+            <div class="choose">
+              <div class="label"><strong>15.</strong><span>Escribe <strong>V</strong> si la oración es verdadera o <strong>F</strong> si es falsa.</span></div>
+              <div class="options">
+                <div class="position-relative">
+                  <inputbox :key="14" v-model="r[14]" :ref="refCount()" @isright="right++" type="text" placeh="-" :answer="['f']" :after="['Los mayas vivieron en lo que actualmente son los estados de Veracruz y Tamaulipas.']"></inputbox>
+                </div>
+              </div>
+            </div>
+          </template>
+          <template v-if="i.type=='pregunta16'">
+            <div class="choose">
+              <div class="label"><strong>16.</strong><span>Escribe <strong>V</strong> si la oración es verdadera o <strong>F</strong> si es falsa.</span></div>
+              <div class="options">
+                <div class="position-relative">
+                  <inputbox :key="15" v-model="r[15]" :ref="refCount()" @isright="right++" type="text" placeh="-" :answer="['v']" :after="['En la cultura maya, las mujeres destacaron en los asuntos políticos porque también se tomaba en cuenta el linaje de la madre.']"></inputbox>
+                </div>
+              </div>
+            </div>
+          </template>
+          <template v-if="i.type=='pregunta17'">
+            <div class="choose">
+              <div class="label"><strong>17.</strong><span>Escribe <strong>V</strong> si la oración es verdadera o <strong>F</strong> si es falsa.</span></div>
+              <div class="options">
+                <div class="position-relative">
+                  <inputbox :key="16" v-model="r[16]" :ref="refCount()" @isright="right++" type="text" placeh="-" :answer="['f']" :after="['Los teotihuacanos construyeron centros religiosos en la ciudad de Monte Albán.']"></inputbox>
+                </div>
+              </div>
+            </div>
+          </template>
+          <template v-if="i.type=='pregunta18'">
+            <div class="choose">
+              <div class="label"><strong>18.</strong><span>Escribe <strong>V</strong> si la oración es verdadera o <strong>F</strong> si es falsa.</span></div>
+              <div class="options">
+                <div class="position-relative">
+                  <inputbox :key="17" v-model="r[17]" :ref="refCount()" @isright="right++" type="text" placeh="-" :answer="['v']" :after="['Los mixtecos tallaban figuras y producían cerámica de varios colores.']"></inputbox>
                 </div>
               </div>
             </div>
@@ -216,6 +256,42 @@
               instruction: '',
               popper: '',
               type: 'pregunta14', 
+              pregunta: '',
+              opcionesImgsPrefix: null,
+              opciones: [''],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'pregunta15', 
+              pregunta: '',
+              opcionesImgsPrefix: null,
+              opciones: [''],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'pregunta16', 
+              pregunta: '',
+              opcionesImgsPrefix: null,
+              opciones: [''],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'pregunta17', 
+              pregunta: '',
+              opcionesImgsPrefix: null,
+              opciones: [''],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'pregunta18', 
               pregunta: '',
               opcionesImgsPrefix: null,
               opciones: [''],
