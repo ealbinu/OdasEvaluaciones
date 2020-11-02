@@ -21,12 +21,14 @@ var app = new Vue({
             scenes: {},
             currentScene:0,
             temps: {},
+            unanswered:0,
             finalData:{
                 score: 100,
                 scoresum: 0,
                 oks: 0,
                 errors: 0,
                 answers: 0,
+                unanswered: 0,
                 screen: [],
                 progress: null
             },
@@ -111,6 +113,14 @@ var app = new Vue({
         reset () { location.reload() },
         finalizar () {
             s_win.play()
+
+            for(un in this.r){
+                var res = this.r[un]
+                if(res === undefined || res === "" || res === null || res === -1 || res.length===0){
+                    this.unanswered++
+                }
+            }
+            
             this.total = this.r.length
             for(var i in this.$refs){
                 if(this.$refs[i]!=undefined){
@@ -140,6 +150,7 @@ var app = new Vue({
             _this.finalData.answers = _this.total
             _this.finalData.screen = _this.screen
             _this.finalData.progress = _this.progress
+            _this.finalData.unanswered = _this.unanswered
             var endData = JSON.stringify(_this.finalData)
             window.top.postMessage(endData, "*")
         },
