@@ -131,7 +131,7 @@ Vue.component('counter', {
             <p>Se ha entregado tu evaluación con las respuestas que llevabas hasta el momento.</p>
             <div class="d-flex justify-content-center mt-5 resultado" v-if="resultado">
                 <h3>Resultado</h3>
-                <div><strong>{{right}} respuestas correcta<span v-if="right>1 || right==0">s</span> </strong> de {{total}} preguntas</div>
+                <div><strong>{{right}} respuesta<span v-if="right>1 || right==0">s</span> correcta<span v-if="right>1 || right==0">s</span> </strong> de {{total}} preguntas</div>
             </div>
         </div>
     </div>

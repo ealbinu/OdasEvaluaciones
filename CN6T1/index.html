@@ -46,6 +46,8 @@
         </template>
         <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1"></finalize>
       </div>
+      <!-- TEST SCREENSHOTS ####-->
+      <!-- .row: .col-3(v-for="(i, index) in screen"): img(:src="i").w-100-->
       <!-- Counter >>>>>>>>>>-->
       <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total" :segundos="3300"></counter>
       <!-- Navigation >>>>>>>>>>>>>>>-->

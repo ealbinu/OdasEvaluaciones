@@ -29,6 +29,7 @@ var app = new Vue({
                 errors: 0,
                 answers: 0,
                 unanswered: 0,
+                wrongAnswers: 0,
                 screen: [],
                 progress: null
             },
@@ -62,7 +63,7 @@ var app = new Vue({
     methods: {
         buildOpImgs(opciones, opcionesImgsPrefix, settings){
             if(opcionesImgsPrefix == null){
-                return opciones
+                return opciones.map(item => ''+item+'<span class="fixline">...</span>')
             } else {
                 var imgs3 = []
                 imgs3.push('<img src="aimg/'+opcionesImgsPrefix+'a.png">')
@@ -151,6 +152,7 @@ var app = new Vue({
             _this.finalData.screen = _this.screen
             _this.finalData.progress = _this.progress
             _this.finalData.unanswered = _this.unanswered
+            _this.finalData.wrongAnswers = _this.finalData.errors - _this.unanswered
             var endData = JSON.stringify(_this.finalData)
             window.top.postMessage(endData, "*")
         },

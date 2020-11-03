@@ -565,6 +565,9 @@ input[type=number] {
 .options div {
   margin: 10px;
 }
+.options div p {
+  margin: 4px;
+}
 @media (max-width: 992px) {
   .options div {
     margin: 4px;
@@ -780,7 +783,7 @@ input[type=number] {
   padding: 5px 10px;
 }
 .counterRun.endtime {
-  background: #DB3E34;
+  /*background: @wrongcol;*/
 }
 @media (max-width: 992px) {
   .counterRun {
@@ -805,7 +808,8 @@ input[type=number] {
   border-radius: 10px;
 }
 .endtime .resultado h3 {
-  color: #4B1514;
+  /*color: #4B1514;*/
+  color: #fff;
 }
 .endtime .resultado strong {
   color: #f5f5f5;
@@ -838,5 +842,15 @@ input[type=number] {
 .lastscene .navigation .paginas .pagina:last-child {
   display: none !important;
   font-size: 1.4rem !important;
+}
+/* FIX SCREENSHOT LAS LINE */
+.fixline {
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  display: inline-block;
+  overflow: hidden;
+  line-height: 9999px;
+  height: 0;
 }
 /*# sourceMappingURL=assets.css.map */
