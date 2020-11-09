@@ -23,13 +23,6 @@
 		"oAP": "\/.vscode\/chooseTXT.code-snippets",
 		"oF": 0
 		},
-	"\/Archivo.zip": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/Archivo.zip",
-		"oF": 0
-		},
 	"\/assets\/aimg\/bullet.svg": {
 		"ft": 2097152,
 		"miP": 0,
@@ -4014,6 +4007,13 @@
 		"oAP": "\/MA4T1\/index.html",
 		"oF": 0,
 		"oS": 0
+		},
+	"\/MA5T1.zip": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/MA5T1.zip",
+		"oF": 0
 		},
 	"\/MA5T1\/aimg\/10.png": {
 		"ft": 32768,
