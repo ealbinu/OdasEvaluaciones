@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">4º</span>Español</h1>
+      <h1><span class="grade">5º</span>Español</h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started">
         <div class="row">
@@ -113,7 +113,7 @@
               type: 'choose', 
               pregunta: '¿Cuál es el elemento que nos hace reflexionar sobre las virtudes y los defectos humanos en las fábulas?',
               opcionesImgsPrefix: null,
-              opciones: ['El verso.','La moraleja.','El refrán.','La ficha informativa.'],
+              opciones: ['El verso.','El refrán.', 'La moraleja.' ,'La ficha informativa.'],
               respuestaNum: 2
           },
           {
