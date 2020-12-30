@@ -1,0 +1,162 @@
+include ../assets/pug/_head
+include ../assets/pug/_body
+include ../assets/pug/_scripts
+
+- grade = '6º'
+- title = 'Historia'
+- subtitle = ''
+
+<!DOCTYPE html>
+html(lang="es")
+    +head
+        style.
+
+    body
+        #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
+            h1
+                span.grade #{grade}
+                | #{title}
+            if subtitle.length>1
+                h2 #{subtitle}
+
+            +body(3000)
+        +scripts
+            script.
+
+                app.$set(app, 'scenes', [
+                    {
+                        instruction: 'Selecciona la respuesta correcta.',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son los grupos que se unieron en el actual territorio de Italia a mediados del siglo VIII a. C. para fundar la ciudad de Roma.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Espartanos y atenienses.','Persas y minoicos.','Latinos y etruscos.','Galos y bretones.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la etapa del gobierno romano en la que había un senado, al cual los gobernantes debían consultar para tomar las decisiones.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['La República.','La Monarquía.','El Imperio.','La Dictadura.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué estrategia empleaban los emperadores romanos para conseguir el apoyo de los plebeyos?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Les proveían los servicios básicos a bajo costo.','Mediante la estrategia de “pan y circo”.','Les regalaban casas y ganado.','Les repartían tierras a los campesinos.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué hizo el emperador Diocleciano para facilitar la administración y defensa del Imperio?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Impuso la paz por medio del ejército.','Cobró más impuestos a las ciudades grandes.','Impuso nuevos reyes en las regiones más lejanas.','Dividió el Imperio en Oriente y Occidente.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son inventos que la antigua civilización china dejó como legado.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['La pólvora y el papel.','La rueda y la escritura.','El alfabeto y la numeración.','La medicina y la arquitectura.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el área cultural donde se desarrollaron las principales civilizaciones americanas y abarcó desde el noroeste de México hasta Costa Rica.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Aridoamérica.','Mesoamérica.','Centroamérica.','Aridoamérica.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son los periodos en los que se divide la historia de Mesoamérica para su estudio.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Edad Media y Edad Moderna.','Neolítico, Paleolítico y Mesolítico.','Preclásico, Clásico y Posclásico.','Mesoamérica y Aridoamérica.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el periodo donde surgieron los olmecas, y en él se sentaron las bases de las culturas mesoamericanas.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Preclásico.','Clásico.','Posclásico.','Arcaico.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son grandes civilizaciones que florecieron durante el periodo clásico en Mesoamérica, excepto una. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Maya.','Teotihuacana.','Zapoteca.','Inca.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo lograron los mexicas conquistar grandes territorios de Mesoamérica para cobrar tributos?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Formando la Triple Alianza con Tlacopan y Texcoco.','Por medio de relaciones diplomáticas con otros pueblos.','Uniéndose con otros señoríos a través de matrimonios entre líderes.','Dejando que los demás pueblos se aliaran a ellos libremente.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué elemento constructivo les permitió a los mexicas edificar Tenochtitlan sobre el lago y a su vez producir alimentos?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['La construcción de canales.','La construcción de chinampas.','La construcción de templos.','La construcción de calzadas.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son figuras de enormes dimensiones que se construían en rocas de origen volcánico.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Jeroglíficos.','Geoglifos.','Cerámicas.','Esculturas.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Antigua civilización que se asentó en lo que actualmente es el sur de Perú, Bolivia y el norte de Chile, y fue la creadora del monumento del Puerto del Sol.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Moche.','Inca.','Húari.','Tiahuanaco.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿A qué civilización pertenece la ciudad de Machu Picchu?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Moche.','Inca.','Húari.','Tiahuanaco.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Era el nombre que recibía el gobernante mexica.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Quetzalcóatl.','Sapa.','Tlatoani.','Inti.'],
+                        respuestaNum: 2
+                    },
+                ])
