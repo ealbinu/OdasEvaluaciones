@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>Formación Cívica y Ética</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">º</span></h1>
+      <h1><span class="grade">3º</span>Formación Cívica y Ética</h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started">
         <div class="row">
@@ -71,15 +71,86 @@
     <script>
       app.$set(app, 'scenes', [
           {
+              instruction: 'Selecciona la respuesta correcta.',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿En cuál situación se respeta la diversidad cultural?',
+              opcionesImgsPrefix: null,
+              opciones: ['Cuando ignoramos a las personas por su origen étnico.','Cuando nos alejamos de alguien porque viste de manera diferente.','Cuando incluimos a las personas de pueblos indígenas en nuestras actividades.','Cuando nos burlamos de las tradiciones de otras regiones.'],
+              respuestaNum: 2
+          },
+          {
               instruction: '',
               popper: '',
               type: 'choose', 
-              pregunta: '',
+              pregunta: '¿Qué es la discriminación?',
               opcionesImgsPrefix: null,
-              opciones: [''],
-              respuestaNum: 
+              opciones: ['Tratar de manera desigual a las personas.','Dar las mismas oportunidades a todas las personas.','Dar mejor trato a los necesitados.','Respetar las diferencias entre individuos.'],
+              respuestaNum: 0
           },
-          
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son formas de discriminar, excepto una. ¿Cuál es?',
+              opcionesImgsPrefix: null,
+              opciones: ['Dejar de hablarle a una persona para hacerla sentir mal.','No querer ser amigo de una persona.','Molestar a alguien por su forma de vestir.','Burlarse de alguien por tener una discapacidad.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el derecho que protege la dignidad de los niños y las niñas.',
+              opcionesImgsPrefix: null,
+              opciones: ['Derecho a la libertad de expresión.','Derecho a la educación.','Derecho a la vida.','Derecho a la salud.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué es un conflicto?',
+              opcionesImgsPrefix: null,
+              opciones: ['Es una forma de ver las cosas de manera similar.','Decirle a otra persona que tiene la razón.','Poner a votación una decisión entre varias personas.','Es cuando dos o más personas tienen opiniones diferentes y se genera un problema.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Observa la ilustración y elige el derecho que se está respetando. <img src="aimg/6.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['Derecho a la educación.','Derecho a la libertad de expresión.','Derecho a la salud.','Derecho a la vida.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué son las expresiones asertivas?',
+              opcionesImgsPrefix: null,
+              opciones: ['Hablar sin importar lo que digan los demás.','Decir lo que pensamos respetando la opinión de los demás.','Hablar sin pensar lo que decimos.','Imponer a los demás nuestro punto de vista.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son actos de violencia, excepto uno. ¿Cuál es?',
+              opcionesImgsPrefix: null,
+              opciones: ['Golpear al otro.','Ofender a los demás.','Patear a una persona.','Saludar amablemente.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es una característica de la comunicación asertiva?',
+              opcionesImgsPrefix: null,
+              opciones: ['Confusión.','Silencio.','Mentiras.','Honestidad.'],
+              respuestaNum: 3
+          },
       ])
     </script>
   </body>
