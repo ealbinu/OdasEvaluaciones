@@ -2,8 +2,8 @@ include ../assets/pug/_head
 include ../assets/pug/_body
 include ../assets/pug/_scripts
 
-- grade = 'º'
-- title = ''
+- grade = '1º'
+- title = 'Formación Cívica y Ética'
 - subtitle = ''
 
 <!DOCTYPE html>
@@ -25,13 +25,48 @@ html(lang="es")
 
                 app.$set(app, 'scenes', [
                     {
+                        instruction: 'Selecciona la respuesta correcta.',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la tradición mexicana en la que hay una posada y se rompe la piñata.',
+                        opcionesImgsPrefix: '1',
+                        opciones: [],
+                        respuestaNum: 2
+                    },
+                    {
                         instruction: '',
                         popper: '',
                         type: 'choose', 
-                        pregunta: '',
-                        opcionesImgsPrefix: null,
-                        opciones: [''],
-                        respuestaNum: 
+                        pregunta: 'Es la imagen que representa el valor de la responsabilidad.',
+                        opcionesImgsPrefix: '2',
+                        opciones: [],
+                        respuestaNum: 1
                     },
-                    
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es la imagen que tiene a las personas que pueden jugar futbol?',
+                        opcionesImgsPrefix: '3',
+                        opciones: [],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la acción que puedes hacer en el salón de clases para tener una mejor convivencia con tus compañeros y maestros.',
+                        opcionesImgsPrefix: '4',
+                        opciones: [],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la imagen que representa un conflicto.',
+                        opcionesImgsPrefix: '5',
+                        opciones: [],
+                        respuestaNum: 0
+                    },
                 ])

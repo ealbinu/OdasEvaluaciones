@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>Formación Cívica y Ética</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">º</span></h1>
+      <h1><span class="grade">1º</span>Formación Cívica y Ética</h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started">
         <div class="row">
@@ -71,15 +71,50 @@
     <script>
       app.$set(app, 'scenes', [
           {
+              instruction: 'Selecciona la respuesta correcta.',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la tradición mexicana en la que hay una posada y se rompe la piñata.',
+              opcionesImgsPrefix: '1',
+              opciones: [],
+              respuestaNum: 2
+          },
+          {
               instruction: '',
               popper: '',
               type: 'choose', 
-              pregunta: '',
-              opcionesImgsPrefix: null,
-              opciones: [''],
-              respuestaNum: 
+              pregunta: 'Es la imagen que representa el valor de la responsabilidad.',
+              opcionesImgsPrefix: '2',
+              opciones: [],
+              respuestaNum: 1
           },
-          
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es la imagen que tiene a las personas que pueden jugar futbol?',
+              opcionesImgsPrefix: '3',
+              opciones: [],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la acción que puedes hacer en el salón de clases para tener una mejor convivencia con tus compañeros y maestros.',
+              opcionesImgsPrefix: '4',
+              opciones: [],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la imagen que representa un conflicto.',
+              opcionesImgsPrefix: '5',
+              opciones: [],
+              respuestaNum: 0
+          },
       ])
     </script>
   </body>
