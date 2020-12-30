@@ -2,8 +2,8 @@ include ../assets/pug/_head
 include ../assets/pug/_body
 include ../assets/pug/_scripts
 
-- grade = 'º'
-- title = ''
+- grade = '5º'
+- title = 'Historia'
 - subtitle = ''
 
 <!DOCTYPE html>
@@ -25,13 +25,138 @@ html(lang="es")
 
                 app.$set(app, 'scenes', [
                     {
+                        instruction: 'Selecciona la respuesta correcta.',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se le llama al periodo ocurrido entre 1867 y 1876?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Guerra de los Tres Años.','República Restaurada.','Imperio Republicano.','Triunfo del Pueblo.'],
+                        respuestaNum: 1
+                    },
+                    {
                         instruction: '',
                         popper: '',
                         type: 'choose', 
-                        pregunta: '',
+                        pregunta: '¿Cuántos años fue presidente Benito Juárez?',
                         opcionesImgsPrefix: null,
-                        opciones: [''],
-                        respuestaNum: 
+                        opciones: ['10 años.','30 años.','14 años.','18 años.'],
+                        respuestaNum: 2
                     },
-                    
-                )
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Quién compuso el Himno Nacional Mexicano?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Guillermo Prieto.','Francisco González Bocanegra.','José María Iglesias.','Vicente Riva Palacio.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Quién fue presidente después de la muerte de Benito Juárez, de 1872 a 1876?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Porfirio Díaz.','Miguel Hidalgo.','Antonio de Santa Anna.','Sebastián Lerdo de Tejada.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se le llamó al periodo en que Porfirio Díaz eliminó la libertad de expresión, reprimió las protestas sociales e impidió las elecciones libres?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Monarquía.','Democracia.','Centralismo.','Dictadura.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Fueron las principales actividades económicas durante el Porfiriato, excepto una. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['La minería.','La avicultura.','La construcción de ferrocarriles.','La producción de hilados.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Eran grandes extensiones de tierra que servían para labores ganaderas y agrícolas, y pertenecían a un hacendado.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Sindicatos.','Fábricas.','Latifundios.','Haciendas.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es una organización de trabajadores unidos para defender sus derechos y mejorar las condiciones laborales.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Sindicato.','Latifundio.','Coorporación.','Cooperativa.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Eran periódicos opositores al gobierno de Porfirio Díaz, excepto uno. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El Hijo del Ahuizote.','El País Demócrata.','Regeneración.','Excélsior.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Quién fue presidente interino del país después de que Porfirio Díaz abandonara el país?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Francisco I. Madero.','Francisco León de la Barra.','José María Pino Suárez.','Venustiano Carranza.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Plan mediante el cual el movimiento zapatista expresó las demandas de los campesinos a los que los hacendados porfiristas les habían quitado sus tierras.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Plan de Ayutla.','Plan de la Noria.','Plan de Ayala.','Plan de Casa Mata.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuándo se promulgó la Constitución que actualmente nos rige?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El 5 de mayo de 1857.','El 24 de febrero de 1824.','El 5 de febrero de 1917.','El 15 de febrero de 1811.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el artículo de la Constitución que establece las relaciones obrero-patronales, dando así el derecho a la seguridad de los trabajadores, la asistencia social y otros beneficios?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Artículo 123.','Artículo 27.','Artículo 3°.','Artículo 4°.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Eran grandes propiedades en las que se cultivaban diferentes productos y se criaba ganado.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Latifundios.','Fábricas.','Haciendas.','Condominios.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Quién fue el presidente que llevó a cabo el reparto agrario y arregló las relaciones conflictivas con el gobierno de los Estados Unidos de América?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Venustiano Carranza.','Álvaro Obregón.','Plutarco Elías Calles.','Francisco I. Madero.'],
+                        respuestaNum: 1
+                    },
+                ])
