@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>Formación Cívica y Ética</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">º</span></h1>
+      <h1><span class="grade">4º</span>Formación Cívica y Ética</h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started">
         <div class="row">
@@ -71,15 +71,95 @@
     <script>
       app.$set(app, 'scenes', [
           {
+              instruction: 'Selecciona la respuesta correcta.',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son acciones que realizan las culturas indígenas de México, excepto una. ¿Cuál es?',
+              opcionesImgsPrefix: null,
+              opciones: ['El trabajo comunitario.','La ayuda mutua.','Cuidar la naturaleza.','La deforestación.'],
+              respuestaNum: 3
+          },
+          {
               instruction: '',
               popper: '',
               type: 'choose', 
-              pregunta: '',
+              pregunta: 'Es un aspecto en el que se manifiesta la cultura africana en nuestro país.',
               opcionesImgsPrefix: null,
-              opciones: [''],
-              respuestaNum: 
+              opciones: ['En los bailes.','En la tecnología.','En la naturaleza.','En el comercio.'],
+              respuestaNum: 0
           },
-          
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es una palabra empleada en México, de herencia africana.',
+              opcionesImgsPrefix: null,
+              opciones: ['Chocolate.','Chicle.','Chamuco.','Aguacate.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es un proceso mediante el cual las personas se identifican con los valores, los símbolos y las prácticas colectivas que tienen en común.',
+              opcionesImgsPrefix: null,
+              opciones: ['Identidad colectiva.','Fiesta colectiva.','Cultura colectiva.','Sociedad colectiva.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál de los siguientes aspectos te da identidad como mexicano?',
+              opcionesImgsPrefix: null,
+              opciones: ['La celebración del Día de Gracias.','Los símbolos patrios.','Las hamburguesas y el ceviche.','La tecnología extranjera.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el valor que consiste en dar a cada quien lo que se merece.',
+              opcionesImgsPrefix: null,
+              opciones: ['Tolerancia.','Justicia.','Igualdad.','Dignidad.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Consiste en asumir que todas las personas tenemos los mismos derechos.',
+              opcionesImgsPrefix: null,
+              opciones: ['Dignidad.','Equidad.','Tolerancia.','Igualdad.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es buscar que todos tengan las mismas oportunidades según nuestras condiciones.',
+              opcionesImgsPrefix: null,
+              opciones: ['Equidad.','Tolerancia.','Justicia.','Igualdad.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es un conjunto de valores, actitudes y comportamientos que rechazan la violencia.',
+              opcionesImgsPrefix: null,
+              opciones: ['Igualdad.','Derechos humanos.','Cultura de la paz.','Tolerancia.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es un valor que se debe demostrar al enfrentar un conflicto.',
+              opcionesImgsPrefix: null,
+              opciones: ['Compañerismo.','Empatía.','Justicia.','Libertad.'],
+              respuestaNum: 1
+          },
       ])
     </script>
   </body>
