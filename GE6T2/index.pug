@@ -2,8 +2,8 @@ include ../assets/pug/_head
 include ../assets/pug/_body
 include ../assets/pug/_scripts
 
-- grade = 'º'
-- title = ''
+- grade = '6º'
+- title = 'Geografía'
 - subtitle = ''
 
 <!DOCTYPE html>
@@ -25,13 +25,138 @@ html(lang="es")
 
                 app.$set(app, 'scenes', [
                     {
+                        instruction: 'Selecciona la respuesta correcta.',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el componente natural de la Tierra que provoca que las temperaturas aumenten o disminuyan?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El Relieve.','El Clima.', 'El Calor.','La atmósfera.'],
+                        respuestaNum: 0
+                    },
+                    {
                         instruction: '',
                         popper: '',
                         type: 'choose', 
-                        pregunta: '',
+                        pregunta: 'Es un factor físico que regula el clima y modifica la vegetación.',
                         opcionesImgsPrefix: null,
-                        opciones: [''],
-                        respuestaNum: 
+                        opciones: ['La biodiversidad.','El agua.','El relieve.','El frío.'],
+                        respuestaNum: 1
                     },
-                    
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se les llama a las extensiones territoriales que comparten características semejantes como el clima, la fauna, la vegetación y el relieve?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Regiones naturales.','Regiones continentales.','Regiones sociales.','Regiones económicas.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son las regiones naturales en las que podemos encontrar un clima tropical, excepto una. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Selva.','Desierto.','Sabana.','Bosque tropical.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es la región natural donde se registran temperaturas altas de día y bajas en la noche y, además, predomina el clima seco?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Pastizal.','Bosque.','Selva.','Desierto.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se le llama a la gran variedad de especies animales y vegetales que existen en el planeta?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Especies.','Flora.','Biodiversidad.','Fauna.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son actividades a las que se dedican las personas para obtener recursos naturales, excepto una. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['La minería.','La pesca.','La explotación forestal.','La industria.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el continente con mayor población mundial.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Asia.','Europa.','África.','América.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuáles son las variables con las que se realizan las pirámides de población para mostrar la evolución de la población?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['PIB per cápita y esperanza de vida.','Esperanza de vida y PIB.','Sexo y quinquenios.','Calidad de vida y PIB.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se le llama al desplazamiento temporal o permanente de un país a otro que realizan algunas personas?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Globalización.','Diversidad.','Migración.','Población.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el nombre que reciben los grupos humanos que comparten elementos lingüísticos, religiosos y étnicos?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Minorías culturales.','Grupos étnicos.','Grupos indígenas.','Minorías migrantes.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es un ejemplo de un grupo que representa una minoría cultural.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Adultos mayores.','Jóvenes.','Menonitas.','Infantes.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Selecciona la opción que completa correctamente la oración. <img src="aimg/13.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['educativo','social','político','industrial'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el nombre de la actividad que consiste en intercambiar productos o servicios mediante su compra y venta?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Industria.','Ganadería.','Pesca.','Comercio.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son los productos más costosos en el mercado internacional.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Artesanales y manufacturados.','Hierro y acero.','Prendas de vestir y textiles.','Productos de la industria automotriz y productos químicos.'],
+                        respuestaNum: 0
+                    },
                 ])
