@@ -3093,11 +3093,11 @@
 		"oF": 0,
 		"oS": 0
 		},
-	"\/FC3T2\/aimg\/Captura de Pantalla 2020-12-30 a la(s) 17.40.31.png": {
+	"\/FC3T2\/aimg\/6.png": {
 		"ft": 32768,
 		"iS": 153408,
 		"oA": 0,
-		"oAP": "\/FC3T2\/aimg\/Captura de Pantalla 2020-12-30 a la(s) 17.40.31.png",
+		"oAP": "\/FC3T2\/aimg\/6.png",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
@@ -3232,6 +3232,28 @@
 		"oAP": "\/FC6T1\/index.html",
 		"oF": 0,
 		"oS": 0
+		},
+	"\/FC6T2\/aimg\/4.png": {
+		"ft": 32768,
+		"iS": 35289,
+		"oA": 0,
+		"oAP": "\/FC6T2\/aimg\/4.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/FC6T2\/aimg\/7.png": {
+		"ft": 32768,
+		"iS": 31088,
+		"oA": 0,
+		"oAP": "\/FC6T2\/aimg\/7.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
 		},
 	"\/FC6T2\/index.html": {
 		"cB": 0,

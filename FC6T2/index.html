@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>Formación Cívica y Ética</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">º</span></h1>
+      <h1><span class="grade">6º</span>Formación Cívica y Ética</h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started">
         <div class="row">
@@ -71,15 +71,95 @@
     <script>
       app.$set(app, 'scenes', [
           {
+              instruction: 'Selecciona la respuesta correcta.',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué es un ambiente pluricultural?',
+              opcionesImgsPrefix: null,
+              opciones: ['Donde hay diferentes tipos de paisajes.','Un lugar en donde conviven individuos con el mismo tipo de cultura.','El espacio en donde conviven individuos con diferentes tipos de cultura.','Donde hay un sólo tipo de paisaje.'],
+              respuestaNum: 2
+          },
+          {
               instruction: '',
               popper: '',
               type: 'choose', 
-              pregunta: '',
+              pregunta: 'Son riesgos globales de la actualidad, excepto uno. ¿Cuál es?',
               opcionesImgsPrefix: null,
-              opciones: [''],
-              respuestaNum: 
+              opciones: ['Racismo.','Solidaridad.','Violencia.','Contaminación.'],
+              respuestaNum: 1
           },
-          
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el trato diferente que se da a una persona y con el que se atenta contra su dignidad.',
+              opcionesImgsPrefix: null,
+              opciones: ['Discriminación.','Fraternidad.','Amabilidad.','Solidaridad.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Selecciona la opción que completa correctamente la siguiente oración. <img src="aimg/4.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['libertades / estudios','cultura / idioma','rasgos físicos / creencias','derechos / obligaciones'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la creencia social de cómo debe ser una persona y la manera en que debe comportarse según su edad, sexo, habilidades, etcétera.',
+              opcionesImgsPrefix: null,
+              opciones: ['Prejuicio.','Estereotipo.','Discriminación.','Opinión pública.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son acciones en una escuela en donde se respetan los derechos humanos, excepto una. ¿Cuál es?',
+              opcionesImgsPrefix: null,
+              opciones: ['Evitamos expresarnos.','Nos expresamos libremente.','Respetamos las normas.','Convivimos pacíficamente.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Elige la opción que completa correctamente la siguiente oración. <img src="aimg/7.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['democracia','pluriculturalidad','violencia','responsabilidad'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es la institución encargada de intervenir cuando hay discriminación o violencia contra las personas?',
+              opcionesImgsPrefix: null,
+              opciones: ['INE','Condusef','Conapred','SEP'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son acciones que puedes realizar cuando eres testigo de violencia en el aula, excepto una. ¿Cuál es?',
+              opcionesImgsPrefix: null,
+              opciones: ['Comentarlo a mis padres.','Hablar con las autoridades.','Brindar apoyo al compañero.','Quedarme en silencio.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué promueve el solucionar un conflicto de manera pacífica?',
+              opcionesImgsPrefix: null,
+              opciones: ['La convivencia armónica.','Rivalidad entre compañeros.','Diferencias entre personas.','Igualdad sólo para niñas.'],
+              respuestaNum: 0
+          },
       ])
     </script>
   </body>
