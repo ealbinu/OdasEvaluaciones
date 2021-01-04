@@ -2,8 +2,8 @@ include ../assets/pug/_head
 include ../assets/pug/_body
 include ../assets/pug/_scripts
 
-- grade = 'º'
-- title = ''
+- grade = '6º'
+- title = 'Ciencias Naturales'
 - subtitle = ''
 
 <!DOCTYPE html>
@@ -25,13 +25,183 @@ html(lang="es")
 
                 app.$set(app, 'scenes', [
                     {
+                        instruction: 'Selecciona la respuesta correcta.',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son gases que contiene la atmósfera, excepto uno. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Nitrógeno.','Oxígeno.','Dióxido de carbono.','Butano.'],
+                        respuestaNum: 3
+                    },
+                    {
                         instruction: '',
                         popper: '',
                         type: 'choose', 
-                        pregunta: '',
+                        pregunta: '¿Cuál es el nombre que recibe la mezcla de gases que rodea a la Tierra?',
                         opcionesImgsPrefix: null,
-                        opciones: [''],
-                        respuestaNum: 
+                        opciones: ['Atmósfera.','Litosfera.','Estratósfera.','Hidrósfera.'],
+                        respuestaNum: 0
                     },
-                    
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se les llaman a los compuestos que son producto de la transformación de restos de plantas y animales que vivieron hace millones de años?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Combustibles solares.','Combustibles fósiles.','Combustibles lunares.','Combustibles activos.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el fenómeno que provoca el aumento de la temperatura en la Tierra, y a su vez causa el deshielo de los polos.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Calentamiento global.','Efecto invernadero.','Lluvia ácida.','Rayos ultravioleta.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Fenómeno natural que mantiene a la Tierra con una temperatura adecuada para la existencia de la vida.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El ciclo del agua.','El ciclo de la vida.','El efecto invernadero.','El efecto de calentamiento terrestre.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la propiedad de algunos materiales de recobrar su forma original después de que han sido deformados.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Permeabilidad.','Elasticidad.','Dureza.','Tenacidad.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es la propiedad que tienen los materiales de resistir al rayado y el corte en su superficie?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Dureza.','Tenacidad.','Elasticidad.','Permeabilidad.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la práctica que consiste en utilizar la cantidad mínima indispensable de recursos para que afecte lo menos posible al ambiente.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Reúso.','Reducción.','Descomposición.','Degradación.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el proceso industrial que consiste en separar los residuos para que se les dé un tratamiento y elaborar nuevos productos.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Revolver.','Reordenar.','Reciclaje.','Reprimir.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué es la degradación?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Es el proceso en el que se separan los materiales.','Es el proceso mediante el cual la naturaleza clasifica a los materiales.','Es un proceso para separar los residuos antes de desecharlos.','Es un proceso natural en el cual los materiales se van reintegrando a la naturaleza.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son ejemplos de residuos inorgánicos, excepto uno. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Vidrio.','Papel.','Pasto.','Cartón.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son productos que utilizamos para llevar a cabo la combustión.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Petróleo, gasolina y gas.','Agua, abono y oxígeno.','Tierra, lodo y cal.','Oxígeno, dióxido de carbono y sedimentos.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se llama el acuerdo en el que varios países se comprometieron a disminuir el dióxido de carbono que emiten a la atmósfera y otros gases con efecto invernadero?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Protocolo de las Naciones.','Protocolo de New York.','Protocolo de Kioto.','Protocolo Mundial.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es una máquina simple formada por una barra rígida que puede moverse libremente sobre un punto de apoyo fijo.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Rueda.','Cuña.','Rampa.','Palanca.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Práctica que consiste en volver a utilizar un recurso en la misma función o en otra diferente.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Reúso.','Reciclado.','Reducción.','Reordenar.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se les llama a los cambios de los materiales que pueden transformarse sin dejar de ser lo que son?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Categóricos.','Temporales.','Constantes.','Permanentes.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el fenómeno que consiste en la combinación de un combustible y el oxígeno atmosférico.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Carburante.','Inflamable.','Combustión.','Inflamación.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se le llama a la máquina simple que consiste en una pieza, de madera o metal, con forma de prisma triangular, filosa en una de sus esquinas?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Cuña.','Palanca.','Rueda.','Polea.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué se genera al disolverse el monóxido de carbono, óxido de nitrógeno y azufre en vapor de agua?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Calentamiento global.','Efecto invernadero.','Lluvia ácida.','Rayos ultravioleta.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es una de las consecuencias del deshielo de los polos.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El aumento del nivel de los océanos.','La deforestación masiva.','El aumento de los desechos inorgánicos.','El desaprovechamiento de la luz solar.'],
+                        respuestaNum: 0
+                    },
                 ])
