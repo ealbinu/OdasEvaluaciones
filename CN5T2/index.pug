@@ -2,8 +2,8 @@ include ../assets/pug/_head
 include ../assets/pug/_body
 include ../assets/pug/_scripts
 
-- grade = 'º'
-- title = ''
+- grade = '5º'
+- title = 'Ciencias Naturales'
 - subtitle = ''
 
 <!DOCTYPE html>
@@ -25,13 +25,228 @@ html(lang="es")
 
                 app.$set(app, 'scenes', [
                     {
+                        instruction: 'Selecciona la respuesta correcta.',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Forma de vida que adoptaron las tribus al iniciar la agricultura y el pastoreo.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Nómada.','Cazadora.','Recolectora.','Sedentaria.'],
+                        respuestaNum: 3
+                    },
+                    {
                         instruction: '',
                         popper: '',
                         type: 'choose', 
-                        pregunta: '',
+                        pregunta: 'Es el tipo de recursos que no se pueden volver a generar en un tiempo considerable.',
                         opcionesImgsPrefix: null,
-                        opciones: [''],
-                        respuestaNum: 
+                        opciones: ['Tecnológicos.','Ecológicos.','No renovables.','Renovables.'],
+                        respuestaNum: 2
                     },
-                    
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se les llama a los recursos que se pueden volver a obtener o regenerar?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['No renovables.','Ecológicos.','Renovables.','Mecánicos.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el porcentaje de agua que tiene el cuerpo humano?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['65 %','70 %','50 %','95 %'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué es una mezcla?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['La atracción que tienen varios materiales.','La consistencia que tiene cada sustancia.','Son los compuestos que están formados por partículas sólidas.','Son los materiales compuestos por dos o más sustancias.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el método que se utiliza para separar agua y aceite.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Imantación.','Filtración.','Decantación.','Evaporación.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el método en el cual uno de sus componentes permanece sólido mientras que el otro es líquido.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Evaporación.','Filtración.','Decantación.','Imantación.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el nombre que recibe la vegetación que crece a la sombra de los árboles de un bosque?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Sotobosque.','Ecosistema.','Naturaleza.','Biodiversidad.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el nombre del artefacto que mide la fuerza que un objeto ejerce sobre otro?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Escalímetro.','Balanza.','Transportador.','Dinamómetro.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es una representación del movimiento periódico del medio en el que se propaga el sonido.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Decibel.','Calor.','Onda.','Sonido.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuáles son los tipos de ondas que existen?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Rectas y perpendiculares.','Transversales y longitudinales.','Largas y cortas.','Intensas y débiles.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Cuando arrojamos una piedra al agua, ¿qué tipo de ondas se producen?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Transversales.','Longitudinales.','Circulares.','Expansivas.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se mide la intensidad del sonido?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['En metros.','En ondas.','En kilogramos.','En decibeles.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el límite máximo de decibeles en el que las personas aún se encuentran protegidas de algún daño?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['85 dB.','90 dB.','95 dB.','100 dB.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué es la rapidez?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Es un fenómeno vibratorio transmitido de ondas.','Es el movimiento de trayectoria.','Es el cambio de posición de un cuerpo.','Es la relación entre la distancia recorrida y el tiempo.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es una forma de cuidar el agua.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Reparar fugas y goteras de agua.','Dejar la llave abierta mientras te cepillas los dientes.','Lavar el automóvil con la manguera.','Compra recipientes de plástico.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es la cantidad adecuada de consumo de agua por día para las actividades de una persona?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['180 litros.','120 litros.','40 litros.','80 litros.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la capacidad de un material para disolverse en otro.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Solvente.','Temperatura.','Solubilidad.','Evaporación.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el cambio de posición de un cuerpo en un tiempo determinado.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Fuerza.','Movimiento.','Onda.','Perspectiva.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es la mezcla indispensable para la vida de los seres vivos?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El aire.','El humo.','El café.','El gas.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿De qué parte del oído forman parte el martillo, el yunque y el estribo?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Del oído externo.','Del oído interno.','De la membrana.','Del oído medio.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Proceso de transferencia de calor entre dos materiales basado en contacto directo.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Conducción.','Radiación.','Convección.','Calefacción.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿A través de qué medios se puede transmitir el sonido?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Duros, débiles y masivos.','Sólidos, líquidos y gaseosos.','Fuertes y débiles.','Frágiles, intensos y fuertes.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué provoca la prolongada exposición a sonidos superiores a 40 decibeles?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Buen humor y relajación.','Enfermedades respiratorias y circulatorias.','Nerviosismo y falta de atención.','Entusiasmo y dependencia.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son los tipos de movimientos que existen, excepto uno. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Rectilíneos.','Circulares.','Momentáneos.','Ondulatorios.'],
+                        respuestaNum: 2
+                    },
                 ])
