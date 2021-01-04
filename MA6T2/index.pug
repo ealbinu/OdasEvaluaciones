@@ -2,14 +2,31 @@ include ../assets/pug/_head
 include ../assets/pug/_body
 include ../assets/pug/_scripts
 
-- grade = 'º'
-- title = ''
+- grade = '6º'
+- title = 'Matemáticas'
 - subtitle = ''
 
 <!DOCTYPE html>
 html(lang="es")
     +head
         style.
+            .inputbox {
+                justify-content: flex-start;
+            }
+            .inputbox input {
+                background: #f5fBE9;
+                max-width: 100px;
+                border: 6px solid var(--clear) !important;
+                min-width: 180px;
+            }
+            .inputbox .inputbox__after {
+                border: none !important;
+                box-shadow: none !important;
+            }
+            .frc{
+                border:none !important;
+                box-shadow: none !important;
+            }
 
     body
         #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
@@ -20,18 +37,242 @@ html(lang="es")
                 h2 #{subtitle}
 
             +body(3000)
+                template(v-if="i.type=='pregunta25'")
+                    .choose
+                        .label
+                            strong 25.
+                            span Calcula las siguientes equivalencias.
+                        .options
+                            .position-relative: inputbox(:key="24" v-model="r[24]" :ref="refCount()" @isright="right++" type="number" placeh="#" :answer="[712, 243.75, 489]" :before="['<div class=frc>4<hr>5</div> de 890 =', '<div class=frc>3<hr>8</div> de 650 =', '<div class=frc>5<hr>10</div> de 978 =']")
+                        
         +scripts
             script.
 
                 app.$set(app, 'scenes', [
                     {
+                        instruction: 'Selecciona la respuesta correcta.',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el nombre que recibe el cuerpo geométrico que tiene 9 aristas, 6 vértices, 3 caras y 2 bases triangulares.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Prisma cuadrangular.','Pirámide triangular.','Prisma triangular.','Pirámide cuadrangular.'],
+                        respuestaNum: 2
+                    },
+                    {
                         instruction: '',
                         popper: '',
                         type: 'choose', 
+                        pregunta: '¿Cómo se les llaman a los cuerpos geométricos que tienen como base un polígono regular, y sus caras en forma de triángulos iguales unidas por un vértice?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Prismas.','Pirámides.','Cuadriláteros.','Polígonos.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el nombre que recibe la distancia vertical que hay entre las bases de un prisma.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Aristas.','Vértice.','Bases.','Altura.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Dentro de una tómbola hay 68 bolas enumeradas. Si el 25 % son de color rojo, ¿cuántas bolas rojas hay?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['17','22','37','34'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el porcentaje que representa a los alumnos que han faltado? <img src="aimg/5.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['15 %','6 %','20 %','30 %'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuánto se debe pagar por una impresora que tiene un costo de $3 287.00 más el 16 % de IVA?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['$3 303.25','$3 812.92','$3 506.34','$3 282.29'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: 'Observa la tabla y contesta las preguntas 7 a 9.',
+                        popper: '<img src="aimg/7.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es la lengua indígena con mayor cantidad de hablantes?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El náhuatl.','El maya.','El zapoteco.','El otomí.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: 'Observa la tabla y contesta las preguntas 7 a 9.',
+                        popper: '<img src="aimg/7.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: 'Es el orden en el que se organizaron los datos de la tabla.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['De menor a mayor.','De derecha a izquierda.','De mayor a menor.','Por orden alfabético.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: 'Observa la tabla y contesta las preguntas 7 a 9.',
+                        popper: '<img src="aimg/7.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Cuántas personas hablan la lengua Tzeltal?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['583 111 personas.','194 845 personas.','1 395 350 personas.','193 426 personas.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Brenda compró 1.75 kilogramos de carne molida, Carlos <div class="frc">8<hr>4</div> kilogramos y Humberto <div class="frc">13<hr>18</div> kilogramos. ¿Quién compró más carne?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Humberto.','Brenda.','Compraron lo mismo.','Carlos.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Selecciona la opción con los múltiplos de 8.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['2, 4, 6, 8, 10, 12, 14, 16, 18.','4, 8, 12, 16, 20, 24, 28, 32.','7, 14, 21, 28, 35, 42, 49, 56.','8, 16, 24, 32, 40, 48, 56, 64.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son los números en los que terminan los múltiplos de 5.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['En 2 y 10.','En 0 y 5.','En 4 y 6.','En 13 y 5.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Selecciona la opción que completa la siguiente oración. <img src="aimg/13.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['48 / 2 / 24 / 48 / 2','75 / 5 / 15 / 75 / 5','60 / 6 / 10 / 60 / 6','96 / 12 / 8 / 96 / 8'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Entre qué número son divisibles los números terminados en cifra par?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Entre 5.','Entre 2.','Entre 7.','Entre 9.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuáles son las coordenadas de la manzana en el plano? <img src="aimg/15.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['(9,2)','(7,1)','(4,8)','(8,4)'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿A cuántos centímetros equivalen 23 ft?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['107.04 cm','601.40 cm','701.04 cm','501.04 cm'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Rosa fue a la tienda a comprar 4 galones de leche para hacer flanes. ¿Cuántos litros de leche compró?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['15.14 litros.','51.41 litros.','14.51 litros.','41.15 litros.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Si el precio del dólar es de $19.10, ¿cuántos pesos se necesitan para comprar 75 dólares?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['$4 132.50','$1 432.50','$3 125.40','$2 543.10'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el volumen del siguiente cuerpo geométrico? <img src="aimg/19.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['180 cubos.','145 cubos.','150 cubos.','200 cubos.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Selecciona el objeto con mayor volumen.',
+                        opcionesImgsPrefix: '20',
+                        opciones: [],
+                        respuestaNum: 3,
+                        settings: {imgs:4},
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿En cuál de las ofertas que tiene la paletería “El girasol” son más baratas las paletas? <img src="aimg/21.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['En la oferta 2.','En la oferta 3.','En la oferta 1.','En ninguna.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Para hornear 6 tartas de frutas, Vanesa utiliza 720 gramos de harina. Si quiere hornear 24 tartas de fruta, ¿cuántos gramos de harina necesita?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['2 160 g','1 440 g','2 880 g','3 600 g'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Si en el salón de clases hay dos niños que pesan 45 kilogramos, seis que pesan 40 kilogramos y dos que pesan 55 kilogramos, ¿cuál es la mediana del peso?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['45 kg','40 kg','55 kg','60 kg'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es la media aritmética de los siguientes datos? <img src="aimg/24.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['7.5','10','8.6','9.5'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'pregunta25', 
                         pregunta: '',
                         opcionesImgsPrefix: null,
                         opciones: [''],
-                        respuestaNum: 
+                        respuestaNum: 0
                     },
-                    
                 ])
