@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>Geografía</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">º</span></h1>
+      <h1><span class="grade">4º</span>Geografía</h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started">
         <div class="row">
@@ -71,15 +71,140 @@
     <script>
       app.$set(app, 'scenes', [
           {
+              instruction: 'Selecciona la respuesta correcta.',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuáles son los dos elementos que determinan el tipo de vegetación y clima de las regiones naturales?',
+              opcionesImgsPrefix: null,
+              opciones: ['Precipitación y altitud.','Cercanía al mar y precipitación.','Latitud y fauna.','Ubicación y altitud.'],
+              respuestaNum: 3
+          },
+          {
               instruction: '',
               popper: '',
               type: 'choose', 
-              pregunta: '',
+              pregunta: 'Son algunos de los animales endémicos de los bosques de México que se encuentran en peligro de extinción.',
               opcionesImgsPrefix: null,
-              opciones: [''],
-              respuestaNum: 
+              opciones: ['Teporingo, quetzal y lobo mexicano.','Tlacuache, ardilla y lechuza.','Gorrión, colibrí y cotorra serrana.','Venado, tigre y víbora de cascabel.'],
+              respuestaNum: 0
           },
-          
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué tipo de vegetación es característica de las regiones muy secas del país?',
+              opcionesImgsPrefix: null,
+              opciones: ['Coníferas.','Matorrales.','Hongos.','Encinos.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el clima que predomina en la península de Yucatán?',
+              opcionesImgsPrefix: null,
+              opciones: ['Cálido húmedo.','Templado húmedo.','Cálido semihúmedo.','Muy seco.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la vegetación que se puede encontrar en un lugar con clima templado húmedo.',
+              opcionesImgsPrefix: null,
+              opciones: ['Selva.','Bosque mesófilo de montaña.','Pastizal.','Bosque de coníferas.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son usos que se le da al agua de los ríos en México, excepto uno. ¿Cuál es?',
+              opcionesImgsPrefix: null,
+              opciones: ['Fuente de agua potable.','Riego en la agricultura.','Generar electricidad.','Exportación como recurso primario.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el recurso compuesto de varias capas que contiene minerales y materia orgánica que nutre a las plantas.',
+              opcionesImgsPrefix: null,
+              opciones: ['Suelo.','Aire.', 'Nubes.','Mares.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es una de las actividades que más afectan y degradan los suelos en México.',
+              opcionesImgsPrefix: null,
+              opciones: ['Reforestación.','Sobrepastoreo.','Actividad industrial.','Urbanización.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el lugar en donde hay más disponibilidad de uso de servicios públicos.',
+              opcionesImgsPrefix: null,
+              opciones: ['Localidad rural.','Localidad urbana.','Ranchería.','Selva.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es una de las razones más comunes por las que las personas cambian de lugar de residencia.',
+              opcionesImgsPrefix: null,
+              opciones: ['La contaminación.','El clima.','Mejorar su economía.','La actividad turística.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el tipo de migración que se da cuando una persona cruza las fronteras de su país para establecerse en otro país diferente.',
+              opcionesImgsPrefix: null,
+              opciones: ['Migración interna.','Migración continental.','Migración regional.','Migración externa.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es un ejemplo de las zonas que suelen habitar los pueblos indígenas.',
+              opcionesImgsPrefix: null,
+              opciones: ['Las selvas.','Las ciudades.','Las localidades urbanas.','Los volcanes.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el nombre que reciben los grupos de jóvenes que se identifican por una actividad, un tipo de música, vestimenta o forma de hablar.',
+              opcionesImgsPrefix: null,
+              opciones: ['Conjuntos culturales.','Tribus urbanas.','Sociedades secretas.','Grupos sociales.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué entidad del centro del país recibe una mayor cantidad de migrantes internos que buscan mejores oportunidades de empleo?',
+              opcionesImgsPrefix: null,
+              opciones: ['Puebla.','Querétaro.','Estado de México.','Guanajuato.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el tipo de crianza de ganado en donde éste puede pastar libremente en terrenos de grandes dimensiones?',
+              opcionesImgsPrefix: null,
+              opciones: ['Apicultura.','Porcicultura.','Extensiva.','Intensiva.'],
+              respuestaNum: 2
+          },
       ])
     </script>
   </body>
