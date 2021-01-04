@@ -2,8 +2,8 @@ include ../assets/pug/_head
 include ../assets/pug/_body
 include ../assets/pug/_scripts
 
-- grade = 'º'
-- title = ''
+- grade = '5º'
+- title = 'Geografía'
 - subtitle = ''
 
 <!DOCTYPE html>
@@ -25,13 +25,138 @@ html(lang="es")
 
                 app.$set(app, 'scenes', [
                     {
+                        instruction: 'Selecciona la respuesta correcta.',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son cuerpos de agua que se alimentan de los ríos y del mar, por lo que tienen agua salada y dulce.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Lagos.','Presas.','Lagunas.','Pantanos.'],
+                        respuestaNum: 2
+                    },
+                    {
                         instruction: '',
                         popper: '',
                         type: 'choose', 
-                        pregunta: '',
+                        pregunta: 'Son los climas que se localizan en latitudes altas, cerca de los círculos polares, con temperaturas debajo de los 10 °C.',
                         opcionesImgsPrefix: null,
-                        opciones: [''],
-                        respuestaNum: 
+                        opciones: ['Climas templados.','Climas secos.','Climas lluviosos.','Climas polares.'],
+                        respuestaNum: 3
                     },
-                    
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el clima que se caracteriza por tener veranos largos y cálidos, e inviernos cortos.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Templado lluvioso.','Seco estepario.','Seco desértico.','Polar de alta montaña.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es un factor que influye en la distribución de la población en el mundo?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El clima.','La cultura.','La religión.','La agricultura.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son las actividades dedicadas a la extracción de recursos animales, vegetales y minerales.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Terciarias.','Primarias.','Secundarias.','Agropecuarias.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son las regiones donde los árboles son densos y altos, por lo que no crece el pasto, pero sí varias especies de hongos; hay árboles como el cedro, la caoba y el palo de rosa.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Tropicales.','Secas.','Templadas.','Frías.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son animales que suelen habitar en climas secos, excepto uno. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Escorpión.','Serpiente.','Roedor.','Jaguar.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se sabe si un país está sobrepoblado o no?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Calculando la población de América.','Investigando los nacimientos mundiales.','Conociendo los fallecimientos de cada país.','Calculando la densidad de población.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son servicios que requiere la población de un lugar para sobrevivir, excepto uno. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Transporte.','Drenaje.','Internet.','Agua potable.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'De acuerdo al Banco Mundial, ¿qué país tenía la mayor densidad de población en 2011?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['España.','EUA.','México.','China.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se le llama al cambio temporal o definitivo que hacen las personas a otros pueblos, ciudades o paises?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Inmigración.','Migración interna.','Emigración.','Migración externa.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el clima con pocos periodos de lluvia y humedad.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Frío.','Tropical.','Seco.','Templado.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se le llama al movimiento que hacen las personas entre distintos pueblos, países o ciudades?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Inmigración.','Segregación.','Emigración.','Migración.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el tipo de clima en donde la temperatura media en el mes más frío es menor a −3 oC.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Frío.','Tropical.','Seco.','Templado.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Se le llama así a la acción en la que una persona llega a un lugar de destino desde otro lugar donde vivía.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Emigración.','Inmigración.','Relegación.','Segregación.'],
+                        respuestaNum: 1
+                    },
                 ])
