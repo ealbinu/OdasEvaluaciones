@@ -2,8 +2,8 @@ include ../assets/pug/_head
 include ../assets/pug/_body
 include ../assets/pug/_scripts
 
-- grade = 'º'
-- title = ''
+- grade = '3º'
+- title = 'Ciencias Naturales'
 - subtitle = ''
 
 <!DOCTYPE html>
@@ -25,13 +25,183 @@ html(lang="es")
 
                 app.$set(app, 'scenes', [
                     {
+                        instruction: 'Selecciona la respuesta correcta.',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué significa reusar?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Reciclar los materiales.','Volver a utilizar los materiales.','Reducir el consumo de productos.','Renovar los productos.'],
+                        respuestaNum: 1
+                    },
+                    {
                         instruction: '',
                         popper: '',
                         type: 'choose', 
-                        pregunta: '',
+                        pregunta: 'Son ejemplos de recursos naturales, excepto uno. ¿Cuál es?',
                         opcionesImgsPrefix: null,
-                        opciones: [''],
-                        respuestaNum: 
+                        opciones: ['Aire.','Suelo.','Agua.','Plástico.'],
+                        respuestaNum: 3
                     },
-                    
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Quién inventó el termoscopio?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Galileo Galilei.','Charles Darwin.','Blaise Pascal.','Isaac Newton.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es una de las consecuencias negativas de explotar los recursos naturales de manera excesiva.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Modificación de las actividades para obtener recursos.','Modificación del ambiente natural de algunas especies.','Obtención de recursos naturales en cantidades mayores.','Cobertura de nuestras necesidades indispensables.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué significa reducir?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Reciclar los productos.','Separar los desechos sólidos.','Disminuir el consumo de productos.','Aprovechar los desechos sólidos.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es la manera más conveniente para clasificar nuestros desechos?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['En sólidos y líquidos.','En bolsas de papel y de plástico.','En metálicos y elásticos.','En orgánicos e inorgánicos.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la cantidad de materia que contiene un cuerpo.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Masa.','Volumen.','Temperatura.','Medida.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el instrumento que se utiliza para determinar la masa de los objetos.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Flexómetro.','Balanza.','Termómetro.','Cinta métrica.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es la unidad de medida más usada para medir la masa?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El metro cúbico (m3).','El kilogramo (kg).','El metro (m).','El litro (l).'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el instrumento que se utiliza para medir la temperatura de los objetos.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Barómetro.','Dinamómetro.','Termómetro.','Multímetro.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son las características por las que se puede distinguir un sonido de otro.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Trabajo, timbre y volumen.','Tensión, tono y trabajo.','Volumen, tono y masa.','Tono, intensidad y timbre.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se le llama al espacio que ocupa un cuerpo?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Presión.','Temperatura.','Masa.','Volumen.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es la unidad de medida para el volumen?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Metro cúbico (m3).','El kilogramo (kg).','El metro (m).','El litro (l).'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se le llama a la medida de calor que tienen los cuerpos?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Volumen.','Temperatura.','Fuerza.','Masa.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es la unidad de medida con la que se determina la temperatura de los cuerpos?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Grados Celsius (oC).','Metros (m).','Centímetros (cm).','Kilómetros (km).'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la enfermedad que consiste en la disminución de la temperatura.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Fiebre.','Hipotermia.','Hipertermia.','Deshidratación.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el rango de temperatura normal que debe tener un cuerpo humano?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Entre 36 y 37 oC.','Entre 40 y 45 oC.','Entre 39 y 40 oC.','Entre 32 y 33 oC.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son ejemplos de máquinas simples, excepto una. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Martillo.','Polea.','Rueda.','Bicicleta.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿De qué depende el timbre de un sonido?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Del tamaño del objeto que lo produce.','De la frecuencia con la que se repite.','De la distancia de donde se produce.','De las características físicas del objeto que lo produce.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la unidad de medida que se utiliza para medir la intensidad del sonido.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Volumen.','Fuerza.','Intensidad.','Decibel.'],
+                        respuestaNum: 3
+                    },
                 ])
