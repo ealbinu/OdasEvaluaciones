@@ -2,8 +2,8 @@ include ../assets/pug/_head
 include ../assets/pug/_body
 include ../assets/pug/_scripts
 
-- grade = 'º'
-- title = ''
+- grade = '5º'
+- title = 'Matemáticas'
 - subtitle = ''
 
 <!DOCTYPE html>
@@ -25,13 +25,228 @@ html(lang="es")
 
                 app.$set(app, 'scenes', [
                     {
+                        instruction: 'Selecciona la respuesta correcta.',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el área del siguiente rombo. <img src="aimg/1.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['49 cm<sup>2</sup>','60 cm<sup>2</sup>','55 cm<sup>2</sup>','39 cm<sup>2</sup>'],
+                        respuestaNum: 0
+                    },
+                    {
                         instruction: '',
                         popper: '',
                         type: 'choose', 
-                        pregunta: '',
+                        pregunta: 'Renata ahorró 10, 12, 15 y 18 monedas de $5 durante 4 meses, respectivamente. ¿Cuántas blusas de $90 podrá comprarse con lo que ahorró?',
                         opcionesImgsPrefix: null,
-                        opciones: [''],
-                        respuestaNum: 
+                        opciones: ['5 blusas.','4 blusas.','3 blusas.','2 blusas.'],
+                        respuestaNum: 2
                     },
-                    
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Los alumnos de 5o recolectaron latas de aluminio para reciclar. Juan llenó <div class=frc>4<hr>15</div> del contenedor, María <div class=frc>2<hr>15</div>, Esteban <div class=frc>3<hr>15</div> y Alondra <div class=frc>6<hr>15</div>. ¿Quién consiguió más latas?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Juan.','María.','Esteban.','Alondra.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Guillermo, Armando, Rafael y José salieron a entrenar a la pista de atletismo. Guillermo recorrió <div class=frc>2<hr>3</div> de la pista, Armando <div class=frc>3<hr>6</div> , Rafael <div class=frc>7<hr>12</div> y José <div class=frc>9<hr>24</div>. ¿Quién recorrió la mayor distancia?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Guillermo.','Armando.','Rafael.','José.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Ana hizo un avión de papel y en su primer lanzamiento recorrió 0.56 m, en el segundo 0.75 m y en el tercero sólo 0.25 m. ¿Cuántos metros recorrió en total su avión?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['1 m','1.56 m','1.25 m','1.75 m'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Tiene una cara plana circular y una cara curva. Su única arista es curva y no tiene vértices.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Prisma triangular.','Prisma rectangular.','Prisma cónico.','Prisma piramidal.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es un cuerpo geométrico que no tiene aristas.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Pirámide.','Cubo.','Esfera.','Prisma.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Isabel compró 397 flores y las acomodó en ramos con 15 flores cada uno. ¿Cuántos ramos armó y cuántas flores sueltas le quedaron?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['26 ramos y 7 flores sueltas.','20 ramos y 9 flores sueltas.','25 ramos y 10 flores sueltas.','30 ramos sin flores sueltas.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'María llena bolsitas con 12 galletas cada una. Si hoy preparó 55 galletas y llenó 4 bolsitas, ¿cuántas galletas quedaron sueltas?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['7 galletas.','8 galletas.','9 galletas.','10 galletas.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué debes tomar en cuenta a la hora de dar indicaciones en un croquis?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Los espacios geográficos.','Seguir las rutas oficiales.','Conocer rutas largas y cortas.','Los puntos de referencia.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿A cuántos hectómetros cuadrados equivalen 76.456 km<sup>2</sup>?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['764.56 hm<sup>2</sup>','7 645.6 hm<sup>2</sup>','76 456 hm<sup>2</sup>','7.6456 hm<sup>2</sup>'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál de los siguientes enunciados muestra la forma correcta de calcular el área de un trapecio?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['La suma de la base mayor y la base menor, multiplicada por la altura y el resultado dividirlo entre 2.','La medida de la base mayor dividida entre dos, multiplicado por la altura.','La multiplicación de sus bases, sumando al resultado la altura y dividiendo entre 2.','Las diagonales de la figura, sumar sus medidas y dividir el resultado entre 2.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿A cuántos kilómetros cuadrados equivale un terreno que mide 4 892 hectáreas?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['489.2 km<sup>2</sup>','4 892 km<sup>2</sup>','48.92 km<sup>2</sup>','4.892 km<sup>2</sup>'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Si Juanita pagó $27 por 3 cajas de bombones, ¿cuánto pagará por 7 cajas?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['$70','$54','$60','$63'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'En la pastelería de Margarita le regalan a una casa hogar 14 galletas de cada 50 que se hornean a la semana. Si la semana pasada hornearon 550, ¿cuántas galletas regalaron?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['150 galletas.','154 galletas.','160 galletas.','164 galletas.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son cantidades mayores que tres mil quinientos cuarenta y cinco, excepto una. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Cinco mil uno.','Tres mil seiscientos cuarenta y cinco.','Dos mil setecientos noventa y tres.','Doscientos mil cincuenta.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se escribe la siguiente cantidad en números romanos? <img src="aimg/17.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['MDCCXXXVII','MMCCCXXI','MDCXXXVI','MDCCXXVII'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál de los siguientes números romanos es el menor de todos?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['MM','M','CMDX','DLI'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el valor del siguiente número representado con el sistema de numeración egipcio. <img src="aimg/19.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['324 100','102 340','100 314','301 104'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son los cinco términos que continúan en la sucesión que inicia en <strong>38</strong> y la constante es más <strong>7</strong>.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['40, 42, 44, 46 y 48.','44, 50, 56, 62 y 68.','43, 48, 52, 57 y 62.','45, 52, 59, 66 y 73.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Viridiana fue a la tienda y compró 1 <div class=frc>1<hr>2</div> kg de cacahuates. Al día siguiente regresó por <div class=frc>6<hr>8</div> kg más de cacahuates. ¿Cuántos cacahuates compró en total?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['<div class=frc>16<hr>8</div> kg', '1<div class=frc>8<hr>8</div> kg', '2<div class=frc>1<hr>4</div> kg', '2 kg'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el resultado de la siguiente operación? <img src="aimg/22.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['4<div class=frc>1<hr>2</div>','4','3<div class=frc>1<hr>2</div>','3'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: 'Observa la imagen y contesta las preguntas 23 a 25.',
+                        popper: '<img src="aimg/23.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: 'Es la ubicación del guante de beisbol.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Arriba de los tenis rojos.','En la esquina inferior derecha.','A la izquierda del balón de futbol.','Arriba de los patines.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: 'Observa la imagen y contesta las preguntas 23 a 25.',
+                        popper: '<img src="aimg/23.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Dónde está ubicada la raqueta de tenis?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Arriba del balón de basquetbol.','En la esquina superior izquierda.','Abajo de los patines.','A la derecha de los tenis.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: 'Observa la imagen y contesta las preguntas 23 a 25.',
+                        popper: '<img src="aimg/23.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Dónde se encuentra el balón de futbol?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Arriba del balón de futbol americano.','A la izquierda de los bolos.','En la esquina superior izquierda.','Abajo del guante de beisbol.'],
+                        respuestaNum: 0
+                    },
                 ])

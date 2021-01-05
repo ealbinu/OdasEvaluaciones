@@ -862,6 +862,8 @@ input[type=number] {
   text-align: center;
   width: 40px;
   margin: 0 4px;
+  border: none !important;
+  box-shadow: none !important;
 }
 .frc hr {
   border-top: 4px solid var(--sec);

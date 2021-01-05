@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>Matemáticas</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">º</span></h1>
+      <h1><span class="grade">4º</span>Matemáticas</h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started">
         <div class="row">
@@ -71,15 +71,233 @@
     <script>
       app.$set(app, 'scenes', [
           {
+              instruction: 'Selecciona la respuesta correcta.',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuántos grados giró la bailarina? <img src="aimg/1.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['90º','240º','180º','360º'],
+              respuestaNum: 2
+          },
+          {
               instruction: '',
               popper: '',
               type: 'choose', 
-              pregunta: '',
+              pregunta: 'Son los grados que mide la apertura de las manecillas del reloj. <img src="aimg/2.png" class="img-fluid">',
               opcionesImgsPrefix: null,
-              opciones: [''],
-              respuestaNum: 
+              opciones: ['180º','150º','130º','120º'],
+              respuestaNum: 1
           },
-          
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuántos grados mide el ángulo marcado en la circunferencia?',
+              opcionesImgsPrefix: null,
+              opciones: ['30º','25º','35º','45º'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es la figura que tiene mayor superficie? <img src="aimg/4.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['2','3','4','1'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el número ocho mil quinientos setenta y tres.',
+              opcionesImgsPrefix: null,
+              opciones: ['80 573','800 573','8 573','857 300'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Miguel está ahorrando para comprar una bicicleta. Si hasta hoy tiene tres mil doscientos noventa y tres pesos, ¿cuál bicicleta puede comprar?',
+              opcionesImgsPrefix: '6',
+              opciones: [],
+              respuestaNum: 1,
+              settings: {imgs:4},
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son diferentes formas de representar el número 75, excepto una. ¿Cuál es?',
+              opcionesImgsPrefix: null,
+              opciones: ['5 × 8 + 2 × 10 + 5 × 3 =','40 + 20 + 15 =','9 × 3 + 5 × 7 + 2 × 8 =','6 × 8 + 27 ='],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es la expresión equivalente a 7.5?',
+              opcionesImgsPrefix: null,
+              opciones: ['6 × 0.5 + 3 × 1.5 =','2 × 3.5 + 3 × 2.5 =','5 × 0.5 + 4 × 0.75 =','2 × 2.5 + 3 × 0.5 ='],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la fracción equivalente que representa la parte coloreada en la siguiente figura. <img src="aimg/9.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['<div class=frc>3<hr>6</div>', '<div class=frc>2<hr>3</div>', '<div class=frc>4<hr>12</div>', '<div class=frc>1<hr>2</div>'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Sergio, Ana y Luis tienen la misma cantidad de dulces. Si Ana se comió <div class=frc>2<hr>3</div> de sus dulces, Sergio se comió <div class=frc>7<hr>12</div> y Luis <div class=frc>1<hr>6</div> , ¿quién comió más?',
+              opcionesImgsPrefix: null,
+              opciones: ['Ana.','Sergio.',' Luis.','Comieron lo mismo.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la fracción que representa la suma de la parte coloreada de ambas figuras. <img src="aimg/11.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['<div class=frc>9<hr>4</div>', '<div class=frc>8<hr>2</div>', '<div class=frc>7<hr>8</div>','<div class=frc>8<hr>8</div>'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Un corredor entrena en una pista de atletismo. Si el primer día recorre <div class=frc>3<hr>5</div> km de la pista, el segundo <div class=frc>2<hr>10</div> km y el tercero <div class=frc>3<hr>15</div> km,¿cuántos kilómetros recorrió en total?',
+              opcionesImgsPrefix: null,
+              opciones: ['<div class=frc>4<hr>10</div> km', '1 <div class=frc>2<hr>4</div> km', '<div class=frc>8<hr>20</div> km', '1 km'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'De un depósito de agua que se encuentra a su mayor capacidad se sacaron <div class=frc>2<hr>4</div> de su contenido y después se sacó <div class=frc>1<hr>8</div> . ¿Qué fracción de agua quedó en el depósito?',
+              opcionesImgsPrefix: null,
+              opciones: ['<div class=frc>10<hr>4</div>', '<div class=frc>3<hr>8</div>', '<div class=frc>7<hr>8</div>', '<div class=frc>1<hr>4</div>'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'El maestro de 4º A compró 27 cajas de plumas para repartir entre sus alumnos. Si cada caja contiene 9 plumas, ¿cuántas plumas compró en total el maestro?',
+              opcionesImgsPrefix: null,
+              opciones: ['243 plumas.','342 plumas.','432 plumas.','234 plumas.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es la multiplicación correcta para encontrar el área del siguiente rectángulo? <img src="aimg/15.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['5 × 15 = (5 × 3) + (5 × 7) = 75','5 × 15 = (5 × 10) + (5 × 7) = 75','5 × 15 = (5 × 10) + (5 × 5) = 75','5 × 15 = (5 × 9) + (5 × 2) = 75'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'En la granja de Javier hay 35 gallinas. Si cada gallina pone 4 huevos, ¿cuántos huevos ponen en total en un día?',
+              opcionesImgsPrefix: null,
+              opciones: ['40 huevos.','14 huevos.','140 huevos.','120 huevos.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Jorge compró 9 lápices y 5 cuadernos. Si cada lápiz le costó $5 y cada cuaderno $14, ¿cuánto pagó en total?',
+              opcionesImgsPrefix: null,
+              opciones: ['$115','$511','$190','$210'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Gabriel jugó en las maquinitas de videojuegos. En la primera partida obtuvo 86 puntos y en la segunda 46 puntos. Si cada punto equivale a 5 boletos, ¿cuántos boletos le darán en total?',
+              opcionesImgsPrefix: null,
+              opciones: ['739 boletos.','692 boletos.','629 boletos.','660 boletos.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el cuadrilátero que tiene un solo eje de simetría.',
+              opcionesImgsPrefix: '19',
+              opciones: [],
+              respuestaNum: 3,
+              settings: {imgs:4},
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Observa la siguiente tabla. ¿Qué día hubo mayor asistencia? <img src="aimg/20.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['El lunes.','El martes.','El miércoles.','El viernes.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Según la información que se presenta en la gráfica, ¿cuántos alumnos participaron en el taller de pintura? <img src="aimg/21.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['10 alumnos.','5 alumnos.','8 alumnos.','25 alumnos.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'En un salón de clases hay 30 alumnos. Si <div class=frc>5<hr>6</div> cumplieron con su tarea del día, ¿cuántos alumnos no cumplieron con la tarea?',
+              opcionesImgsPrefix: null,
+              opciones: ['6 alumnos.','8 alumnos.','5 alumnos.','25 alumnos.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'El equipo de futbol de 4° tiene 15 elementos, <div class=frc>3<hr>5</div> son niñas y el resto son niños. ¿Cuántos alumnos hay en el equipo de futbol?',
+              opcionesImgsPrefix: null,
+              opciones: ['7 alumnos.','6 alumnos.','8 alumnos.','5 alumnos.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la figura que sigue en la siguiente sucesión. <img src="aimg/24.png" class="img-fluid">',
+              opcionesImgsPrefix: '24',
+              opciones: [],
+              respuestaNum: 1,
+              settings: {imgs:4},
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Marisol tiene una cuerda de 2.2 m de largo. Si Paola tiene una de 2.28 m, ¿cuál es la diferencia entre el largo de ambas cuerdas?',
+              opcionesImgsPrefix: null,
+              opciones: ['8 centésimos.','8 décimos.','8 milésimos.','8 diezmilésimos.'],
+              respuestaNum: 0
+          },
       ])
     </script>
   </body>

@@ -63,5 +63,11 @@
 		"body": [
 			"<img src=\"aimg/$1.png\" class=\"img-fluid\">"
 		]
+	},
+	"Fraction": {
+		"prefix": "frc",
+		"body": [
+			"<div class=frc>$1<hr>$2</div>"
+		]
 	}
 }
