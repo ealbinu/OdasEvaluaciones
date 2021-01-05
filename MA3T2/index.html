@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>Matemáticas</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">º</span></h1>
+      <h1><span class="grade">3º</span>Matemáticas</h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started">
         <div class="row">
@@ -71,15 +71,276 @@
     <script>
       app.$set(app, 'scenes', [
           {
+              instruction: 'Selecciona la respuesta correcta.',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es la longitud del listón? <img src="aimg/1.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['5 centímetros con 4 milímetros.','6 centímetros con 4 milímetros.','7 centímetros.','6 centímetros.'],
+              respuestaNum: 1
+          },
+          {
               instruction: '',
               popper: '',
               type: 'choose', 
-              pregunta: '',
-              opcionesImgsPrefix: null,
-              opciones: [''],
-              respuestaNum: 
+              pregunta: '¿Qué objeto mide más de 1 metro?',
+              opcionesImgsPrefix: '2',
+              opciones: [],
+              respuestaNum: 1,
+              settings: {imgs:4},
           },
-          
+          {
+              instruction: 'Observa la siguiente gráfica y contesta las preguntas 3 a 5.',
+              popper: '<img src="aimg/3.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Qué cantidad de alumnos eligieron al gato como su animal favorito?',
+              opcionesImgsPrefix: null,
+              opciones: ['8 alumnos.','12 alumnos.','15 alumnos.','18 alumnos.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: 'Observa la siguiente gráfica y contesta las preguntas 3 a 5.',
+              popper: '<img src="aimg/3.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Cuántos alumnos fueron encuestados en total?',
+              opcionesImgsPrefix: null,
+              opciones: ['40 alumnos.','38 alumnos.','44 alumnos.','46 alumnos.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Observa la siguiente gráfica y contesta las preguntas 3 a 5.',
+              popper: '<img src="aimg/3.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Cuál es el animal favorito del grupo de 3° A?',
+              opcionesImgsPrefix: null,
+              opciones: ['Pájaro.','Hámster.','Perro.','Gato.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué fracción representa la parte coloreada de la figura? <img src="aimg/6.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['<div class=frc>7<hr>8</div>','<div class=frc>6<hr>8</div>', '<div class=frc>8<hr>6</div>', '<div class=frc>5<hr>8</div>'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la fracción que representa un octavo.',
+              opcionesImgsPrefix: null,
+              opciones: ['<div class=frc>1<hr>3</div>','<div class=frc>1<hr>4</div>','<div class=frc>1<hr>8</div>','<div class=frc>1<hr>2</div>'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Observa las figuras y elige la opción con las fracciones que representen la parte coloreada en cada una. <img src="aimg/8.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['3, 4 y 5.', '<div class=frc>3<hr>6</div>, <div class=frc>4<hr>8</div> y <div class=frc>5<hr>9</div>.', '<div class=frc>3<hr>3</div>, <div class=frc>4<hr>6</div> y <div class=frc>5<hr>8</div>.', '3, 5 y <div class=frc>4<hr>6</div>.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Marcos tiene 2 naranjas y quiere repartirlas en partes iguales entre él y sus 3 amigos. ¿Cuánto le tocará a cada uno?',
+              opcionesImgsPrefix: null,
+              opciones: ['<div class=frc>1<hr>4</div>', '<div class=frc>3<hr>4</div>', '<div class=frc>2<hr>3</div>', '<div class=frc>2<hr>4</div>'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Si Marcos va a repartir 3 manzanas entre sus 4 primos, ¿qué cantidad recibirá cada uno?',
+              opcionesImgsPrefix: null,
+              opciones: ['<div class=frc>3<hr>4</div>', '<div class=frc>1<hr>2</div>', '<div class=frc>4<hr>6</div>', '<div class=frc>2<hr>4</div>'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál de las fracciones es equivalente a la que se muestra a continuación? <img src="aimg/11.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['<div class=frc>4<hr>8</div>','<div class=frc>10<hr>4</div>', '<div class=frc>3<hr>6</div>', '<div class=frc>10<hr>6</div>'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué números faltan para completar la siguiente sucesión? <img src="aimg/12.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['342, 416, 492','358, 422, 484','395, 429, 497','374, 436, 488'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuáles son los números que faltan en la siguiente sucesión? <img src="aimg/13.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['1 232, 1 195','1 247, 1 176','1 262, 1 197','1 257, 1 182'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué números faltan y cuál es la constante de la sucesión? <img src="aimg/14.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['Faltan 59, 72 y 111; la constante es 13.','Faltan 54, 68 y 109; la constante es 16.','Faltan 64, 76 y 122; la constante es 22.','Faltan 59, 72 y 111; la constante es 11.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el resultado de la siguiente suma? <img src="aimg/15.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['1 264','1 240','1 357','1 297'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el resultado de la siguiente resta? <img src="aimg/16.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['1 888','1 790','1 899','1 868'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Tere tiene $60 ahorrados. Si quiere ir al circo y el boleto cuesta $85, ¿cuánto dinero le falta?',
+              opcionesImgsPrefix: null,
+              opciones: ['$25','$20','$30','$15'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'En un tren había 512 pasajeros. Si en la primera estación bajaron 247, ¿cuántos pasajeros quedaron en el tren?',
+              opcionesImgsPrefix: null,
+              opciones: ['265 pasajeros.','285 pasajeros.','250 pasajeros.','295 pasajeros.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'En una panadería se hacen en 1 día 260 panqués, 120 donas, 325 cuernitos y 190 polvorones. ¿Cuántos panes se hacen en total a diario?',
+              opcionesImgsPrefix: null,
+              opciones: ['785 panes.','895 panes.','665 panes.','985 panes.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Edgar tiene 42 donas para repartir entre él y sus 6 amigos. ¿Cuántas donas le toca a cada uno?',
+              opcionesImgsPrefix: null,
+              opciones: ['12 donas.','8 donas.','6 donas.','7 donas.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Mariana tiene 65 chocolates y los quiere repartir de forma equitativa entre sus 5 amigos. ¿Cuántos chocolates le tocan a cada uno?',
+              opcionesImgsPrefix: null,
+              opciones: ['13 chocolates.','9 chocolates.','15 chocolates.','10 chocolates.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Gerardo repartió 120 tarjetas entre sus 9 primos. Si a cada uno le tocó el mismo número de tarjetas, ¿cuántas le sobraron?',
+              opcionesImgsPrefix: null,
+              opciones: ['5','3','7','2'],
+              respuestaNum: 1
+          },
+          {
+              instruction: 'Observa la imagen y contesta las preguntas 23, 24 y 25.',
+              popper: '<img src="aimg/23.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Cuál es el valor energético de cada bolsa de bombones?',
+              opcionesImgsPrefix: null,
+              opciones: ['100 g','33 g','7.1 g','1 758 kJ'],
+              respuestaNum: 3
+          },
+          {
+              instruction: 'Observa la imagen y contesta las preguntas 23, 24 y 25.',
+              popper: '<img src="aimg/23.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: 'Si nos comiéramos 2 bolsas de bombones, ¿cuánta grasa estaríamos consumiendo?',
+              opcionesImgsPrefix: null,
+              opciones: ['76 g','66 g','33 g','96 g'],
+              respuestaNum: 1
+          },
+          {
+              instruction: 'Observa la imagen y contesta las preguntas 23, 24 y 25.',
+              popper: '<img src="aimg/23.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Qué cantidad de proteínas contiene una bolsa?',
+              opcionesImgsPrefix: null,
+              opciones: ['100 g','3.55 g','7.1 g','1 758 kJ'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el resultado de la suma de fracciones mixtas que representa el dibujo? <img src="aimg/26.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['1 <div class=frc>4<hr>8</div>', '1 <div class=frc>3<hr>8</div>', '1 <div class=frc>1<hr>8</div>','1 <div class=frc>4<hr>16</div>'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el resultado de la suma 2 + <div class=frc>1<hr>5</div> ?',
+              opcionesImgsPrefix: null,
+              opciones: ['<div class=frc>12<hr>5</div>', '<div class=frc>7<hr>12</div>', '<div class=frc>11<hr>5</div>', '3'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál de las siguientes operaciones da como resultado un número mayor a 1 000?',
+              opcionesImgsPrefix: null,
+              opciones: ['700 + 85 =','1 465 – 325 =','1 198 – 264 =','914 + 85 ='],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál de las siguientes operaciones es correcta?',
+              opcionesImgsPrefix: null,
+              opciones: ['1 425 – 41 = 1 388','6 796 – 11 = 6 784','4 065 – 21 = 4 044','5 321 – 79 = 5 342'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es la regularidad en la siguiente sucesión? <img src="aimg/30.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['−12','+12','+18','−20'],
+              respuestaNum: 0
+          },
       ])
     </script>
   </body>
