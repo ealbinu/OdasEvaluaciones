@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>Español</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">º</span></h1>
+      <h1><span class="grade">4º</span>Español</h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started" :class="'scene_'+index">
         <div class="row">
@@ -73,15 +73,257 @@
     <script>
       app.$set(app, 'scenes', [
           {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+              popper: '<img src="aimg/1.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Cuál es la idea principal del texto?',
+              opcionesImgsPrefix: null,
+              opciones: ['Las prácticas saludables.','La importancia de saludar.','Cómo guardar silencio.','La diferencia entre hablar o gritar.'],
+              respuestaNum: 1
+          },
+          {
               instruction: '',
               popper: '',
               type: 'choose', 
-              pregunta: '',
+              pregunta: '¿Cómo puedes demostrarle respeto a una persona?',
               opcionesImgsPrefix: null,
-              opciones: [''],
-              respuestaNum: 
+              opciones: ['Cuando le das dinero.','Cuando le escribes cartas.','Cuando llamas por teléfono.','Cuando la saludas.'],
+              respuestaNum: 3
           },
-          
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Por qué saludar es igual a darle a una persona su lugar?',
+              opcionesImgsPrefix: null,
+              opciones: ['Imperativo.','Infinitivo.','Subjuntivo.','Demostrativo.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Para qué sirve redactar los instructivos en forma imperativa?',
+              opcionesImgsPrefix: null,
+              opciones: ['Para expresar órdenes o indicaciones.','Para dar varias opciones a elegir.','Para que la instrucción sea impersonal.','Para dejar las instrucciones abiertas a sugerencias.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la parte de un instructivo que nos ilustra de manera gráfica los pasos a seguir para completar el proceso.',
+              opcionesImgsPrefix: null,
+              opciones: ['Lista de materiales.','Instrucciones.','Secuencia de imágenes.','Título del instructivo.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la manera de ordenar los pasos a seguir en los instructivos.',
+              opcionesImgsPrefix: null,
+              opciones: ['Por medio de un cuadro sinóptico.','Coloreando con distintos colores.','Colocando varios puntos.','Numerando cada instrucción.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Elige la instrucción que esté expresada en Calienta el agua durante nueve minutos.',
+              opcionesImgsPrefix: null,
+              opciones: ['Se corta la verdura de manera fina.','Limpió la mesa antes de preparar los alimentos.','Pegar el cartón por los dos extremos.imperativo.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Para tener claridad con los datos que se quieren obtener en una entrevista, ¿qué se debe realizar antes?',
+              opcionesImgsPrefix: null,
+              opciones: ['Un guion de entrevista.','Un ensayo de entrevista.','Un reporte de entrevista.','Una cita para entrevista.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Para que una entrevista cumpla su propósito, ¿a qué persona debes elegir para entrevistar?',
+              opcionesImgsPrefix: null,
+              opciones: ['Al primero que pase.','A un amigo cercano.','A un experto en el tema.','A un familiar.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son los signos de puntuación que se utilizan al redactar una pregunta.',
+              opcionesImgsPrefix: null,
+              opciones: ['Signos de exclamación.','Comillas.','Signos de interrogación.','Punto y aparte.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el tipo de preguntas que le permiten al entrevistado dar una explicación más amplia sobre el tema.',
+              opcionesImgsPrefix: null,
+              opciones: ['Preguntas abiertas.','Preguntas cerradas.','Preguntas de opción múltiple.','Preguntas indirectas.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Elige la opción que corresponde a una pregunta cerrada.',
+              opcionesImgsPrefix: null,
+              opciones: ['¿Qué opina del calentamiento global?','¿Le gusta más el chocolate o el café?','¿Qué cree que pase si se extinguen las abejas?','¿A partir de qué edad cree usted que una persona deba votar?'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Para qué sirve una entrevista?',
+              opcionesImgsPrefix: null,
+              opciones: ['Para obtener información de un experto sobre un tema.','Para realizar algún resumen.','Para informar sobre un evento cultural.','Para invitar a un evento social.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿De qué manera se debe presentar al entrevistado antes de iniciar con la entrevista?',
+              opcionesImgsPrefix: null,
+              opciones: ['Leyendo las notas de la entrevista.','Leyendo la semblanza del entrevistado.','Pidiéndole al entrevistado que se presente a sí mismo.','Haciendo las preguntas al entrevistado.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: 'Lee el fragmento de entrevista y contesta las preguntas 17 y 18.',
+              popper: '<img src="aimg/17.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Qué tipo de pregunta hizo el entrevistador al doctor?',
+              opcionesImgsPrefix: null,
+              opciones: ['Pregunta abierta.','Pregunta de opción múltiple.','Pregunta cerrada.','Pregunta indirecta.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Lee el fragmento de entrevista y contesta las preguntas 17 y 18.',
+              popper: '<img src="aimg/17.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: 'Elige la opción que transcribe la respuesta del doctor en discurso indirecto.',
+              opcionesImgsPrefix: null,
+              opciones: ['“Sí, cuando se toma en exceso.”','Hace daño porque tiene mucha azúcar y eso hace que engordemos.','“La gran cantidad de azúcar que contiene una botella... puede causar obesidad.”','El doctor dijo que hace daño tomar refresco cuando se toma en exceso.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son los signos de puntuación que se utilizan para registrar lo que dijo el entrevistado como cita textual.',
+              opcionesImgsPrefix: null,
+              opciones: ['Comillas.','Signos de admiración.','Signos de interrogación.','Dos puntos.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la palabra que rima con <strong>poema</strong>.',
+              opcionesImgsPrefix: null,
+              opciones: ['Corona.','Pollo.','Diadema.','Estrella.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Consiste en decir un poema en voz alta dándole entonación y expresión corporal para enfatizar los sentimientos.',
+              opcionesImgsPrefix: null,
+              opciones: ['Recitar.','Declamar.','Interpretar.','Actuar.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: 'Lee los siguientes versos y contesta las preguntas 22 a 25.',
+              popper: '<img src="aimg/22.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Qué palabra rima con <strong>pasa</strong>?',
+              opcionesImgsPrefix: null,
+              opciones: ['Abraza.','Cubierto.','Ojos.','Frío.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Lee los siguientes versos y contesta las preguntas 22 a 25.',
+              popper: '<img src="aimg/22.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Qué figura retórica utiliza el autor en el poema anterior para hablar del sol y los ojos?',
+              opcionesImgsPrefix: null,
+              opciones: ['Metáfora.','Analogía.','Comparación.','Onomatopeya.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: 'Lee los siguientes versos y contesta las preguntas 22 a 25.',
+              popper: '<img src="aimg/22.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: 'Elige el verso que contiene una metáfora.',
+              opcionesImgsPrefix: null,
+              opciones: ['Cuando el sol se encuentra cubierto','pareciera que el frío lo abraza,','así, cuando tú cierras los ojos','siento que la alegría se me pasa.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: 'Lee los siguientes versos y contesta las preguntas 22 a 25.',
+              popper: '<img src="aimg/22.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Qué sentimiento expresa el autor del poema?',
+              opcionesImgsPrefix: null,
+              opciones: ['Alegría.','Tranquilidad.','Ternura.','Tristeza.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el tipo de consumo que hacemos cuando nos informamos y tomamos en cuenta aspectos como la salud y lo sustentable de un producto.',
+              opcionesImgsPrefix: null,
+              opciones: ['Consumo irracional.','Consumo básico.','Consumo inteligente.','Consumo de moda.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la frase principal que se utiliza en los anuncios para identificar una idea sobre el producto.',
+              opcionesImgsPrefix: null,
+              opciones: ['Eslogan.','Características.','Precio.','Producto.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son los elementos de los que se compone un anuncio publicitario.',
+              opcionesImgsPrefix: null,
+              opciones: ['Colores y formas.','Líneas y figuras.','Imagen y texto.','Personas y animales.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el dato que debe tener la etiqueta de un producto para indicar cuánto tiempo tenemos para usarlo o consumirlo.',
+              opcionesImgsPrefix: null,
+              opciones: ['Eslogan.','Fecha de caducidad.','Imágenes.','Precauciones.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es un ejemplo de consumo inteligente.',
+              opcionesImgsPrefix: null,
+              opciones: ['Comprar un producto que contamine menos.','Comprar el producto que anunció un actor famoso, aunque no lo necesite.','Comprar un artículo de moda, aunque represente un riesgo para la salud.','Comprar un artículo cuyo anuncio publicitario promete un cambio milagroso en la vida de quien lo usa.'],
+              respuestaNum: 0
+          },
       ])
     </script>
   </body>
