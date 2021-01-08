@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>Ciencias Naturales</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">º</span></h1>
+      <h1><span class="grade">4º</span>Ciencias Naturales</h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started" :class="'scene_'+index">
         <div class="row">
@@ -73,15 +73,185 @@
     <script>
       app.$set(app, 'scenes', [
           {
+              instruction: 'Selecciona la respuesta correcta.',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el conjunto de factores bióticos y abióticos relacionados entre sí y que comparten un determinado lugar.',
+              opcionesImgsPrefix: null,
+              opciones: ['Ecosistema.','Población.','Comunidad.','Biósfera.'],
+              respuestaNum: 0
+          },
+          {
               instruction: '',
               popper: '',
               type: 'choose', 
-              pregunta: '',
+              pregunta: 'Son ejemplos de factores físicos, excepto uno. ¿Cuál es?',
               opcionesImgsPrefix: null,
-              opciones: [''],
-              respuestaNum: 
+              opciones: ['Luz.','Suelo.','Agua.','Plantas.'],
+              respuestaNum: 3
           },
-          
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el tipo de ser vivo capaz de producir su propio alimento a partir de la energía del sol, el agua y el dióxido de carbono.',
+              opcionesImgsPrefix: null,
+              opciones: ['Descomponedor.','Consumidor primario.','Consumidor secundario.','Productor.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Quién es el consumidor secundario en la siguiente cadena alimenticia? <img src="aimg/1.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['La víbora.','La rana.','El grillo.','El pasto.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál de los siguientes organismos representa un consumidor primario?',
+              opcionesImgsPrefix: null,
+              opciones: ['Zorro.','León.','Leopardo.','Vaca.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el tipo de material que tiene un volumen definido, pero no una forma, y adquiere la del recipiente que lo contiene y no se comprime.',
+              opcionesImgsPrefix: null,
+              opciones: ['Sólidos.','Gases.','Líquidos.','Plasma.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son los materiales que tienen volumen, forma definida, no se pueden comprimir y no fluyen.',
+              opcionesImgsPrefix: null,
+              opciones: ['Los gases.','Los líquidos.','El plasma.','Los sólidos.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el proceso que mantiene en constante circulación el agua del planeta.',
+              opcionesImgsPrefix: null,
+              opciones: ['El período del agua.','La circulación del agua.','El ciclo del agua.','El movimiento del agua.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué sucede cuando un gas reduce su volumen?',
+              opcionesImgsPrefix: null,
+              opciones: ['Se comprime.','Se difunde.','Se dilata.','Se vuelve elástico.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cómo se le llama a la fuerza que se opone al movimiento de un cuerpo que entra en contacto con otro?',
+              opcionesImgsPrefix: null,
+              opciones: ['Fuerza.','Movimiento.','Fricción.','Frotamiento.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el nombre que recibe el proceso de someter los alimentos al calor?',
+              opcionesImgsPrefix: null,
+              opciones: ['Refrigeración.','Ultracongelación.','Congelación.','Cocción.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el nombre que recibe el grado de temperatura en el cual un material sólido se convierte en líquido debido al calor.',
+              opcionesImgsPrefix: null,
+              opciones: ['Punto máximo de temperatura.','Punto de fusión.','Punto de ebullición.','Punto examinador.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿En qué consiste el método de pasteurización?',
+              opcionesImgsPrefix: null,
+              opciones: ['En elevar la temperatura de un producto entre 60 °C y 140 °C y luego bajarla muy rápido.','En conservar los alimentos en temperaturas muy bajas.','En eliminar microorganismos mediante la elevación de la temperatura.','En eliminar el contenido de agua de los alimentos.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son ejemplos de bebidas pasteurizadas, excepto una. ¿Cuál es?',
+              opcionesImgsPrefix: null,
+              opciones: ['Cerveza.','Leche.','Agua.','Vino.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el fenómeno que se presenta cuando frotas un globo con tu cabello.',
+              opcionesImgsPrefix: null,
+              opciones: ['Generalización.','Electrización.','Repulsión.','Variación.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el nombre del filósofo griego que descubrió que al frotar ámbar en sus prendas de algodón podía atraer cuerpos ligeros.',
+              opcionesImgsPrefix: null,
+              opciones: ['Demócrito.','Sócrates.','Heráclito de Éfeso.','Tales de Mileto.'],
+              respuestaNum: 3
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el tipo de electrización en el que no hay contacto entre objetos, ocurre a distancia cuando se aproxima un cuerpo electrizado a otro?',
+              opcionesImgsPrefix: null,
+              opciones: ['Inducción.','Frotamiento.','Contacto.','Rozamiento.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Lee con atención y resuelve como se indica.',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la temperatura que permite que una sustancia pase del estado sólido al estado líquido.',
+              opcionesImgsPrefix: null,
+              opciones: ['Temperatura de ebullición.','Temperatura de evaporación.','Temperatura de fusión.','Temperatura de transpiración.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Nombre del científico que desarrolló el método de pasteurización.',
+              opcionesImgsPrefix: null,
+              opciones: ['Joseph Lister.','Luis Pasteur.','Anton van Leeuwenhoek.','Carlos Linneo.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el proceso en el cual el agua pasa del estado líquido al gaseoso al alcanzar una temperatura de 100 °C.',
+              opcionesImgsPrefix: null,
+              opciones: ['Ebullición.','Solidificación.','Sublimación.','Congelación.'],
+              respuestaNum: 0
+          },
       ])
     </script>
   </body>
