@@ -271,7 +271,7 @@ strong {
         align-items: center;
         margin: 30px 10px;
         flex-wrap: wrap;
-        div{
+        &>div{
             cursor: pointer;
             border: 8px solid #fff;
             border-radius: 10px;
@@ -853,4 +853,52 @@ input[type=number] {
         border-top: 4px solid var(--sec);
         margin: 1px 0;
     }
+}
+
+
+
+/* RELATIONAL MODULE */
+
+
+.jtk-endpoint {
+	cursor: pointer;
+}
+.jtk-connector path {
+	stroke-width: 10;
+	stroke: #667788;
+	stroke-dasharray: 20 6;
+}
+.relational {
+	position: relative;
+}
+.relationalStart {
+	border-radius: 10px;
+	position: absolute;
+	background: rgba(200, 200, 200, 0.4);
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.relationalStart img {
+	width: 50%;
+}
+
+.sources, .targets{
+	padding: 0 !important;
+	margin: 0 !important;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+.sources > div,
+.targets > div {
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

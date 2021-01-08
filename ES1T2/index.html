@@ -3,19 +3,34 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>Español</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../../assets/font/stylesheet.css?v=7"/>
     <link rel="stylesheet" href="../../assets/assets.css?v=7"/>
-    <style></style>
+    <style>
+      .scene_24 .choose .options > div {
+          border: none !important;
+      }
+      .scene_24 .choose .options > div:nth-child(9),
+      .scene_24 .choose .options > div:nth-child(17),
+      .scene_24 .choose .options > div:nth-child(20),
+      .scene_24 .choose .options > div:nth-child(20) {
+          flex-basis: 100%;
+          height: 0;
+          padding: 0;
+          margin: 20px 0;
+      }
+      
+      
+    </style>
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">º</span></h1>
+      <h1><span class="grade">1º</span>Español</h1>
       <!-- SCENES ############################################-->
-      <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started">
+      <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started" :class="'scene_'+index">
         <div class="row">
           <div class="col mt-5 instruccion" v-if="i.instruction" v-html="i.instruction"></div>
           <div class="col-md-4 text-center" v-if="i.popper">
@@ -56,6 +71,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
     <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.15.5/js/jsplumb.js"></script>
     <script src="../../assets/modulos/dragdropMod.js"></script>
     <script src="../../assets/modulos/dropdowns.js"></script>
     <script src="../../assets/modulos/selectable.js"></script>
@@ -64,6 +80,7 @@
     <script src="../../assets/modulos/inputbox.js"></script>
     <script src="../../assets/modulos/choose.js"></script>
     <script src="../../assets/modulos/popper.js"></script>
+    <script src="../../assets/modulos/relational.js"></script>
     <script src="../../assets/modulos/finalize.js?v=7"></script>
     <script src="../../assets/modulos/counter.js?v=7"></script>
     <script src="../../assets/modulos/utils.js?v=7"></script>
@@ -71,15 +88,240 @@
     <script>
       app.$set(app, 'scenes', [
           {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
+              popper: '<img src="aimg/1.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Quién cuidaba la casa?',
+              opcionesImgsPrefix: '1',
+              opciones: [],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
+              popper: '<img src="aimg/1.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Qué animal dormía en la sala?',
+              opcionesImgsPrefix: '2',
+              opciones: [],
+              respuestaNum: 2
+          },
+          {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
+              popper: '<img src="aimg/1.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Por qué era injusta la situación de la casa, según Ana?',
+              opcionesImgsPrefix: null,
+              opciones: ['Porque el perro dormía y el gato cuidaba.','Porque el perro y el gato dormían en la sala.','Porque el perro cuidaba y el gato dormía.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
+              popper: '<img src="aimg/1.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Por qué debemos respetar a los demás?',
+              opcionesImgsPrefix: null,
+              opciones: ['Porque duermen.','Por lo que son.','Porque el perro es valiente.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: 'Lee el diálogo y contesta las preguntas 5, 6 y 7.',
+              popper: '<img src="aimg/5.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿A qué tipo de texto pertenece el diálogo anterior?',
+              opcionesImgsPrefix: null,
+              opciones: ['A un guion de teatro.','A un cuento.','A una leyenda.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Lee el diálogo y contesta las preguntas 5, 6 y 7.',
+              popper: '<img src="aimg/5.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Cuál es el nombre que recibe la palabra que está entre paréntesis?',
+              opcionesImgsPrefix: null,
+              opciones: ['Verso.','Estrofa.','Acotación.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: 'Lee el diálogo y contesta las preguntas 5, 6 y 7.',
+              popper: '<img src="aimg/5.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Qué personaje habla primero en el guion de teatro?',
+              opcionesImgsPrefix: '7',
+              opciones: [],
+              respuestaNum: 1
+          },
+          
+          {
+              instruction: '¿A qué tipo de texto pertenece la información anterior?',
+              popper: '<img src="aimg/8.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿A qué tipo de texto pertenece la información anterior?',
+              opcionesImgsPrefix: null,
+              opciones: ['Informativo.','Descriptivo.','Científico.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '¿A qué tipo de texto pertenece la información anterior?',
+              popper: '<img src="aimg/8.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Qué representan las imágenes y la información?',
+              opcionesImgsPrefix: null,
+              opciones: ['Una invitación.','Una noticia.','Una infografía.'],
+              respuestaNum: 2
+          },
+      
+          {
               instruction: '',
               popper: '',
               type: 'choose', 
-              pregunta: '',
+              pregunta: '¿Cuál es el medio de comunicación donde podemos encontrar una nota informativa?',
               opcionesImgsPrefix: null,
-              opciones: [''],
-              respuestaNum: 
+              opciones: ['En el periódico.','En un cuento.','En una invitación.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son los medios en los que aparecen las noticias, excepto uno. ¿Cuál es?',
+              opcionesImgsPrefix: null,
+              opciones: ['Periódicos.','Caricaturas.','Televisión.'],
+              respuestaNum: 1
           },
           
+          {
+              instruction: 'Lee la siguiente nota informativa y contesta las preguntas 12, 13 y 14.',
+              popper: '<img src="aimg/12.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿En dónde puedes encontrar el pie de foto en una noticia?',
+              opcionesImgsPrefix: null,
+              opciones: ['En el encabezado.','Debajo de la fotografía.','Al final de la noticia.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: 'Lee la siguiente nota informativa y contesta las preguntas 12, 13 y 14.',
+              popper: '<img src="aimg/12.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Cuál es el encabezado de la nota informativa?',
+              opcionesImgsPrefix: null,
+              opciones: ['El gobierno del estado regala uniformes y útiles escolares.','Reciben uniformes y útiles escolares por parte del gobierno.','Los estudiantes de educación primaria reciben uniformes.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Lee la siguiente nota informativa y contesta las preguntas 12, 13 y 14.',
+              popper: '<img src="aimg/12.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Quién regaló los uniformes y útiles escolares?',
+              opcionesImgsPrefix: null,
+              opciones: ['Los padres de familia.','El gobierno del estado.','Los directores.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Elige la imagen que se relaciona con el siguiente título. <img src="aimg/15.png" class="img-fluid">',
+              opcionesImgsPrefix: '15',
+              opciones: [],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál de las siguientes palabras es un nombre propio?',
+              opcionesImgsPrefix: null,
+              opciones: ['Maceta.','Carro.','Rogelio.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la palabra que empieza con <strong>pa</strong> y termina con <strong>la</strong>?',
+              opcionesImgsPrefix: null,
+              opciones: ['palmera.','pala.','pasa.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Qué palabra empieza con <strong>tor</strong>, sigue con <strong>tu</strong> y termina con <strong>ga</strong>?',
+              opcionesImgsPrefix: null,
+              opciones: ['tortuga.','tortilla.','torre.'],
+              respuestaNum: 0
+          },
+          
+          {
+              instruction: 'Lee el siguiente cuento y contesta las preguntas 19, 20 y 21.',
+              popper: '<img src="aimg/19.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Quién es el personaje principal del cuento?',
+              opcionesImgsPrefix: '19',
+              opciones: [],
+              respuestaNum: 2
+          },
+          {
+              instruction: 'Lee el siguiente cuento y contesta las preguntas 19, 20 y 21.',
+              popper: '<img src="aimg/19.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Cuál es el título más adecuado para el cuento anterior?',
+              opcionesImgsPrefix: null,
+              opciones: ['El gato con botas','El Molinero','El príncipe feliz'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Lee el siguiente cuento y contesta las preguntas 19, 20 y 21.',
+              popper: '<img src="aimg/19.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: 'Es uno de los personajes del cuento, su nombre inicia con <strong>mar</strong> y termina con <strong>qués</strong>.',
+              opcionesImgsPrefix: null,
+              opciones: ['Marqués.','Gato.','Princesa.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Selecciona la opción que sirve como acotación para el siguiente texto. <img src="aimg/22.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['Muy sonriente.','Verde y azul.','Muchísimo.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Marca los datos que debe llevar una infografía.',
+              opcionesImgsPrefix: null,
+              opciones: ['Título.','Encabezado.','Pie de foto.','Imágenes adecuadas.','Información clara.','Nombre de los personajes.'],
+              respuestaNum: [0,3,4]
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Selecciona el nombre de dos secciones del periódico.',
+              opcionesImgsPrefix: null,
+              opciones: ['Deportes','Documentales','Documentales Historia', 'Geografía','Cultura','Jalisco'],
+              respuestaNum: [0,4]
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Selecciona las palabras que riman en cada verso.',
+              opcionesImgsPrefix: null,
+              opciones: ['Que','llueva', 'que','llueva', 'la','vieja','de la', 'cueva',
+                      '-',
+                      'los','pajaritos','cantan','las','nubes','se','levantan',
+                      '-',
+                      '¡Qué sí!,','¡qué no!',
+                      '-',
+                      'que','caiga','un','chaparrón', 'con','azúcar','y','turrón.'],
+              respuestaNum: [3, 7, 11, 15, 23, 27]
+          },
       ])
     </script>
   </body>

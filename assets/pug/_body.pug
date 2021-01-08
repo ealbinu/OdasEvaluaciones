@@ -1,7 +1,7 @@
 
 mixin body(segundos)
     // SCENES ############################################
-    .scene(v-for="(i, index) in scenes" v-show="currentScene == index && started")
+    .scene(v-for="(i, index) in scenes" v-show="currentScene == index && started" :class="'scene_'+index")
         .row
             .col.mt-5.instruccion(v-if="i.instruction" v-html="i.instruction")
             .col-md-4.text-center(v-if="i.popper"): popper: div(v-html="i.popper")
@@ -10,10 +10,12 @@ mixin body(segundos)
             // >>>> CHOOSE
             template(v-if="i.type=='choose'")
                 choose(:key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res=false" :num="(index+1)+'.'" :text="i.pregunta" :options="buildOpImgs(i.opciones, i.opcionesImgsPrefix, i.settings)"  :answer="i.respuestaNum" :isactive="currentScene == index" :settings="i.settings")
+            
             // >>>> SELECTABLEOPTIONS
             template(v-else-if="i.type=='selectableoptions'")
                 selectableoptions(:key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res = false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.respuestaNum" :customclass="i.settings.class" :isactive="currentScene == index")
                     template(v-slot:option="{option}") {{option.o}}
+
             if block
                 block
     // SCENES FINALIZAR ############################################

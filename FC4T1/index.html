@@ -23,7 +23,7 @@
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
       <h1><span class="grade">4º</span>Formación Cívica y Ética</h1>
       <!-- SCENES ############################################-->
-      <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started">
+      <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started" :class="'scene_'+index">
         <div class="row">
           <div class="col mt-5 instruccion" v-if="i.instruction" v-html="i.instruction"></div>
           <div class="col-md-4 text-center" v-if="i.popper">
@@ -64,6 +64,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
     <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.15.5/js/jsplumb.js"></script>
     <script src="../../assets/modulos/dragdropMod.js"></script>
     <script src="../../assets/modulos/dropdowns.js"></script>
     <script src="../../assets/modulos/selectable.js"></script>
@@ -72,6 +73,7 @@
     <script src="../../assets/modulos/inputbox.js"></script>
     <script src="../../assets/modulos/choose.js"></script>
     <script src="../../assets/modulos/popper.js"></script>
+    <script src="../../assets/modulos/relational.js"></script>
     <script src="../../assets/modulos/finalize.js?v=7"></script>
     <script src="../../assets/modulos/counter.js?v=7"></script>
     <script src="../../assets/modulos/utils.js?v=7"></script>
