@@ -10,6 +10,80 @@ include ../assets/pug/_scripts
 html(lang="es")
     +head
         style.
+            .scene_19 .choose .options {
+                justify-content: flex-start;
+            }
+            .scene_19 .choose .options > div {
+                flex-grow: 1;
+                padding: 0;
+                margin: 2px;
+                border-radius: 2px;
+                color: #fff;
+            }
+            @media (max-width: 768px) {
+                .scene_19 .choose .options > div {
+                    width: auto;
+                }
+            }
+            .scene_19 .choose .options > div.active {
+                background: var(--main);
+                color: var(--main);
+            }
+            .scene_19 .choose .options > div.active:nth-child(n+1):nth-child(-n+10) {
+                background: #FED401;
+                color: #FED401;
+                border-color: #FED401;
+            }
+            .scene_19 .choose .options > div.active:nth-child(n+12):nth-child(-n+21) {
+                background: #DB3F34;
+                color: #DB3F34;
+                border-color: #DB3F34;
+            }
+            .scene_19 .choose .options > div.active:nth-child(n+23):nth-child(-n+32) {
+                background: #008FD5;
+                color: #008FD5;
+                border-color: #008FD5;
+            }
+            .scene_19 .choose .options > div:nth-child(1),
+            .scene_19 .choose .options > div:nth-child(12),
+            .scene_19 .choose .options > div:nth-child(23) {
+                margin-left: 40px;
+                position: static;
+                overflow: visible;
+            }
+            .scene_19 .choose .options > div:nth-child(1):before,
+            .scene_19 .choose .options > div:nth-child(12):before,
+            .scene_19 .choose .options > div:nth-child(23):before {
+                display: block;
+                text-indent: 0;
+                content: "C";
+                background: #FED401;
+                font-size: 1.2rem;
+                width: 30px;
+                height: 30px;
+                position: absolute;
+                left: -40px;
+                color: #005193;
+                font-weight: bold;
+                border-radius: 4px;
+            }
+            .scene_19 .choose .options > div:nth-child(12):before {
+                content: "D";
+                background: #DB3F34;
+            }
+            .scene_19 .choose .options > div:nth-child(23):before {
+                content: "U";
+                background: #008FD5;
+            }
+            .scene_19 .choose .options > div:nth-child(11),
+            .scene_19 .choose .options > div:nth-child(22) {
+                margin: 10px 0;
+                flex-basis: 100%;
+                padding: 0;
+                height: 0;
+                border: none;
+            }
+
 
     body
         #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
@@ -20,18 +94,195 @@ html(lang="es")
                 h2 #{subtitle}
 
             +body(3000)
+
         +scripts
             script.
 
                 app.$set(app, 'scenes', [
                     {
+                        instruction: 'Selecciona la respuesta correcta.',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el quinto mes del año?',
+                        opcionesImgsPrefix: '1',
+                        opciones: [],
+                        respuestaNum: 1
+                    },
+                    {
                         instruction: '',
                         popper: '',
                         type: 'choose', 
-                        pregunta: '',
+                        pregunta: 'En la fábrica de lápices se venden bolsas con 10 piezas y cajas con 10 bolsas. Si deben entregar un pedido de 430 lápices, ¿cuántas cajas y bolsas tienen que entregar?',
                         opcionesImgsPrefix: null,
-                        opciones: [''],
-                        respuestaNum: 
+                        opciones: ['4 cajas y 3 bolsas.','3 cajas y 4 bolsas.','3 cajas y 3 bolsas.'],
+                        respuestaNum: 0
                     },
-                    
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son los números que completan la siguiente recta numérica. <img src="aimg/3.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['700, 600 y 500.','200, 350 y 500.','700, 800 y 950.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Elige la opción que muestra otra estrategia para resolver la siguiente operación. <img src="aimg/4.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['300 + 500 + 50 = 850','300 + 500 + 150 = 950','350 + 550 + 150 = 1 050'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el resultado de la siguiente suma? <img src="aimg/5.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['279','309','379'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿En cuál recipiente cabe <strong>más</strong> de un litro?',
+                        opcionesImgsPrefix: '6',
+                        opciones: [],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la suma que <strong>no</strong> da como resultado <strong>83</strong>.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['50 + 33 =','42 + 51 =','15 + 68 ='],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál de las siguientes figuras es un cuadrilátero?',
+                        opcionesImgsPrefix: '8',
+                        opciones: [],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es la suma con la puedes calcular el total de panes que hay en todas las canastas? <img src="aimg/9.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['3 + 4 + 5 =','3 + 3 + 4 + 5 =','4 + 3 + 4 + 5 ='],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la multiplicación con la que puedes saber el total de muñecas que hay. <img src="aimg/10.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['5 × 3 = 15','5 × 5 = 25','3 × 3 = 9'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la opción que representa el resultado de multiplicar 4 × 4.',
+                        opcionesImgsPrefix: '11',
+                        opciones: [],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Elige la opción que muestra un cuerpo geométrico.',
+                        opcionesImgsPrefix: '12',
+                        opciones: [],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la opción que representa la cantidad $325.',
+                        opcionesImgsPrefix: '13',
+                        opciones: [],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Elige el cuerpo geométrico que se describe a continuación. <img src="aimg/14.png" class="img-fluid">',
+                        opcionesImgsPrefix: '14',
+                        opciones: [],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Margarita tiene un ahorro de $350. Si quiere ahorrar $850, ¿cuánto dinero le falta?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['$700','$500','$900'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: 'Observa la tabla y contesta las preguntas 16, 17 y 18.',
+                        popper: '<img src="aimg/16.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Cuántos niños y niñas prefieren la materia de Español?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['20','28','22'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: 'Observa la tabla y contesta las preguntas 16, 17 y 18.',
+                        popper: '<img src="aimg/16.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Cuántas niñas prefieren la materia de Matemáticas?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['15 niñas.','20 niñas.','10 niñas.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: 'Observa la tabla y contesta las preguntas 16, 17 y 18.',
+                        popper: '<img src="aimg/16.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es la materia que menos prefieren los niños y las niñas de 2º?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Conocimiento del Medio.','Formación Cívica y Ética.','Español.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuántas bolsas de harina le faltan a la columna <strong>B</strong> para que ambas columnas tengan el mismo peso? <img src="aimg/19.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['2 bolsas de harina.','3 bolsas de harina.','4 bolsas de harina.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Selecciona los recuadros necesarios de cada valor numérico para representar el número <strong>847</strong> <small>de izquierda a derecha</small>.',
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            '-','-','-','-','-','-','-','-','-','-', //0-9
+                            '', //10
+                            '-','-','-','-','-','-','-','-','-','-', //11-20
+                            '',//21
+                            '-','-','-','-','-','-','-','-','-','-',//22-31
+                            ],
+                        respuestaNum: [0,1,2,3,4,5,6,7, 11,12,13,14, 22,23,24,25,26,27,28]
+                    },
                 ])
