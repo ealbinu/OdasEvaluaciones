@@ -2,8 +2,8 @@ include ../assets/pug/_head
 include ../assets/pug/_body
 include ../assets/pug/_scripts
 
-- grade = 'º'
-- title = ''
+- grade = '3º'
+- title = 'Español'
 - subtitle = ''
 
 <!DOCTYPE html>
@@ -25,13 +25,273 @@ html(lang="es")
 
                 app.$set(app, 'scenes', [
                     {
+                        instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+                        popper: '<img src="aimg/1.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se le llama al canto tradicional de los purépechas?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Mariachi.','Pirekua.','Pirériecha.','Zacán.'],
+                        respuestaNum: 1
+                    },
+                    {
                         instruction: '',
                         popper: '',
                         type: 'choose', 
-                        pregunta: '',
+                        pregunta: '¿Cuándo es la fiesta del Año Nuevo Purépecha?',
                         opcionesImgsPrefix: null,
-                        opciones: [''],
-                        respuestaNum: 
+                        opciones: ['El 1 de enero.','El 1 de marzo.','El 1 de febrero.','El 31 de diciembre.'],
+                        respuestaNum: 2
                     },
-                    
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se les llama a quienes interpretan la pirekua?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Sacerdotes.','Zacanes.','Pirériechas.','Bailarines.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué festividad se lleva a cabo los días 17 y 18 de octubre en Zacán, Michoacán?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El Año Nuevo Purépecha.','El Festival de la Raza Purépecha.','La Conmemoración de la Constitución.','El nacimiento de Benito Juárez.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la representación gráfica que muestra las relaciones de parentesco que hay en una familia.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Mapa conceptual.','Árbol genealógico.','Cuadro sinóptico.','Reporte histórico.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Nombre que recibe el texto que acompaña a las ilustraciones o tablas en un artículo de divulgación científica.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Pie de fotografía.','Artículo de divulgación.','Reporte de investigación.','Tecnicismo.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es la parte del texto que nos permite saber de qué trata el tema?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El subtítulo.','El pie de fotografía.','El título.','El subtema.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué tipo de lenguaje se utiliza en los artículos de divulgación científica?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Figurado.','Informal.','Retórico.','Literal.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es un ejemplo de una familia de palabras.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Azul, negro y rojo.','Mar, marea y marino.','Sillón, escritorio y butaca.','Gabinete, cama y buró.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el propósito de las revistas de divulgación científica?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Dar a conocer de manera exacta y real descubrimientos o explicaciones de sucesos, fenómenos u objetos.','Dar a conocer los eventos deportivos que se realizan en una comunidad.','Informar sobre los eventos y sucesos culturales que se dan en una región.','Exponer y dar a conocer eventos artísticos a un público determinado.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la función que tienen las ilustraciones y las tablas en los artículos de divulgación científica.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Resumir las ideas principales del texto.','Organizar la información contenida en el, texto.','Completar o especificar la información.','Resumir las ideas principales de un texto.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son ejemplos de palabras que indican el orden temporal de los acontecimientos.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Dónde, cómo y quién.','Éste, ése y aquél.','Nosotros, ustedes y ellos.','Primero, en seguida y finalmente.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el escrito que sirve para transmitir de manera breve la información de un texto.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Resumen.','Biografía.','Cuento.','Informe.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se llaman las partes en las que se divide un periódico?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Reportajes.','Secciones.','Noticias.','Titulares.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Consiste en escribir con tus palabras lo que comprendiste de un texto.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Resumen.','Nota periodística.','Paráfrasis.','Biografía.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el tipo de texto que se escribe en primera persona.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Autobiografía.','Biografía.','Cuento.','Poema.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el recurso visual que se utiliza en los artículos de divulgación científica?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Títulos.','Fotografías.','Citas textuales.','Información.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el tiempo verbal que se utiliza para contar algo que ya sucedió.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Presente.','Futuro.','Pasado.','Pospretérito.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el signo de puntuación que sirve para separar los elementos de una lista.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Punto y seguido (.).','Dos puntos (:).','Punto y coma (;).','Coma (,).'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el orden en que se narran los acontecimientos en una autobiografía.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Interno.','Cronológico.','Racional.','Externo.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Elige la oración que pertenece a una autobiografía.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Nací el 28 de noviembre de 2011.','Charles Robert Darwin nació el 12 de febrero de 1809.','Marie Curie fue conocida por ser la primera','mujer científica en recibir el Premio Nobel.','Gregor Mendel hizo trabajos sobre genética.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es otra manera con la que se conoce a la nota periodística.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Resumen informativo.','Avance noticioso.','Nota explicativa.','Nota informativa.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuáles son las frases que nos ayudan a describir a una persona, un objeto o una situación?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Frases simples.','Frases conjugadas.','Frases adjetivas.','Frases combinadas.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son ejemplos de nexos.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Cuando, debido a.','Camino, caminata.','Enseño, enseñar.','Somnoliento, despierto.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son algunos elementos que conforman una nota periodística.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Inicio, desarrollo y cierre.','Título, fecha, lugar, cuerpo y recursos gráficos.','Imágenes, texto y títulos.','Nudo, desarrollo y desenlace.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'En un texto, ¿para qué se usan los nexos?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Para describir las imágenes.','Para narrar los sucesos importantes.','Para enlazar las ideas principales.','Para describir lo acontecido en un evento.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Elige el verbo en pasado que completa correctamente la siguiente oración. <img src="aimg/27.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['comí','como','comeré','comeremos'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se llaman las estructuras que sirven para representar de manera gráfica el orden de los pasos de un proceso?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Recuadros.','Diagramas.','Dibujos.','Diseños.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Elige el nexo temporal que complete correctamente la siguiente oración. <img src="aimg/29.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['porque','ya que','cuando','debido a'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es la función de los textos expositivos?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Intentar convencer al lector de una opinión.','Narrar la historia de una vida.','Exponer los sentimientos del autor.','Explicar, ejemplificar y describir situaciones.'],
+                        respuestaNum: 3
+                    },
                 ])
