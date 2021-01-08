@@ -22,6 +22,7 @@ Vue.component('dragdrop', {
         value () {
             if(this.watch){
                 this.status = this.value
+                //console.log(this.value)
             }
         }
     },
@@ -56,23 +57,31 @@ Vue.component('dragdrop', {
                 this.$emit('isright', true)
                 this.result = true
             }
-
+        },
+        itChanged (dt, dt2) {
+            s_select.play()
+            this.$emit('updated')
+            this.$emit('input', this.optionsDraggable)
+        },
+        itStarted (){
+            s_select.play()
         }
     },
     mounted () {
-       this.$emit('input', "")
+       //this.$emit('input', "")
        this.optionsDraggable = this.options
 
        if(this.group!=undefined){
            this.groupdrag = this.group
        }
 
+
     },
     template: `
 <div class="dragdrop" >
     <div class="draggable draggableModule" :class="setclass">
-        <draggable v-model="optionsDraggable" :group="groupdrag" >
-        <div v-for="e in optionsDraggable" :key="e.l" v-html="e"></div>
+        <draggable v-model="optionsDraggable" :group="groupdrag" @change="itChanged" @start="itStarted">
+            <div v-for="e in optionsDraggable" :key="e.l" v-html="e"></div>
         </draggable>
         <div class="result" v-if="evaluate" :class="setclass + ' animate__animated animate__heartBeat'"></div>
     </div>
@@ -81,6 +90,6 @@ Vue.component('dragdrop', {
 })
 
 /*
-<p>{{optionsDraggable}}</p>
-<p>{{optionsOk}}</p>
+dragdrop(v-model="r[0]" :ref="refCount()" @isright="right++" :options="[]" :options-ok="[]")
+
 */

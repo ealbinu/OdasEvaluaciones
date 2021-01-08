@@ -3,17 +3,73 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>Conocimiento del Medio</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../../assets/font/stylesheet.css?v=7"/>
     <link rel="stylesheet" href="../../assets/assets.css?v=7"/>
-    <style></style>
+    <style>
+      .inputbox {
+          justify-content: flex-start;
+      }
+      .inputbox input {
+          background: var(--accent);
+          color: #fff;
+          width: 60px;
+          font-size: 1.4rem;
+          padding: 4px;
+          border: 6px solid var(--clear) !important;
+      }
+      .inputbox .inputbox__after {
+          border: none !important;
+          box-shadow: none !important;
+      }
+      .scene_13 .choose .options > div img {
+          height: auto !important;
+          max-height: none !important;
+          width: 100px;
+      }
+      @media (max-width: 992px) {
+          .scene_13 .choose .options > div img {
+              max-height: none !important;
+          }
+      }
+      
+      .list .dragdrop .draggable > div {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+      }
+      .list .dragdrop .draggable > div > div {
+          background: #fff;
+          border: 2px solid #7D8FBB;
+          padding: 2px 4px;
+          border-radius: 4px;
+          box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+      }
+      .droping {
+          color: #7D8FBB;
+      }
+      .droping .h4 {
+          margin-top: 20px;
+      }
+      .droping .dragdrop .draggable > div {
+          min-height: 60px;
+          background: #f4f5f5;
+          border-radius: 6px;
+          border: 2px dashed #7D8FBB;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+      }
+      
+      
+    </style>
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">º</span></h1>
+      <h1><span class="grade">1º</span>Conocimiento del Medio</h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started" :class="'scene_'+index">
         <div class="row">
@@ -36,6 +92,64 @@
               <template v-slot:option="{option}">{{option.o}}</template>
             </selectableoptions>
           </template>
+          <template v-if="i.type=='p14'">
+            <div class="choose">
+              <div class="label"><strong>14.</strong><span>Coloca los números del 1 al 3 para ordenar cronológicamente el crecimiento del siguiente niño.</span></div>
+              <div class="options">
+                <div class="position-relative">
+                  <inputbox :key="13" v-model="r[13]" :ref="refCount()" @isright="right++" type="text" placeh="-" :answer="['1','2','3']" :after="['&lt;img src=&quot;aimg/14a.png&quot; class=&quot;img-fluid&quot;&gt;','&lt;img src=&quot;aimg/14b.png&quot; class=&quot;img-fluid&quot;&gt;','&lt;img src=&quot;aimg/14c.png&quot; class=&quot;img-fluid&quot;&gt;']"></inputbox>
+                </div>
+              </div>
+            </div>
+          </template>
+          <template v-if="i.type=='p15'">
+            <div class="choose">
+              <div class="label"><strong>15.</strong><span>Ordena los alimentos en el grupo del Plato del Bien Comer.</span></div>
+              <div class="options">
+                <div class="position-relative">
+                  <div class="list">
+                    <dragdrop :options="['Huevo', 'Plátano', 'Arroz', 'Tortillas', 'Jitomate', 'Papas', 'Leche', 'Manzana']" :options-ok="[]"></dragdrop>
+                  </div>
+                  <div class="droping">
+                    <div class="h4">Frutas y Verduras</div>
+                    <dragdrop :key="14" v-model="r[14]" :ref="refCount()" @isright="right++" :options="[]" :options-ok="['Manzana', 'Plátano', 'Jitomate']" ignore-order="ignore-order"></dragdrop>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+          <template v-if="i.type=='p16'">
+            <div class="choose">
+              <div class="label"><strong>16.</strong><span>Ordena los alimentos en el grupo del Plato del Bien Comer.</span></div>
+              <div class="options">
+                <div class="position-relative">
+                  <div class="list">
+                    <dragdrop :options="['Jitomate', 'Papas', 'Leche', 'Manzana','Huevo', 'Plátano', 'Arroz', 'Tortillas']" :options-ok="[]"></dragdrop>
+                  </div>
+                  <div class="droping">
+                    <div class="h4">Cereales y tubérculos</div>
+                    <dragdrop :key="15" v-model="r[15]" :ref="refCount()" @isright="right++" :options="[]" :options-ok="['Arroz', 'Tortillas', 'Papas']" ignore-order="ignore-order"></dragdrop>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+          <template v-if="i.type=='p17'">
+            <div class="choose">
+              <div class="label"><strong>17.</strong><span>Ordena los alimentos en el grupo del Plato del Bien Comer.</span></div>
+              <div class="options">
+                <div class="position-relative">
+                  <div class="list">
+                    <dragdrop :options="['Huevo', 'Plátano', 'Jitomate', 'Papas', 'Leche', 'Manzana','Arroz', 'Tortillas']" :options-ok="[]"></dragdrop>
+                  </div>
+                  <div class="droping">
+                    <div class="h4">Leguminosas y alimentos de origen animal</div>
+                    <dragdrop :key="16" v-model="r[16]" :ref="refCount()" @isright="right++" :options="[]" :options-ok="['Pollo', 'Huevo', 'Leche']" ignore-order="ignore-order"></dragdrop>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
         </div>
       </div>
       <!-- SCENES FINALIZAR ############################################-->
@@ -57,6 +171,8 @@
     <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.15.5/js/jsplumb.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.8.4/Sortable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.20.0/vuedraggable.umd.min.js"></script>
     <script src="../../assets/modulos/dragdropMod.js"></script>
     <script src="../../assets/modulos/dropdowns.js"></script>
     <script src="../../assets/modulos/selectable.js"></script>
@@ -73,15 +189,158 @@
     <script>
       app.$set(app, 'scenes', [
           {
+              instruction: 'Selecciona la respuesta correcta.',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la persona que <strong>no</strong> forma parte de tu comunidad escolar.',
+              opcionesImgsPrefix: '1',
+              opciones: [],
+              respuestaNum: 0,
+          },
+          {
               instruction: '',
               popper: '',
               type: 'choose', 
+              pregunta: 'Es una acción que daña el entorno escolar.',
+              opcionesImgsPrefix: '2',
+              opciones: [],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuáles son los alimentos <strong>más saludables</strong>?',
+              opcionesImgsPrefix: '3',
+              opciones: [],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la bebida que debes consumir en mayor cantidad.',
+              opcionesImgsPrefix: null,
+              opciones: ['Refresco.','Agua simple potable.','Leche.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál de las siguientes opciones <strong>no</strong> es un hábito de higiene?',
+              opcionesImgsPrefix: null,
+              opciones: ['Comer con las manos sucias.','Lavarme las manos antes de comer.','Lavarme los dientes después de comer.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál imagen representa una fuente de luz artificial?',
+              opcionesImgsPrefix: '6',
+              opciones: [],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Elige la opción que completa la oración. <img src="aimg/7.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['natural','eléctrica','artificial'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es la actividad en donde se cuida la seguridad de otras personas?',
+              opcionesImgsPrefix: null,
+              opciones: ['Jugar videojuegos.','Ayudar a un adulto mayor a cruzar la calle.','Ver la televisión.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál de las siguientes imágenes es de una zona de mayor riesgo?',
+              opcionesImgsPrefix: '9',
+              opciones: [],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es la acción que contribuye al cuidado del medioambiente?',
+              opcionesImgsPrefix: null,
+              opciones: ['Plantar un árbol.','Desperdiciar el agua.','Tirar basura en la calle.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es una planta que <strong>no</strong> tiene flores.',
+              opcionesImgsPrefix: '11',
+              opciones: [],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es una acción que ayuda a cuidar de las plantas.',
+              opcionesImgsPrefix: null,
+              opciones: ['Pisarlas.','Regarlas.','Arrancarlas.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son oraciones que explican la importancia de las plantas para los seres humanos, excepto una. ¿Cuál es?',
+              opcionesImgsPrefix: null,
+              opciones: ['Brindan oxígeno.','Dan frutas o verduras.','Son contaminantes naturales.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'p14', 
               pregunta: '',
               opcionesImgsPrefix: null,
               opciones: [''],
-              respuestaNum: 
+              respuestaNum: 0
           },
-          
+          {
+              instruction: '',
+              popper: '',
+              type: 'p15', 
+              pregunta: '',
+              opcionesImgsPrefix: null,
+              opciones: [''],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'p16', 
+              pregunta: '',
+              opcionesImgsPrefix: null,
+              opciones: [''],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'p17', 
+              pregunta: '',
+              opcionesImgsPrefix: null,
+              opciones: [''],
+              respuestaNum: 0
+          },
       ])
     </script>
   </body>
