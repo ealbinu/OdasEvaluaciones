@@ -2,8 +2,8 @@ include ../assets/pug/_head
 include ../assets/pug/_body
 include ../assets/pug/_scripts
 
-- grade = 'º'
-- title = ''
+- grade = '6º'
+- title = 'Español'
 - subtitle = ''
 
 <!DOCTYPE html>
@@ -25,13 +25,273 @@ html(lang="es")
 
                 app.$set(app, 'scenes', [
                     {
+                        instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+                        popper: '<img src="aimg/1.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿De qué país es Rolando?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Estados Unidos.','Honduras.','Guatemala.','México.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+                        popper: '<img src="aimg/1.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Por qué Rolando y su familia dejaron su país de origen?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Porque se fueron de vacaciones.','Porque visitaron a sus parientes.','Porque su mamá era maestra.','Porque su papá ya no tenía trabajo.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+                        popper: '<img src="aimg/1.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Por qué son tan parecidos Rolando y José Luis?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Porque los dos han sido migrantes.','Porque usan el mismo uniforme.','Porque nacieron en la misma ciudad.','Porque tienen el mismo nombre.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+                        popper: '<img src="aimg/1.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Qué significa ser migrante?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Vivir en un mismo lugar toda tu vida.','Salir de vacaciones muy seguido con la familia.','Conocer nuevos amigos en la escuela.','Dejar el lugar en el que naces para ir a vivir a otro diferente.'],
+                        respuestaNum: 3
+                    },
+                    {
                         instruction: '',
                         popper: '',
                         type: 'choose', 
-                        pregunta: '',
+                        pregunta: 'Es uno de los recursos empleados para provocar mayor tensión en el lector de cuentos de terror.',
                         opcionesImgsPrefix: null,
-                        opciones: [''],
-                        respuestaNum: 
+                        opciones: ['Uso de adjetivos.','Uso de pronombres.','Uso de adverbios.','Uso de verbos en pasado.'],
+                        respuestaNum: 0
                     },
-                    
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se llama el lugar donde que se desarrolla la historia de un cuento de terror o misterio?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Trama.','Escenario.','Protagonista.','Ambiente.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué tipo de narrador está contando la siguiente historia? <img src="aimg/7.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Narrador en tercera persona.','Narrador en segunda persona.','Narrador en primera persona.','Narrador en modo impersonal.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el tipo de narrador que cuenta el relato desde afuera de la historia?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Narrador en tercera persona.','Narrador en segunda persona.','Narrador en primera persona.','Narrador en modo impersonal.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Elige el enunciado que contiene un símil.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Las rosas son rojas y las violetas azules.','Érase una vez, en un reino muy lejano.','Su mirada era tan cálida como una caricia de verano.','El brillo de sus ojos era como el resplandor de una estrella.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la figura literaria en la que se atribuyen características propias de una cosa a otra sin mencionarla explícitamente.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Metáfora.','Símil.','Onomatopeya.','Aliteración.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el personaje principal de la acción en una obra literaria o cinematográfica.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Antagonista.','Actor secundario.','Actor.','Protagonista.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál de los siguientes enunciados muestra acciones simultáneas?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Esteban juega futbol. Al terminar el partido, toma mucha agua para hidratarse.','Pedro caminaba por el callejón oscuro, mientras tanto su hermanita se escondió para asustarlo.','César está en su casa descansando, mañana tendrá que madrugar mucho.','Olga está leyendo un libro y mañana comenzará a leer otro diferente.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Elige el verbo que se encuentra en infinitivo.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Cabalgar.','Corrió.','Jugaba.','Pensaría.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Elige el adverbio que completa correctamente la siguiente instrucción. <img src="aimg/14.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['primero','grande','correr','niño'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son palabras que ayudan a que las instrucciones resulten más claras.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Sustantivos y artículos.','Pronombres y preposiciones.','Adverbios y adjetivos.','Nexos e interjecciones.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la parte del instructivo en la que se enlistan los objetos necesarios para realizar la actividad que se está guiando.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Participantes.','Reglas.','Imágenes.','Materiales.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se les nombra a las fuentes documentales creadas en el momento histórico al que hacen referencia o al que pertenecen?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Fuentes primarias.','Fuentes secundarias.','Fuentes terciarias.','Fuentes momentáneas.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué materia se encarga del estudio de los hechos o acontecimientos sucedidos en el pasado que han determinado el destino de los pueblos del mundo?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Las Matemáticas.','La Gramática.','La Historia.','La Geografía.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿En qué consiste el relato histórico?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['En reconstruir los hechos del pasado.','En contar una historia ficticia.','En narrar un cuento como algo real.','En dar a conocer un punto de vista sobre un acontecimiento.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Elige el adverbio de lugar que completa correctamente el enunciado. <img src="aimg/20.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['mañana','aquí','encima','hoy'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son parte de las pistas que permiten hacer una reconstrucción más fiel de la historia, excepto una. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El orden en que suceden los hechos.','El papel en el que serán impresos los libros de historia.','Las causas y consecuencias de los hechos.','Qué cambia y qué permanece a partir de los hechos.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Selecciona la opción que completa el párrafo con los adverbios de tiempo. <img src="aimg/22.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Encima / abajo','Mientras / cuando','Allí / allá','Hoy / recientemente'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Por qué los textos históricos son en parte literarios?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Porque los hechos se basan en la interpretación del autor.','Porque los textos se escriben en rima.','Porque los escriben solamente los poetas.','Porque todos los textos históricos tienen un final feliz.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la palabra conjugada en pretérito perfecto compuesto de la primera persona del plural.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Jugamos.','Hemos cantado.','Has ido.','Éramos.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿En qué conjugación se encuentra el verbo de la siguiente oración? <img src="aimg/25.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Presente simple.','Pretérito perfecto simple.','Pretérito perfecto compuesto.','Pretérito imperfecto.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son características que comparten los cuentos y las obras de teatro, excepto una. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Planteamiento, nudo y desenlace.','Los dos cuentan una historia.','Se representan con actores ante un público.','Ambos tienen un narrador.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el recurso que emplea el narrador en las obras de teatro para explicar al público lo que hacen los personajes.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El discurso indirecto.','Las acotaciones.','La escenografía.','El vestuario.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué son las escenas?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Son la forma de indicar a los actores cómo deben moverse en el escenario.','Las pautas para marcar el tiempo que debe pasar un actor antes de entrar a actuar.','Son episodios que marcan un cambio de personaje, escenario o tema.','Son las partes del guion de teatro en las que se indica cuántos personajes intervienen en la obra.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la postura que cada quien adopta frente a algo y que puede construirse a partir de experiencias, conocimientos, hechos, ideas o creencias.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Opinión personal.','Argumentación.','Exposición.','Idea principal.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es un ejemplo de texto científico.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Artículo de divulgación científica.','Guion de teatro.','Fábula.','Cuento de hadas.'],
+                        respuestaNum: 0
+                    },
                 ])
