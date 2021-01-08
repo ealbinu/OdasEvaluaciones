@@ -25,13 +25,273 @@ html(lang="es")
 
                 app.$set(app, 'scenes', [
                     {
+                        instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+                        popper: '<img src="aimg/1.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Qué significa la palabra Guelaguetza?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Zapoteca.','Cooperar.','Bailar.','Celebrar.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+                        popper: '<img src="aimg/1.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se llama la diosa del maíz tierno o elote?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Guelaguetza.','Centéotl.','Cozana.','Mitla.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+                        popper: '<img src="aimg/1.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Qué día se festeja la Guelaguetza?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['El lunes anterior al 16 de junio de cada año.','El 16 de julio.','El 19 de julio de cada año.','El lunes siguiente al 16 de julio de cada año.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+                        popper: '<img src="aimg/1.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Quiénes anuncian la festividad con fuegos artificiales?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Las chinas oaxaqueñas.','Los habitantes de la ciudad.','Los coheteros.','Los representantes de las regiones.'],
+                        respuestaNum: 2
+                    },
+                    {
                         instruction: '',
                         popper: '',
                         type: 'choose', 
-                        pregunta: '',
+                        pregunta: '¿Cómo se le llama al conjunto de versos en un poema?',
                         opcionesImgsPrefix: null,
-                        opciones: [''],
-                        respuestaNum: 
+                        opciones: ['Fábula.','Refrán.','Estrofa.','Párrafo.'],
+                        respuestaNum: 2
                     },
-                    
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál palabra pertenece a la familia léxica de <strong>planeta</strong>?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Paleta.','Banqueta.','Venus.','Planetario.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: 'Lee el siguiente texto y contesta las preguntas 7 a 9.',
+                        popper: '<img src="aimg/7.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Qué tipo de texto acabas de leer?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Un poema.','Una noticia.','Una leyenda.','Una obra de teatro.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: 'Lee el siguiente texto y contesta las preguntas 7 a 9.',
+                        popper: '<img src="aimg/7.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el adjetivo que se usa para describir a don Jesús Flores?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Viejo.','Rico.','Enojado.','Feliz.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: 'Lee el siguiente texto y contesta las preguntas 7 a 9.',
+                        popper: '<img src="aimg/7.png" class="img-fluid">',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es la ciudad real que se menciona en el texto?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Puebla.','Ciudad de México.','Monterrey.','Guadalajara.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se compone una leyenda?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Inicio, desarrollo y desenlace o final.','Introducción, desarrollo y moraleja.','Revisión, corrección y conclusión.','Inicio, conclusión y prólogo.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es una publicación que está dirigida a un grupo de personas que comparten un interés en particular.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Leyenda.','Poema.','Boletín informativo.','Nota enciclopédica.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es una de las funciones de los boletines informativos?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Mostrar aspectos cotidianos combinados con fantasía.','Expresar sentimientos mediante recursos literarios como la metáfora.','Proponer ideas para realizar objetos manuales con materiales reciclables.','Ser un medio para llevar información en el menor tiempo posible.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es una herramienta gráfica que nos permite organizar y presentar información mediante conceptos relacionados con líneas.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Mapa conceptual.','Pie de imagen.','Organigrama.','Crucigrama.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué sentimiento evoca el siguiente poema? <img src="aimg/14.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Tristeza.','Enojo.','Felicidad.','Desesperación.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el tipo de lenguaje que sirve para expresar algo de manera clara y precisa, y que no dé lugar a otros significados.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Sentido figurado.','Sentido literal.','Sentido moderno.','Sentido arcaico.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se le llama al lenguaje utilizado en la poesía para expresar sentimientos y emociones mediante el juego de las palabras, las imágenes, las texturas y los olores?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Sentido literal.','Sentido moderno.','Sentido figurado.','Sentido adornado.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Elige la palabra que completa la rima de los siguientes versos. <img src="aimg/17.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['casa','suelo','patio','sillón'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la repetición de alguna vocal o consonante en un poema para crear algunos efectos de sonido.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Metáfora.','Corrección.','Comparación.','Aliteración.'],
+                        respuestaNum: 3
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el sentido literal del siguiente verso? <img src="aimg/19.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Tus ojos son como el mar embravecido.','Tus ojos son de color azul claro.','Tienes los ojos como dos luces en la oscuridad.','Tus ojos son tan bellos como una tarde de verano en pleno sol.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Qué elementos de apoyo debe tener un debate?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Un párrafo de inicio.','Argumentos.','Herramientas gráficas.','Líneas del tiempo.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál es el objetivo de un artículo de divulgación?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Difundir la cultura y la ciencia.','Evocar sentimientos en los lectores.','Divertir a los niños aburridos.','Resumir las noticias diarias.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la oración en la que se usan correctamente las mayúsculas.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['alfredo vino a México desde la ciudad de cali, colombia.','José visitó Japón la semana pasada.','Laura fue a los estados unidos de américa hace dos meses.','eduardo visitó la ciudad de aguascalientes y luego fue a guanajuato y león.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿En cuál verso se usa la aliteración?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Susurrante el viento sube suspirando la colina.','El viento corre rápidamente montaña arriba.','Los árboles como las escaleras que llegan al cielo.','Ya venía el gato, maullando en la oscuridad, buscando la amistad.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son los elementos de una referencia bibliográfica.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Nombre del traductor y del protagonista.','Nombre de colección y número.','Autor, título y pie de imprenta.','Páginas, título y autor.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se puede saber si una palabra está bien escrita?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Al relacionarla con su familia léxica.','Al buscarle un sinónimo.','Al buscarle un antónimo.','Al buscar otras palabras con mayúscula.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Elige la palabra que funciona como relación en el siguiente texto.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['tranquilamente','finalmente','desde que','feliz'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuál no es el contenido de un boletín?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Producto.','Aviso.','Entrevista.','Efeméride.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cuáles son los adjetivos que completan correctamente el siguiente párrafo de una leyenda? <img src="aimg/28.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['caminando, feliz, alto','hermosa, negro, alto','vestida, dormido, asustar','cuando, hermoso, amarillo'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es un tema de interés para un boletín informativo.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['La desparasitación de animales.','Alicia en el País de las Maravillas.','La mulata de Córdoba.','El lobo y los tres cerditos.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'En un artículo, ¿cuál es la parte que presenta de manera breve el tema?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Materiales.','Discusión.','Resultados.','Resumen.'],
+                        respuestaNum: 3
+                    },
                 ])
