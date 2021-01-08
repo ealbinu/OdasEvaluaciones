@@ -3,17 +3,48 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>Español</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../../assets/font/stylesheet.css?v=7"/>
     <link rel="stylesheet" href="../../assets/assets.css?v=7"/>
-    <style></style>
+    <style>
+      .scene_16 .inputbox {
+          justify-content: flex-start;
+      }
+      .scene_16 .inputbox input {
+          background: var(--accent);
+          color: #fff;
+          width: 60px;
+          font-size: 1.2rem;
+          border: 4px solid var(--clear) !important;
+          padding: 2px;
+      }
+      @media (max-width: 680px) {
+          .scene_16 .inputbox input {
+              width: 40px;
+          }
+      }
+      .scene_16 .inputbox .inputbox__after {
+          border: none !important;
+          box-shadow: none !important;
+      }
+      .scene_16 .inputboxes {
+          display: flex;
+          font-weight: bold;
+          color: #7D8FBB;
+      }
+      .scene_16 .inputboxes .inputbox {
+          width: auto;
+      }
+      
+      
+    </style>
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">º</span></h1>
+      <h1><span class="grade">2º</span>Español</h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started" :class="'scene_'+index">
         <div class="row">
@@ -35,6 +66,16 @@
             <selectableoptions :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res = false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.respuestaNum" :customclass="i.settings.class" :isactive="currentScene == index">
               <template v-slot:option="{option}">{{option.o}}</template>
             </selectableoptions>
+          </template>
+          <template v-if="i.type=='pregunta17'">
+            <div class="choose">
+              <div class="label"><strong>17.</strong><span>Escribe los signos que faltan para formar una pregunta.</span></div>
+              <div class="options">
+                <div class="position-relative">
+                  <inputbox :key="16" v-model="r[16]" :ref="refCount()" @isright="right++" type="text" placeh="-" :answer="['¿', '?']" :after="['Dónde festejaron los alumnos el Día del Niño']"></inputbox>
+                </div>
+              </div>
+            </div>
           </template>
         </div>
       </div>
@@ -73,15 +114,185 @@
     <script>
       app.$set(app, 'scenes', [
           {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
+              popper: '<img src="aimg/1.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿A dónde se mudó Quetzalli?',
+              opcionesImgsPrefix: null,
+              opciones: ['A la Ciudad de México.','A la ciudad de Puebla.','A la ciudad de Guanajuato.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
+              popper: '<img src="aimg/1.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Por qué creía Quetzalli que al presentarse con sus compañeros se burlarían de ella?',
+              opcionesImgsPrefix: null,
+              opciones: ['Porque su nombre significa bonita.','Porque su nombre es muy largo.','Porque se llamaba Quetzalli.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
+              popper: '<img src="aimg/1.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: 'Según el texto, ¿qué significa la expresión “recibir con los brazos abiertos”?',
+              opcionesImgsPrefix: null,
+              opciones: ['Que te dan la bienvenida con agrado.','Que no te dejan entrar a un lugar.','Que te dan un abrazo de cumpleaños.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
+              popper: '<img src="aimg/1.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Cómo se dieron cuenta Quetzalli y sus nuevos compañeros que no son tan diferentes?',
+              opcionesImgsPrefix: null,
+              opciones: ['Cuando salieron a jugar al recreo.','Cuando comieron su almuerzo.','Cuando compartieron sus experiencias.'],
+              respuestaNum: 2
+          },
+          {
               instruction: '',
               popper: '',
               type: 'choose', 
+              pregunta: 'Un solo portero, un solo inquilino, tu casa redonda, la llevas contigo. ¿Qué es?',
+              opcionesImgsPrefix: null,
+              opciones: ['La oveja.','El ratón.','El caracol.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la pregunta escrita correctamente.',
+              opcionesImgsPrefix: null,
+              opciones: ['¡Qué hay en la caja azul de la alacena!','¿Qué animales viste en el zoológico?','Cuándo llegaste a la ciudad?'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cómo se le conoce al tipo de narración popular que explica un hecho real o imaginario sobre sucesos de una comunidad?',
+              opcionesImgsPrefix: null,
+              opciones: ['Poema.','Instructivo.','Leyenda.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: 'Lee el texto y contesta las preguntas 8, 9 y 10.',
+              popper: '<img src="aimg/8.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Qué tipo de texto es el anterior?',
+              opcionesImgsPrefix: null,
+              opciones: ['Una leyenda.','Una noticia.','Una fábula.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cómo se le llama a la oración subrayada?',
+              opcionesImgsPrefix: null,
+              opciones: ['Verso.','Moraleja.','Subtítulo.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es el animal que aparece en la fábula?',
+              opcionesImgsPrefix: '10',
+              opciones: [],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Elige la opción que muestra un platillo típico de México.',
+              opcionesImgsPrefix: '11',
+              opciones: [],
+              respuestaNum: 0
+          },
+          {
+              instruction: 'Lee el siguiente texto y contesta las preguntas 12, 13, 14 y 15.',
+              popper: '<img src="aimg/12.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: '¿Qué significa la palabra <strong>tzicatanas</strong>?',
+              opcionesImgsPrefix: null,
+              opciones: ['Hormiga bolsona.','Hormiga larga.','Hormiga rojiza.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Dónde deben molerse los ingredientes con las chicatanas?',
+              opcionesImgsPrefix: '13',
+              opciones: [],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cómo se les llama a las chicatanas en Guatemala?',
+              opcionesImgsPrefix: null,
+              opciones: ['Zompopos.','Sontetas.','Cuatalatas.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿En cuál de los siguientes libros encontrarías más información sobre las chicatanas?',
+              opcionesImgsPrefix: '15',
+              opciones: [],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cuál es la utilidad de los carteles en una exposición?',
+              opcionesImgsPrefix: null,
+              opciones: ['Mostrar cómo se escriben los cuentos y poemas.','Mostrar la información para repasar en clase.','Ejemplificar lo que decimos sobre un tema.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'pregunta17', 
               pregunta: '',
               opcionesImgsPrefix: null,
-              opciones: [''],
-              respuestaNum: 
+              opciones: null,
+              respuestaNum: 0
           },
-          
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Selecciona la oración que está escrita correctamente.',
+              opcionesImgsPrefix: null,
+              opciones: ['laura compro veinte galletas en una tienda','Laura compró veinte galletas en una tienda.','lauracopro veinte gayetas en una Tienda.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: 'Lee el siguiente texto y contesta las preguntas 19 y 20.',
+              popper: '<img src="aimg/19.png" class="img-fluid">',
+              type: 'choose', 
+              pregunta: 'Selecciona los animales que aparecen en el cuento.',
+              opcionesImgsPrefix: '19',
+              opciones: [],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Elige el título que mejor se relacione con el texto anterior.',
+              opcionesImgsPrefix: null,
+              opciones: ['La ardilla voladora.','El lobo y los conejos.','La ardilla y sus amigos lobos.'],
+              respuestaNum: 2
+          },
       ])
     </script>
   </body>
