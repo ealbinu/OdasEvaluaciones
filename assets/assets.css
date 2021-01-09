@@ -301,8 +301,8 @@ strong.sec {
   .selectableoptions .options {
     flex-wrap: wrap;
   }
-  .choose .options div,
-  .selectableoptions .options div {
+  .choose .options div:not('.r_source'):not('.r_target'),
+  .selectableoptions .options div:not('.r_source'):not('.r_target') {
     width: 100%;
   }
 }
@@ -911,5 +911,21 @@ input[type=number] {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.relational .sources {
+  width: 40%;
+  text-align: right;
+}
+.relational .sources > div {
+  border: 4px solid var(--main);
+  border-radius: 10px;
+}
+.relational .targets {
+  width: 40%;
+  text-align: left;
+}
+.relational .targets > div {
+  border: 4px solid #F78E26;
+  border-radius: 10px;
 }
 /*# sourceMappingURL=assets.css.map */

@@ -10,7 +10,7 @@ include ../assets/pug/_scripts
 html(lang="es")
     +head
         style.
-
+            
     body
         #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
             h1
@@ -25,16 +25,15 @@ html(lang="es")
                         .label
                             strong 24.
                             span Relaciona los números con sus nombres.
-                        .options
-                            relational(:key="23" v-model="r[23]" :ref="refCount()" @isright="right++" :sources="[{img: 'aimg/24a.png', data:3}, {img: 'aimg/24b.png', data:1}, {img: 'aimg/24c.png', data:2}]" :targets="[{img: 'aimg/24d.png', data:1}, {img: 'aimg/24e.png', data:2}, {img: 'aimg/24f.png', data:3}]" :connections="[]")
-                                template(v-slot:source="{source}"): img(:src="source.img").img-fluid
-                                template(v-slot:target="{target}"): img(:src="target.img").img-fluid
-
-                    //.position-relative: inputbox(:key="13" v-model="r[13]" :ref="refCount()" @isright="right++" type="text" placeh="-" :answer="['v']" :after="['Los olmecas usaban la madera y el barro para hacer figurillas y vasijas.']")
-
+                        .options: relational(:key="23" v-model="r[23]" :ref="refCount()" @isright="right++" :sources="[{img: 'aimg/24a.png'}, {img: 'aimg/24b.png'}, {img: 'aimg/24c.png'}]" :targets="[{img: 'aimg/24d.png'}, {img: 'aimg/24e.png'}, {img: 'aimg/24f.png'}]" :oks="[['s_0', 't_2'], ['s_1', 't_0'], ['s_2', 't_1']]")
+                            template(v-slot:source="{source}"): img(:src="source.img").img-fluid
+                            template(v-slot:target="{target}"): img(:src="target.img").img-fluid
         +scripts
             script.
-
+                window.addEventListener("resize", function (){
+                    console.log('resizing')
+                    jsPlumb.repaintEverything()
+                })
                 app.$set(app, 'scenes', [
                     {
                         instruction: 'Selecciona la respuesta correcta.',
