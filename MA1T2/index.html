@@ -9,7 +9,34 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../../assets/font/stylesheet.css?v=7"/>
     <link rel="stylesheet" href="../../assets/assets.css?v=7"/>
-    <style></style>
+    <style>
+      .scene_24 .options {
+          margin: -15% 2% 2%;
+          padding: 0;
+          justify-content: center;
+      }
+      .scene_24 .options > div {
+          text-indent: -999px;
+          width: 14%;
+      }
+      .scene_24 .options > div:nth-child(1) {
+          margin-right: auto;
+      }
+      .scene_24 .options > div:nth-child(2) {
+          margin-right: 3%;
+      }
+      .scene_24 .options > div:nth-child(4) {
+          margin-left: auto;
+      }
+      .scene_24 .options > div.active {
+          background-image: url("../../assets/aimg/check.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+      }
+      
+      
+    </style>
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
@@ -305,7 +332,16 @@
               opcionesImgsPrefix: null,
               opciones: [''],
               respuestaNum: 0
-          }
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Selecciona el objeto que pesa <strong>más</strong> en cada balanza. <img src="aimg/25.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['-', '-', '-', '-'],
+              respuestaNum: [0, 3]
+          },
       ])
     </script>
   </body>
