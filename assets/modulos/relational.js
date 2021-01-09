@@ -76,10 +76,6 @@ Vue.component('relational', {
 
             _this.$emit('input', _this.status)
 
-            window.addEventListener("resize", function (){
-                console.log('resizing')
-                jsPlumb.repaintEverything()
-            })
         })
     },
     
