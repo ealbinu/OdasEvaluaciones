@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>Conocimiento del Medio</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">º</span></h1>
+      <h1><span class="grade">2º</span>Conocimiento del Medio</h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started" :class="'scene_'+index">
         <div class="row">
@@ -35,6 +35,19 @@
             <selectableoptions :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res = false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.respuestaNum" :customclass="i.settings.class" :isactive="currentScene == index">
               <template v-slot:option="{option}">{{option.o}}</template>
             </selectableoptions>
+          </template>
+          <template v-if="i.type=='p14'">
+            <div class="choose">
+              <div class="label"><strong>14.</strong><span>Relaciona el instrumento con la acción que se requiere para producir su sonido.</span></div>
+              <div class="options">
+                <relational :key="13" v-model="r[13]" :ref="refCount()" @isright="right++" :sources="[{img: 'aimg/14a.png'}, {img: 'aimg/14b.png'}, {img: 'aimg/14c.png'}]" :targets="[{t:'Golpear.'},{t:'Soplar.'},{t:'Rasgar.'}]" :oks="[['s_0', 't_1'], ['s_1', 't_0'], ['s_2', 't_2']]">
+                  <template v-slot:source="{source}"><img class="img-fluid" :src="source.img"/></template>
+                  <template v-slot:target="{target}">
+                    <div class="txtrel">{{target.t}}</div>
+                  </template>
+                </relational>
+              </div>
+            </div>
           </template>
         </div>
       </div>
@@ -75,15 +88,140 @@
     <script>
       app.$set(app, 'scenes', [
           {
+              instruction: 'Selecciona la respuesta correcta.',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el objeto que produce un sonido suave y agradable.',
+              opcionesImgsPrefix: '1',
+              opciones: [],
+              respuestaNum: 2
+          },
+          {
               instruction: '',
               popper: '',
               type: 'choose', 
+              pregunta: '¿Cómo se llama la parte externa del oído?',
+              opcionesImgsPrefix: null,
+              opciones: ['Oreja.','Tímpano.','Estribo.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es una acción que se debe realizar para cuidar los oídos.',
+              opcionesImgsPrefix: '3',
+              opciones: [],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Selecciona la opción que completa la siguiente oración. <img src="aimg/4.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['canciones','juegos','costumbres'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la tradición que se celebra en invierno en el mes de diciembre, quebrando piñatas y cantando villancicos.',
+              opcionesImgsPrefix: null,
+              opciones: ['Las posadas.','La Noche de los Rábanos.','La Guelaguetza.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es la forma de comunicar el día lunes mediante la Lengua de Señas Mexicana.',
+              opcionesImgsPrefix: '6',
+              opciones: [],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es una acción que ayuda a proteger las plantas.',
+              opcionesImgsPrefix: '7',
+              opciones: [],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cómo se le llama al dibujo que te ayuda a ubicar lugares en tu comunidad?',
+              opcionesImgsPrefix: null,
+              opciones: ['Croquis.','Dibujo.','Cartel.'],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el símbolo que representa el lugar donde se prestan servicios médicos.',
+              opcionesImgsPrefix: '9',
+              opciones: [],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Elige la opción del tipo de planta que se describe a continuación. <img src="aimg/10.png" class="img-fluid">',
+              opcionesImgsPrefix: null,
+              opciones: ['Yerbas.','Árboles.','Arbustos.'],
+              respuestaNum: 1
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Es el instrumento musical que para producir sonido necesitas golpearlo.',
+              opcionesImgsPrefix: '11',
+              opciones: [],
+              respuestaNum: 0
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: '¿Cómo se le llama al sonido que producimos al dejar pasar el aire por los labios apretados?',
+              opcionesImgsPrefix: null,
+              opciones: ['Aplaudir.','Cantar.','Silbar.'],
+              respuestaNum: 2
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Selecciona los meses que corresponden al invierno.',
+              opcionesImgsPrefix: null,
+              opciones: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+              respuestaNum: [0,1,2,11]
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'p14', 
               pregunta: '',
               opcionesImgsPrefix: null,
               opciones: [''],
-              respuestaNum: 
+              respuestaNum: 0
           },
-          
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose', 
+              pregunta: 'Son acciones que se realizan para proteger las plantas, excepto una. ¿Cuál es?',
+              opcionesImgsPrefix: null,
+              opciones: ['Regar las plantas por la noche.','Utilizar fertilizantes naturales.','Regar las plantas durante la mañana.'],
+              respuestaNum: 2
+          },
       ])
     </script>
   </body>

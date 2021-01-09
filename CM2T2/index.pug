@@ -2,8 +2,8 @@ include ../assets/pug/_head
 include ../assets/pug/_body
 include ../assets/pug/_scripts
 
-- grade = 'º'
-- title = ''
+- grade = '2º'
+- title = 'Conocimiento del Medio'
 - subtitle = ''
 
 <!DOCTYPE html>
@@ -20,18 +20,151 @@ html(lang="es")
                 h2 #{subtitle}
 
             +body(3000)
+                template(v-if="i.type=='p14'")
+                    .choose
+                        .label
+                            strong 14.
+                            span Relaciona el instrumento con la acción que se requiere para producir su sonido.
+                        .options: relational(:key="13" v-model="r[13]" :ref="refCount()" @isright="right++" :sources="[{img: 'aimg/14a.png'}, {img: 'aimg/14b.png'}, {img: 'aimg/14c.png'}]" :targets="[{t:'Golpear.'},{t:'Soplar.'},{t:'Rasgar.'}]" :oks="[['s_0', 't_1'], ['s_1', 't_0'], ['s_2', 't_2']]")
+                            template(v-slot:source="{source}"): img(:src="source.img").img-fluid
+                            template(v-slot:target="{target}"): div.txtrel {{target.t}}
         +scripts
             script.
 
                 app.$set(app, 'scenes', [
                     {
+                        instruction: 'Selecciona la respuesta correcta.',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el objeto que produce un sonido suave y agradable.',
+                        opcionesImgsPrefix: '1',
+                        opciones: [],
+                        respuestaNum: 2
+                    },
+                    {
                         instruction: '',
                         popper: '',
                         type: 'choose', 
+                        pregunta: '¿Cómo se llama la parte externa del oído?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Oreja.','Tímpano.','Estribo.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es una acción que se debe realizar para cuidar los oídos.',
+                        opcionesImgsPrefix: '3',
+                        opciones: [],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Selecciona la opción que completa la siguiente oración. <img src="aimg/4.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['canciones','juegos','costumbres'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la tradición que se celebra en invierno en el mes de diciembre, quebrando piñatas y cantando villancicos.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Las posadas.','La Noche de los Rábanos.','La Guelaguetza.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es la forma de comunicar el día lunes mediante la Lengua de Señas Mexicana.',
+                        opcionesImgsPrefix: '6',
+                        opciones: [],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es una acción que ayuda a proteger las plantas.',
+                        opcionesImgsPrefix: '7',
+                        opciones: [],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se le llama al dibujo que te ayuda a ubicar lugares en tu comunidad?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Croquis.','Dibujo.','Cartel.'],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el símbolo que representa el lugar donde se prestan servicios médicos.',
+                        opcionesImgsPrefix: '9',
+                        opciones: [],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Elige la opción del tipo de planta que se describe a continuación. <img src="aimg/10.png" class="img-fluid">',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Yerbas.','Árboles.','Arbustos.'],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Es el instrumento musical que para producir sonido necesitas golpearlo.',
+                        opcionesImgsPrefix: '11',
+                        opciones: [],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: '¿Cómo se le llama al sonido que producimos al dejar pasar el aire por los labios apretados?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Aplaudir.','Cantar.','Silbar.'],
+                        respuestaNum: 2
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Selecciona los meses que corresponden al invierno.',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                        respuestaNum: [0,1,2,11]
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'p14', 
                         pregunta: '',
                         opcionesImgsPrefix: null,
                         opciones: [''],
-                        respuestaNum: 
+                        respuestaNum: 0
                     },
-                    
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose', 
+                        pregunta: 'Son acciones que se realizan para proteger las plantas, excepto una. ¿Cuál es?',
+                        opcionesImgsPrefix: null,
+                        opciones: ['Regar las plantas por la noche.','Utilizar fertilizantes naturales.','Regar las plantas durante la mañana.'],
+                        respuestaNum: 2
+                    },
                 ])
