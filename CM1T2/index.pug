@@ -88,7 +88,7 @@ html(lang="es")
                             span Ordena los alimentos en el grupo del Plato del Bien Comer.
                         .options
                             .position-relative
-                                .list: dragdrop(:options="['Huevo', 'Plátano', 'Arroz', 'Tortillas', 'Jitomate', 'Papas', 'Leche', 'Manzana']" :options-ok="[]")
+                                .list: dragdrop(:options="['Huevo', 'Plátano', 'Arroz', 'Tortillas', 'Pollo', 'Jitomate', 'Papas', 'Leche', 'Manzana']" :options-ok="[]")
                                 .droping
                                     .h4 Frutas y Verduras
                                     dragdrop(:key="14" v-model="r[14]" :ref="refCount()" @isright="right++" :options="[]" :options-ok="['Manzana', 'Plátano', 'Jitomate']" ignore-order)
@@ -99,7 +99,7 @@ html(lang="es")
                             span Ordena los alimentos en el grupo del Plato del Bien Comer.
                         .options
                             .position-relative
-                                .list: dragdrop(:options="['Jitomate', 'Papas', 'Leche', 'Manzana','Huevo', 'Plátano', 'Arroz', 'Tortillas']" :options-ok="[]")
+                                .list: dragdrop(:options="['Jitomate', 'Papas', 'Leche', 'Manzana','Huevo', 'Plátano', 'Pollo', 'Arroz', 'Tortillas']" :options-ok="[]")
                                 .droping
                                     .h4 Cereales y tubérculos
                                     dragdrop(:key="15" v-model="r[15]" :ref="refCount()" @isright="right++" :options="[]" :options-ok="['Arroz', 'Tortillas', 'Papas']" ignore-order)
@@ -110,7 +110,7 @@ html(lang="es")
                             span Ordena los alimentos en el grupo del Plato del Bien Comer.
                         .options
                             .position-relative
-                                .list: dragdrop(:options="['Huevo', 'Plátano', 'Jitomate', 'Papas', 'Leche', 'Manzana','Arroz', 'Tortillas']" :options-ok="[]")
+                                .list: dragdrop(:options="['Huevo', 'Plátano', 'Jitomate', 'Papas', 'Leche', 'Manzana','Arroz', 'Tortillas', 'Pollo']" :options-ok="[]")
                                 .droping
                                     .h4 Leguminosas y alimentos de origen animal
                                     dragdrop(:key="16" v-model="r[16]" :ref="refCount()" @isright="right++" :options="[]" :options-ok="['Pollo', 'Huevo', 'Leche']" ignore-order)
