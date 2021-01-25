@@ -78,7 +78,12 @@ Vue.component('relational', {
 
         })
     },
-    
+    created() {
+        window.addEventListener("resize", function (){
+
+            jsPlumb.repaintEverything()
+        })
+    },
     template: `
         <div class="relational d-flex justify-content-between">
             <div class="relationalStart" @click="startConnections()" v-if="!started">
