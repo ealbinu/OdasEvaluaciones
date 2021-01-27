@@ -94,7 +94,7 @@
           </template>
           <template v-if="i.type=='p14'">
             <div class="choose">
-              <div class="label"><strong>14.</strong><span>Coloca los números del 1 al 3 para ordenar cronológicamente el crecimiento del siguiente niño.</span></div>
+              <div class="label"><strong>14.</strong><span>Coloca los números del <strong>1</strong> al <strong>3</strong> para ordenar cronológicamente el crecimiento del siguiente niño.</span></div>
               <div class="options">
                 <div class="position-relative">
                   <inputbox :key="13" v-model="r[13]" :ref="refCount()" @isright="right++" type="text" placeh="-" :answer="['1','2','3']" :after="['&lt;img src=&quot;aimg/14a.png&quot; class=&quot;img-fluid&quot;&gt;','&lt;img src=&quot;aimg/14b.png&quot; class=&quot;img-fluid&quot;&gt;','&lt;img src=&quot;aimg/14c.png&quot; class=&quot;img-fluid&quot;&gt;']"></inputbox>
@@ -237,7 +237,7 @@
               instruction: '',
               popper: '',
               type: 'choose', 
-              pregunta: '¿Cuál imagen representa una fuente de luz artificial?',
+              pregunta: '¿Cuál imagen representa una fuente de luz luminiscente?',
               opcionesImgsPrefix: '6',
               opciones: [],
               respuestaNum: 2
