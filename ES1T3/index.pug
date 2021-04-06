@@ -1,0 +1,337 @@
+include ../assets/pug/_head
+include ../assets/pug/_body
+include ../assets/pug/_scripts
+
+- grade = '1º'
+- title = 'Conocimiento del Medio'
+- subtitle = ''
+
+<!DOCTYPE html>
+html(lang="es")
+    +head
+        style.
+
+    body
+        #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
+            h1
+                span.grade #{grade}
+                | #{title}
+            if subtitle.length>1
+                h2 #{subtitle}
+
+            +body(3000)
+        +scripts
+            script.
+
+                app.$set(app, 'scenes', [
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Quién fue el primer presidente de México?',
+                        opcionesImgsPrefix: '1',
+                        opciones: [],
+                        respuestaNum: 0
+
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Cuánto tiempo duró el mandato de Guadalupe Victoria?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        '4 años.',
+                        '5 años.',
+                        '6 años.'
+                        ]
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Fue una de las acciones del primer presidente de México.',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        'Construir muchas carreteras.',
+                        'Crear un banco.',
+                        'Mejorar la educación.'
+                        ]
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿En qué estado se ubica el municipio que Ileva el nombre de Guadalupe Victoria?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        'Hidalgo.',
+                        'Puebla.',
+                        'Sinaloa.'
+                        ]
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Elige la imagen que representa a la niña que se describe a continuación.',
+                        opcionesImgsPrefix: '5',
+                        opciones: [],
+                        respuestaNum: 0
+
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Cuál es la pregunta que le harías a un familiar para saber cómo te comportabas de bebé?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        '¿Cuándo nació mi papá?',
+                        '¿Cómo me comportaba de pequeño?',
+                        '¿Cuándo nació mi mamá?'
+                        ]
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Es el nombre del animal que se forma con las letras del recuadro.',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        'Abejorro.',
+                        'Águila.',
+                        'Avestruz.'
+                        ]
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Es una forma diferente de llamarle a un <strong>amigo</strong>.',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        'Chamaco.',
+                        'Niño.',
+                        'Cuate.'
+                        ]
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿A qué lugar se refiere el niño con la palabra chante?',
+                        opcionesImgsPrefix: '9',
+                        opciones: [],
+                        respuestaNum: 0
+
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Quién preparó los lonches de jamón?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        'Su tía.Su mamá.',
+                        'Su hermana.'
+                        ]
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Es otra forma de llamar a los lonches.',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        'Tortas.',
+                        'Sándwiches.',
+                        'Pambazos.'
+                        ]
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Cuál de las siguientes frases usarías para saludar a la directora de tu escuela?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        '¡Qué ondal, directora.',
+                        '¡Holal, dire.',
+                        '¡Buenos días!, directora.'
+                        ]
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Es la pregunta que le harías a una persona mayor para saber dónde hay una papelería.',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        '¡Qué onda, seño!, ¿sabe dónde puedo encontrar una pape?',
+                        'Disculpe, señora, ¿sabe dónde puedo encontrar una papelería?',
+                        '¡Amiga!, ¿sabes dónde puedo encontrar una papelería?'
+                        ]
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Con quién utilizarías la expresión ¡qué onda! como un saludo?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        'Con un amigo.',
+                        'Con mi maestra.',
+                        'Con mi abuelita.'
+                        ]
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Quién dice a dónde se dirigía la señorita Jirafa?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        'El señor Topo.',
+                        'El narrador.',
+                        'La coneja.'
+                        ]
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Es el personaje principal del cuento.',
+                        opcionesImgsPrefix: '16',
+                        opciones: [],
+                        respuestaNum: 0
+
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Es una de las preguntas que le hizo la señorita Jirafa al señor Topo.',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        '¿Qué tal está esa lechuga?',
+                        '¿Qué días vende nueces?',
+                        '¿Qué está vendiendo en ese costal?'
+                        ]
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Cómo se siente la señorita Jirafa cuando va al mercado?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        'Alegre.',
+                        'Enojada.',
+                        'Triste.'
+                        ]
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Es la entonación que debes hacer al leer la siguiente frase del cuento.',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        'De sorpresa.',
+                        'De enojo.',
+                        'De alegría.'
+                        ]
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Cuántas palabras hay en la siguiente oración?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        '8 palabras.',
+                        '6 palabras.',
+                        '5 palabras.'
+                        ]
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Elige la sílaba que completa la palabra de la siguiente oración.',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        'po',
+                        'sa',
+                        'mi'
+                        ]
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Cuál es la palabra que se puede escribir en lugar de felizmente?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        'Rápidamente.',
+                        'Groseramente.',
+                        'Alegremente.'
+                        ]
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Cuántas palabras tiene la siguiente oración cuando la separas correctamente?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        '2 palabras.',
+                        '5 palabras.',
+                        '8 palabras.'
+                        ]
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Cuál es la palabra que está bien escrita?',
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'Isabel.',
+                            'ruben.',
+                            'omar'
+                        ]
+
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'p25',
+                    pregunta: 'Une con una línea las palabras que tienen el mismo significado.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: []
+                    }
+
+                    
+                    
+                ])

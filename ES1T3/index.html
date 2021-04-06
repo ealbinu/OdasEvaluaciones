@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Conocimiento del Medio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../assets/font/stylesheet.css?v=7"/>
+    <link rel="stylesheet" href="../../assets/assets.css?v=7"/>
+    <style></style>
+  </head>
+  <body>
+    <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
+      <h1><span class="grade">1º</span>Conocimiento del Medio</h1>
+      <!-- SCENES ############################################-->
+      <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started" :class="'scene_'+index">
+        <div class="row">
+          <div class="col mt-5 instruccion" v-if="i.instruction" v-html="i.instruction"></div>
+          <div class="col-md-4 text-center" v-if="i.popper">
+            <popper>
+              <div v-html="i.popper"></div>
+            </popper>
+          </div>
+        </div>
+        <!-- Pregunta >>>>>>>>>>>>>>>>>-->
+        <div class="row mt-3 pregunta">
+          <!-- >>>> CHOOSE-->
+          <template v-if="i.type=='choose'">
+            <choose :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res=false" :num="(index+1)+'.'" :text="i.pregunta" :options="buildOpImgs(i.opciones, i.opcionesImgsPrefix, i.settings)" :answer="i.respuestaNum" :isactive="currentScene == index" :settings="i.settings"></choose>
+          </template>
+          <!-- >>>> SELECTABLEOPTIONS-->
+          <template v-else-if="i.type=='selectableoptions'">
+            <selectableoptions :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res = false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.respuestaNum" :customclass="i.settings.class" :isactive="currentScene == index">
+              <template v-slot:option="{option}">{{option.o}}</template>
+            </selectableoptions>
+          </template>
+        </div>
+      </div>
+      <!-- SCENES FINALIZAR ############################################-->
+      <div class="scene lastscene" v-if="currentScene == scenes.length">
+        <template v-if="stillMissing &amp;&amp; !resultado">
+          <div class="falta">Te falta contestar las siguientes preguntas:</div>
+          <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event" :answereds="r" :onlypages="true"></navigation>
+        </template>
+        <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1"></finalize>
+      </div>
+      <!-- TEST SCREENSHOTS ####-->
+      <!-- .row: .col-3(v-for="(i, index) in screen"): img(:src="i").w-100-->
+      <!-- Counter >>>>>>>>>>-->
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total" :segundos="3000"></counter>
+      <!-- Navigation >>>>>>>>>>>>>>>-->
+      <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event" :answereds="r"></navigation>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.15.5/js/jsplumb.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.8.4/Sortable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.20.0/vuedraggable.umd.min.js"></script>
+    <script src="../../assets/modulos/dragdropMod.js"></script>
+    <script src="../../assets/modulos/dropdowns.js"></script>
+    <script src="../../assets/modulos/selectable.js"></script>
+    <script src="../../assets/modulos/selectableoptions.js"></script>
+    <script src="../../assets/modulos/check.js"></script>
+    <script src="../../assets/modulos/inputbox.js"></script>
+    <script src="../../assets/modulos/choose.js"></script>
+    <script src="../../assets/modulos/popper.js"></script>
+    <script src="../../assets/modulos/relational.js"></script>
+    <script src="../../assets/modulos/finalize.js?v=7"></script>
+    <script src="../../assets/modulos/counter.js?v=7"></script>
+    <script src="../../assets/modulos/utils.js?v=7"></script>
+    <script src="../../assets/assets.js?v=7"></script>
+    <script>
+      app.$set(app, 'scenes', [
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Quién fue el primer presidente de México?',
+              opcionesImgsPrefix: '1',
+              opciones: [],
+              respuestaNum: 0
+      
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Cuánto tiempo duró el mandato de Guadalupe Victoria?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+              '4 años.',
+              '5 años.',
+              '6 años.'
+              ]
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Fue una de las acciones del primer presidente de México.',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+              'Construir muchas carreteras.',
+              'Crear un banco.',
+              'Mejorar la educación.'
+              ]
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿En qué estado se ubica el municipio que Ileva el nombre de Guadalupe Victoria?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+              'Hidalgo.',
+              'Puebla.',
+              'Sinaloa.'
+              ]
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Elige la imagen que representa a la niña que se describe a continuación.',
+              opcionesImgsPrefix: '5',
+              opciones: [],
+              respuestaNum: 0
+      
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Cuál es la pregunta que le harías a un familiar para saber cómo te comportabas de bebé?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+              '¿Cuándo nació mi papá?',
+              '¿Cómo me comportaba de pequeño?',
+              '¿Cuándo nació mi mamá?'
+              ]
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Es el nombre del animal que se forma con las letras del recuadro.',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+              'Abejorro.',
+              'Águila.',
+              'Avestruz.'
+              ]
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Es una forma diferente de llamarle a un <strong>amigo</strong>.',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+              'Chamaco.',
+              'Niño.',
+              'Cuate.'
+              ]
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿A qué lugar se refiere el niño con la palabra chante?',
+              opcionesImgsPrefix: '9',
+              opciones: [],
+              respuestaNum: 0
+      
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Quién preparó los lonches de jamón?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+              'Su tía.Su mamá.',
+              'Su hermana.'
+              ]
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Es otra forma de llamar a los lonches.',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+              'Tortas.',
+              'Sándwiches.',
+              'Pambazos.'
+              ]
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Cuál de las siguientes frases usarías para saludar a la directora de tu escuela?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+              '¡Qué ondal, directora.',
+              '¡Holal, dire.',
+              '¡Buenos días!, directora.'
+              ]
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Es la pregunta que le harías a una persona mayor para saber dónde hay una papelería.',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+              '¡Qué onda, seño!, ¿sabe dónde puedo encontrar una pape?',
+              'Disculpe, señora, ¿sabe dónde puedo encontrar una papelería?',
+              '¡Amiga!, ¿sabes dónde puedo encontrar una papelería?'
+              ]
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Con quién utilizarías la expresión ¡qué onda! como un saludo?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+              'Con un amigo.',
+              'Con mi maestra.',
+              'Con mi abuelita.'
+              ]
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Quién dice a dónde se dirigía la señorita Jirafa?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+              'El señor Topo.',
+              'El narrador.',
+              'La coneja.'
+              ]
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Es el personaje principal del cuento.',
+              opcionesImgsPrefix: '16',
+              opciones: [],
+              respuestaNum: 0
+      
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Es una de las preguntas que le hizo la señorita Jirafa al señor Topo.',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+              '¿Qué tal está esa lechuga?',
+              '¿Qué días vende nueces?',
+              '¿Qué está vendiendo en ese costal?'
+              ]
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Cómo se siente la señorita Jirafa cuando va al mercado?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+              'Alegre.',
+              'Enojada.',
+              'Triste.'
+              ]
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Es la entonación que debes hacer al leer la siguiente frase del cuento.',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+              'De sorpresa.',
+              'De enojo.',
+              'De alegría.'
+              ]
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Cuántas palabras hay en la siguiente oración?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+              '8 palabras.',
+              '6 palabras.',
+              '5 palabras.'
+              ]
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Elige la sílaba que completa la palabra de la siguiente oración.',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+              'po',
+              'sa',
+              'mi'
+              ]
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Cuál es la palabra que se puede escribir en lugar de felizmente?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+              'Rápidamente.',
+              'Groseramente.',
+              'Alegremente.'
+              ]
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Cuántas palabras tiene la siguiente oración cuando la separas correctamente?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+              '2 palabras.',
+              '5 palabras.',
+              '8 palabras.'
+              ]
+          },
+          {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Cuál es la palabra que está bien escrita?',
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'Isabel.',
+                  'ruben.',
+                  'omar'
+              ]
+      
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'p25',
+          pregunta: 'Une con una línea las palabras que tienen el mismo significado.',
+      
+          opcionesImgsPrefix: null,
+          opciones: []
+          }
+      
+          
+          
+      ])
+    </script>
+  </body>
+</html>

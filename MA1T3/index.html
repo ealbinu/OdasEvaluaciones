@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Matemáticas</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../assets/font/stylesheet.css?v=7"/>
+    <link rel="stylesheet" href="../../assets/assets.css?v=7"/>
+    <style></style>
+  </head>
+  <body>
+    <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
+      <h1><span class="grade">1º</span>Matemáticas</h1>
+      <!-- SCENES ############################################-->
+      <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started" :class="'scene_'+index">
+        <div class="row">
+          <div class="col mt-5 instruccion" v-if="i.instruction" v-html="i.instruction"></div>
+          <div class="col-md-4 text-center" v-if="i.popper">
+            <popper>
+              <div v-html="i.popper"></div>
+            </popper>
+          </div>
+        </div>
+        <!-- Pregunta >>>>>>>>>>>>>>>>>-->
+        <div class="row mt-3 pregunta">
+          <!-- >>>> CHOOSE-->
+          <template v-if="i.type=='choose'">
+            <choose :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res=false" :num="(index+1)+'.'" :text="i.pregunta" :options="buildOpImgs(i.opciones, i.opcionesImgsPrefix, i.settings)" :answer="i.respuestaNum" :isactive="currentScene == index" :settings="i.settings"></choose>
+          </template>
+          <!-- >>>> SELECTABLEOPTIONS-->
+          <template v-else-if="i.type=='selectableoptions'">
+            <selectableoptions :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res = false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.respuestaNum" :customclass="i.settings.class" :isactive="currentScene == index">
+              <template v-slot:option="{option}">{{option.o}}</template>
+            </selectableoptions>
+          </template>
+        </div>
+      </div>
+      <!-- SCENES FINALIZAR ############################################-->
+      <div class="scene lastscene" v-if="currentScene == scenes.length">
+        <template v-if="stillMissing &amp;&amp; !resultado">
+          <div class="falta">Te falta contestar las siguientes preguntas:</div>
+          <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event" :answereds="r" :onlypages="true"></navigation>
+        </template>
+        <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total" @goback="currentScene -= 1"></finalize>
+      </div>
+      <!-- TEST SCREENSHOTS ####-->
+      <!-- .row: .col-3(v-for="(i, index) in screen"): img(:src="i").w-100-->
+      <!-- Counter >>>>>>>>>>-->
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total" :segundos="3000"></counter>
+      <!-- Navigation >>>>>>>>>>>>>>>-->
+      <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event" :answereds="r"></navigation>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.15.5/js/jsplumb.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.8.4/Sortable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.20.0/vuedraggable.umd.min.js"></script>
+    <script src="../../assets/modulos/dragdropMod.js"></script>
+    <script src="../../assets/modulos/dropdowns.js"></script>
+    <script src="../../assets/modulos/selectable.js"></script>
+    <script src="../../assets/modulos/selectableoptions.js"></script>
+    <script src="../../assets/modulos/check.js"></script>
+    <script src="../../assets/modulos/inputbox.js"></script>
+    <script src="../../assets/modulos/choose.js"></script>
+    <script src="../../assets/modulos/popper.js"></script>
+    <script src="../../assets/modulos/relational.js"></script>
+    <script src="../../assets/modulos/finalize.js?v=7"></script>
+    <script src="../../assets/modulos/counter.js?v=7"></script>
+    <script src="../../assets/modulos/utils.js?v=7"></script>
+    <script src="../../assets/assets.js?v=7"></script>
+    <script>
+      app.$set(app, 'scenes', [
+          {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Para organizar los libros en la biblioteca, Felipe Ios acomoda en estantes de 10 libros cada uno. Si tiene 82 libros, ¿cuántos estantes necesita y cuántos libros le sobran?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '2 estantes y le sobran 4 libros.',
+              '8 estantes y le sobran 2 libros.',
+              '9 estantes y le sobran 2 libros.'
+          ]
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuántas decenas y unidades tiene el siguiente número?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '9 decenas y 6 unidades.',
+              '6 decenas y 9 unidades.',
+              '8 decenas y 3 unidades.'
+          ]
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Son los números que faltan en la siguiente recta numérica.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '30, 40 y 50.',
+              '30, 50 y 90.',
+              '40, 80 y 100.'
+          ]
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es el frasco ton la <strong>mayor</strong> cantidad de dinero.',
+          opcionesImgsPrefix: '4',
+          opciones: [],
+          respuestaNum: 0
+      
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuál es el objeto que pesa menos?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'El anillo.',
+              'El reloj.',
+              'Pesan lo mismo.'
+          ]
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuál es la fruta que pesa <strong>más</strong>?',
+          opcionesImgsPrefix: '6',
+          opciones: [],
+          respuestaNum: 0
+      
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuántos días tiene febrero?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '31 días.',
+              '28 días.',
+              '30 días.'
+          ]
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuántas semanas completas tiene el mes de abril?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '5 semanas.',
+              '4 semanas.',
+              '3 semanas.'
+          ]
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Son los meses que solamente tienen 30 días.',
+          opcionesImgsPrefix: '9',
+          opciones: [],
+          respuestaNum: 0
+      
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es la descomposición en decenas y unidades de la siguiente suma.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '20 + 10 + 10 + 10 + 10 + 10 + 8 + 2 =',
+              '10 ÷ 10 + 10 ÷ 10 + 10 + 8 + 2 =',
+              '20 + 20 + 10 + 10 + 8 + 2 ='
+          ]
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuál de las rectas numéricas se puede usar para solucionar el siguiente problema?',
+          opcionesImgsPrefix: '1',
+          opciones: [],
+          respuestaNum: 01
+      
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es la recta numérica que se puede usar para solucionar el siguiente problema.',
+          opcionesImgsPrefix: '1',
+          opciones: [],
+          respuestaNum: 02
+      
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Qué número se tiene que sumar a 45 para llegar a 100?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '65',
+              '25',
+              '55'
+          ]
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuáles figuras geométricas se repiten más en la siguiente imagen?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Los cuadrados.',
+              'Los triángulos.',
+              'Los romboides.'
+          ]
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Para hacer pulseras, la maestra Claudia utiliza cordones detres tamaños diferentes. ¿Cuál es el cordón que utiliza para hacer la pulsera más <strong>grande</strong>?',
+          opcionesImgsPrefix: '1',
+          opciones: [],
+          respuestaNum: 05
+      
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuál es el objeto que no puede rodar fácilmente?',
+          opcionesImgsPrefix: '1',
+          opciones: [],
+          respuestaNum: 06
+      
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Elige la opción que muestra la cara de las bases de la siguiente imagen.',
+          opcionesImgsPrefix: '1',
+          opciones: [],
+          respuestaNum: 07
+      
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuántos vasos chicos se necesitan para llenar 2 vasos grandes?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '4 vasos.',
+              '6 vasos.',
+              '8 vasos.'
+          ]
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuántos vasos medianos se necesitan para llenar 2 vasos grandes?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '4 vasos.',
+              '6 vasos.',
+              '8 vasos.'
+          ]
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuántos vasos chicos se necesitan para llenar 4 vasos medianos?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '12 vasos.',
+              '8 vasos. ',
+              '5 vasos.'
+          ]
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es el tapete que está hecho con las siguientes indicaciones.',
+          opcionesImgsPrefix: '2',
+          opciones: [],
+          respuestaNum: 01
+      
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuál número se forma con las siguientes fichas de acuerdo a los valores de cada una?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '96',
+              '69',
+              '86'
+          ]
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuántos días estuvo lloviendo?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '3 días.',
+              '4 días.',
+              '5 días.'
+          ]
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Qué tiempo hubo más frecuentemente?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Soleado.',
+              'Nublado.',
+              'Lluvioso.'
+          ]
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Por cuántos días se estuvo observando el clima?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '15 días.',
+              '20 días.',
+              '30 días.',
+          ]
+          }
+      
+          
+      ])
+    </script>
+  </body>
+</html>

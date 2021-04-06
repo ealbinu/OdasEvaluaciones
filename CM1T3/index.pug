@@ -1,0 +1,151 @@
+include ../assets/pug/_head
+include ../assets/pug/_body
+include ../assets/pug/_scripts
+
+- grade = '1º'
+- title = 'Conocimiento del Medio'
+- subtitle = ''
+
+<!DOCTYPE html>
+html(lang="es")
+    +head
+        style.
+
+    body
+        #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
+            h1
+                span.grade #{grade}
+                | #{title}
+            if subtitle.length>1
+                h2 #{subtitle}
+
+            +body(3000)
+        +scripts
+            script.
+
+                app.$set(app, 'scenes', [
+                    {
+                        instruction: 'Selecciona la respuesta correcta.',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Cuál es una de tus responsabilidades en casa?',
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        'Jugar en el jardín.',
+                        'Recoger los juguetes.',
+                        'Ver televisión.'
+                        ],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Es una acción que permite tener una tonvivencia pacífica y demostrar respeto a los integrantes de la familia.',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        'Pedir disculpas cuando nos equivocamos.',
+                        'Ignorar a los demás cuando nos enojamos.',
+                        'Hablar en voz alta cuando estamos en desacuerdo.'
+                        ],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Qué acción puedes hacer en casa cuando algún familiar se encuentra enfermo?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        'Dormir todo el día.',
+                        'Ayudar a limpiar.',
+                        'Ver televisión.'
+                        ],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Es una situación que <strong>no</strong> ayuda al cuidado del medioambiente.',
+                        opcionesImgsPrefix: '4',
+                        opciones: [],
+                        respuestaNum: 1
+
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Cuál es una acción que nos ayuda a cuidar el agua?',
+                        opcionesImgsPrefix: '5',
+                        opciones: [],
+                        respuestaNum: 2
+
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Es la característica principal del siguiente objeto. <img src=aimg/6.png>',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        'Rígido.',
+                        'Suave.',
+                        'Flexible.'
+                        ],
+                        respuestaNum: 0
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿De qué material está hecha la caja?  <img src=aimg/7.png>',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        'Oro.',
+                        'Plástico.',
+                        'Metal.'
+                        ],
+                        respuestaNum: 1
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Cuál es el objeto <strong>más ligero</strong>?',
+                        opcionesImgsPrefix: '8',
+                        opciones: [],
+                        respuestaNum: 2
+
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Cuál es el objeto <strong>más resistente</strong>?',
+                        opcionesImgsPrefix: '9',
+                        opciones: [],
+                        respuestaNum: 0
+
+                    },
+                    {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Es un grupo de personas que se encargan de protegernos, cuidarnos ybrindarnos afecto.',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                        'La familia.',
+                        'La comunidad escolar.',
+                        'Las autoridades.',
+                        ],
+                        respuestaNum: 0
+                    },
+   
+                ])
