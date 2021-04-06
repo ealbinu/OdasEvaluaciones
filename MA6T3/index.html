@@ -1,16 +1,9 @@
-
-<!--mixin autosec(segundos, questions)
-- var secs = segundos  * questions
-- segundos = secs
-- if (secs/60) % 1 != 0
-    - secs += 30
-
---><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Conocimiento del Medio</title>
+    <title></title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
@@ -20,7 +13,7 @@
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">1º</span>Conocimiento del Medio</h1>
+      <h1><span class="grade">º</span></h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started" :class="'scene_'+index">
         <div class="row">
@@ -56,7 +49,7 @@
       <!-- TEST SCREENSHOTS ####-->
       <!-- .row: .col-3(v-for="(i, index) in screen"): img(:src="i").w-100-->
       <!-- Counter >>>>>>>>>>-->
-      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total" :segundos="1200"></counter>
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total" :segundos="3000"></counter>
       <!-- Navigation >>>>>>>>>>>>>>>-->
       <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event" :answereds="r"></navigation>
     </div>
@@ -82,129 +75,15 @@
     <script>
       app.$set(app, 'scenes', [
           {
-              instruction: 'Selecciona la respuesta correcta.',
+              instruction: '',
               popper: '',
-              type: 'choose',
-              pregunta: '¿Cuál es una de tus responsabilidades en casa?',
+              type: 'choose', 
+              pregunta: '',
               opcionesImgsPrefix: null,
-              opciones: [
-              'Jugar en el jardín.',
-              'Recoger los juguetes.',
-              'Ver televisión.'
-              ],
-              respuestaNum: 1
+              opciones: [''],
+              respuestaNum: 
           },
-          {
-              instruction: '',
-              popper: '',
-              type: 'choose',
-              pregunta: 'Es una acción que permite tener una tonvivencia pacífica y demostrar respeto a los integrantes de la familia.',
-      
-              opcionesImgsPrefix: null,
-              opciones: [
-              'Pedir disculpas cuando nos equivocamos.',
-              'Ignorar a los demás cuando nos enojamos.',
-              'Hablar en voz alta cuando estamos en desacuerdo.'
-              ],
-              respuestaNum: 0
-          },
-          {
-              instruction: '',
-              popper: '',
-              type: 'choose',
-              pregunta: '¿Qué acción puedes hacer en casa cuando algún familiar se encuentra enfermo?',
-      
-              opcionesImgsPrefix: null,
-              opciones: [
-              'Dormir todo el día.',
-              'Ayudar a limpiar.',
-              'Ver televisión.'
-              ],
-              respuestaNum: 1
-          },
-          {
-              instruction: '',
-              popper: '',
-              type: 'choose',
-              pregunta: 'Es una situación que <strong>no</strong> ayuda al cuidado del medioambiente.',
-              opcionesImgsPrefix: '4',
-              opciones: [],
-              respuestaNum: 1
-      
-          },
-          {
-              instruction: '',
-              popper: '',
-              type: 'choose',
-              pregunta: '¿Cuál es una acción que nos ayuda a cuidar el agua?',
-              opcionesImgsPrefix: '5',
-              opciones: [],
-              respuestaNum: 2
-      
-          },
-          {
-              instruction: '',
-              popper: '',
-              type: 'choose',
-              pregunta: 'Es la característica principal del siguiente objeto. <img src=aimg/6.png>',
-      
-              opcionesImgsPrefix: null,
-              opciones: [
-              'Rígido.',
-              'Suave.',
-              'Flexible.'
-              ],
-              respuestaNum: 0
-          },
-          {
-              instruction: '',
-              popper: '',
-              type: 'choose',
-              pregunta: '¿De qué material está hecha la caja?  <img src=aimg/7.png>',
-      
-              opcionesImgsPrefix: null,
-              opciones: [
-              'Oro.',
-              'Plástico.',
-              'Metal.'
-              ],
-              respuestaNum: 1
-          },
-          {
-              instruction: '',
-              popper: '',
-              type: 'choose',
-              pregunta: '¿Cuál es el objeto <strong>más ligero</strong>?',
-              opcionesImgsPrefix: '8',
-              opciones: [],
-              respuestaNum: 2
-      
-          },
-          {
-              instruction: '',
-              popper: '',
-              type: 'choose',
-              pregunta: '¿Cuál es el objeto <strong>más resistente</strong>?',
-              opcionesImgsPrefix: '9',
-              opciones: [],
-              respuestaNum: 0
-      
-          },
-          {
-              instruction: '',
-              popper: '',
-              type: 'choose',
-              pregunta: 'Es un grupo de personas que se encargan de protegernos, cuidarnos ybrindarnos afecto.',
-      
-              opcionesImgsPrefix: null,
-              opciones: [
-              'La familia.',
-              'La comunidad escolar.',
-              'Las autoridades.',
-              ],
-              respuestaNum: 0
-          },
-      
+          
       ])
     </script>
   </body>

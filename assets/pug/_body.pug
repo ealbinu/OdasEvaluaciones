@@ -30,3 +30,11 @@ mixin body(segundos)
     counter(@started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total" :segundos=segundos)
     // Navigation >>>>>>>>>>>>>>>
     navigation(v-if="started && resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event" :answereds="r")
+
+- function autosec(sec,que){
+    - var secs = sec * que
+    - if((secs/60) % 1 != 0){
+        - secs += 30
+    - }
+    - return secs
+- }
