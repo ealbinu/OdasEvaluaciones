@@ -49,7 +49,7 @@
       <!-- TEST SCREENSHOTS ####-->
       <!-- .row: .col-3(v-for="(i, index) in screen"): img(:src="i").w-100-->
       <!-- Counter >>>>>>>>>>-->
-      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total" :segundos="3000"></counter>
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total" :segundos="600"></counter>
       <!-- Navigation >>>>>>>>>>>>>>>-->
       <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event" :answereds="r"></navigation>
     </div>
@@ -81,7 +81,7 @@
           pregunta: 'Es la imagen que representa la consecuencia más justa cuando los niños dejan sucio su salón de clases.',
           opcionesImgsPrefix: '1',
           opciones: [],
-          respuestaNum: 0
+          respuestaNum: 2
       
           }, {
           instruction: '',
@@ -108,7 +108,7 @@
           pregunta: 'Es la actitud que te permite llegar a un acuerdo.',
           opcionesImgsPrefix: '4',
           opciones: [],
-          respuestaNum: 0
+          respuestaNum: 1
       
           }, {
           instruction: '',
@@ -117,7 +117,7 @@
           pregunta: 'Es la imagen que representa la acción con la que tú y tus amigos pueden mejorar el medioambiente.',
           opcionesImgsPrefix: '5',
           opciones: [],
-          respuestaNum: 0
+          respuestaNum: 2
           }
           
       ])
