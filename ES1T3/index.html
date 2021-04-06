@@ -9,7 +9,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../../assets/font/stylesheet.css?v=7"/>
     <link rel="stylesheet" href="../../assets/assets.css?v=7"/>
-    <style></style>
+    <style>
+      .scene_24 .sources .label,
+      .scene_24 .targets .label {
+          padding: 10px 30px;
+      }
+      
+      
+    </style>
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
@@ -35,6 +42,21 @@
             <selectableoptions :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res = false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.respuestaNum" :customclass="i.settings.class" :isactive="currentScene == index">
               <template v-slot:option="{option}">{{option.o}}</template>
             </selectableoptions>
+          </template>
+          <template v-if="i.type=='pregunta25'">
+            <div class="choose">
+              <div class="label"><strong>25.</strong><span>Une con una línea las palabras que tienen el mismo significado.</span></div>
+              <div class="options">
+                <relational :key="25" v-model="r[25]" :ref="refCount()" @isright="right++" :sources="['Dinero', 'Camión', 'Gorra']" :targets="['Autobús', 'Cachucha', 'Lana']" :oks="[['s_0', 't_2'], ['s_1', 't_0'], ['s_2', 't_1']]">
+                  <template v-slot:source="{source}">
+                    <div class="label">{{source}}</div>
+                  </template>
+                  <template v-slot:target="{target}">
+                    <div class="label">{{target}}</div>
+                  </template>
+                </relational>
+              </div>
+            </div>
           </template>
         </div>
       </div>
@@ -75,18 +97,18 @@
     <script>
       app.$set(app, 'scenes', [
           {
-              instruction: '',
-              popper: '',
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
+              popper: '<img src="aimg/1.png" class="img-fluid">',
               type: 'choose',
               pregunta: '¿Quién fue el primer presidente de México?',
               opcionesImgsPrefix: '1',
               opciones: [],
-              respuestaNum: 0
+              respuestaNum: 2
       
           },
           {
-              instruction: '',
-              popper: '',
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
+              popper: '<img src="aimg/1.png" class="img-fluid">',
               type: 'choose',
               pregunta: '¿Cuánto tiempo duró el mandato de Guadalupe Victoria?',
       
@@ -95,11 +117,12 @@
               '4 años.',
               '5 años.',
               '6 años.'
-              ]
+              ],
+              respuestaNum: 1
           },
           {
-              instruction: '',
-              popper: '',
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
+              popper: '<img src="aimg/1.png" class="img-fluid">',
               type: 'choose',
               pregunta: 'Fue una de las acciones del primer presidente de México.',
       
@@ -108,11 +131,12 @@
               'Construir muchas carreteras.',
               'Crear un banco.',
               'Mejorar la educación.'
-              ]
+              ],
+              respuestaNum: 2
           },
           {
-              instruction: '',
-              popper: '',
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
+              popper: '<img src="aimg/1.png" class="img-fluid">',
               type: 'choose',
               pregunta: '¿En qué estado se ubica el municipio que Ileva el nombre de Guadalupe Victoria?',
       
@@ -121,13 +145,14 @@
               'Hidalgo.',
               'Puebla.',
               'Sinaloa.'
-              ]
+              ],
+              respuestaNum: 1
           },
           {
               instruction: '',
               popper: '',
               type: 'choose',
-              pregunta: 'Elige la imagen que representa a la niña que se describe a continuación.',
+              pregunta: 'Elige la imagen que representa a la niña que se describe a continuación. <img src=aimg/5.png>',
               opcionesImgsPrefix: '5',
               opciones: [],
               respuestaNum: 0
@@ -144,24 +169,26 @@
               '¿Cuándo nació mi papá?',
               '¿Cómo me comportaba de pequeño?',
               '¿Cuándo nació mi mamá?'
-              ]
+              ],
+              respuestaNum: 1
           },
           {
               instruction: '',
               popper: '',
               type: 'choose',
-              pregunta: 'Es el nombre del animal que se forma con las letras del recuadro.',
+              pregunta: 'Es el nombre del animal que se forma con las letras del recuadro. <img src=aimg/7.png>',
       
               opcionesImgsPrefix: null,
               opciones: [
               'Abejorro.',
               'Águila.',
               'Avestruz.'
-              ]
+              ],
+              respuestaNum: 2
           },
           {
-              instruction: '',
-              popper: '',
+              instruction: 'Observa la imagen y contesta las preguntas 8, 9, 10 y 11.',
+              popper: '<img src="aimg/8.png" class="img-fluid">',
               type: 'choose',
               pregunta: 'Es una forma diferente de llamarle a un <strong>amigo</strong>.',
       
@@ -170,11 +197,12 @@
               'Chamaco.',
               'Niño.',
               'Cuate.'
-              ]
+              ],
+              respuestaNum: 2
           },
           {
-              instruction: '',
-              popper: '',
+              instruction: 'Observa la imagen y contesta las preguntas 8, 9, 10 y 11.',
+              popper: '<img src="aimg/8.png" class="img-fluid">',
               type: 'choose',
               pregunta: '¿A qué lugar se refiere el niño con la palabra chante?',
               opcionesImgsPrefix: '9',
@@ -183,20 +211,20 @@
       
           },
           {
-              instruction: '',
-              popper: '',
+              instruction: 'Observa la imagen y contesta las preguntas 8, 9, 10 y 11.',
+              popper: '<img src="aimg/8.png" class="img-fluid">',
               type: 'choose',
               pregunta: '¿Quién preparó los lonches de jamón?',
       
               opcionesImgsPrefix: null,
               opciones: [
-              'Su tía.Su mamá.',
-              'Su hermana.'
-              ]
+              'Su tía.','Su mamá.', 'Su hermana.'
+              ],
+              respuestaNum: 1
           },
           {
-              instruction: '',
-              popper: '',
+              instruction: 'Observa la imagen y contesta las preguntas 8, 9, 10 y 11.',
+              popper: '<img src="aimg/8.png" class="img-fluid">',
               type: 'choose',
               pregunta: 'Es otra forma de llamar a los lonches.',
       
@@ -205,7 +233,8 @@
               'Tortas.',
               'Sándwiches.',
               'Pambazos.'
-              ]
+              ],
+              respuestaNum: 0
           },
           {
               instruction: '',
@@ -218,7 +247,8 @@
               '¡Qué ondal, directora.',
               '¡Holal, dire.',
               '¡Buenos días!, directora.'
-              ]
+              ],
+              respuestaNum: 2
           },
           {
               instruction: '',
@@ -231,7 +261,8 @@
               '¡Qué onda, seño!, ¿sabe dónde puedo encontrar una pape?',
               'Disculpe, señora, ¿sabe dónde puedo encontrar una papelería?',
               '¡Amiga!, ¿sabes dónde puedo encontrar una papelería?'
-              ]
+              ],
+              respuestaNum: 1
           },
           {
               instruction: '',
@@ -244,11 +275,12 @@
               'Con un amigo.',
               'Con mi maestra.',
               'Con mi abuelita.'
-              ]
+              ],
+              respuestaNum: 0
           },
           {
-              instruction: '',
-              popper: '',
+              instruction: 'Lee el cuento y contesta las preguntas 15, 16, 17, 18 y 19.',
+              popper: '<img src="aimg/15.png" class="img-fluid">',
               type: 'choose',
               pregunta: '¿Quién dice a dónde se dirigía la señorita Jirafa?',
       
@@ -257,21 +289,22 @@
               'El señor Topo.',
               'El narrador.',
               'La coneja.'
-              ]
+              ],
+              respuestaNum: 1
           },
           {
-              instruction: '',
-              popper: '',
+              instruction: 'Lee el cuento y contesta las preguntas 15, 16, 17, 18 y 19.',
+              popper: '<img src="aimg/15.png" class="img-fluid">',
               type: 'choose',
               pregunta: 'Es el personaje principal del cuento.',
               opcionesImgsPrefix: '16',
               opciones: [],
-              respuestaNum: 0
+              respuestaNum: 2
       
           },
           {
-              instruction: '',
-              popper: '',
+              instruction: 'Lee el cuento y contesta las preguntas 15, 16, 17, 18 y 19.',
+              popper: '<img src="aimg/15.png" class="img-fluid">',
               type: 'choose',
               pregunta: 'Es una de las preguntas que le hizo la señorita Jirafa al señor Topo.',
       
@@ -280,11 +313,12 @@
               '¿Qué tal está esa lechuga?',
               '¿Qué días vende nueces?',
               '¿Qué está vendiendo en ese costal?'
-              ]
+              ],
+              respuestaNum: 2
           },
           {
-              instruction: '',
-              popper: '',
+              instruction: 'Lee el cuento y contesta las preguntas 15, 16, 17, 18 y 19.',
+              popper: '<img src="aimg/15.png" class="img-fluid">',
               type: 'choose',
               pregunta: '¿Cómo se siente la señorita Jirafa cuando va al mercado?',
       
@@ -293,46 +327,50 @@
               'Alegre.',
               'Enojada.',
               'Triste.'
-              ]
+              ],
+              respuestaNum: 0
           },
           {
-              instruction: '',
-              popper: '',
+              instruction: 'Lee el cuento y contesta las preguntas 15, 16, 17, 18 y 19.',
+              popper: '<img src="aimg/15.png" class="img-fluid">',
               type: 'choose',
-              pregunta: 'Es la entonación que debes hacer al leer la siguiente frase del cuento.',
+              pregunta: 'Es la entonación que debes hacer al leer la siguiente frase del cuento. <img src=aimg/19.png>',
       
               opcionesImgsPrefix: null,
               opciones: [
               'De sorpresa.',
               'De enojo.',
               'De alegría.'
-              ]
+              ],
+              respuestaNum: 2
           },
           {
               instruction: '',
               popper: '',
               type: 'choose',
-              pregunta: '¿Cuántas palabras hay en la siguiente oración?',
+              pregunta: '¿Cuántas palabras hay en la siguiente oración? <img src=aimg/20.png>',
       
               opcionesImgsPrefix: null,
               opciones: [
               '8 palabras.',
               '6 palabras.',
               '5 palabras.'
-              ]
+              ],
+              respuestaNum: 0
           },
           {
               instruction: '',
               popper: '',
               type: 'choose',
-              pregunta: 'Elige la sílaba que completa la palabra de la siguiente oración.',
+              pregunta: 'Elige la sílaba que completa la palabra de la siguiente oración. <img src=aimg/21.png>',
       
               opcionesImgsPrefix: null,
               opciones: [
               'po',
               'sa',
               'mi'
-              ]
+              ],
+              respuestaNum: 1
           },
           {
               instruction: '',
@@ -345,20 +383,22 @@
               'Rápidamente.',
               'Groseramente.',
               'Alegremente.'
-              ]
+              ],
+              respuestaNum: 2
           },
           {
               instruction: '',
               popper: '',
               type: 'choose',
-              pregunta: '¿Cuántas palabras tiene la siguiente oración cuando la separas correctamente?',
+              pregunta: '¿Cuántas palabras tiene la siguiente oración cuando la separas correctamente? <img src=aimg/23.png>',
       
               opcionesImgsPrefix: null,
               opciones: [
               '2 palabras.',
               '5 palabras.',
               '8 palabras.'
-              ]
+              ],
+              respuestaNum: 1
           },
           {
               instruction: '',
@@ -370,12 +410,13 @@
                   'Isabel.',
                   'ruben.',
                   'omar'
-              ]
+              ],
+              respuestaNum: 0
       
           }, {
           instruction: '',
           popper: '',
-          type: 'p25',
+          type: 'pregunta25',
           pregunta: 'Une con una línea las palabras que tienen el mismo significado.',
       
           opcionesImgsPrefix: null,

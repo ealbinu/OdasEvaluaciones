@@ -272,7 +272,6 @@ strong {
         margin: 30px 10px;
         flex-wrap: wrap;
         &>div{
-            max-width: 30%;
             cursor: pointer;
             border: 8px solid #fff;
             border-radius: 10px;
@@ -284,6 +283,9 @@ strong {
             padding: 8px;
             @media (max-width:992px){
                 img{max-height: 100px;}
+            }
+            img{
+                max-width: 220px;
             }
         }
         div.active{
@@ -552,7 +554,7 @@ input[type=number] {
             border-radius: 10px;
             border: 4px solid @purple;
             margin: 20px auto;
-            max-width: 50%;
+            max-width: 80%;
             @media(max-width: 680px){
                 max-width: 100%;
             }
