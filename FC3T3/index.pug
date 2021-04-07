@@ -2,8 +2,8 @@ include ../assets/pug/_head
 include ../assets/pug/_body
 include ../assets/pug/_scripts
 
-- grade = 'º'
-- title = ''
+- grade = '3º'
+- title = 'Formación Cívica y Ética'
 - subtitle = ''
 
 <!DOCTYPE html>
@@ -19,19 +19,118 @@ html(lang="es")
             if subtitle.length>1
                 h2 #{subtitle}
 
-            +body(3000)
+            +body(autosec(120, 8))
         +scripts
             script.
 
                 app.$set(app, 'scenes', [
                     {
-                        instruction: '',
-                        popper: '',
-                        type: 'choose', 
-                        pregunta: '',
-                        opcionesImgsPrefix: null,
-                        opciones: [''],
-                        respuestaNum: 
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Qué es la justicia?',
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Repartir de manera proporcional.',
+                        'Valorar de manera diferente el esfuerzo.',
+                        'Dar a cada individuo lo que le corresponde por igual.',
+                        'Expresarse bien de una persona.'
+                    ],
+                    respuestaNum: 2
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Es el tipo de gobierno donde las autoridades hacen cumplir las leyes que son discutidas y aprobadas por el pueblo.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Gobierno democrático.',
+                        'Gobierno autoritario.',
+                        'Monarquía.',
+                        'Régimen dictatorial.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Son los poderes que conforman nuestro gobierno, excepto uno. ¿Cuál es?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Poder Ejecutivo.',
+                        'Poder Individual.',
+                        'Poder Judicial.',
+                        'Poder Legislativo.'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Elige la ilustración que representa un problema ambiental en la escuela.',
+                    opcionesImgsPrefix: '4',
+                    opciones: [],
+                    respuestaNum: 2,
+                    settings: {imgs:4},
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Qué se necesita para que un grupo de personas pueda tomar una decisión?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Gritar hasta que cada uno se haga escuchar.',
+                        'Que una persona tome la decisión sin consultar.',
+                        'Evitar que los más jóvenes participen en la decisión.',
+                        'Establecer un ambiente de respeto.'
+                    ],
+                    respuestaNum: 3
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Qué es la participación?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Dejar que todos realicen el trabajo.',
+                        'Usar el mínimo esfuerzo en un trabajo de equipo.',
+                        'Realizar acciones que contribuyen a alcanzar el bien común.',
+                        'Dar órdenes sobre la manera en que se debe trabajar.'
+                    ],
+                    respuestaNum: 2
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Para qué sirve participar en una votación?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Para establecer normas.',
+                        'Para expresar nuestra opinión.',
+                        'Para ayudar a los demás en una decisión personal.',
+                        'Para valorar la calidad de los participantes.'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Son estrategias para el cuidado del planeta, excepto una. ¿Cuál es?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Separar la basura.',
+                        'Usar bolsas de tela en el supermercado.',
+                        'Colocar focos ahorradores en casa.',
+                        'Sacar a pasear al perro.',
+                    ],
+                    respuestaNum: 3
                     },
+
                     
                 ])
