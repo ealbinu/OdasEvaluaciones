@@ -2,8 +2,8 @@ include ../assets/pug/_head
 include ../assets/pug/_body
 include ../assets/pug/_scripts
 
-- grade = 'º'
-- title = ''
+- grade = '3º'
+- title = 'Ciencias Naturales'
 - subtitle = ''
 
 <!DOCTYPE html>
@@ -25,13 +25,286 @@ html(lang="es")
 
                 app.$set(app, 'scenes', [
                     {
-                        instruction: '',
-                        popper: '',
-                        type: 'choose', 
-                        pregunta: '',
-                        opcionesImgsPrefix: null,
-                        opciones: [''],
-                        respuestaNum: 
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Qué es el magnetismo?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'La propiedad de un objeto de atraer otros objetos metálicos.',
+                        'La fuerza con la que interactúan los objetos.',
+                        'La rapidez con la que se mueven los objetos.',
+                        'La interacción entre dos objetos.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cómo se les llama a los objetos que tienen la propiedad de atraer metales?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Polos.',
+                        'Imanes.',
+                        'Fósiles.',
+                        'Rocas.'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuáles son los dos tipos de imanes que existen?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Grandes y pequeños.',
+                        'Positivos y negativos.',
+                        'Naturales y artificiales.',
+                        'Magnéticos y naturales.'
+                    ],
+                    respuestaNum: 2
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuál es el nombre de los extremos de los imanes?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Puntas.',
+                        'Deslumbres.',
+                        'Magnetos.',
+                        'Polos.'
+                    ],
+                    respuestaNum: 3
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cómo deben ser los polos de dos imanes para que se atraigan?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Iguales.',
+                        'Diferentes.',
+                        'Similares.',
+                        'Equivalentes.'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuál es el nombre de los cuerpos opacos que giran alrededor de un planeta?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Satélites.',
+                        'Galaxias.',
+                        'Planetas.',
+                        'Asteroides.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Qué es la Luna?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Es el único satélite natural de la Tierra.',
+                        'Es un satélite puesto en órbita por el ser humano.',
+                        'Es una estrella cercana al planeta Tierra.',
+                        'Es un cuerpo celeste que brilla con luz propia.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Es el movimiento que la Tierra lleva a cabo sobre su propio eje.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'De traslación.',
+                        'De rotación.',
+                        'Lunación.',
+                        'Oscilatorio.'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cómo se le llama al periodo que tarda la Luna en dar una vuelta completa a la Tierra?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Periodos.',
+                        'Ciclos.',
+                        'Lunación.',
+                        'Eclipse.'
+                    ],
+                    respuestaNum: 2
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuál es el nombre que reciben los cambios que presenta la Luna en el transcurso de cada mes?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Evoluciones lunares.',
+                        'Ilusiones lunares.',
+                        'Perfiles lunares.',
+                        'Fases lunares.'
+                    ],
+                    respuestaNum: 3
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cómo se le llama a la fase lunar en la que a Luna se encuentra entre la Tierra y el Sol, y su cara opuesta a la Tierra está iluminada?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Luna nueva.',
+                        'Cuarto creciente.',
+                        'Luna llena.',
+                        'Cuarto menguante.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Es el nombre que recibe la fase lunar en la que la Luna se encuentra totalmente iluminada y la Tierra se localiza entre la Luna y el Sol.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Luna nueva.',
+                        'Cuarto creciente.',
+                        'Luna llena.',
+                        'Cuarto menguante.'
+                    ],
+                    respuestaNum: 2
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Qué determina las fases de la Luna?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'La cantidad de la luz del Sol que la Luna refleja hacia la Tierra según su posición.',
+                        'La porción de luz que el Sol refleja sobre la Tierra.',
+                        'La interposición de la Luna entre la Tierra y el Sol.',
+                        'La alineación que existe entre el Sol, la Luna y la Tierra.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Es un mineral magnético natural que atrae objetos metálicos.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Magnetita.',
+                        'Uranio.',
+                        'Radio.',
+                        'Platino.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuántos días dura aproximadamente el movimiento de rotación de la Luna?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '15 días.',
+                        '20 días.',
+                        '29 días.',
+                        '35 días.'
+                    ],
+                    respuestaNum: 2
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿En qué año logró el ser humano llegar a a Luna?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'En 1956.',
+                        'En 1969.',
+                        'En 1976.',
+                        'En 1998.'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Son ejemplos de metales que pueden ser atraídos por los imanes, excepto uno. ¿Cuál es?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Hierro.',
+                        'Cobalto.',
+                        'Níquel.',
+                        'Aluminio.'
+                    ],
+                    respuestaNum: 3
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Con qué otro nombre se le conoce a la Luna nueva?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Primer cuarto.',
+                        'Último cuarto.',
+                        'Novilunio.',
+                        'Cuarto creciente.'
+                    ],
+                    respuestaNum: 2
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Es un instrumento que utiliza el magnetismo para funcionar.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'La brújula.',
+                        'La estufa.',
+                        'La lámpara.',
+                        'La sierra.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuáles son las dos características que tienen las fases de la Luna?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Que son de distancias y tiempos largos.',
+                        'Que son subsiguientes y firmes.',
+                        'Que son constantes y consistentes.',
+                        'Que son cíclicas y consecutivas.',
+                    ],
+                    respuestaNum: 3
                     },
+
                     
                 ])
