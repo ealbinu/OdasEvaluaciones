@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>Conocimiento del Medio</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">º</span></h1>
+      <h1><span class="grade">2º</span>Conocimiento del Medio</h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started" :class="'scene_'+index">
         <div class="row">
@@ -75,14 +75,177 @@
     <script>
       app.$set(app, 'scenes', [
           {
-              instruction: '',
-              popper: '',
-              type: 'choose', 
-              pregunta: '',
-              opcionesImgsPrefix: null,
-              opciones: [''],
-              respuestaNum: 
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es una actividad recreativa que puedes realizar dentro de casa.',
+          opcionesImgsPrefix: '1',
+          opciones: [],
+          respuestaNum: 0
+      
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuál es la actividad recreativa que se jugaba <strong>antes</strong>?',
+          opcionesImgsPrefix: '2',
+          opciones: [],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Selecciona la imagen que muestra objetos con olores agradables.',
+          opcionesImgsPrefix: '3',
+          opciones: [],
+          respuestaNum: 1
+      
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuál es el alimento que tiene un sabor dulce?',
+          opcionesImgsPrefix: '4',
+          opciones: [],
+          respuestaNum: 2
+      
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es una acción que no se debe practicar al cuidar el sentido del gusto.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Tomar limonada.',
+              'Tomar bebidas muy calientes.',
+              'Evitar introducir objetos en la nariz.'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuál imagen representa el estado sólido?',
+          opcionesImgsPrefix: '6',
+          opciones: [],
+          respuestaNum: 1
+      
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿En qué estado de la materia se encuentra el agua del mar?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Líquido.',
+              'Sólido.',
+              'Gaseoso.'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es la mezcla que se compone de nitrógeno, oxígeno y dióxido de carbono.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'El suelo.',
+              'El agua.',
+              'El aire.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuál es la estación del año donde empieza a aumentar la temperatura y algunas plantas florecen?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Otoño.',
+              'Primavera.',
+              'Invierno.'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es la estación del año que se representa en la siguiente imagen.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Invierno.',
+              'Otoño.',
+              'Verano.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Son los meses del año que corresponden al otoño.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Septiembre, octubre y noviembre.',
+              'Marzo, abril y mayo.',
+              'Diciembre, enero y febrero.'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuál es la acción que puedes llevar a cabo para el cuidado del medioambiente?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Reciclar basura.',
+              'Tirar basura.',
+              'C Cortar árboles.'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Son tradiciones mexicanas, excepto una. ¿Cuál es?',
+          opcionesImgsPrefix: '13',
+          opciones: [],
+          respuestaNum: 0
+      
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cual es la estación más fría del año?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Primavera.',
+              'Verano.',
+              'Invierno.'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es el órgano encargado de percibir los olores.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'La nariz.',
+              'La boca.',
+              'Los ojos.',
+          ],
+          respuestaNum: 0
           },
+      
           
       ])
     </script>
