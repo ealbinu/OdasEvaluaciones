@@ -2,8 +2,8 @@ include ../assets/pug/_head
 include ../assets/pug/_body
 include ../assets/pug/_scripts
 
-- grade = 'º'
-- title = ''
+- grade = '3º'
+- title = 'Español'
 - subtitle = ''
 
 <!DOCTYPE html>
@@ -25,13 +25,262 @@ html(lang="es")
 
                 app.$set(app, 'scenes', [
                     {
-                        instruction: '',
-                        popper: '',
-                        type: 'choose', 
-                        pregunta: '',
-                        opcionesImgsPrefix: null,
-                        opciones: [''],
-                        respuestaNum: 
+                    instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
+                    popper: '<img src="aimg/1.png" class="img-fluid">',
+                    type: 'choose',
+                    pregunta: '¿Dónde nació Juan Escutia?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'En Tepic, Nayarit.',
+                        'En Chapultepec.',
+                        'En la Ciudad de México.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
+                    popper: '<img src="aimg/1.png" class="img-fluid">',
+                    type: 'choose',
+                    pregunta: '¿Contra qué ejército peleó en Chapultepec?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Contra el ejército de Francia.',
+                        'Contra el ejército de España.',
+                        'Contra el ejército de Estados Unidos.'
+                    ],
+                    respuestaNum: 2
+                    }, {
+                    instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
+                    popper: '<img src="aimg/1.png" class="img-fluid">',
+                    type: 'choose',
+                    pregunta: '¿Por qué Juan Escutia no podía permitir que los extranjeros capturaran la bandera?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Porque es uno de los mayores símbolos de identidad del país.',
+                        'Porque era la única bandera de colores en México.',
+                        'Porque la tela de la que estaba hecha era muy fina.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1, 2, 3 y 4.</p>',
+                    popper: '<img src="aimg/1.png" class="img-fluid">',
+                    type: 'choose',
+                    pregunta: '¿Por qué será recordado Juan Escutia?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Por ser muy joven.',
+                        'Por vivir en un castillo.',
+                        'Por su valor.'
+                    ],
+                    respuestaNum: 2
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Qué tipo de texto es el siguiente? <img src="aimg/5.png" class="img-fluid">',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Un cuento.',
+                        'Un poema.',
+                        'Una leyenda.'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuál de las opciones es un elemento del texto informativo?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Gráfica.',
+                        'Moraleja.',
+                        'Enseñanza.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuál letra falta en la siguiente palabra? <img src="aimg/7.png" class="img-fluid">',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'T',
+                        'Q',
+                        'K'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuál <strong>no</strong> es una lengua indígena de México?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Náhuatl.',
+                        'Purépecha.',
+                        'Alemán.'
+                    ],
+                    respuestaNum: 2
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Es la opción que muestra un documento oficial.',
+                    opcionesImgsPrefix: '9',
+                    opciones: [],
+                    respuestaNum: 0
+
+                    }, {
+                    instruction: 'Lee el siguiente texto y contesta las preguntas 10, 11 y 12.',
+                    popper: '<img src="aimg/10.png" class="img-fluid">',
+                    type: 'choose',
+                    pregunta: '¿Qué tipo de texto es el que leíste?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Una obra de teatro.',
+                        'Un cuento.',
+                        'Una leyenda.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: 'Lee el siguiente texto y contesta las preguntas 10, 11 y 12.',
+                    popper: '<img src="aimg/10.png" class="img-fluid">',
+                    type: 'choose',
+                    pregunta: '¿Quién es el personaje principal?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Un canario.',
+                        'Un cardenal.',
+                        'Un cenzontle.'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: 'Lee el siguiente texto y contesta las preguntas 10, 11 y 12.',
+                    popper: '<img src="aimg/10.png" class="img-fluid">',
+                    type: 'choose',
+                    pregunta: '¿Qué nombre reciben las palabras resaltadas en azul?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Acotaciones.',
+                        'Moralejas.',
+                        'Versos.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuál de las siguientes palabras está escrita correctamente?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Guzano.',
+                        'Genio.',
+                        'Gayina.'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Selecciona la palabra que proviene del náhuatl.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Chocolate.',
+                        'Kínder.',
+                        'Marimba.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Qué es una entrevista?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Es una narración de hechos reales o imaginarios sobre un hecho de una comunidad.',
+                        'Es una serie de preguntas que se le hacen a una persona sobre un tema.',
+                        'Es una narración de hechos fantásticos sobre personas que conocen un tema.'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cómo se les llama a las personas que llegan de otros países y se quedan a vivir en el nuestro?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Emigrantes.',
+                        'Inmigrantes.',
+                        'Viajeros.'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: 'Lee el siguiente poema en náhuatl y español, y contesta las preguntas 17 y 18.',
+                    popper: '<img src="aimg/17.png" class="img-fluid">',
+                    type: 'choose',
+                    pregunta: '¿Qué significa la palabra <strong>mtztli</strong>?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Cielo.',
+                        'Luna.',
+                        'Estrellas.'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: 'Lee el siguiente poema en náhuatl y español, y contesta las preguntas 17 y 18.',
+                    popper: '<img src="aimg/17.png" class="img-fluid">',
+                    type: 'choose',
+                    pregunta: '¿Cómo se escribe <strong>ilumina</strong> en náhuatl?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Mtztli.',
+                        'Momiquilia.',
+                        'Moxotlaltia.'
+                    ],
+                    respuestaNum: 2
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Para qué sirve una entrevista?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Para aprender más sobre un tema.',
+                        'Para aprender a escribir correctamente.',
+                        'Para hacer amistad con el entrevistado.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Una compañera de tu salón insiste en que se llama Chelita. ¿Dónde se puede confirmar si ese es su nombre oficial?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'En su credencial de la biblioteca.',
+                        'En su dredential de un club.',
+                        'En su acta de nacimiento.',
+                    ],
+                    respuestaNum: 2
                     },
+
                     
                 ])
