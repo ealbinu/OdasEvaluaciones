@@ -2,8 +2,8 @@ include ../assets/pug/_head
 include ../assets/pug/_body
 include ../assets/pug/_scripts
 
-- grade = 'º'
-- title = ''
+- grade = '4º'
+- title = 'Formación Cívica y Ética'
 - subtitle = ''
 
 <!DOCTYPE html>
@@ -19,19 +19,152 @@ html(lang="es")
             if subtitle.length>1
                 h2 #{subtitle}
 
-            +body(3000)
+            +body(autosec(120, 10))
         +scripts
             script.
 
                 app.$set(app, 'scenes', [
                     {
-                        instruction: '',
-                        popper: '',
-                        type: 'choose', 
-                        pregunta: '',
-                        opcionesImgsPrefix: null,
-                        opciones: [''],
-                        respuestaNum: 
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuál de las siguientes es una acción justa?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Todos los niños de nuestra escuela reciben la misma atención.',
+                        'Sólo los niños pueden jugar en el patio, las niñas deben jugar en el salón.',
+                        'En clase sólo participa Ernesto, los demás no.',
+                        'Laura no le dio pastel a su hermano, pero sí a sus primos.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Son reglas establecidas por una autoridad para impartir justicia.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Cárceles.',
+                        'Castigos.',
+                        'Leyes.',
+                        'Derechos.'
+                    ],
+                    respuestaNum: 2
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Las no están escritas y deben ser cumplidas por una sociedad.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'leyes',
+                        'normas',
+                        'derechos',
+                        'culturas'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Es la autoridad encargada de proteger a una comunidad.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Un maestro.',
+                        'Un médico.',
+                        'Un policía.',
+                        'Un director.'
+                    ],
+                    respuestaNum: 2
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Es un sistema de gobierno que permite que los ciudadanos elijan a sus representantes en el gobierno.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Dictadura.',
+                        'Democracia.',
+                        'Socialismo.',
+                        'Comunismo.'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Se le llama así al acuerdo o conformidad de opiniones en una colectividad.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Disenso.',
+                        'Consenso.',
+                        'Deliberación.',
+                        'Participación.'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Es una conversación entre dos personas para intercambiar información y llegar a acuerdos.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Diálogo.',
+                        'Disenso.',
+                        'Participación.',
+                        'Voto.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Es un problema ambiental que se puede presentar en la escuela.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Exceso de basura al finalizar el recreo.',
+                        'Trastes sucios en el comedor.',
+                        'Falta de semáforos en las calles.',
+                        'Paredes pintadas.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Son acciones que permiten mejorar el medioambiente, excepto una. ¿Cuál es?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Separar la basura en orgánica e inorgánica.',
+                        'Plantar y cuidar árboles.',
+                        'Cortar los árboles para que no tiren hojas.',
+                        'Evitar desperdiciar el agua.'
+                    ],
+                    respuestaNum: 2
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Son elementos necesarios para solucionar problemas ambientales, excepto uno. ¿Cuál es?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Participación.',
+                        'Compromiso.',
+                        'No escuchar las necesidades de los otros.',
+                        'Toma de acuerdos.',
+                    ],
+                    respuestaNum: 2
                     },
+
                     
                 ])
