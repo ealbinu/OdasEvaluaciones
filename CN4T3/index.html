@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>Ciencias Naturales</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">º</span></h1>
+      <h1><span class="grade">4º</span>Ciencias Naturales</h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started" :class="'scene_'+index">
         <div class="row">
@@ -49,7 +49,7 @@
       <!-- TEST SCREENSHOTS ####-->
       <!-- .row: .col-3(v-for="(i, index) in screen"): img(:src="i").w-100-->
       <!-- Counter >>>>>>>>>>-->
-      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total" :segundos="3000"></counter>
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total" :segundos="2400"></counter>
       <!-- Navigation >>>>>>>>>>>>>>>-->
       <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event" :answereds="r"></navigation>
     </div>
@@ -75,14 +75,287 @@
     <script>
       app.$set(app, 'scenes', [
           {
-              instruction: '',
-              popper: '',
-              type: 'choose', 
-              pregunta: '',
-              opcionesImgsPrefix: null,
-              opciones: [''],
-              respuestaNum: 
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es el nombre del instrumento que tiene espejos en su interior que reflejan luz.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Lupa.',
+              'Lentes.',
+              'Imanes.',
+              'Periscopio.'
+          ],
+          respuestaNum: 3
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuál de los siguientes materiales tiene mayor capacidad de reflexión?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Agua.',
+              'Plástico.',
+              'Madera.',
+              'Tierra.'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cómo se le llama al cambio de dirección que toman los rayos de luz al pasar de un medio a otro?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Reflexión.',
+              'Refracción.',
+              'Dispersión.',
+              'Difusión.'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es un objeto que utiliza la refracción de la luz.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'La madera.',
+              'El espejo.',
+              'La lupa.',
+              'El periscopio.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Sucede cuando los rayos de luz que inciden en una superficie chocan en ella, desviándose y regresando al medio del que salie- ron en un ángulo igual al incidente.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'La refracción.',
+              'La reflexión.',
+              'La dispersión.',
+              'La difusión.'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Qué es la luz?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Una forma de energía.',
+              'Una forma de calor.',
+              'Un efecto del calor.',
+              'Un recurso para la vida.'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es un objeto que puede reflejar la luz incidente de manera clara.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'El plástico.',
+              'La moneda.',
+              'La madera.',
+              'El espejo.'
+          ],
+          respuestaNum: 3
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es el eclipse que se observa cuando la Tierra se interpone entre el Sol y la Luna.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Solar.',
+              'Terrestre.',
+              'Lunar.',
+              'Planetario.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿A qué fenómeno llamaban los mexicas <em>Tonatiuh-cualo</em>?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Al eclipse solar.',
+              'Al eclipse lunar.',
+              'Al movimiento de rotación.',
+              'Al movimiento de traslación.'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿De qué está formada la fibra óptica?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'De material transparente, vidrio o plástico flexible y delgado.',
+              'De material muy delgado y rígido.',
+              'De material grueso y poco flexible.',
+              'De material opaco y flexible.'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuáles son los objetos que reflejan poca luz?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Los espejos.',
+              'Los vidrios.',
+              'Los objetos opacos.',
+              'Las superficies brillantes.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuáles son los elementos iguales que participan en la reflexión de la luz?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'El rayo incidente y el rayo reflejado.',
+              'El rayo incidente y el ángulo de reflexión.',
+              'La luz.',
+              'El ángulo de incidencia y el ángulo de reflexión.'
+          ],
+          respuestaNum: 3
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cómo es la alineación de los astros en un eclipse solar?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'La Tierra se interpone entre el Sol y la Luna.',
+              'El Sol, la Luna y la Tierra hacen una triangulación.',
+              'La Luna se interpone entre el Sol y la Tierra.',
+              'El Sol se interpone entre la Luna y la Tierra.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cómo se le llama actualmente al grupo de siete estrellas que los mexicas llamaban Tianquiztli (el mercado)?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Atolli.',
+              'Chaska.',
+              'Pléyades.',
+              'Inti.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Qué es lo que permite que podamos ver los objetos?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'La luz propia de cada objeto.',
+              'La cantidad de luz reflejada.',
+              'El ángulo de incidencia.',
+              'La cantidad de luz incidida.'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿A qué fenómeno llamaban los mexicas <em>Miztli-cualo</em>?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Al movimiento de traslación.',
+              'Al movimiento de rotación.',
+              'Al eclipse lunar.',
+              'Al eclipse solar.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuál civilización mesoamericana pensaba que los astros se movían por el poder de seres vivientes?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Mexica.',
+              'Azteca.',
+              'Tolteca.',
+              'Purépecha.'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es un objeto que es ejemplo de la aplicación de la refracción.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Los espejos.',
+              'Los lentes.',
+              'Las lámparas.',
+              'Los periscopios.'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es el nombre de la civilización mesoamericana que logró predecir los eclipses con gran precisión.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Azteca.',
+              'Maya.',
+              'Tolteca.',
+              'Mixteca.'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es el nombre que recibe el fenómeno astronómico que ocurre cuando el Sol, la Tierra la Luna se alinean y la luz del Sol es bloqueada por la Tierra o la Luna.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Supernova.',
+              'Lunasticio.',
+              'Equinoccio.',
+              'Eclipse.',
+          ],
+          respuestaNum: 3
           },
+      
           
       ])
     </script>
