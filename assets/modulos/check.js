@@ -2,7 +2,7 @@ Vue.component('check', {
     props: ['value', 'text', 'answer', 'num'],
     data() {
         return {
-            status: false,
+            status: [],
             evaluate: false,
             result: false
         }
@@ -17,37 +17,59 @@ Vue.component('check', {
         }
     },
     methods: {
-        clicked () {
+        clicked (index) {
             if(this.evaluate) {
                 return false
             }
-            this.status = !this.status
+            this.status[index] = !this.status[index]
             this.$emit('input', this.status)
+            /*
             if(this.status) {
                 s_ok.play()
             } else {
                 s_error.play()
             }
+            */
         },
         verify () { 
             this.evaluate = true
-            if(this.status == this.answer) {
+            var allareright = true
+            for(var index in this.answer){
+                if(this.status[index] != this.answer[index]) {
+                    allareright = false
+                }
+            }
+            if(allareright){
                 this.$emit('isright', true)
                 this.result = true
+                console.log('ALLRIGHT')
             }
         }
     },
     mounted () {
+        for(var index in this.answer){
+            this.status[index] = false
+        }
         this.$emit('input', false)
     },
     template: `
-        <div class="check" :class="setclass + ' ' + (status ? 'activecheck':'') ">
-        <div class="result" v-if="evaluate" :class="setclass + ' animate__animated animate__heartBeat'"></div>
-        <div class="label"><strong v-if="num">{{num}}</strong></div>
-            <div class="checkbox" @click="clicked">
-                <img v-if="status" src="../../assets/aimg/check.svg" class="animate__animated animate__heartBeat">
+        <div class="checks">
+            <div v-for="(i, index) in answer">
+
+                    <div class="check" :class="setclass + ' ' + (status[index] ? 'activecheck':'') ">
+                    
+                    <div class="result" v-if="evaluate" :class="setclass + ' animate__animated animate__heartBeat'"></div>
+                    
+                        <!--<div class="label"><strong v-if="num.length && num[index]">{{num[index]}}</strong></div>-->
+
+                        <div class="checkbox" @click="clicked(index)">
+                            <img v-if="status[index]" src="../../assets/aimg/check.svg" class="animate__animated animate__heartBeat">
+                        </div>
+                        <div class="label checktext" @click="clicked(index)" v-html="text[index]"></div>
+                        
+                    </div>
+
             </div>
-            <div class="label checktext" @click="clicked" v-html="text"></div>
         </div>
     `
 })

@@ -2,8 +2,8 @@ include ../assets/pug/_head
 include ../assets/pug/_body
 include ../assets/pug/_scripts
 
-- grade = 'º'
-- title = ''
+- grade = '4º'
+- title = 'Historia'
 - subtitle = ''
 
 <!DOCTYPE html>
@@ -19,19 +19,234 @@ html(lang="es")
             if subtitle.length>1
                 h2 #{subtitle}
 
-            +body(3000)
+            +body(autosec(120,15))
+                template(v-if="i.type=='pregunta15'")
+                        .choose
+                            .label
+                                strong 15.
+                                span Marca así las causas de la Independencia de México.
+                            .options
+                                .position-relative
+                                    check(:key="16" v-model="r[15]" :ref="refCount()" @isright="right++" :answer="[true, false, false, true, true, true]" :text="['Las reformas borbónicas.', 'La toma de Constantinopla.', 'El descubrimiento de América.', 'La invasión napoleónica a España.', 'El nacionalismo criollo.', 'El pensamiento ilustrado.']")
+                                
+                                //.position-relative: inputbox(:key="16" v-model="r[16]" :ref="refCount()" @isright="right++" type="text" placeh="-" :answer="['¿', '?']" :after="['Dónde festejaron los alumnos el Día del Niño']")
         +scripts
             script.
 
                 app.$set(app, 'scenes', [
                     {
-                        instruction: '',
-                        popper: '',
-                        type: 'choose', 
-                        pregunta: '',
-                        opcionesImgsPrefix: null,
-                        opciones: [''],
-                        respuestaNum: 
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Integrantes de la iglesia que atendían asuntos eclesiásticos y eran funcionarios de la Corona española durante el Virreinato.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Frailes.',
+                        'Monjes.',
+                        'Obispos.',
+                        'Cardenales.'
+                    ],
+                    respuestaNum: 2
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Institución fundada en 1571, en Nueva España, cuya función era castigar y sancionar a quienes se alejaban de la fe católica.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'El Patronato de Indias.',
+                        'La Real Audiencia.',
+                        'La Casa de Contratación de Sevilla.',
+                        'El Tribunal del Santo Oficio.'
+                    ],
+                    respuestaNum: 3
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Ciudad en la que se llevó a cabo la primera rebelión que realizaron los criollos.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Ciudad de México.',
+                        'Veracruz.',
+                        'Nueva España.',
+                        'Yucatán.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Son vocablos que forman parte de la herencia cultural africana de la época colonial.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Cuico, tatemado y mango.',
+                        'Nanas, cunas y marimba.',
+                        'Chamaco, café y flojo.',
+                        'Chamba, cafre y chamuco.'
+                    ],
+                    respuestaNum: 3
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Fue el periodo que comprendió el movimiento de Independencia de México.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '1492-1521.',
+                        '1814-1825.',
+                        '1810-1821.',
+                        '1811-1820.'
+                    ],
+                    respuestaNum: 2
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Personaje que dirigió al ejército rebelde en la segunda etapa del movimiento de Independencia.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Miguel Hidalgo y Costilla.',
+                        'José María Morelos y Pavón.',
+                        'Guadalupe Victoria.',
+                        'Vicente Guerrero.'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Es la fecha en la que Miguel Hidalgo convocó a la gente del pueblo de Dolores, Guanajuato, para que le ayudaran a derrocar la autoridad virreinal.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '14 de agosto de 1811.',
+                        '16 de septiembre de 1811.',
+                        '19 de septiembre de 1812.',
+                        '16 de septiembre de 1810.'
+                    ],
+                    respuestaNum: 3
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Estado en el que fueron condenados a muerte los jefes insurgentes Aldama, Hidalgo y Allende.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Sonora.',
+                        'Jalisco.',
+                        'Chihuahua.',
+                        'Guanajuato.'
+                    ],
+                    respuestaNum: 2
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cómo se le conoció a Morelos después del Congreso de Chilpancingo?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'El Salvador.',
+                        'El padre de la Patria.',
+                        'El emperador de México.',
+                        'El Siervo de la Nación.'
+                    ],
+                    respuestaNum: 3
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Conjunto de tácticas empleadas por los insurgentes para desorganizar al ejército realista, como los ataques sorpresa y el robo de armas y alimento.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Desestabilización enemiga.',
+                        'Guerra de guerrillas.',
+                        'Movimientos clave.',
+                        'Guerrillas rápidas.'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Constitución promulgada en 1812 y vigente hasta 1814 en la Nueva España.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Constitución de Cádiz.',
+                        'Constitución de Chilpancingo.',
+                        'Constitución de Fernando VII.',
+                        'Constitución de Guerrero.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Personaje de la Independencia que simpatizaba con los insurgentes y decidió aliarse al ejército realista después de observar las medidas violentas de los insurgentes.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Vicente Guerrero.',
+                        'José María Morelos.',
+                        'Agustín de Iturbide.',
+                        'Miguel Hidalgo.'
+                    ],
+                    respuestaNum: 2
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Nombre del acuerdo con el que se llevó a cabo la unión del ejército realista con el ejército insurgente, surgiendo de la combinación de ambos el Ejército Trigarante.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Tratado de Córdoba.',
+                        'Plan de Iguala.',
+                        'Constitución de Cádiz.',
+                        'Plan de la Noria.'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Fueron mujeres que destacaron en el movimiento de Independencia, excepto una. ¿Quién fue?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Leona Vicario.',
+                        'Sor Juana Inés de la Cruz.',
+                        'Manuela Medina.',
+                        'Josefa Ortiz de Domínguez.'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'pregunta15',
+                    pregunta: '',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Las reformas borbónicas.',
+                        'La toma de Constantinopla.',
+                        'El descubrimiento de América.',
+                        'La invasión napoleónica a España.',
+                        'Nacionalismo criollo.',
+                        'El pensamiento ilustrado.',
+                    ],
+                    respuestaNum: 0
                     },
+
                     
                 ])
