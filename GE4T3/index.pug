@@ -2,8 +2,8 @@ include ../assets/pug/_head
 include ../assets/pug/_body
 include ../assets/pug/_scripts
 
-- grade = 'º'
-- title = ''
+- grade = '4º'
+- title = 'Geografía'
 - subtitle = ''
 
 <!DOCTYPE html>
@@ -19,19 +19,224 @@ html(lang="es")
             if subtitle.length>1
                 h2 #{subtitle}
 
-            +body(3000)
+            +body(autosec(120, 15))
         +scripts
             script.
 
                 app.$set(app, 'scenes', [
                     {
-                        instruction: '',
-                        popper: '',
-                        type: 'choose', 
-                        pregunta: '',
-                        opcionesImgsPrefix: null,
-                        opciones: [''],
-                        respuestaNum: 
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Es una de las características de un mineral no metálico.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'No conducen electricidad.',
+                        'Son brillantes.',
+                        'Son moldeables.',
+                        'Están en estado líquido.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Son recursos mineros siderúrgicos, excepto uno. ¿Cuál es?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Carbón.',
+                        'Fierro.',
+                        'Plomo.',
+                        'Manganeso.'
+                    ],
+                    respuestaNum: 2
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuál es el recurso energético más explotado en México y que ocupa el lugar 14 del mundo por su producción?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Petróleo.',
+                        'Uranio.',
+                        'Carbón.',
+                        'Fluorita.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Qué nombre reciben las actividades como el transporte y la educación?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Importación.',
+                        'Servicios.',
+                        'Comercio.',
+                        'Comercio interno.'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿En qué consiste el comercio?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'En la elaboración de productos de primera necesidad para consumo personal.',
+                        'En la compra y venta de productos por medio del dinero.',
+                        'En el intercambio de productos.',
+                        'En el uso de recursos naturales para cubrir las necesidades.'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Son las fuentes de mayor ingreso económiCO de México, excepto una. ¿Cuál es?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Envío de remesas.',
+                        'Venta de petróleo.',
+                        'Turismo.',
+                        'Ganadería.'
+                    ],
+                    respuestaNum: 3
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Es el tipo de comercio que implica el proceso de la compra y venta de productos internacionales.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Interno.',
+                        'Turístico.',
+                        'Externo.',
+                        'Nacional.'
+                    ],
+                    respuestaNum: 2
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cómo se le llama a la posibilidad de adquirir bienes y servicios de acuerdo con el ingreso o salario que recibe una familia?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Presupuesto anual.',
+                        'Pacto económico.',
+                        'Poder adquisitivo.',
+                        'Promedio de vida.'
+                    ],
+                    respuestaNum: 2
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Según sea el nivel de que recibe una familia, ésta podrá adquirir servicios, ropa, vivienda y alimentos.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'egreso',
+                        'ingreso',
+                        'pacto económico',
+                        'precio'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Son entidades federativas con un grado de desarrollo socioeconómico alto.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Jalisco, Nuevo León y Coahuila.',
+                        'Durango, Guanajuato y Michoacán.',
+                        'Chiapas, Guerrero y Oaxaca.',
+                        'Hidalgo, Puebla y Veracruz.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuál es el documento legal que dice que todos los mexicanos tienen el derecho a tener una vivienda digna?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'El reglamento escolar.',
+                        'La Constitución.',
+                        'El acta de nacimiento.',
+                        'd El pasaporte mexicano.'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿De qué forma contaminamos el ambiente y perdemos recursos naturales?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Reciclando y separando la basura que generamos.',
+                        'Cuando se practican actividades de consumo sin control o de forma irresponsable.',
+                        'Cuando utilizamos los recursos no renovables de manera responsable.',
+                        'AI consumir responsablemente sólo lo',
+                        'que necesitamos.'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuál es la principal causa de la deforesta- ción de bosques y selvas en México cada año?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Las actividades agrícolas y ganaderas.',
+                        'La tala ilegal.',
+                        'Los incendios.',
+                        'La extensión de áreas urbanas.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Son acciones que puedes llevar a cabo para ayudar a conservar el ambiente, excepto una. ¿Cuál es?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Regar el jardín por la tarde para evitar que el agua se evapore.',
+                        'Cortar los árboles para que no generen basura.',
+                        'Pedir a un adulto que repare las fugas de agua en tu casa.',
+                        'Apagar las luces que no se estén utilizando en casa.'
+                    ],
+                    respuestaNum: 1
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Son los dos elementos que se necesitan para que ocurra un desastre.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Una población vulnerable y un fenómeno',
+                        'que signifique un riesgo.',
+                        'Un fenómeno y una causa.',
+                        'Medicina y albergue.',
+                        'Correr y entrar en pánico',
+                    ],
+                    respuestaNum: 0
                     },
+
                     
                 ])
