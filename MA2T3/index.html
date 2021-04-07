@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>Matemáticas</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">º</span></h1>
+      <h1><span class="grade">2º</span>Matemáticas</h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started" :class="'scene_'+index">
         <div class="row">
@@ -35,6 +35,16 @@
             <selectableoptions :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res = false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.respuestaNum" :customclass="i.settings.class" :isactive="currentScene == index">
               <template v-slot:option="{option}">{{option.o}}</template>
             </selectableoptions>
+          </template>
+          <template v-if="i.type=='pregunta20'">
+            <div class="choose">
+              <div class="label"><strong>20.</strong><span>Escribe el signo <strong>mayor que</strong> (>) o <strong>menor que</strong> (<) según corresponda.</span></div>
+              <div class="options">
+                <div class="position-relative">
+                  <inputbox :key="20" v-model="r[20]" :ref="refCount()" @isright="right++" type="text" placeh="-" :answer="['&gt;', '&lt;', '&lt;']" :before="['324', '587', '198']" :after="['243', '630', '451']"></inputbox>
+                </div>
+              </div>
+            </div>
           </template>
         </div>
       </div>
@@ -79,19 +89,18 @@
           popper: '',
           type: 'choose',
           pregunta: 'En una papelería venden hojas de colores en cajas de 100 piezas cada una y en bolsas de 10 piezas cada una. Si Rodrigo lleva empacadas 7 cajas y 6 bolsas, ¿cuántas hojas le faltan para tener 8 centenas?',
-      
           opcionesImgsPrefix: null,
           opciones: [
               '60 hojas.',
               '50 hojas.',
               '40 hojas.'
           ],
-          respuestaNum: 0
+          respuestaNum: 2
           }, {
           instruction: '',
           popper: '',
           type: 'choose',
-          pregunta: '¿Cuál es la cantidad más grande que puedes formar con los siguientes números sin repetirlos?',
+          pregunta: '¿Cuál es la cantidad más grande que puedes formar con los siguientes números sin repetirlos? <img src="aimg/2.png" class="img-fluid">',
       
           opcionesImgsPrefix: null,
           opciones: [
@@ -104,7 +113,7 @@
           instruction: '',
           popper: '',
           type: 'choose',
-          pregunta: '¿Cuáles son los números que faltan en la siguiente serie numérica?',
+          pregunta: '¿Cuáles son los números que faltan en la siguiente serie numérica? <img src="aimg/3.png" class="img-fluid">',
       
           opcionesImgsPrefix: null,
           opciones: [
@@ -112,7 +121,7 @@
               '600, 700 y 900.',
               '600, 700 y 800.'
           ],
-          respuestaNum: 0
+          respuestaNum: 1
           }, {
           instruction: '',
           popper: '',
@@ -138,12 +147,12 @@
               '950 boletos.',
               '990 boletos.'
           ],
-          respuestaNum: 0
+          respuestaNum: 2
           }, {
           instruction: '',
           popper: '',
           type: 'choose',
-          pregunta: '¿Cuál es el resultado de la suma en la siguiente recta numérica?',
+          pregunta: '¿Cuál es el resultado de la suma en la siguiente recta numérica? <img src="aimg/6.png" class="img-fluid">',
       
           opcionesImgsPrefix: null,
           opciones: [
@@ -151,12 +160,12 @@
               '719',
               '676'
           ],
-          respuestaNum: 0
+          respuestaNum: 1
           }, {
           instruction: '',
           popper: '',
           type: 'choose',
-          pregunta: '¿Cuál es la cantidad que se representa en el siguiente m ábaco?',
+          pregunta: '¿Cuál es la cantidad que se representa en el siguiente m ábaco? <img src="aimg/7.png" class="img-fluid">',
       
           opcionesImgsPrefix: null,
           opciones: [
@@ -177,7 +186,7 @@
               '$332',
               '$242'
           ],
-          respuestaNum: 0
+          respuestaNum: 2
           }, {
           instruction: '',
           popper: '',
@@ -196,31 +205,31 @@
           popper: '',
           type: 'choose',
           pregunta: 'Es el objeto que tiene forma de círculo.',
-          opcionesImgsPrefix: '1',
+          opcionesImgsPrefix: '10',
           opciones: [],
-          respuestaNum: 00
+          respuestaNum: 2
       
           }, {
           instruction: '',
           popper: '',
           type: 'choose',
           pregunta: 'Selecciona la opción que contiene a los cuadriláteros.',
-          opcionesImgsPrefix: '1',
+          opcionesImgsPrefix: '11',
           opciones: [],
-          respuestaNum: 01
+          respuestaNum: 0
       
           }, {
-          instruction: '',
-          popper: '',
+          instruction: 'Observa la tabla y contesta las preguntas 12, 13 y 14.',
+          popper: '<img src="aimg/12.png" class="img-fluid">',
           type: 'choose',
           pregunta: 'Es el resultado de multiplicar 7 x 6.',
-          opcionesImgsPrefix: '1',
+          opcionesImgsPrefix: '12',
           opciones: [],
-          respuestaNum: 02
+          respuestaNum: 1
       
           }, {
-          instruction: '',
-          popper: '',
+          instruction: 'Observa la tabla y contesta las preguntas 12, 13 y 14.',
+          popper: '<img src="aimg/12.png" class="img-fluid">',
           type: 'choose',
           pregunta: '¿Qué relación hay entre los resultados de las multiplicaciones por 2 y por 4?',
       
@@ -232,19 +241,19 @@
           ],
           respuestaNum: 0
           }, {
-          instruction: '',
-          popper: '',
+          instruction: 'Observa la tabla y contesta las preguntas 12, 13 y 14.',
+          popper: '<img src="aimg/12.png" class="img-fluid">',
           type: 'choose',
           pregunta: 'Es la opción que representa el producto de la multiplicación 7 x 6.',
-          opcionesImgsPrefix: '1',
+          opcionesImgsPrefix: '14',
           opciones: [],
-          respuestaNum: 04
+          respuestaNum: 2
       
           }, {
           instruction: '',
           popper: '',
           type: 'choose',
-          pregunta: 'Son los años que faltan en la siguiente línea de la vida.',
+          pregunta: 'Son los años que faltan en la siguiente línea de la vida. <img src="aimg/15.png" class="img-fluid">',
       
           opcionesImgsPrefix: null,
           opciones: [
@@ -252,7 +261,7 @@
               '2015, 2017 y 2018.',
               '2012, 2016 y 2020.'
           ],
-          respuestaNum: 0
+          respuestaNum: 1
           }, {
           instruction: '',
           popper: '',
@@ -265,12 +274,12 @@
               '39 años.',
               '51 años.'
           ],
-          respuestaNum: 0
+          respuestaNum: 2
           }, {
           instruction: '',
           popper: '',
           type: 'choose',
-          pregunta: 'Observa las siguientes ilustraciones. ¿Cuál es el peso total de los 5 pollitos?',
+          pregunta: 'Observa las siguientes ilustraciones. ¿Cuál es el peso total de los 5 pollitos? <img src="aimg/17.png" class="img-fluid">',
       
           opcionesImgsPrefix: null,
           opciones: [
@@ -278,21 +287,21 @@
               '2 kg',
               '3 kg'
           ],
-          respuestaNum: 0
+          respuestaNum: 1
           }, {
           instruction: '',
           popper: '',
           type: 'choose',
           pregunta: 'Es el arreglo rectangular que representa la siguiente multiplicación.',
-          opcionesImgsPrefix: '1',
+          opcionesImgsPrefix: '18',
           opciones: [],
-          respuestaNum: 08
+          respuestaNum: 1
       
           }, {
           instruction: '',
           popper: '',
           type: 'choose',
-          pregunta: 'Observa la tabla. ¿Cuál es el platillo favorito de los alumnos de 2°?',
+          pregunta: 'Observa la tabla. ¿Cuál es el platillo favorito de los alumnos de 2°? <img src="aimg/19.png" class="img-fluid">',
       
           opcionesImgsPrefix: null,
           opciones: [
@@ -304,7 +313,7 @@
           }, {
           instruction: '',
           popper: '',
-          type: 'choose',
+          type: 'pregunta20',
           pregunta: 'Escribe el signo mayor que (>) menor que (≤) según corresponda.',
       
           opcionesImgsPrefix: null,
