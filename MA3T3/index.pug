@@ -19,19 +19,427 @@ html(lang="es")
             if subtitle.length>1
                 h2 #{subtitle}
 
-            +body(3000)
+            +body(autosec(120, 30))
         +scripts
             script.
 
                 app.$set(app, 'scenes', [
                     {
-                        instruction: '',
-                        popper: '',
-                        type: 'choose', 
-                        pregunta: '',
-                        opcionesImgsPrefix: null,
-                        opciones: [''],
-                        respuestaNum: 
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'En el cine, Alicia y sus dos hermanos compraron las entradas en $45 cada una, unas palomitas grandes para todos que costaron $37 y un refresco para cada uno de $12. ¿Cuánto gastaron en total?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '$201',
+                        '$210',
+                        '$208',
+                        '$221'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Cuatro payasos realizan malabares con bolos de boliche. Si cada uno usa 12 bolos para su acto, ¿cuántos bolos usan en total?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '56 bolos.',
+                        '48 bolos.',
+                        '50 bolos.',
+                        '24 bolos.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Tania tiene 200 bolitas de alimento para sus y 5 peces y debe repartirlas en partes iguales. ¿Cuántas le tocará a cada uno?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '45 bolitas.',
+                        '40 bolitas.',
+                        '35 bolitas.',
+                        '20 bolitas.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Juan vende limonada afuera de su casa. Si para cada litro de agua agrega 6 limones, ¿cuántos limones usará para 15 litros?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '105 limones.',
+                        '120 limones.',
+                        '72 limones.',
+                        '90 limones.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuál es el número que falta en la siguiente operación? <img src="aimg/5.png" class="img-fluid">',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '7',
+                        '9',
+                        '8',
+                        '6'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuál es la medida aproximada del ángulo representado por la abertura de las tijeras? <img src="aimg/6.png" class="img-fluid">',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '20°',
+                        '45°',
+                        '75°',
+                        '90°'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿De cuánto debe ser el giro del carro 2 para ir a la misma dirección que el 1? <img src="aimg/7.png" class="img-fluid">',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Medio giro.',
+                        'Un cuarto de giro a la derecha.',
+                        'Un cuarto de giro a la izquierda.',
+                        'Un giro entero.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'La hora que marca el siguiente reloj, representa un ángulo de: <img src="aimg/8.png" class="img-fluid">',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '90°',
+                        '20°',
+                        '45°',
+                        '65°'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Es el ángulo equivalente a dos ángulos rectos.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Obtuso.',
+                        'Llano.',
+                        'Agudo.',
+                        'Recto.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Es el punto donde se unen dos segmentos de recta para formar un ángulo.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Ángulo.',
+                        'Vértice.',
+                        'Arco.',
+                        'Giro.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Una liebre recorre un camino de 3 metros dando 2 saltos. ¿Con cuántos saltos recorrerá 9 metros?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '6 saltos.',
+                        '10 saltos.',
+                        '12 saltos.',
+                        '15 saltos.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Observa las figuras, ¿cuántos grados giró el triángulo verde para cambiar a la figura 20 <img src="aimg/12.png" class="img-fluid">',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '90°',
+                        '180°',
+                        '45°',
+                        '145°'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Mario tiene una caja con 25 balones y los va a repartir a 5 escuelas. ¿Cuántos balones le tocan a cada una?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '4 balones.',
+                        '5 balones.',
+                        '10 balones.',
+                        '6 balones.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Es el resultado de la siguiente operación. <img src="aimg/14.png" class="img-fluid">',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '100',
+                        '125',
+                        '120',
+                        '110'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: 'Lee el siguiente texto y contesta las preguntas 15 a 17.',
+                    popper: '<img src="aimg/15.png" class="img-fluid">',
+                    type: 'choose',
+                    pregunta: '¿Cuántos kilogramos es lo que venden de carne seca?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '3 kg',
+                        '4 kg',
+                        '5 kg',
+                        '7 kg'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: 'Lee el siguiente texto y contesta las preguntas 15 a 17.',
+                    popper: '<img src="aimg/15.png" class="img-fluid">',
+                    type: 'choose',
+                    pregunta: '¿Cuántos kilogramos venden de carne para tacos?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '10 kg',
+                        '5 kg',
+                        '15 kg',
+                        '12 kg'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: 'Lee el siguiente texto y contesta las preguntas 15 a 17.',
+                    popper: '<img src="aimg/15.png" class="img-fluid">',
+                    type: 'choose',
+                    pregunta: '¿Cuánto venden de bistec para asar?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '15 kg',
+                        '16 kg',
+                        '12 kg',
+                        '17 kg'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Ana utiliza 2 metros de tela para hacer una bufanda. Si tiene 25 metros, ¿cuántas bufandas podrá realizar?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '11 bufandas.',
+                        '12 bufandas.',
+                        '10 bufandas.',
+                        '9 bufandas.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Argelia prepara galletas y gelatinas. Para las galletas utiliza 3 <div class=fr>2<hr>4</div>  kg de azúcar y para las gelatinas <div class=fr>5<hr>8</div> kg. ¿Cuánta azúcar necesita en total?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '3 <div class=fr>3<hr>4</div> kg',
+                        '4 <div class=fr>1<hr>8</div> kg',
+                        '3 <div class=fr>2<hr>4</div> kg',
+                        '3 <div class=fr>5<hr>8</div> kg'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Es el resultado de la siguiente división. <img src="aimg/20.png" class="img-fluid">',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '80',
+                        '83',
+                        '81',
+                        '84'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Es el reloj cuyas manecillas representan un ángulo de 130°.',
+                    opcionesImgsPrefix: '21',
+                    opciones: [],
+                    respuestaNum: 0
+
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Si José tiene $350 para repartir entre sus 5 sobrinos, ¿cuánto le tocará a cada uno?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '$30',
+                        '$50',
+                        '$70',
+                        '$60'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Es el fragmento que está entre dos puntos.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Ángulo.',
+                        'Giro.',
+                        'Vértice.',
+                        'Segmento de recta.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Leticia fue al supermercado. Llevaba en su cartera 2 billetes de $200, 1 de $100 y 3 de $50. Si pagó una cuenta de $435, ¿cuánto dinero le sobró?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '$215',
+                        '$175',
+                        '$105',
+                        '$150'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuál es el nombre del ángulo que tiene una abertura de 90°?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Agudo.',
+                        'Obtuso.',
+                        'Llano.',
+                        'Recto.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuál es el nombre del ángulo que mide menos de 90°?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Llano.',
+                        'Obtuso.',
+                        'Agudo.',
+                        'Recto.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuál es el nombre del ángulo que mide más de 90°?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Llano.',
+                        'Recto.',
+                        'Obtuso.',
+                        'Agudo.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Nancy compró <div class=fr>1<hr>4</div> de kg de carne el lunes, <div class=fr>7<hr>8</div> kg el martes, 1 kg el miércoles y <div class=fr>1<hr>2</div> kg el jueves. ¿Cuántos kilos compró en total?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '3 <div class=fr>3<hr>8</div> kg',
+                        '2 <div class=fr>5<hr>8</div> kg',
+                        '1 <div class=fr>1<hr>4</div> kg',
+                        '2 <div class=fr>3<hr>4</div> kg'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'En la paletería venden aguas frescas, si los botes tienen capacidad de 5 litros y el agua de limón se encuentra a 3 4 de la capacidad, ¿cuánta agua de limón se vendió?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '2 <div class=fr>3<hr>8</div> litros.',
+                        '2 litros.',
+                        '4 <div class=fr>1<hr>4</div> litros.',
+                        '3 <div class=fr>1<hr>8</div> litros.'
+                    ],
+                    respuestaNum: 0
+                    }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuál es el resultado de las siguientes operaciones?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '15 X 15 = 225',
+                        '4 x 20 = 80',
+                        '400 ÷ 10 = 40',
+                        '420 ÷ 7 = 60',
+                    ],
+                    respuestaNum: 0
                     },
+
                     
                 ])

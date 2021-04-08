@@ -861,7 +861,7 @@ input[type=number] {
   line-height: 9999px;
   height: 0;
 }
-.frc {
+.frc, .fr {
   display: inline-block;
   justify-content: center;
   align-items: center;
@@ -873,7 +873,7 @@ input[type=number] {
   border: none !important;
   box-shadow: none !important;
 }
-.frc hr {
+.frc hr, .fr hr {
   border-top: 4px solid var(--sec);
   margin: 1px 0;
 }
