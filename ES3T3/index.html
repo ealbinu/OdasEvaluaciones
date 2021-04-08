@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>Español</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">º</span></h1>
+      <h1><span class="grade">3º</span>Español</h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started" :class="'scene_'+index">
         <div class="row">
@@ -49,7 +49,7 @@
       <!-- TEST SCREENSHOTS ####-->
       <!-- .row: .col-3(v-for="(i, index) in screen"): img(:src="i").w-100-->
       <!-- Counter >>>>>>>>>>-->
-      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total" :segundos="3000"></counter>
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total" :segundos="3600"></counter>
       <!-- Navigation >>>>>>>>>>>>>>>-->
       <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event" :answereds="r"></navigation>
     </div>
@@ -75,14 +75,427 @@
     <script>
       app.$set(app, 'scenes', [
           {
-              instruction: '',
-              popper: '',
-              type: 'choose', 
-              pregunta: '',
-              opcionesImgsPrefix: null,
-              opciones: [''],
-              respuestaNum: 
+          instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+          popper: '<img src="aimg/1.png" class="img-fluid">',
+          type: 'choose',
+          pregunta: '¿Cuántos años tenía Alondra cuando estudió piano?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Quince años.',
+              'Diez años.',
+              'Siete años.',
+              'Trece años.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+          popper: '<img src="aimg/1.png" class="img-fluid">',
+          type: 'choose',
+          pregunta: '¿Cómo se llama el álbum debut de Alondra de la Parra?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Huapango.',
+              'Moncayo.',
+              'Mi alma americana.',
+              'Mi alma mexicana.'
+          ],
+          respuestaNum: 3
+          }, {
+          instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+          popper: '<img src="aimg/1.png" class="img-fluid">',
+          type: 'choose',
+          pregunta: '¿Cuál es el trabajo de Alondra como directora de orquesta?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Tocar el piano y el violín.',
+              'Observar y animar a los músicos.',
+              'Coordinar a los músicos y llevar el ritmo de la música.',
+              'Tocar el arpa y coordinar a los músicos.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+          popper: '<img src="aimg/1.png" class="img-fluid">',
+          type: 'choose',
+          pregunta: '¿Cuál es la orquesta que fundó Alondra de la Parra?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'La Orquesta Filarmónica de Jalisco.',
+              'La Orquesta Filarmónica de los Ángeles.',
+              'La Orquesta Filarmónica de México.',
+              'La Orquesta Filarmónica de las Américas.'
+          ],
+          respuestaNum: 3
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Qué tipo de texto informativo está conformado por introducción, desarrollo y conclusiones?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Tabla de doble entrada.',
+              'Diario de observaciones.',
+              'Tabla de registro de datos.',
+              'Reporte de encuesta.'
+          ],
+          respuestaNum: 3
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Son adjetivos que describen a la siguiente imagen. <img src="aimg/6.png" class="img-fluid">',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Grande y frondoso.',
+              'Rápido y delgado.',
+              'Detrás y arriba.',
+              'Quieto y alto.'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Para qué se usan los adverbios y los adjetivos en los cuentos?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Para describir mejor a los personajes y escenarios.',
+              'Para ubicar el lugar donde sucede un acontecimiento.',
+              'Para mencionar cuál es el inicio, el desarrollo y el final.',
+              'Para ubicar cuál es la idea principal del cuento.'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuál es la función de los adverbios?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Ubicar el espacio en el que sucede la acción.',
+              'Modificar los verbos y los adjetivos.',
+              'Describir la situación que sucede.',
+              'Definir las acciones que realizan los personajes.'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Son algunos ejemplos de adjetivos calificativos, excepto uno. ¿Cuál es?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Egoísta.',
+              'Tímido.',
+              'Probablemente.',
+              'Trabajador.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Elige el adjetivo que completa la oración. <img src="aimg/10.png" class="img-fluid">',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'hermosas',
+              'alegría',
+              'bosque',
+              'tranquilamente'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es un ejemplo de un adverbio de tiempo.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Alguien.',
+              'Después.',
+              'Cualquiera.',
+              'Nosotros.'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cómo se les llama a los lugares donde se desarrollan o suceden los hechos de un cuento?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Espacios.',
+              'Antagonistas.',
+              'Escenarios.',
+              'Protagonistas.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es un ejemplo de adverbio.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Perro.',
+              'Amablemente.',
+              'Correr.',
+              'd Los.'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Qué tipo de preguntas se deben hacer en una encuesta para obtener informacion precisa?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Complicadas.',
+              'Ambiguas.',
+              'Abiertas.',
+              'Cerradas.'
+          ],
+          respuestaNum: 3
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Las siguientes son preguntas cerradas, excepto una. ¿Cuál es?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '¿Te sirvo pan o fruta?',
+              '¿Qué piensas de la extinción de los dinosaurios?',
+              '¿Fuiste al cine ayer?',
+              '¿Te gustan las mascotas?'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es la parte del informe de encuesta en la que se explica para qué se hizo, a quiénes, con qué objetivo y en qué población.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Título de la encuesta.',
+              'Introducción.',
+              'Desarrollo.',
+              'Conclusiones.'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Elige el nexo que completa de manera correcta la siguiente oración. <img src="aimg/17.png" class="img-fluid">',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'porque',
+              'pues',
+              'por ejemplo',
+              'en cambio'
+          ],
+          respuestaNum: 3
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuál de las siguientes preguntas está escrita de forma correcta?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Quién es el doctor?',
+              'por donde pasamos ayer.',
+              '¿Dónde está la montaña?',
+              '¿Es usted el más alto.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es el nombre que se le da al autor de una adivinanza.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Adivino.',
+              'Adivinancero.',
+              'Adivinador.',
+              'Adivinando.'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Qué es una adivinanza?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Un pasatiempo a manera de acertijo que alguien resuelve mediante pistas.',
+              'Una historia con moraleja protagonizada por animales.',
+              'Un texto escrito en verso que expresa sentimientos.',
+              'El relato de la vida de una persona escrito en tercera persona.'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es el recurso literario más utilizado en las adivinanzas, refranes, chistes y trabalenguas.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Sinalefa.',
+              'Onomatopeya.',
+              'Aliteración.',
+              'Juego de palabras.'
+          ],
+          respuestaNum: 3
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es la persona que tiene el conocimiento del uso y beneficio de las propiedades curativas de las hierbas, plantas y flores.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Doctor.',
+              'Yerbero.',
+              'Plantero.',
+              'Curador.'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es la medicina que se basa en el uso de plantas y hierbas para remediar algunos malestares pasajeros.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Medicina nuclear.',
+              'Medicina mágica.',
+              'Medicina tradicional.',
+              'Medicina alópata.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Son algunos elementos que tienen las recetas de remedios caseros, excepto uno. ¿Cuál es?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Título.',
+              'Ingredientes.',
+              'Forma de preparación.',
+              'Síntomas del paciente.'
+          ],
+          respuestaNum: 3
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es el nombre de los verbos que terminan en -ar, -er, -ir.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Infinitivo.',
+              'Transitivos.',
+              'Auxiliares.',
+              'Reflexivos.'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Son instrucciones que emplean verbos en infinitivo, excepto una. ¿Cuál es?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Cortar finamente las raíces.',
+              'Verter el jugo en el recipiente.',
+              'Disuelve la sal en agua.',
+              'Escurrir los fomentos.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Son palabras que pertenecen a la misma familia léxica, excepto una. ¿Cuál es?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Cortar.',
+              'Corte.',
+              'Cortador.',
+              'Casa.'
+          ],
+          respuestaNum: 3
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuáles son los tipos de instructivos en los que se explica paso a paso cómo preparar algún alimento?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Prescripción.',
+              'Manual.',
+              'Recetas.',
+              'Folleto.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Son las palabras que están escritas de manera correcta.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Mogado, esperansa, borador.',
+              'Biaje, biejo, vodega.',
+              'Gato, espejo, astronomía.',
+              'Fuersa, ezpia, sologico.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cómo se le llama a la recopilación de recetas organizadas por malestar u orden alfabético?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Compendio.',
+              'Álbum.',
+              'Escaparate.',
+              'Recetario.',
+          ],
+          respuestaNum: 3
           },
+      
           
       ])
     </script>
