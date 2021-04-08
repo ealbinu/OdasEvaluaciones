@@ -3,17 +3,40 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>Matemáticas</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../../assets/font/stylesheet.css?v=7"/>
     <link rel="stylesheet" href="../../assets/assets.css?v=7"/>
-    <style></style>
+    <style>
+      .pregunta25 .inputbox {
+          border: 4px solid #7D8FBB;
+          border-left: none;
+          border-right: none;
+          margin: 0;
+      }
+      .pregunta25 .inputbox .inputbox__before img {
+          max-width: 120px;
+      }
+      .pregunta25 .inputbox input {
+          background: #f5f5f5;
+      }
+      .pregunta26 .inputbox .inputbox__before {
+          white-space: nowrap;
+      }
+      .pregunta26 .inputbox input {
+          background: #f5f5f5;
+          max-width: 120px;
+      }
+      
+      
+      
+    </style>
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">º</span></h1>
+      <h1><span class="grade">4º</span>Matemáticas</h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started" :class="'scene_'+index">
         <div class="row">
@@ -36,6 +59,26 @@
               <template v-slot:option="{option}">{{option.o}}</template>
             </selectableoptions>
           </template>
+          <template v-if="i.type=='pregunta25'">
+            <div class="choose pregunta25">
+              <div class="label"><strong>25.</strong> <span>Enumera los recipientes de mayor a menor según su capacidad.</span></div>
+              <div class="options">
+                <div class="position-relative">
+                  <inputbox :key="24" v-model="r[24]" :ref="refCount()" @isright="right++" type="number" placeh="#" :before="['&lt;img src=aimg/25a.png&gt;', '&lt;img src=aimg/25b.png&gt;', '&lt;img src=aimg/25c.png&gt;']" :answer="[2, 3, 1]"></inputbox>
+                </div>
+              </div>
+            </div>
+          </template>
+          <template v-if="i.type=='pregunta26'">
+            <div class="choose pregunta26">
+              <div class="label"><strong>26.</strong> <span>Resuelve las siguientes divisiones y escribe el resultado.</span></div>
+              <div class="options">
+                <div class="position-relative">
+                  <inputbox :key="25" v-model="r[25]" :ref="refCount()" @isright="right++" type="number" placeh="#" :before="['1 236 ÷ 8 =', '5 676 ÷ 12 =', '9 748 ÷ 48 =']" :answer="[154, 473, 9748]"></inputbox>
+                </div>
+              </div>
+            </div>
+          </template>
         </div>
       </div>
       <!-- SCENES FINALIZAR ############################################-->
@@ -49,7 +92,7 @@
       <!-- TEST SCREENSHOTS ####-->
       <!-- .row: .col-3(v-for="(i, index) in screen"): img(:src="i").w-100-->
       <!-- Counter >>>>>>>>>>-->
-      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total" :segundos="3000"></counter>
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total" :segundos="3120"></counter>
       <!-- Navigation >>>>>>>>>>>>>>>-->
       <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event" :answereds="r"></navigation>
     </div>
@@ -75,14 +118,366 @@
     <script>
       app.$set(app, 'scenes', [
           {
-              instruction: '',
-              popper: '',
-              type: 'choose', 
-              pregunta: '',
-              opcionesImgsPrefix: null,
-              opciones: [''],
-              respuestaNum: 
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Un carpintero usó 324 clavos en el armado de varias sillas. Si en cada silla utilizó 9 clavos, ¿cuántas sillas armó?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '63 sillas.',
+              '36 sillas.',
+              '46 sillas.',
+              '64 sillas.'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Laura tiene 5 cajas de 15 fichas cada una. Si las quiere colocar en torres de 8 fichas, ¿cuántas torres podrá formar?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '9 torres y sobran 3 fichas.',
+              '7 torres y sobran 0 fichas.',
+              '10 torres y sobran 2 fichas.',
+              '8 torres y sobran 5 fichas.'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Carmen acomoda 8 huevos en una caja. Si quiere acomodar 168 huevos, ¿cuántas cajas necesita?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '23 cajas.',
+              '22 cajas.',
+              '21 cajas.',
+              '20 cajas.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'En la escuela primaria "Mariano Azuela", se llevó a cabo un concurso de canto. Si el equipo de Sonia obtuvo 216 puntos en total, de 6 pruebas, ¿cuántos puntos obtuvieron en cada prueba si en todas sacaron el mismo puntaje?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '33 puntos.',
+              '35 puntos.',
+              '34 puntos.',
+              '36 puntos.'
+          ],
+          respuestaNum: 3
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es el perímetro de la siguiente figura. Considera que cada lado de un cuadrado mide 1 cm. <img src="aimg/5.png" class="img-fluid">',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '16 cm',
+              '28 cm',
+              '61 cm',
+              '82 cm'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es el área de la siguiente figura. Considera que cada cuadrado equivale a 1 cm2. <img src="aimg/6.png" class="img-fluid">',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '17 cm2',
+              '36 cm2',
+              '71 cm2',
+              '63 cm2'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Julio tiene 3 repisas como las siguientes para acomodar su colección de carritos. ¿Cuántos carros puede acomodar en total? <img src="aimg/7.png" class="img-fluid">',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '9 carros.',
+              '18 carros.',
+              '20 carros.',
+              '17 carros.'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'En la sala del cine hay 12 filas con 9 asientos cada una. ¿Cuántos asientos hay en total?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '21 asientos.',
+              '108 asientos.',
+              '100 asientos.',
+              '120 asientos.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Selecciona la opción que representa las siguientes fracciones ordenadas  <img src="aimg/9.png" class="img-fluid">',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '<div class=fr>3<hr>12</div>, <div class=fr>3<hr>6</div>, <div class=fr>1<hr>3</div> y <div class=fr>2<hr>3</div>.',
+              '<div class=fr>1<hr>3</div>, <div class=fr>2<hr>3</div>, <div class=fr>3<hr>6</div> y <div class=fr>3<hr>12</div>.',
+              '<div class=fr>2<hr>3</div>, <div class=fr>3<hr>6</div>, <div class=fr>1<hr>3</div> y <div class=fr>3<hr>12</div>.',
+              '<div class=fr>3<hr>12</div>, <div class=fr>1<hr>3</div>, <div class=fr>3<hr>6</div> y <div class=fr>2<hr>3</div>.'
+          ],
+          respuestaNum: 3
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Son los numeradores y denominadores que faltan en las siguientes fracciones para que sean equivalentes. <img src="aimg/10.png" class="img-fluid">',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '45, 23, 12 y 10.',
+              '11, 13, 21 y 21.',
+              '10, 12, 20 y 20.',
+              '20, 15, 30 y 30.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Raquel bordó <div class=fr>2<hr>8</div> de un mantel. Si Tere bordó el triple que Raquel, ¿qué fracción del mantel bordó?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '<div class=fr>3<hr>4</div>',
+              '<div class=fr>1<hr>2</div>',
+              '<div class=fr>2<hr>8</div>',
+              '<div class=fr>4<hr>8</div>'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es la tercera parte de <div class=fr>3<hr>9</div>',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '<div class=fr>3<hr>4</div>',
+              '<div class=fr>1<hr>9</div>',
+              '<div class=fr>2<hr>8</div>',
+              '<div class=fr>4<hr>8</div>'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuántos círculos tendrá la figura 5? <img src="aimg/13.png" class="img-fluid">',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '12 círculos.',
+              '15 círculos.',
+              '13 círculos.',
+              '11 círculos.'
+          ],
+          respuestaNum: 3
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es la mascota que representa la moda en la siguiente tabla de datos. <img src="aimg/14.png" class="img-fluid">',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Perro.',
+              'Cotorro.',
+              'Gato.',
+              'Canario.'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Guillermo hace un papalote con 2 metros de papel. ¿Cuántos papalotes puede hacer con 340 metros?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '150 papalotes.',
+              '170 papalotes.',
+              '160 papalotes.',
+              '180 papalotes.'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Cristian tiene 621 estampas. Si las quiere repartir entre sus 23 compañeros del salón de clases, ¿cuántas estampas le tiene que dar a cada uno?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '72 estampas.',
+              '52 estampas.',
+              '35 estampas.',
+              '27 estampas.'
+          ],
+          respuestaNum: 3
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Rubén tiene ahorrado $323. Si quiere ahorrar $500, ¿cuánto le falta?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '$237',
+              '$337',
+              '$137',
+              '$177'
+          ],
+          respuestaNum: 3
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'En un tren van a viajar 360 personas. Si el tren tiene 8 vagones, ¿cuántas personas viajarán en un vagón?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '54 personas.',
+              '45 personas.',
+              '47 personas.',
+              '50 personas.'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Rodrigo quiere repartir 345 litros de agua en 24 recipientes. ¿Cuántos litros tiene que vaciar en cada recipiente cuántos litros le sobran?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '15 litros y sobran 3.',
+              '13 litros y sobran 7.',
+              '14 litros y sobran 9.',
+              '16 litros y sobran 9.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuántos recipientes de <div class=fr>1<hr>4</div> puedo llenar con un recipiente de un litro?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '2 recipientes.',
+              '3 recipientes.',
+              '4 recipientes.',
+              '6 recipientes.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Ana llenó su termo con seis vasos de <div class=fr>1<hr>4</div> litro. ¿Qué capacidad tiene su termo?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '1 <div class=fr>1<hr>2</div> 𝓵',
+              '2 𝓵',
+              '1 𝓵',
+              '1 <div class=fr>3<hr>4</div> 𝓵'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuál es el perímetro y el área de la siguiente figura? Cada cuadro equivale a 1 cm<sup>2</sup>. <img src="aimg/22.png" class="img-fluid">',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Perímetro 24 cm y área 29 cm?.',
+              'Perímetro 29 cm y área 23 cm2.',
+              'Perímetro 28 cm y área 27 cm2.',
+              'Perímetro 32 cm área 21 cm2.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuál es la fórmula para calcular el área de un rectángulo?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'A = b x h',
+              'A = <div class=fr>b x h<hr>2</div>',
+              'A = <div class=fr>p x a<hr>2</div>',
+              'A = D x d'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'En el estacionamiento de la plaza ABC, hay 4 filas con 23 cajones para los carros chicos y 3 filas con 12 cajones para carros grandes. ¿Cuántos carros chicos y grandes caben en el estacionamiento de la plaza ABC?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '89 carros chicos y 19 grandes.',
+              '90 carros chicos y 63 grandes.',
+              '92 carros chicos y 36 grandes.',
+              '29 carros chicos y 63 grandes.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'pregunta25',
+          pregunta: 'Enumera los recipientes de mayor a menor según su capacidad.',
+          opcionesImgsPrefix: '2',
+          opciones: [],
+          respuestaNum: 05
+      
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'pregunta26',
+          pregunta: 'Resuelve las siguientes divisiones y escribe el resultado.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '236 ÷ 8: 154',
+              '5 676 ÷ 12 = 473',
+              '9 748 ÷ 48 = 9 748',
+          ],
+          respuestaNum: 05
+      
           },
+      
           
       ])
     </script>
