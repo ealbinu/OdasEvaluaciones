@@ -3,7 +3,7 @@ include ../assets/pug/_body
 include ../assets/pug/_scripts
 
 - grade = '1º'
-- title = 'Conocimiento del Medio'
+- title = 'Español'
 - subtitle = ''
 
 <!DOCTYPE html>
@@ -30,7 +30,7 @@ html(lang="es")
                         .label
                             strong 25.
                             span Une con una línea las palabras que tienen el mismo significado.
-                        .options: relational(:key="25" v-model="r[25]" :ref="refCount()" @isright="right++" :sources="['Dinero', 'Camión', 'Gorra']" :targets="['Autobús', 'Cachucha', 'Lana']" :oks="[['s_0', 't_2'], ['s_1', 't_0'], ['s_2', 't_1']]")
+                        .options: relational(:key="24" v-model="r[24]" :ref="refCount()" @isright="right++" :sources="['Dinero', 'Camión', 'Gorra']" :targets="['Autobús', 'Cachucha', 'Lana']" :oks="[['s_0', 't_2'], ['s_1', 't_0'], ['s_2', 't_1']]")
                             template(v-slot:source="{source}"): div.label {{source}}
                             template(v-slot:target="{target}"): div.label {{target}}
         +scripts

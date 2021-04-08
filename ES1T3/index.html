@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Conocimiento del Medio</title>
+    <title>Español</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
@@ -20,7 +20,7 @@
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">1º</span>Conocimiento del Medio</h1>
+      <h1><span class="grade">1º</span>Español</h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started" :class="'scene_'+index">
         <div class="row">
@@ -47,7 +47,7 @@
             <div class="choose">
               <div class="label"><strong>25.</strong><span>Une con una línea las palabras que tienen el mismo significado.</span></div>
               <div class="options">
-                <relational :key="25" v-model="r[25]" :ref="refCount()" @isright="right++" :sources="['Dinero', 'Camión', 'Gorra']" :targets="['Autobús', 'Cachucha', 'Lana']" :oks="[['s_0', 't_2'], ['s_1', 't_0'], ['s_2', 't_1']]">
+                <relational :key="24" v-model="r[24]" :ref="refCount()" @isright="right++" :sources="['Dinero', 'Camión', 'Gorra']" :targets="['Autobús', 'Cachucha', 'Lana']" :oks="[['s_0', 't_2'], ['s_1', 't_0'], ['s_2', 't_1']]">
                   <template v-slot:source="{source}">
                     <div class="label">{{source}}</div>
                   </template>
