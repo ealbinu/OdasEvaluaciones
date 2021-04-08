@@ -49,7 +49,7 @@
       <!-- TEST SCREENSHOTS ####-->
       <!-- .row: .col-3(v-for="(i, index) in screen"): img(:src="i").w-100-->
       <!-- Counter >>>>>>>>>>-->
-      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total" :segundos="3000"></counter>
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total" :segundos="3600"></counter>
       <!-- Navigation >>>>>>>>>>>>>>>-->
       <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event" :answereds="r"></navigation>
     </div>
@@ -75,14 +75,421 @@
     <script>
       app.$set(app, 'scenes', [
           {
-              instruction: '',
-              popper: '',
-              type: 'choose', 
-              pregunta: '',
-              opcionesImgsPrefix: null,
-              opciones: [''],
-              respuestaNum: 
+          instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+          popper: '<img src="aimg/1.png" class="img-fluid">',
+          type: 'choose',
+          pregunta: '¿Cuál es el nombre actual de Valladolid?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Hidalgo.',
+              'Morelia.',
+              'Guadalajara.',
+              'Guanajuato.'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+          popper: '<img src="aimg/1.png" class="img-fluid">',
+          type: 'choose',
+          pregunta: '¿Dónde conoció Morelos al señor cura Miguel Hidalgo?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'En la playa de Acapulco.',
+              'En el Congreso de Chilpancingo.',
+              'En el Colegio de Dolores.',
+              'En el Colegio de San Nicolás.'
+          ],
+          respuestaNum: 3
+          }, {
+          instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+          popper: '<img src="aimg/1.png" class="img-fluid">',
+          type: 'choose',
+          pregunta: '¿Qué motivó a Morelos a unirse a la lucha por la Independencia de México?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Buscar igualdad y justicia para los mexicanos.',
+              'Volverse rico y famoso con sus acciones.',
+              'Que todos lo conocieran en Acapulco.',
+              'Seguir siendo sacerdote en los pueblitos de Michoacán.'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+          popper: '<img src="aimg/1.png" class="img-fluid">',
+          type: 'choose',
+          pregunta: '¿Que nombre le dio la historia a Morelos?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'El Centauro del Norte.',
+              'El Manco de Lepanto.',
+              'El Caudillo del Sur.',
+              'El Siervo de la Nación.'
+          ],
+          respuestaNum: 3
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Son las partes de la estructura de la narración, excepto una. ¿Cuál es?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Inicio.',
+              'Personaje.',
+              'Nudo.',
+              'Desenlace.'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Qué tipo de discurso emplea el narrador cuando repite lo que dijeron los personajes?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Discurso directo.',
+              'Discurso metafórico.',
+              'Discurso indirecto.',
+              'Discurso repetido.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es el elemento de un relato tradicional en el que se resuelve el conflicto de la historia narrada.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Inicio.',
+              'Nudo.',
+              'Desenlace.',
+              'Título.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es el tiempo verbal que usa el narrador para contarnos el relato.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Presente simple.',
+              'Futuro.',
+              'Pasado simple.',
+              'Copretérito.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Elige la opción que corresponde a un diálogo en discurso indirecto dentro de un relato.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '-- La maestra nos dijo que ya debíamos estar terminando.',
+              'Fue un gran día para los muchachos del colegio.',
+              'Ella le dijo "prende las luces antes de entrar".',
+              'El gato saltó hasta el techo.'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿En qué casos se acentúan los verbos en las narraciones de relatos tradicionales?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Todos los Verbos se acentúan en los relatos tradicionales.',
+              'Los verbos conjugados en copretérito y pospretérito.',
+              'Los verbos que se encuentran en presente perfecto.',
+              'Los verbos que estén en tiempo pasado y conjugados en primera y tercera persona del singular.'
+          ],
+          respuestaNum: 3
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Elige los verbos en presente que completan correctamente el diálogo indirecto. <img src="aimg/11.png" class="img-fluid">',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'saltó / caminó',
+              'fue / voló',
+              'camina / canta',
+              'ladró / maulló'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es el elemento de la narración que se encarga de contarnos el relato.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'El título.',
+              'El narrador.',
+              'El planteamiento.',
+              'Los personajes.'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Qué datos importantes debes escribir en un formulario para el préstamo de libros en la biblioteca?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'El libro y la persona que lo solicita.',
+              'El bibliotecario y la dirección de la biblioteca.',
+              'La fecha de impresión y la editorial del libro.',
+              'El número de páginas y la portada del libro.'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Elige la opción en la que están escritas las siglas de una institución.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'C. P.',
+              'Atte.',
+              'INEGI.',
+              'a. m.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Son los dócuentos oficiales que te dan identidad, excepto uno. ¿Cuál es?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Pasaporte.',
+              'Credencial de la biblioteca.',
+              'Acta de nacimiento.',
+              'Cartilla de vacunación.'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuál de los siguientes nombres estaría bien escrito en un formulario?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Salvador Guzmán Salgado.',
+              'Pancho "el flaco".',
+              'Lupita lopez.',
+              'José María.'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿En qué modo verbal están las siguientes indicaciones para obtener datos de un formulario? <img src="aimg/17.png" class="img-fluid">',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Indicativo.',
+              'Subjuntivo.',
+              'Imperativo.',
+              'Infinitivo.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: 'Lee el siguiente texto y contesta las preguntas 18 a 21.',
+          popper: '<img src="aimg/18.png" class="img-fluid">',
+          type: 'choose',
+          pregunta: '¿Qué tipo de texto es el que acabas de leer?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Cuento.',
+              'Biografía.',
+              'Reportaje.',
+              'Leyenda.'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: 'Lee el siguiente texto y contesta las preguntas 18 a 21.',
+          popper: '<img src="aimg/18.png" class="img-fluid">',
+          type: 'choose',
+          pregunta: '¿Qué tipo de escenarios usa el escritor en sus cuentos, según su biografía?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Castillos y bosques encantados.',
+              'Playas y carreteras.',
+              'Las nubes y el espacio.',
+              'Edificios y ciudades.'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: 'Lee el siguiente texto y contesta las preguntas 18 a 21.',
+          popper: '<img src="aimg/18.png" class="img-fluid">',
+          type: 'choose',
+          pregunta: 'Son los datos sobre la vida del autor que podemos encontrar en la biografía, excepto uno. ¿Cuál es?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Nombre.',
+              'Lugar donde nació.',
+              'Año en que nació.',
+              'Comida favorita.'
+          ],
+          respuestaNum: 3
+          }, {
+          instruction: 'Lee el siguiente texto y contesta las preguntas 18 a 21.',
+          popper: '<img src="aimg/18.png" class="img-fluid">',
+          type: 'choose',
+          pregunta: '¿En dónde nació Charles Perrault?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Burdeos, Francia.',
+              'Liverpool, Inglaterra.',
+              'París, Francia.',
+              'Tokio, Japón.'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es la parte del cuento en la que se narra lo que pasa y cómo pasa en la historia.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Ambiente.',
+              'Escenario.',
+              'Tiempo.',
+              'Trama.'
+          ],
+          respuestaNum: 3
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Qué información debemos escribir en la conclusión de una biografía sobre un autor?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Comentarios sobre algunas de sus obras.',
+              'Por qué vale la pena leerlo.',
+              'Datos relevantes de la vida del autor.',
+              'Introducción al tema.'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cómo se redacta una nota periodística para que la información vaya de mayor a menor importancia?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Contando primero lo que la gente vio.',
+              'Estructurando la información como pirámide invertida.',
+              'Poniendo el título de la nota al final.',
+              'Poniendo la información más importante al final.'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es la parte de la nota periodística que presenta a manera de resumen la información más importante en el primer párrafo.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Título.',
+              'Entrada.',
+              'Cuerpo de la noticia.',
+              'Complementos.'
+          ],
+          respuestaNum: 1
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuál es el nombre que recibe el título en una nota periodística?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Presentación.',
+              'Introducción.',
+              'Entrada.',
+              'Encabezado.'
+          ],
+          respuestaNum: 3
+          }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿De qué forma debe redactarse la nota periodística?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'En tercera persona.',
+              'En segunda persona.',
+              'En primera persona.',
+              'En cuarta persona.'
+          ],
+          respuestaNum: 0
+          }, {
+          instruction: 'Lee la siguiente nota periodística y contesta las preguntas 28 a 30.',
+          popper: '<img src="aimg/28.png" class="img-fluid">',
+          type: 'choose',
+          pregunta: '¿A qué pregunta responde el segundo párrafo de la nota periodística?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '¿Qué sucedió?',
+              '¿Cuándo sucedió?',
+              '¿Por qué sucedió?',
+              '¿Quiénes participaron?'
+          ],
+          respuestaNum: 2
+          }, {
+          instruction: 'Lee la siguiente nota periodística y contesta las preguntas 28 a 30.',
+          popper: '<img src="aimg/28.png" class="img-fluid">',
+          type: 'choose',
+          pregunta: '¿Qué respuesta obtienes si preguntas dónde ocurrió el suceso de la nota periodística?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'En las pistas de atletismo.',
+              'El 2 de julio.',
+              'La Secretaría del Medio Ambiente.',
+              'En la Ciudad de México.'
+          ],
+          respuestaNum: 3
+          }, {
+          instruction: 'Lee la siguiente nota periodística y contesta las preguntas 28 a 30.',
+          popper: '<img src="aimg/28.png" class="img-fluid">',
+          type: 'choose',
+          pregunta: '¿Cuál es la imagen que complementa mejor la nota periodística?',
+          opcionesImgsPrefix: '30',
+          opciones: [],
+          respuestaNum: 1
           },
+      
           
       ])
     </script>
