@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>Formación Cívica y Ética</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">º</span></h1>
+      <h1><span class="grade">5º</span>Formación Cívica y Ética</h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started" :class="'scene_'+index">
         <div class="row">
@@ -75,14 +75,146 @@
     <script>
       app.$set(app, 'scenes', [
           {
-              instruction: '',
-              popper: '',
-              type: 'choose', 
-              pregunta: '',
-              opcionesImgsPrefix: null,
-              opciones: [''],
-              respuestaNum: 
-          },
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es una organización que se encarga de garantizar a los ciudadanos el acceso a la información pública.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'INAI.',
+              'INEGI.',
+              'INAH.',
+              'INE.'
+          ],
+          respuestaNum: 0
+      }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es el proceso en que los gobernantes están obligados a informar sobre sus decisiones a los ciudadanos.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Ley de transparencia.',
+              'Asignación de recursos.',
+              'Rendición de cuentas.',
+              'Elecciones municipales.'
+          ],
+          respuestaNum: 2
+      }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Poder de la Federación que tiene la responsabilidad de aplicar las leyes.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Legislativo.',
+              'Judicial.',
+              'Ejecutivo.',
+              'Federal.'
+          ],
+          respuestaNum: 1
+      }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Tipo de gobierno donde el pueblo elige a sus representantes a través del voto.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Monárquico.',
+              'Democrático.',
+              'Absolutista.',
+              'Conservador.'
+          ],
+          respuestaNum: 1
+      }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es el resultado que se obtiene al incumplir las leyes o las reglas.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Una sanción.',
+              'Un conflicto.',
+              'Una riña.',
+              'Un indulto.'
+          ],
+          respuestaNum: 0
+      }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Representan formas para la toma de decisiones colectivas, excepto una. ¿Cuál es?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Imposición.',
+              'Acuerdo.',
+              'Votación.',
+              'Diálogo.'
+          ],
+          respuestaNum: 0
+      }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuál es un accidente que puede suceder en tu escuela?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Que no me despierte temprano.',
+              'Que me golpee un dedo con el sillón.',
+              'Que me tropiece por correr en el salón.',
+              'Que me tropiece en la banqueta.'
+          ],
+          respuestaNum: 2
+      }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuál es la finalidad de los acuerdos democráticos en una comunidad?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Realizar acciones colectivas siempre con respeto y equidad.',
+              'Elegir a un representante que realice las acciones de un grupo.',
+              'Realizar acciones personales sin tomar en cuenta a los demás.',
+              'Exigir a los demás que hagan lo que otra persona hace.'
+          ],
+          respuestaNum: 0
+      }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuál es una medida para contribuir al cuidado del ambiente en tu escuela?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Tirar basura en el patio.',
+              'Lavar mi plato después de comer.',
+              'Plantar árboles en la zona del jardín.',
+              'Comentar con mi familia qué es la contaminación.'
+          ],
+          respuestaNum: 2
+      }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es una forma de llegar a un acuerdo para resolver un problema en tu salón.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Que todos opinen al mismo tiempo.',
+              'Que el maestro elija un representante.',
+              'Llevar a cabo una votación.',
+              'Realizar un debate de todos contra todos.',
+          ],
+          respuestaNum: 2
+      },
           
       ])
     </script>
