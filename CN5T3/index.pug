@@ -2,8 +2,8 @@ include ../assets/pug/_head
 include ../assets/pug/_body
 include ../assets/pug/_scripts
 
-- grade = 'º'
-- title = ''
+- grade = '5º'
+- title = 'Ciencias Naturales'
 - subtitle = ''
 
 <!DOCTYPE html>
@@ -25,13 +25,357 @@ html(lang="es")
 
                 app.$set(app, 'scenes', [
                     {
-                        instruction: '',
-                        popper: '',
-                        type: 'choose', 
-                        pregunta: '',
-                        opcionesImgsPrefix: null,
-                        opciones: [''],
-                        respuestaNum: 
-                    },
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Son los materiales a través de los cuales se desplaza la energía eléctrica.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Perceptores.',
+                        'Aislantes.',
+                        'Recaudadores.',
+                        'Conductores.'
+                    ],
+                    respuestaNum: 3
+                }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Son ejemplos de materiales que conducen electricidad, excepto uno.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '¿Cuál es?',
+                        'Zinc.',
+                        'Latón.',
+                        'Hule.',
+                        'Cobre.'
+                    ],
+                    respuestaNum: 2
+                }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Para qué se utiliza principalmente la energía eléctrica?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Para el desplazamiento de algunos objetos.',
+                        'Para el funcionamiento de distintos aparatos.',
+                        'Para medir la energía que se produce.',
+                        'Para descubrir los tipos de sonidos que existen.'
+                    ],
+                    respuestaNum: 1
+                }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuáles son los materiales aislantes?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Aquellos que no permiten el corriente eléctrica.',
+                        'Aquellos que permiten el paso de la electricidad con mayor facilidad.',
+                        'Aquellos que consumen una gran porción de energía.',
+                        'Aquellos que producen energía.'
+                    ],
+                    respuestaNum: 0
+                }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuál es el cuerpo celeste de mayor tamaño en el sistema solar?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Luna.',
+                        'Tierra.',
+                        'Marte.',
+                        'Sol.'
+                    ],
+                    respuestaNum: 3
+                }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Qué tipo de cuerpo celeste es el Sol?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Una estrella.',
+                        'Un planeta.',
+                        'Un asteroide.',
+                        'Un satélite.'
+                    ],
+                    respuestaNum: 0
+                }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Es uno de los planetas gaseosos del sistema solar.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Mercurio.',
+                        'Urano.',
+                        'Venus.',
+                        'Tierra.'
+                    ],
+                    respuestaNum: 1
+                }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuál es el planeta más grande del sistema solar?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Venus.',
+                        'Marte.',
+                        'Júpiter.',
+                        'Mercurio.'
+                    ],
+                    respuestaNum: 2
+                }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Qué tipo de movimiento realizan los planetas cuando giran sobre sí mismos?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'De traslación.',
+                        'Ondulatorio.',
+                        'Rectilíneo.',
+                        'De rotación.'
+                    ],
+                    respuestaNum: 3
+                }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cómo se le Ilama al movimiento que realizan los planetas cuando giran alrededor del Sol?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'De traslación.',
+                        'De rotación.',
+                        'Transversal.',
+                        'Rectilíneo.'
+                    ],
+                    respuestaNum: 0
+                }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Son cuerpos muy pequeños de forma irregular que giran alrededor del Sol y que se mueven en órbitas elípticas.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Satélites.',
+                        'Asteroides.',
+                        'Meteoritos.',
+                        'Planetas.'
+                    ],
+                    respuestaNum: 1
+                }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Son cuerpos que se ubican alrededor de los planetas y no emiten luz propia.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Asteroides.',
+                        'Estrellas.',
+                        'Satélites.',
+                        'Cometas.'
+                    ],
+                    respuestaNum: 2
+                }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuál es el satélite natural de la Tierra?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'El Sol.',
+                        'Haumea.',
+                        'Saturno II.',
+                        'La Luna.'
+                    ],
+                    respuestaNum: 3
+                }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Es uno de los planetas que se encuentra ubicado en la región interior del sistema solar.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Marte.',
+                        'Júpiter.',
+                        'Saturno.',
+                        'Neptuno.'
+                    ],
+                    respuestaNum: 0
+                }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Nombre del astrónomo y matemático que comenzó a explorar la Luna.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Isaac Newton.',
+                        'Aristóteles.',
+                        'Ptolomeo.',
+                        'Galileo Galilei.'
+                    ],
+                    respuestaNum: 3
+                }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuál es el nombre del modelo que indicaba que el Sol se movía alrededor de la Tierra?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Geocéntrico.',
+                        'Heliocéntrico.',
+                        'Astronómico.',
+                        'Satelital.'
+                    ],
+                    respuestaNum: 0
+                }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuántos planetas tiene el sistema solar?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '9 planetas.',
+                        '7 planetas.',
+                        '6 planetas.',
+                        '8 planetas.'
+                    ],
+                    respuestaNum: 3
+                }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Es un ejemplo de material conductor de electricidad.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Aluminio.',
+                        'Porcelana.',
+                        'Vidrio.',
+                        'Madera.'
+                    ],
+                    respuestaNum: 0
+                }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Nombre del meteorito más grande conocido en la Tierra.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        '951 Gaspra.',
+                        'Hoba.',
+                        'El Chaco.',
+                        'Mbosi.'
+                    ],
+                    respuestaNum: 1
+                }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Nombre del aparato que libera una descarga eléctrica controlada en e pecho del paciente para restablecer el latido del corazón.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Desfibrilador.',
+                        '6 Ecógrafo.',
+                        'Colonoscopio.',
+                        'Esterilizador.'
+                    ],
+                    respuestaNum: 0
+                }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Nombre del primer satélite artificial que lanzó al espacio la Unión Soviética.',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Hubble.',
+                        'Spitzer.',
+                        'Chandra.',
+                        'Sputnik I.'
+                    ],
+                    respuestaNum: 3
+                }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: 'Son cuerpos que se ubican alrededor del Sol, excepto uno. ¿Cuál es?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Planetas.',
+                        'Planetoides.',
+                        'Satélites naturales.',
+                        'Galaxias.'
+                    ],
+                    respuestaNum: 3
+                }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Qué significa la palabra planeta?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Vagabundo o errante.',
+                        'Caminante o movedizo.',
+                        'Giratorio o vagabundo.',
+                        'Movedizo o errante.'
+                    ],
+                    respuestaNum: 0
+                }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Quién descubrió que la Luna era como la Tierra, con montañas, valles y cráteres?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'Isaac Newton.',
+                        'Nicolás Coopernico.',
+                        'Galileo Galilei.',
+                        'Johannes Kepler.'
+                    ],
+                    respuestaNum: 2
+                }, {
+                    instruction: '',
+                    popper: '',
+                    type: 'choose',
+                    pregunta: '¿Cuál es el observatorio más antiguo?',
+
+                    opcionesImgsPrefix: null,
+                    opciones: [
+                        'El Caracol de Chichén Itzá.',
+                        'El observatorio de Sierra Nevada.',
+                        'El observatorio de la Silla, en Atacama, Chile.',
+                        'El observatorio Mauna Kea en Hawái.',
+
+                    ],
+                    respuestaNum: 0
+                },
                     
                 ])
