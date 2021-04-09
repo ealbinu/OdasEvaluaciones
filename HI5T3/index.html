@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>Historia</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">º</span></h1>
+      <h1><span class="grade">5º</span>Historia</h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started" :class="'scene_'+index">
         <div class="row">
@@ -75,14 +75,216 @@
     <script>
       app.$set(app, 'scenes', [
           {
-              instruction: '',
-              popper: '',
-              type: 'choose', 
-              pregunta: '',
-              opcionesImgsPrefix: null,
-              opciones: [''],
-              respuestaNum: 
-          },
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Todos fueron problemas que causaron la crisis económica de 1910 a 1930, excepto uno. ¿Cuál es?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'La construcción y expansión del ferrocarril.',
+              'El alto número de desempleo.',
+              'La desigualdad entre los habitantes del campo y la ciudad.',
+              'La falta de derechos de los trabajadores.'
+          ],
+          respuestaNum: 0
+      }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es el evento histórico que favoreció al crecimiento económico de México desde 1940 hasta 1970.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'La Expropiación Petrolera.',
+              'La Primera Guerra Mundial.',
+              'La Segunda Guerra Mundial.',
+              'La Revolución Rusa.'
+          ],
+          respuestaNum: 2
+      }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿De qué nacionalidad eran los empresarios que tenían la propiedad de la industria petrolera antes de 1938?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Alemana y estadounidense.',
+              'Inglesa y estadounidense.',
+              'Brasileña y egipcia.',
+              'Inglesa y alemana.'
+          ],
+          respuestaNum: 1
+      }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Quién fue el presidente de México durante la Segunda Guerra Mundial?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Plutarco Elías Calles.',
+              'Álvaro Obregón.',
+              'Manuel Ávila Camacho.',
+              'Adolfo Ruiz Cortines.'
+          ],
+          respuestaNum: 2
+      }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿A qué sector favoreció el proceso de industrialización?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Al minero.',
+              'Al agrícola.',
+              'Al educativo.',
+              'Al turístico.'
+          ],
+          respuestaNum: 1
+      }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿En qué año se creó el Fondo Nacional de la Vivienda para los Trabajadores (Infonavit)?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '1974',
+              '1955',
+              '1938',
+              '1972'
+          ],
+          respuestaNum: 3
+      }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Es el instituto fundado en 1943 para extender los servicios de salud y servicios médicos.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'El Instituto de Seguridad y Servicios Sociales para los Trabajadores del Estado (ISSSTE).',
+              'El Instituto Mexicano del Seguro Social (IMSS).',
+              'EI Instituto del Fondo Nacional de la Vivienda para los Trabajadores (Infonavit).',
+              'El Instituto Americano de los Trabajadores Sociales (IATS).'
+          ],
+          respuestaNum: 1
+      }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Cuál era la segunda ciudad más poblada de México en 1970?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Monterrey.',
+              'Puebla.',
+              'Tlaxcala.',
+              'Guadalajara.'
+          ],
+          respuestaNum: 3
+      }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Desde qué año tienen derecho al voto federal las mujeres en México?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '1920',
+              '1953',
+              '1941',
+              '1925'
+          ],
+          respuestaNum: 1
+      }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Fueron grandes pintores del siglo XX, excepto uno. ¿Quién es?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'José Clemente Orozco.',
+              'Frida Kahlo.',
+              'Diego Rivera.',
+              'Silvestre Revueltas.'
+          ],
+          respuestaNum: 3
+      }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Quién es el autor de El laberinto de la soledad?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Gabriel García Márquez.',
+              'Martín Luis Guzmán.',
+              'Mariano Azuela.',
+              'Octavio Paz.'
+          ],
+          respuestaNum: 3
+      }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿En qué año se creó la Secretaría de Educación Pública (SEP)?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              '1943',
+              '1974',
+              '1921',
+              '1926'
+          ],
+          respuestaNum: 2
+      }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿De qué país provenían muchos de los científicos e intelectuales que llegaron a México partir de 1939 huyendo de una guerra civil en su país?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Francia.',
+              'España.',
+              'Alemania.',
+              'Argentina.'
+          ],
+          respuestaNum: 1
+      }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: '¿Qué es la inflación?',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Cuando la mitad de la población queda desempleada.',
+              'El incremento del precio en los productos que se consumen y de los servicios.',
+              'Cuando sube el precio del petróleo.',
+              'Cuando baja el valor de la moneda mexicana.'
+          ],
+          respuestaNum: 1
+      }, {
+          instruction: '',
+          popper: '',
+          type: 'choose',
+          pregunta: 'Fue el acuerdo que se firmó entre Estados Unidos, México y Canadá, y que entró en vigor en 1994.',
+      
+          opcionesImgsPrefix: null,
+          opciones: [
+              'Tratado de Libre Comercio de América del Norte (TLC).',
+              'Consejo de Cooperación Económica del Pacífico (PECC).',
+              'Acuerdo de Complementación Económica México-MERCOSUR.',
+              'Asociación Latinoamericana de Integración (ALADI).',
+          ],
+          respuestaNum: 0
+      },
           
       ])
     </script>
