@@ -2,8 +2,8 @@ include ../assets/pug/_head
 include ../assets/pug/_body
 include ../assets/pug/_scripts
 
-- grade = 'º'
-- title = ''
+- grade = '6º'
+- title = 'Geografía'
 - subtitle = ''
 
 <!DOCTYPE html>
@@ -19,7 +19,7 @@ html(lang="es")
             if subtitle.length>1
                 h2 #{subtitle}
 
-            +body(3000)
+            +body(autosec(120, 15))
         +scripts
             script.
 
@@ -27,11 +27,213 @@ html(lang="es")
                     {
                         instruction: '',
                         popper: '',
-                        type: 'choose', 
-                        pregunta: '',
+                        type: 'choose',
+                        pregunta: 'Es el tipo de consumo que hay cuando se compran o consumen productos de manera irresponsable.',
+
                         opcionesImgsPrefix: null,
-                        opciones: [''],
-                        respuestaNum: 
+                        opciones: [
+                            'Parcial.',
+                            'Excesivo.',
+                            'Responsable.',
+                            'Perdurable.'
+                        ],
+                        respuestaNum: 1
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Son criterios con los que se puede saber si se está consumiendo un producto de manera responsable, excepto uno. ¿Cuál es?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'Durabilidad.',
+                            'Impacto en el medioambiente.',
+                            'La publicidad.',
+                            'Si se puede reciclar.'
+                        ],
+                        respuestaNum: 2
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Son indicadores que se consideran para conocer el nivel de calidad de vida de una población, excepto uno. ¿Cuál es?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'La alimentación.',
+                            'La educación.',
+                            'La industria.',
+                            'La salud.'
+                        ],
+                        respuestaNum: 2
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Según los últimos estudios, ¿en dónde reside la verdadera riqueza de una nación?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'En sus ingresos per cápita.',
+                            'En su calidad de vida.',
+                            'En su PIB.',
+                            'En sus habitantes.'
+                        ],
+                        respuestaNum: 3
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Nombre que reciben los países que han realizado más esfuerzos para conservar el ambiente y poner en marcha estrategias de prevención del deterioro ambiental.',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'Países verdes.',
+                            'Países insostenibles.',
+                            'Países unidos.',
+                            'Países bajos.'
+                        ],
+                        respuestaNum: 0
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿De qué depende una buena calidad de vida?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'Del grado de estudios.',
+                            'Del PIB.',
+                            'De los ingresos económicos.',
+                            'De un equilibrio social y natural.'
+                        ],
+                        respuestaNum: 3
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Son entidades con un índice de desarrollo humano alto, excepto una. ¿Cuál es?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'Guerrero.',
+                            'Nuevo León.',
+                            'Ciudad de México.',
+                            'Sonora.'
+                        ],
+                        respuestaNum: 0
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Cuándo se celebra el Día Mundial del Ambiente?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'El 5 de mayo.',
+                            'El 20 de noviembre.',
+                            'El 5 de junio.',
+                            'El 12 de octubre.'
+                        ],
+                        respuestaNum: 2
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Cómo se le conoce al incremento de la temperatura promedio de la Tierra a causa del aumento de los gases de efecto invernadero?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'Sustentabilidad.',
+                            'Cambio climático.',
+                            'Calentamiento global.',
+                            'Contaminación ambiental.'
+                        ],
+                        respuestaNum: 2
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Es un efecto del calentamiento global en las principales aglomeraciones urbanas en México.',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'Desabasto de agua.',
+                            'Sustentabilidad.',
+                            'Temperaturas promedio.',
+                            'Climas templados.'
+                        ],
+                        respuestaNum: 0
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Organización que creó una secretaría para aplicar la Estrategia Internacional para la Reducción de Desastres.',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'Unicef.',
+                            'ONU.',
+                            'Cenapred.',
+                            'SEP.'
+                        ],
+                        respuestaNum: 1
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Organismo nacional encargado de prevenir o aminorar los efectos de los desastres en México.',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'ONU.',
+                            'Unicef.',
+                            'Cenapred.',
+                            'DIF.'
+                        ],
+                        respuestaNum: 2
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Es el conjunto de actividades que los miembros de una familia deben realizar antes, durante y después de que se presente una contingencia para evitar que se produzcan desastres.',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'Plan para no salir de casa.',
+                            'Plan para salir de vacaciones.',
+                            'Plan para mantenerse juntos.',
+                            'Plan familiar de protección civil.'
+                        ],
+                        respuestaNum: 3
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Es un problema ambiental.',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'Tirar basura en la calle.',
+                            'Separar la basura.',
+                            'Plantar árboles.',
+                            'Apagar la luz cuando no se necesita.'
+                        ],
+                        respuestaNum: 0
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Son gases que ocasionan el efecto invernadero.',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'El oxígeno y el nitrógeno.',
+                            'El helio y el dióxido de carbono.',
+                            'El neón y el argón.',
+                            'El dióxido de carbono y el vapor de agua.',
+                        ],
+                        respuestaNum: 3
                     },
                     
                 ])
