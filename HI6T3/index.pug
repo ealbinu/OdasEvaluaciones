@@ -2,8 +2,8 @@ include ../assets/pug/_head
 include ../assets/pug/_body
 include ../assets/pug/_scripts
 
-- grade = 'º'
-- title = ''
+- grade = '6º'
+- title = 'Historia'
 - subtitle = ''
 
 <!DOCTYPE html>
@@ -19,7 +19,7 @@ html(lang="es")
             if subtitle.length>1
                 h2 #{subtitle}
 
-            +body(3000)
+            +body(autosec(120, 15))
         +scripts
             script.
 
