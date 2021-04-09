@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>Geografía</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">º</span></h1>
+      <h1><span class="grade">5º</span>Geografía</h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started" :class="'scene_'+index">
         <div class="row">
@@ -77,11 +77,214 @@
           {
               instruction: '',
               popper: '',
-              type: 'choose', 
-              pregunta: '',
+              type: 'choose',
+              pregunta: 'Es el continente en donde sus países no alcanzan un alto crecimiento económico.',
+      
               opcionesImgsPrefix: null,
-              opciones: [''],
-              respuestaNum: 
+              opciones: [
+                  'América.',
+                  'Europa.',
+                  'Asia.',
+                  'África.'
+              ],
+              respuestaNum: 3
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Es la actividad mediante la cual la población de un lugar sale a otros lugares que son atractivos por varias razones.',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'Agricultura.',
+                  'Ganadería.',
+                  'Turismo.',
+                  'Comercio.'
+              ],
+              respuestaNum: 2
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Cómo se le llama a la actividad en la cual se hace el intercambio, la venta o compra de productos?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'Turismo.',
+                  'Economía.',
+                  'Ganadería.',
+                  'Comercio.'
+              ],
+              respuestaNum: 3
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Durante las actividades de comercio es la persona que compra un producto.',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'Comerciante.',
+                  'Migrante.',
+                  'Consumidor.',
+                  'Negociante.'
+              ],
+              respuestaNum: 2
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Cuál es uno de los aspectos que la ONU considera para medir los progresos de un país?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'La esperanza de vida.',
+                  'La religión.',
+                  'El número de automóviles.',
+                  'El número de turistas.'
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Cuál es uno de los países con mayor crecimiento económico?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'México.',
+                  'Argentina.',
+                  'Japón.',
+                  'Perú.'
+              ],
+              respuestaNum: 2
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Cuál es el significado de las siglas PIB?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'Propiedad interna básica.',
+                  'Producto interno bruto.',
+                  'Producción interna básica.',
+                  'Propiedad interna bruta.'
+              ],
+              respuestaNum: 1
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Son las actividades cuya función es distribuir, vender y dar mantenimiento.',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'Primarias.',
+                  'Terciarias.',
+                  'Agropecuarias.',
+                  'Secundarias.'
+              ],
+              respuestaNum: 1
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Qué actividad no pertenece al sector terciario?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'Comercio.',
+                  'Comunicación.',
+                  'Minería.',
+                  'Transporte.'
+              ],
+              respuestaNum: 2
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Cómo se le llama a la disminución de la cubierta vegetal de las selvas y los bosques provocada por el ser humano?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'Reforestación.',
+                  'Avicultura.',
+                  'Deforestación.',
+                  'Comercio.'
+              ],
+              respuestaNum: 2
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Es un problema ambiental que se da principalmente en las zonas urbanas debido a que se liberan grandes cantidades de sustancias contaminantes a la atmósfera.',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'Contaminación del aire.',
+                  'Deforestación.',
+                  'Reforestación.',
+                  'Revolución industrial.',
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¡Qué sustancia se ha incrementado en la atmósfera debido al consumo de combustibles fósiles como el petróleo y el carbón?',
+              
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'El oxígeno.',
+                  'El nitrógeno.',
+                  'El dióxido de carbono.',
+                  'El dióxido de oxígeno.'
+              ],
+              respuestaNum: 2
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Son áreas de agua prácticamente sin oxígeno ni vida animal o vegetal por la presencia de algas marinas.',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'Bosques.',
+                  'Zonas muertas.',
+                  'Pantanos.',
+                  'Zonas deshabitadas.'
+              ],
+              respuestaNum: 1
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Es uno de los sectores en los que se pueden emprender tareas para que mejoren las condiciones de los países que presentan un nivel de desarrollo bajo.',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'Contaminación.',
+                  'Deforestación.',
+                  'Tecnología.',
+                  'Política.'
+              ],
+              respuestaNum: 3
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Son sitios que pueden ser atractivos turísticos, excepto uno. ¿Cuál es?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'Museos.',
+                  'Zonas arqueológicas.',
+                  'Supermercados.',
+                  'Cataratas.',
+      
+              ],
+              respuestaNum: 2
           },
           
       ])
