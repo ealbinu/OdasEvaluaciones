@@ -2,8 +2,8 @@ include ../assets/pug/_head
 include ../assets/pug/_body
 include ../assets/pug/_scripts
 
-- grade = 'º'
-- title = ''
+- grade = '6º'
+- title = 'Ciencias Naturales'
 - subtitle = ''
 
 <!DOCTYPE html>
@@ -19,7 +19,7 @@ html(lang="es")
             if subtitle.length>1
                 h2 #{subtitle}
 
-            +body(3000)
+            +body(autosec(120, 14))
         +scripts
             script.
 
@@ -27,11 +27,199 @@ html(lang="es")
                     {
                         instruction: '',
                         popper: '',
-                        type: 'choose', 
-                        pregunta: '',
+                        type: 'choose',
+                        pregunta: 'Es un conjunto de rayos ordenados que viajan en línea recta.',
+
                         opcionesImgsPrefix: null,
-                        opciones: [''],
-                        respuestaNum: 
+                        opciones: [
+                            'Relámpagos.',
+                            'Luz.',
+                            'Reflexión.',
+                            'Refracción.'
+                        ],
+                        respuestaNum: 1
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Son objetos que reflejan casi toda la luz que choca contra su superficie.',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'Espejos.',
+                            'Lentes.',
+                            'Microscopios.',
+                            'Telescopios.'
+                        ],
+                        respuestaNum: 0
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Cómo se ve una imagen en una cámara oscura?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'Desfigurada.',
+                            'Empañada.',
+                            'Invertida.',
+                            'Reducida.'
+                        ],
+                        respuestaNum: 2
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Instrumento que utilizó Galileo Galilei para descubrir las lunas de Júpiter.',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'Periscopio.',
+                            'Telescopio.',
+                            'Sonda espacial.',
+                            'Transbordador.'
+                        ],
+                        respuestaNum: 1
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Es el nombre de las lentes que tienen los bordes más gruesos que el centro, y los rayos de luz que las atraviesan desvían su trayectoria.',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'Divergentes.',
+                            'Convergentes.',
+                            'Biconvexas.',
+                            'Bicóncavas.'
+                        ],
+                        respuestaNum: 0
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'En este tipo de espejos, las imágenes reflejadas son del mismo tamaño que el objeto.',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'Cóncavos.',
+                            'Curvos.',
+                            'Convexos.',
+                            'Planos.'
+                        ],
+                        respuestaNum: 3
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Son el tipo de lentes que su centro es más grueso que los bordes y, al observar a través de ellas, las imágenes se ven más grandes.',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'Divergentes.',
+                            'Convergentes.',
+                            'Biconvexas.',
+                            'Bicóncavas.'
+                        ],
+                        respuestaNum: 1
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Cómo se llaman los espejos en los que los rayos divergen, pero al proyectarse hacia dentro se unen en el foco?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'Cóncavos.',
+                            'Planos.',
+                            'Convexos.',
+                            'Bicóncavos.'
+                        ],
+                        respuestaNum: 2
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Qué tipo de lentes necesitan las personas con miopía?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'Convergentes.',
+                            'Planos.',
+                            'Procedentes.',
+                            'Divergentes.'
+                        ],
+                        respuestaNum: 3
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Cuál es la estrella de mayor tamaño del sistema solar?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'El Sol.',
+                            'La Luna.',
+                            'La Tierra.',
+                            'El satélite.'
+                        ],
+                        respuestaNum: 0
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Cuál es la galaxia que se encuentra más cerca de la Vía Láctea?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'Orión.',
+                            'Andrómeda.',
+                            'Vía Láctea.',
+                            'Torbellino.'
+                        ],
+                        respuestaNum: 1
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Qué son los planetas?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'Son cuerpos celestes que se encuentran en el universo.',
+                            'Son cuerpos opacos de distintos tamaños que reflejan la luz que reciben.',
+                            'Son concentraciones de estrellas, polvo y gases.',
+                            'Son esferas de gas que se mantienen unidas.'
+                        ],
+                        respuestaNum: 1
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Son planetas rocosos, excepto uno. ¿Cuál es?',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'Marte.',
+                            'Tierra.',
+                            'Venus.',
+                            'Urano.'
+                        ],
+                        respuestaNum: 3
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: 'Es uno de los planetas que posee varios satélites naturales y anillos.',
+
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            'Júpiter.',
+                            'Venus.',
+                            'Mercurio.',
+                            'Marte.',
+                        ],
+                        respuestaNum: 0
                     },
                     
                 ])
