@@ -49,7 +49,7 @@
       <!-- TEST SCREENSHOTS ####-->
       <!-- .row: .col-3(v-for="(i, index) in screen"): img(:src="i").w-100-->
       <!-- Counter >>>>>>>>>>-->
-      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total" :segundos="3000"></counter>
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total" :segundos="3600"></counter>
       <!-- Navigation >>>>>>>>>>>>>>>-->
       <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event" :answereds="r"></navigation>
     </div>
@@ -75,8 +75,8 @@
     <script>
       app.$set(app, 'scenes', [
           {
-              instruction: '',
-              popper: '',
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+              popper: '<img src="aimg/1.png" class="img-fluid">',
               type: 'choose',
               pregunta: 'Son dos cualidades que definen a Guillermo González Camarena.',
       
@@ -87,7 +87,7 @@
                   'Guapo y sencillo.',
                   'Serio y tímido.'
               ],
-              respuestaNum: 0
+              respuestaNum: 1
           }, {
               instruction: '',
               popper: '',
@@ -101,7 +101,7 @@
                   'Promover campañas de higiene.',
                   'Crear la televisión a color.'
               ],
-              respuestaNum: 0
+              respuestaNum: 3
           }, {
               instruction: '',
               popper: '',
@@ -129,7 +129,7 @@
                   'Porque les compraba muchos dulces a sus hijos.',
                   'Porque les dedicaba los fines de semana a sus hijos.'
               ],
-              respuestaNum: 0
+              respuestaNum: 3
           }, {
               instruction: '',
               popper: '',
@@ -157,7 +157,7 @@
                   'Porque eran cantados y acompañados por música y danza.',
                   'Porque los escribían sobre papel hecho de flores.'
               ],
-              respuestaNum: 0
+              respuestaNum: 2
           }, {
               instruction: '',
               popper: '',
@@ -171,7 +171,7 @@
                   'Almohada.',
                   'Mecate.'
               ],
-              respuestaNum: 0
+              respuestaNum: 3
           }, {
               instruction: '',
               popper: '',
@@ -199,7 +199,7 @@
                   'Cosmovisión indígena.',
                   'Lengua indígena.'
               ],
-              respuestaNum: 0
+              respuestaNum: 2
           }, {
               instruction: '',
               popper: '',
@@ -213,7 +213,7 @@
                   'Trabalenguas.',
                   'Canciones.'
               ],
-              respuestaNum: 0
+              respuestaNum: 1
           }, {
               instruction: '',
               popper: '',
@@ -227,7 +227,7 @@
                   'Lengua.',
                   'Letras.'
               ],
-              respuestaNum: 0
+              respuestaNum: 2
           }, {
               instruction: '',
               popper: '',
@@ -241,7 +241,7 @@
                   'Huichol.',
                   'Cora.'
               ],
-              respuestaNum: 0
+              respuestaNum: 1
           }, {
               instruction: '',
               popper: '',
@@ -270,7 +270,7 @@
                   'antepasados.',
                   'Porque son fácil de hablar.'
               ],
-              respuestaNum: 0
+              respuestaNum: 2
           }, {
               instruction: '',
               popper: '',
@@ -284,7 +284,7 @@
                   'Estampilla.',
                   'Rúbrica.'
               ],
-              respuestaNum: 0
+              respuestaNum: 1
           }, {
               instruction: '',
               popper: '',
@@ -298,7 +298,7 @@
                   'Adjetivos.',
                   'Deícticos.'
               ],
-              respuestaNum: 0
+              respuestaNum: 3
           }, {
               instruction: '',
               popper: '',
@@ -326,7 +326,7 @@
                   'Todos.',
                   'Salón.'
               ],
-              respuestaNum: 0
+              respuestaNum: 1
           }, {
               instruction: '',
               popper: '',
@@ -354,7 +354,7 @@
                   'El mensaje se envía a la dirección de la persona con la que queremos comunicarnos.',
                   'El mensaje llega al instante al destinatario.'
               ],
-              respuestaNum: 0
+              respuestaNum: 3
           }, {
               instruction: '',
               popper: '',
@@ -368,7 +368,7 @@
                   'El código postal.',
                   'El timbre postal.'
               ],
-              respuestaNum: 0
+              respuestaNum: 1
           }, {
               instruction: '',
               popper: '',
@@ -396,7 +396,7 @@
                   'Verso libre.',
                   'Panfleto.'
               ],
-              respuestaNum: 0
+              respuestaNum: 2
           }, {
               instruction: '',
               popper: '',
@@ -410,7 +410,7 @@
                   'Métrica.',
                   'Diptongo.'
               ],
-              respuestaNum: 0
+              respuestaNum: 1
           }, {
               instruction: '',
               popper: '',
@@ -424,7 +424,7 @@
                   'La luna ahora inmediata se va.',
                   'Es el cuento que no cuenta nada.'
               ],
-              respuestaNum: 0
+              respuestaNum: 2
           }, {
               instruction: '',
               popper: '',
@@ -438,7 +438,7 @@
                   'Yo soy quien soy.',
                   'La vida es buena vida.'
               ],
-              respuestaNum: 0
+              respuestaNum: 3
           }, {
               instruction: '',
               popper: '',
@@ -466,7 +466,7 @@
                   'Para producir música en los poemas.',
                   'Para hacer más divertido el poema.'
               ],
-              respuestaNum: 0
+              respuestaNum: 1
           }, {
               instruction: '',
               popper: '',
@@ -480,7 +480,7 @@
                   'El cine.',
                   'El cuento.'
               ],
-              respuestaNum: 0
+              respuestaNum: 1
           }, {
               instruction: '',
               popper: '',

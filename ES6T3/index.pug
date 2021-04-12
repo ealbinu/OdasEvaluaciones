@@ -19,14 +19,14 @@ html(lang="es")
             if subtitle.length>1
                 h2 #{subtitle}
 
-            +body(3000)
+            +body(autosec(120, 30))
         +scripts
             script.
 
                 app.$set(app, 'scenes', [
                     {
-                        instruction: '',
-                        popper: '',
+                        instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+                        popper: '<img src="aimg/1.png" class="img-fluid">',
                         type: 'choose',
                         pregunta: 'Son dos cualidades que definen a Guillermo González Camarena.',
 
@@ -37,7 +37,7 @@ html(lang="es")
                             'Guapo y sencillo.',
                             'Serio y tímido.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 1
                     }, {
                         instruction: '',
                         popper: '',
@@ -51,7 +51,7 @@ html(lang="es")
                             'Promover campañas de higiene.',
                             'Crear la televisión a color.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 3
                     }, {
                         instruction: '',
                         popper: '',
@@ -79,7 +79,7 @@ html(lang="es")
                             'Porque les compraba muchos dulces a sus hijos.',
                             'Porque les dedicaba los fines de semana a sus hijos.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 3
                     }, {
                         instruction: '',
                         popper: '',
@@ -107,7 +107,7 @@ html(lang="es")
                             'Porque eran cantados y acompañados por música y danza.',
                             'Porque los escribían sobre papel hecho de flores.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 2
                     }, {
                         instruction: '',
                         popper: '',
@@ -121,7 +121,7 @@ html(lang="es")
                             'Almohada.',
                             'Mecate.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 3
                     }, {
                         instruction: '',
                         popper: '',
@@ -149,7 +149,7 @@ html(lang="es")
                             'Cosmovisión indígena.',
                             'Lengua indígena.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 2
                     }, {
                         instruction: '',
                         popper: '',
@@ -163,7 +163,7 @@ html(lang="es")
                             'Trabalenguas.',
                             'Canciones.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 1
                     }, {
                         instruction: '',
                         popper: '',
@@ -177,7 +177,7 @@ html(lang="es")
                             'Lengua.',
                             'Letras.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 2
                     }, {
                         instruction: '',
                         popper: '',
@@ -191,7 +191,7 @@ html(lang="es")
                             'Huichol.',
                             'Cora.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 1
                     }, {
                         instruction: '',
                         popper: '',
@@ -220,7 +220,7 @@ html(lang="es")
                             'antepasados.',
                             'Porque son fácil de hablar.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 2
                     }, {
                         instruction: '',
                         popper: '',
@@ -234,7 +234,7 @@ html(lang="es")
                             'Estampilla.',
                             'Rúbrica.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 1
                     }, {
                         instruction: '',
                         popper: '',
@@ -248,7 +248,7 @@ html(lang="es")
                             'Adjetivos.',
                             'Deícticos.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 3
                     }, {
                         instruction: '',
                         popper: '',
@@ -276,7 +276,7 @@ html(lang="es")
                             'Todos.',
                             'Salón.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 1
                     }, {
                         instruction: '',
                         popper: '',
@@ -304,7 +304,7 @@ html(lang="es")
                             'El mensaje se envía a la dirección de la persona con la que queremos comunicarnos.',
                             'El mensaje llega al instante al destinatario.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 3
                     }, {
                         instruction: '',
                         popper: '',
@@ -318,7 +318,7 @@ html(lang="es")
                             'El código postal.',
                             'El timbre postal.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 1
                     }, {
                         instruction: '',
                         popper: '',
@@ -346,7 +346,7 @@ html(lang="es")
                             'Verso libre.',
                             'Panfleto.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 2
                     }, {
                         instruction: '',
                         popper: '',
@@ -360,7 +360,7 @@ html(lang="es")
                             'Métrica.',
                             'Diptongo.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 1
                     }, {
                         instruction: '',
                         popper: '',
@@ -374,7 +374,7 @@ html(lang="es")
                             'La luna ahora inmediata se va.',
                             'Es el cuento que no cuenta nada.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 2
                     }, {
                         instruction: '',
                         popper: '',
@@ -388,7 +388,7 @@ html(lang="es")
                             'Yo soy quien soy.',
                             'La vida es buena vida.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 3
                     }, {
                         instruction: '',
                         popper: '',
@@ -416,7 +416,7 @@ html(lang="es")
                             'Para producir música en los poemas.',
                             'Para hacer más divertido el poema.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 1
                     }, {
                         instruction: '',
                         popper: '',
@@ -430,7 +430,7 @@ html(lang="es")
                             'El cine.',
                             'El cuento.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 1
                     }, {
                         instruction: '',
                         popper: '',
