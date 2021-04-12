@@ -49,7 +49,7 @@
       <!-- TEST SCREENSHOTS ####-->
       <!-- .row: .col-3(v-for="(i, index) in screen"): img(:src="i").w-100-->
       <!-- Counter >>>>>>>>>>-->
-      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total" :segundos="3000"></counter>
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total" :segundos="3240"></counter>
       <!-- Navigation >>>>>>>>>>>>>>>-->
       <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event" :answereds="r"></navigation>
     </div>
@@ -75,8 +75,8 @@
     <script>
       app.$set(app, 'scenes', [
           {
-              instruction: '',
-              popper: '',
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+              popper: '<img src="aimg/1.png" class="img-fluid">',
               type: 'choose',
               pregunta: '¿Cómo se llama el libro que recopila algunos códices y documentos precolombinos?',
       
@@ -87,10 +87,10 @@
                   'La visión de los vencidos.',
                   'La visión de los perdidos.'
               ],
-              respuestaNum: 0
+              respuestaNum: 2
           }, {
-              instruction: '',
-              popper: '',
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+              popper: '<img src="aimg/1.png" class="img-fluid">',
               type: 'choose',
               pregunta: '¿Qué lengua aprendió Miguel León-Portilla para conservar el recuerdo de quienes vivieron la conquista?',
       
@@ -101,10 +101,10 @@
                   'Español.',
                   'Zapoteca.'
               ],
-              respuestaNum: 0
+              respuestaNum: 1
           }, {
-              instruction: '',
-              popper: '',
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+              popper: '<img src="aimg/1.png" class="img-fluid">',
               type: 'choose',
               pregunta: 'Es una colección de poemas que tratan temas como la belleza del canto y de las flores.',
       
@@ -117,8 +117,8 @@
               ],
               respuestaNum: 0
           }, {
-              instruction: '',
-              popper: '',
+              instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+              popper: '<img src="aimg/1.png" class="img-fluid">',
               type: 'choose',
               pregunta: '¿De quién escribió una biografía Miguel León-Portilla?',
       
@@ -129,7 +129,7 @@
                   'Cristóbal Colón.',
                   'Hernán Cortés.'
               ],
-              respuestaNum: 0
+              respuestaNum: 3
           }, {
               instruction: '',
               popper: '',
@@ -143,7 +143,7 @@
                   'Obra de teatro.',
                   'Novela.'
               ],
-              respuestaNum: 0
+              respuestaNum: 2
           }, {
               instruction: '',
               popper: '',
@@ -157,7 +157,7 @@
                   'muy',
                   'Había'
               ],
-              respuestaNum: 0
+              respuestaNum: 1
           }, {
               instruction: '',
               popper: '',
@@ -171,7 +171,7 @@
                   'tranquilamente',
                   'Zapata'
               ],
-              respuestaNum: 0
+              respuestaNum: 2
           }, {
               instruction: '',
               popper: '',
@@ -185,7 +185,7 @@
                   'Los adjetivos.',
                   'Los adverbios.'
               ],
-              respuestaNum: 0
+              respuestaNum: 1
           }, {
               instruction: '',
               popper: '',
@@ -241,10 +241,10 @@
                   'Los temas.',
                   'Las escenas.'
               ],
-              respuestaNum: 0
+              respuestaNum: 3
           }, {
-              instruction: '',
-              popper: '',
+              instruction: 'Observa y lee lo siguiente. Luego contesta las preguntas 13 a 15.',
+              popper: '<img src="aimg/13.png" class="img-fluid">',
               type: 'choose',
               pregunta: '¿Qué tipo de texto es el anterior?',
       
@@ -255,10 +255,10 @@
                   'Un reporte.',
                   'Un artículo de divulgación.'
               ],
-              respuestaNum: 0
+              respuestaNum: 1
           }, {
-              instruction: '',
-              popper: '',
+              instruction: 'Observa y lee lo siguiente. Luego contesta las preguntas 13 a 15.',
+              popper: '<img src="aimg/13.png" class="img-fluid">',
               type: 'choose',
               pregunta: '¿Cuál es el tema del que se hacen preguntas?',
       
@@ -269,10 +269,10 @@
                   'Libros preferidos.',
                   'Deportes que más gustan.'
               ],
-              respuestaNum: 0
+              respuestaNum: 3
           }, {
-              instruction: '',
-              popper: '',
+              instruction: 'Observa y lee lo siguiente. Luego contesta las preguntas 13 a 15.',
+              popper: '<img src="aimg/13.png" class="img-fluid">',
               type: 'choose',
               pregunta: '¿Qué tipo de pregunta es la número 2?',
       
@@ -283,7 +283,7 @@
                   'Específica.',
                   'De opción.'
               ],
-              respuestaNum: 0
+              respuestaNum: 1
           }, {
               instruction: '',
               popper: '',
@@ -297,10 +297,10 @@
                   'Reporte de encuesta.',
                   'Noticia.'
               ],
-              respuestaNum: 0
+              respuestaNum: 2
           }, {
               instruction: '',
-              popper: '',
+              popper: '<img src="aimg/17.png" class="img-fluid">',
               type: 'choose',
               pregunta: '¿Cuál es el nombre del siguiente apoyo para un reporte de encuesta? <img src="aimg/17.png" class="img-fluid">',
       
@@ -311,10 +311,10 @@
                   'Resumen conceptual.',
                   'Gráfica.'
               ],
-              respuestaNum: 0
+              respuestaNum: 3
           }, {
-              instruction: '',
-              popper: '',
+              instruction: 'Lee el texto y contesta las preguntas 18 a 21.',
+              popper: '<img src="aimg/18.png" class="img-fluid">',
               type: 'choose',
               pregunta: '¿Cuál es el adjetivo que describe al lechero?',
       
@@ -325,10 +325,10 @@
                   'Ladrando.',
                   'Feliz.'
               ],
-              respuestaNum: 0
+              respuestaNum: 3
           }, {
-              instruction: '',
-              popper: '',
+              instruction: 'Lee el texto y contesta las preguntas 18 a 21.',
+              popper: '<img src="aimg/18.png" class="img-fluid">',
               type: 'choose',
               pregunta: '¿Cómo se le llama a la descripción "Una casa con un patio grande, unas macetas y una silla"?',
       
@@ -339,10 +339,10 @@
                   'Acto.',
                   'Espacio.'
               ],
-              respuestaNum: 0
+              respuestaNum: 1
           }, {
-              instruction: '',
-              popper: '',
+              instruction: 'Lee el texto y contesta las preguntas 18 a 21.',
+              popper: '<img src="aimg/18.png" class="img-fluid">',
               type: 'choose',
               pregunta: 'Son los signos que faltan en el diálogo del lechero feliz para que se forme una pregunta.',
       
@@ -350,12 +350,13 @@
               opciones: [
                   '¿i',
                   '()',
-                  '¿?'
+                  '¿?',
+                  '- ¿'
               ],
-              respuestaNum: 0
+              respuestaNum: 2
           }, {
-              instruction: '',
-              popper: '',
+              instruction: 'Lee el texto y contesta las preguntas 18 a 21.',
+              popper: '<img src="aimg/18.png" class="img-fluid">',
               type: 'choose',
               pregunta: '¿Cómo se le llama a la información que se encuentra entre paréntesis?',
       
@@ -366,7 +367,7 @@
                   'Moralejas.',
                   'Diálogos.'
               ],
-              respuestaNum: 0
+              respuestaNum: 1
           }, {
               instruction: '',
               popper: '',
@@ -380,15 +381,16 @@
                   'En introducción, desarrollo y conclusión.',
                   'En encuesta, gráfica y desenlace.'
               ],
-              respuestaNum: 0
+              respuestaNum: 2
           }, {
               instruction: '',
               popper: '',
               type: 'choose',
-              pregunta: '¿Cuál gráfica es la correcta para representar los datos de la siguiente pregunta?',
+              pregunta: '¿Cuál gráfica es la correcta para representar los datos de la siguiente pregunta? <img src="aimg/23.png" class="img-fluid">',
               opcionesImgsPrefix: '23',
               opciones: [],
-              respuestaNum: 0
+              respuestaNum: 1,
+              settings: {imgs:4}
       
           }, {
               instruction: '',
@@ -403,7 +405,7 @@
                   'Amable.',
                   'Arboleda.'
               ],
-              respuestaNum: 0
+              respuestaNum: 2
           }, {
               instruction: '',
               popper: '',
@@ -412,12 +414,12 @@
       
               opcionesImgsPrefix: null,
               opciones: [
-                  'i?',
-                  'i!',
+                  '¡?',
+                  '¡!',
                   '()',
                   '[]'
               ],
-              respuestaNum: 0
+              respuestaNum: 1
           }, {
               instruction: '',
               popper: '',
@@ -431,7 +433,7 @@
                   'Alta y sonriente.',
                   'Tranquilamente y relajada.'
               ],
-              respuestaNum: 0
+              respuestaNum: 2
           }, {
               instruction: '',
               popper: '',

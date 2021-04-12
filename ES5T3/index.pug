@@ -19,14 +19,14 @@ html(lang="es")
             if subtitle.length>1
                 h2 #{subtitle}
 
-            +body(3000)
+            +body(autosec(120, 27))
         +scripts
             script.
 
                 app.$set(app, 'scenes', [
                     {
-                        instruction: '',
-                        popper: '',
+                        instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+                        popper: '<img src="aimg/1.png" class="img-fluid">',
                         type: 'choose',
                         pregunta: '¿Cómo se llama el libro que recopila algunos códices y documentos precolombinos?',
 
@@ -37,10 +37,10 @@ html(lang="es")
                             'La visión de los vencidos.',
                             'La visión de los perdidos.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 2
                     }, {
-                        instruction: '',
-                        popper: '',
+                        instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+                        popper: '<img src="aimg/1.png" class="img-fluid">',
                         type: 'choose',
                         pregunta: '¿Qué lengua aprendió Miguel León-Portilla para conservar el recuerdo de quienes vivieron la conquista?',
 
@@ -51,10 +51,10 @@ html(lang="es")
                             'Español.',
                             'Zapoteca.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 1
                     }, {
-                        instruction: '',
-                        popper: '',
+                        instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+                        popper: '<img src="aimg/1.png" class="img-fluid">',
                         type: 'choose',
                         pregunta: 'Es una colección de poemas que tratan temas como la belleza del canto y de las flores.',
 
@@ -67,8 +67,8 @@ html(lang="es")
                         ],
                         respuestaNum: 0
                     }, {
-                        instruction: '',
-                        popper: '',
+                        instruction: 'Selecciona la respuesta correcta. <p>Lee el texto y contesta las preguntas 1 a 4.</p>',
+                        popper: '<img src="aimg/1.png" class="img-fluid">',
                         type: 'choose',
                         pregunta: '¿De quién escribió una biografía Miguel León-Portilla?',
 
@@ -79,7 +79,7 @@ html(lang="es")
                             'Cristóbal Colón.',
                             'Hernán Cortés.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 3
                     }, {
                         instruction: '',
                         popper: '',
@@ -93,7 +93,7 @@ html(lang="es")
                             'Obra de teatro.',
                             'Novela.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 2
                     }, {
                         instruction: '',
                         popper: '',
@@ -107,7 +107,7 @@ html(lang="es")
                             'muy',
                             'Había'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 1
                     }, {
                         instruction: '',
                         popper: '',
@@ -121,7 +121,7 @@ html(lang="es")
                             'tranquilamente',
                             'Zapata'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 2
                     }, {
                         instruction: '',
                         popper: '',
@@ -135,7 +135,7 @@ html(lang="es")
                             'Los adjetivos.',
                             'Los adverbios.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 1
                     }, {
                         instruction: '',
                         popper: '',
@@ -191,10 +191,10 @@ html(lang="es")
                             'Los temas.',
                             'Las escenas.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 3
                     }, {
-                        instruction: '',
-                        popper: '',
+                        instruction: 'Observa y lee lo siguiente. Luego contesta las preguntas 13 a 15.',
+                        popper: '<img src="aimg/13.png" class="img-fluid">',
                         type: 'choose',
                         pregunta: '¿Qué tipo de texto es el anterior?',
 
@@ -205,10 +205,10 @@ html(lang="es")
                             'Un reporte.',
                             'Un artículo de divulgación.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 1
                     }, {
-                        instruction: '',
-                        popper: '',
+                        instruction: 'Observa y lee lo siguiente. Luego contesta las preguntas 13 a 15.',
+                        popper: '<img src="aimg/13.png" class="img-fluid">',
                         type: 'choose',
                         pregunta: '¿Cuál es el tema del que se hacen preguntas?',
 
@@ -219,10 +219,10 @@ html(lang="es")
                             'Libros preferidos.',
                             'Deportes que más gustan.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 3
                     }, {
-                        instruction: '',
-                        popper: '',
+                        instruction: 'Observa y lee lo siguiente. Luego contesta las preguntas 13 a 15.',
+                        popper: '<img src="aimg/13.png" class="img-fluid">',
                         type: 'choose',
                         pregunta: '¿Qué tipo de pregunta es la número 2?',
 
@@ -233,7 +233,7 @@ html(lang="es")
                             'Específica.',
                             'De opción.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 1
                     }, {
                         instruction: '',
                         popper: '',
@@ -247,10 +247,10 @@ html(lang="es")
                             'Reporte de encuesta.',
                             'Noticia.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 2
                     }, {
                         instruction: '',
-                        popper: '',
+                        popper: '<img src="aimg/17.png" class="img-fluid">',
                         type: 'choose',
                         pregunta: '¿Cuál es el nombre del siguiente apoyo para un reporte de encuesta? <img src="aimg/17.png" class="img-fluid">',
 
@@ -261,10 +261,10 @@ html(lang="es")
                             'Resumen conceptual.',
                             'Gráfica.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 3
                     }, {
-                        instruction: '',
-                        popper: '',
+                        instruction: 'Lee el texto y contesta las preguntas 18 a 21.',
+                        popper: '<img src="aimg/18.png" class="img-fluid">',
                         type: 'choose',
                         pregunta: '¿Cuál es el adjetivo que describe al lechero?',
 
@@ -275,10 +275,10 @@ html(lang="es")
                             'Ladrando.',
                             'Feliz.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 3
                     }, {
-                        instruction: '',
-                        popper: '',
+                        instruction: 'Lee el texto y contesta las preguntas 18 a 21.',
+                        popper: '<img src="aimg/18.png" class="img-fluid">',
                         type: 'choose',
                         pregunta: '¿Cómo se le llama a la descripción "Una casa con un patio grande, unas macetas y una silla"?',
 
@@ -289,10 +289,10 @@ html(lang="es")
                             'Acto.',
                             'Espacio.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 1
                     }, {
-                        instruction: '',
-                        popper: '',
+                        instruction: 'Lee el texto y contesta las preguntas 18 a 21.',
+                        popper: '<img src="aimg/18.png" class="img-fluid">',
                         type: 'choose',
                         pregunta: 'Son los signos que faltan en el diálogo del lechero feliz para que se forme una pregunta.',
 
@@ -300,12 +300,13 @@ html(lang="es")
                         opciones: [
                             '¿i',
                             '()',
-                            '¿?'
+                            '¿?',
+                            '- ¿'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 2
                     }, {
-                        instruction: '',
-                        popper: '',
+                        instruction: 'Lee el texto y contesta las preguntas 18 a 21.',
+                        popper: '<img src="aimg/18.png" class="img-fluid">',
                         type: 'choose',
                         pregunta: '¿Cómo se le llama a la información que se encuentra entre paréntesis?',
 
@@ -316,7 +317,7 @@ html(lang="es")
                             'Moralejas.',
                             'Diálogos.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 1
                     }, {
                         instruction: '',
                         popper: '',
@@ -330,15 +331,16 @@ html(lang="es")
                             'En introducción, desarrollo y conclusión.',
                             'En encuesta, gráfica y desenlace.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 2
                     }, {
                         instruction: '',
                         popper: '',
                         type: 'choose',
-                        pregunta: '¿Cuál gráfica es la correcta para representar los datos de la siguiente pregunta?',
+                        pregunta: '¿Cuál gráfica es la correcta para representar los datos de la siguiente pregunta? <img src="aimg/23.png" class="img-fluid">',
                         opcionesImgsPrefix: '23',
                         opciones: [],
-                        respuestaNum: 0
+                        respuestaNum: 1,
+                        settings: {imgs:4}
 
                     }, {
                         instruction: '',
@@ -353,7 +355,7 @@ html(lang="es")
                             'Amable.',
                             'Arboleda.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 2
                     }, {
                         instruction: '',
                         popper: '',
@@ -362,12 +364,12 @@ html(lang="es")
 
                         opcionesImgsPrefix: null,
                         opciones: [
-                            'i?',
-                            'i!',
+                            '¡?',
+                            '¡!',
                             '()',
                             '[]'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 1
                     }, {
                         instruction: '',
                         popper: '',
@@ -381,7 +383,7 @@ html(lang="es")
                             'Alta y sonriente.',
                             'Tranquilamente y relajada.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 2
                     }, {
                         instruction: '',
                         popper: '',
