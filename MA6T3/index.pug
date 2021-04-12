@@ -19,7 +19,7 @@ html(lang="es")
             if subtitle.length>1
                 h2 #{subtitle}
 
-            +body(3000)
+            +body(autosec(120, 25))
         +scripts
             script.
 
@@ -31,7 +31,8 @@ html(lang="es")
                         pregunta: 'Es el desarrollo plano de una pirámide pentagonal.',
                         opcionesImgsPrefix: '1',
                         opciones: [],
-                        respuestaNum: 0
+                        respuestaNum: 2,
+                        settings: {imgs:4},
 
                     }, {
                         instruction: '',
@@ -46,7 +47,7 @@ html(lang="es")
                             'Un cilindro.',
                             'Una pirámide rectangular.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 2
                     }, {
                         instruction: '',
                         popper: '',
@@ -60,7 +61,7 @@ html(lang="es")
                             'q triángulos.',
                             '5 triángulos.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 1
                     }, {
                         instruction: '',
                         popper: '',
@@ -74,7 +75,7 @@ html(lang="es")
                             'Radio.',
                             'Circunferencia.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 3
                     }, {
                         instruction: '',
                         popper: '',
@@ -97,12 +98,12 @@ html(lang="es")
 
                         opcionesImgsPrefix: null,
                         opciones: [
-                            '45 u3',
-                            '90 u3',
-                            '23 u3',
-                            '15 u3'
+                            '45 u<sup>3</sup>',
+                            '90 u<sup>3</sup>',
+                            '23 u<sup>3</sup>',
+                            '15 u<sup>3</sup>'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 2
                     }, {
                         instruction: '',
                         popper: '',
@@ -111,10 +112,10 @@ html(lang="es")
 
                         opcionesImgsPrefix: null,
                         opciones: [
-                            '120 u3',
-                            '15 u3',
-                            '60 u3',
-                            '100 u3'
+                            '120 u<sup>3</sup>',
+                            '15 u<sup>3</sup>',
+                            '60 u<sup>3</sup>',
+                            '100 u<sup>3</sup>'
                         ],
                         respuestaNum: 0
                     }, {
@@ -130,7 +131,7 @@ html(lang="es")
                             '100 cajas.',
                             '500 cajas.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 1
                     }, {
                         instruction: '',
                         popper: '',
@@ -144,7 +145,7 @@ html(lang="es")
                             '60 %',
                             '80 %'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 2
                     }, {
                         instruction: '',
                         popper: '',
@@ -158,7 +159,7 @@ html(lang="es")
                             '14 hojas.',
                             '5 hojas.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 1
                     }, {
                         instruction: '',
                         popper: '',
@@ -172,7 +173,7 @@ html(lang="es")
                             '49 días.',
                             '16 días.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 3
                     }, {
                         instruction: '',
                         popper: '',
@@ -194,7 +195,8 @@ html(lang="es")
                         pregunta: 'Es la figura que  falta en la siguiente sucesión. <img src="aimg/13.png" class="img-fluid">',
                         opcionesImgsPrefix: '13',
                         opciones: [],
-                        respuestaNum: 0
+                        respuestaNum: 2,
+                        settings: {imgs:4}
 
                     }, {
                         instruction: '',
@@ -209,7 +211,7 @@ html(lang="es")
                             '27',
                             '48'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 3
                     }, {
                         instruction: '',
                         popper: '',
@@ -223,7 +225,7 @@ html(lang="es")
                             '40 botellas.',
                             '20 botellas.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 1
                     }, {
                         instruction: '',
                         popper: '',
@@ -232,11 +234,12 @@ html(lang="es")
 
                         opcionesImgsPrefix: null,
                         opciones: [
-                            'a',
-                            'b',
-                            'c'
+                            '<div class=fr>12<hr>6</div>',
+                            '<div class=fr>6<hr>12</div>',
+                            '<div class=fr>2<hr>9</div>',
+                            '<div class=fr>18<hr>4</div>'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 2
                     }, {
                         instruction: '',
                         popper: '',
@@ -251,8 +254,8 @@ html(lang="es")
                     ],
                     respuestaNum: 0
                     }, {
-                        instruction: '',
-                        popper: '',
+                        instruction: 'Observa la siguiente figura y contesta las preguntas 18 a 20.',
+                        popper: '<img src="aimg/18.png" class="img-fluid">',
                         type: 'choose',
                         pregunta: '¿Cuál es el área de uno de los triángulos?',
 
@@ -263,10 +266,10 @@ html(lang="es")
                             '81 cm2',
                             '82 cm2'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 1
                     }, {
-                        instruction: '',
-                        popper: '',
+                        instruction: 'Observa la siguiente figura y contesta las preguntas 18 a 20.',
+                        popper: '<img src="aimg/18.png" class="img-fluid">',
                         type: 'choose',
                         pregunta: '¿Cuál es el perímetro del rectángulo que se forma al juntar los dos triángulos?',
 
@@ -277,10 +280,10 @@ html(lang="es")
                             '34 cm',
                             '54 cm'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 3
                     }, {
-                        instruction: '',
-                        popper: '',
+                        instruction: 'Observa la siguiente figura y contesta las preguntas 18 a 20.',
+                        popper: '<img src="aimg/18.png" class="img-fluid">',
                         type: 'choose',
                         pregunta: '¿Cuál es el área del rectángulo?',
 
@@ -305,7 +308,7 @@ html(lang="es")
                             '6° B.',
                             '6° C.'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 3
                     }, {
                         instruction: '',
                         popper: '',
@@ -319,13 +322,25 @@ html(lang="es")
                             '2.406',
                             '0.624'
                         ],
+                        respuestaNum: 1
+                    }, {
+                        instruction: '',
+                        popper: '',
+                        type: 'choose',
+                        pregunta: '¿Cuál es el resultado de dividir <div class=fr>2<hr>3</div> entre 3?',
+                        opcionesImgsPrefix: null,
+                        opciones: [
+                            '<div class=fr>2<hr>2</div>',
+                            '<div class=fr>4<hr>6</div>',
+                            '<div class=fr>1<hr>9</div>',
+                            '<div class=fr>7<hr>2</div>'
+                        ],
                         respuestaNum: 0
                     }, {
                         instruction: '',
                         popper: '',
                         type: 'choose',
-                        pregunta: '¿Cuál es el resultado de dividir ⅔ entre 3? 0 2 4 4 ? rccon 3 gl porcentaje al que equivale la razón',
-
+                        pregunta: '¿Cuál es el porcentaje al que equivale la razón <div class=fr>6<hr>8</div>?',
                         opcionesImgsPrefix: null,
                         opciones: [
                             '12 %',
@@ -333,7 +348,7 @@ html(lang="es")
                             '50 %',
                             '25 %'
                         ],
-                        respuestaNum: 0
+                        respuestaNum: 1
                     }, {
                         instruction: '',
                         popper: '',
@@ -342,10 +357,10 @@ html(lang="es")
 
                         opcionesImgsPrefix: null,
                         opciones: [
-                            'C=TxD',
-                            'C=Txr',
-                            'C=bxh',
-                            'C=Txd',
+                            'C = π × D',
+                            'C = π × r',
+                            'C = <div class=fr>b x h<hr>2</div>',
+                            'C = <div class=fr>π × d<hr>2</div>',
 
                         ],
                         respuestaNum: 0
