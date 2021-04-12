@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>Matemáticas</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
-      <h1><span class="grade">º</span></h1>
+      <h1><span class="grade">5º</span>Matemáticas</h1>
       <!-- SCENES ############################################-->
       <div class="scene" v-for="(i, index) in scenes" v-show="currentScene == index &amp;&amp; started" :class="'scene_'+index">
         <div class="row">
@@ -77,11 +77,347 @@
           {
               instruction: '',
               popper: '',
-              type: 'choose', 
-              pregunta: '',
+              type: 'choose',
+              pregunta: '¿Cuánta madera necesitará un carpintero para hacer el marco de la puerta? <img src="aimg/1.png" class="img-fluid">',
+      
               opcionesImgsPrefix: null,
-              opciones: [''],
-              respuestaNum: 
+              opciones: [
+                  '366 cm',
+                  '636 cm2',
+                  '636 cm',
+                  '536 cm',
+                  '98 cm'
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Si para cercar un terreno de forma cuadrangular se necesitaron 348 m de alambre, ¿cuánto mide cada uno de sus lados? <img src="aimg/2.png" class="img-fluid">',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'a',
+                  'b',
+                  'c'
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Cuál es el perímetro de la alberca del colegio de Juan? <img src="aimg/3.png" class="img-fluid">',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'a',
+                  'b',
+                  'c'
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Mario recorre de su casa a su trabajo 7.7 kilómetros todos los días. ¿Cuántos metros recorre en una semana?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  '49 000 m',
+                  '77 000 m',
+                  '53 900 m',
+                  '539 000 m'
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Un alpinista utiliza una cuerda de 5.5 dam para escalar una montaña. Si ya subió 3.5 dam, ¿cuántos metros le faltan para que se le termine la cuerda?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  '20 m',
+                  '200 m',
+                  '2 000 m',
+                  '2 m'
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Cuántos mililitros le caben a una botella de 1.5 litros?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  '150 ml',
+                  '1 500 ml',
+                  '15 ml',
+                  '15 000 ml'
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'El tanque de gasolina de un carro tiene capacidad para 0.5 hl. Si al usarlo se consumieron 2.5 dal, ¿cuántos litros de gasolina quedan en el tanque?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  '2 500 litros.',
+                  '2.5 litros.',
+                  '25 litros.',
+                  '250 litros.'
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Leticia compró 12 bolsitas con 1.5 hectogramos de cacahuates. Si las quiere vaciar en un recipiente, ¿cuántos kilogramos tendrá?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  '1.18 kilogramos.',
+                  '2.4 kilogramos.',
+                  '1.5 kilogramos.',
+                  '1.8 kilogramos.'
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Cuál es el grado con mayor número de alumnos?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'Tercero.',
+                  'Cuarto.',
+                  'Primero.',
+                  'Sexto.'
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Son los grupos que tienen la misma cantidad de mujeres.',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'Segundo y tercero.',
+                  'Quinto y sexto.',
+                  'Primero y cuarto.',
+                  'Primero y sexto.'
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Cuál es la información que se colocó en el eje horizontal?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'El total de alumnos.',
+                  'La edad de los alumnos.',
+                  'El número de alumnos.',
+                  'El grado que cursan.'
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Es la información que presentan las barras de color azul.',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'La cantidad de hombres que hay.',
+                  'Los grados que hay.',
+                  'La cantidad de mujeres que hay.',
+                  'La edad de los alumnos.'
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Cuál es la tabla que representa la información de la gráfica?',
+              opcionesImgsPrefix: '13',
+              opciones: [],
+              respuestaNum: 0
+      
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Un panadero horneó 24 panes. Si los quiere repartir en 8 canastas, ¿cuántos panes tiene que poner en cada canasta para que tengan la misma cantidad?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  '4 panes.',
+                  '5 panes.',
+                  '3 panes.',
+                  '6 panes.'
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Son los términos faltantes en la siguiente sucesión. <img src="aimg/15.png" class="img-fluid">',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  '4, 8, 16 y 32.',
+                  '6, 18, 54 y 486.',
+                  '8, 32, 128 y 512.',
+                  '10, 50, 250 y 1 250.'
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Cuál es el patrón que sigue la sucesión?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'Cada término se multiplica por 5.',
+                  'cada término se le suma 15.',
+                  'Cada término se multiplica por 3.',
+                  'A cada término se le suma 25.'
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Sandra compró 7 cartulinas negras $7.50 cada una y 7 cartulinas blancas a $2.50 cada una. Si pagó con un billete de $200, ¿cuánto le regresaron de cambio? <img src="aimg/16.png" class="img-fluid">',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  '$130.00',
+                  '$180.00',
+                  '$220.00',
+                  '$160.00'
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Esther compró 6 botes de pegamento. Si cada uno cuesta $4.50, ¿cuánto pagó en total?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  '$28.50',
+                  '$29.50',
+                  '$27.00',
+                  '$30.00'
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Sofía quiere hacer 25 distintivos para el Día de la Madre. Si en cada figura gasta 0.85 cm de fieltro, ¿cuántos centímetros de fieltro tiene que comprar?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  '22.50 cm',
+                  '21.25 cm',
+                  '20.50 cm',
+                  '23.25 cm'
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Nombre que recibe el elemento de una circunferencia donde se intersecan dos de sus diámetros.',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'Radio.',
+                  'Diámetro.',
+                  'Centro.',
+                  'Cuerda.'
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Alondra y Saúl fueron al cine. Si se sentaron en los asientos de color anaranjado, ¿qué asientos les tocaron? <img src="aimg/21.png" class="img-fluid">',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'A5 y A6.',
+                  'F5 y F6.',
+                  'H5 y H6.',
+                  'A4 y A5.'
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'En la papelería 1 ofrecen 5 lápices por $15, en la papelería 2 ofrecen 4 lápices por $12 y en la papelería 3 ofrecen 24 lápices por $72. ¿Dónde conviene comprar lápices?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  'En la papelería 3.',
+                  'En la papelería 1.',
+                  'En las tres cuestan lo mismo.',
+                  'En la papelería 2.'
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'El papá de Karina compró un reproductor que costaba $1 000. Si al pagar en caja de música le hicieron un descuento del 25 %, ¿cuánto le costó el reproductor de música?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  '$750',
+                  '$250',
+                  '$800',
+                  '$500'
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: 'Al sueldo de un empleado se le hace un aumento del 20 % mensual. Si gana $13 500 al mes, ¿cuánto le aumentaron?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  '$2 700',
+                  '$2 500',
+                  '$1 500',
+                  '$2 300'
+              ],
+              respuestaNum: 0
+          }, {
+              instruction: '',
+              popper: '',
+              type: 'choose',
+              pregunta: '¿Cuál es la altura promedio de un equipo de 5 jugadores de basquetbol que miden 1.92 m, 1.95 m, 1.83 m, 1.76 m y 1.69 m?',
+      
+              opcionesImgsPrefix: null,
+              opciones: [
+                  '1.69 m',
+                  '1.95 m',
+                  '1.83 m',
+                  '1.76 m',
+              ],
+              respuestaNum: 0
           },
           
       ])
