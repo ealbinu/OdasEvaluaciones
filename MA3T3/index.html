@@ -9,7 +9,22 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../../assets/font/stylesheet.css?v=7"/>
     <link rel="stylesheet" href="../../assets/assets.css?v=7"/>
-    <style></style>
+    <style>
+      .inputbox .inputbox__before {
+          white-space: nowrap;
+      }
+      .inputbox input {
+          background: #f5f5f5;
+          max-width: 120px;
+      }
+      @media (max-width: 680px) {
+          .inputbox input {
+              font-size: 1rem;
+          }
+      }
+      
+      
+    </style>
   </head>
   <body>
     <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
@@ -35,6 +50,16 @@
             <selectableoptions :key="index" v-model="r[index]" :ref="refCount()" @isright="right++; i.res=true" @iswrong="i.res = false" :num="(index+1)+'.'" :text="i.pregunta" :options="i.opciones" :answer="i.respuestaNum" :customclass="i.settings.class" :isactive="currentScene == index">
               <template v-slot:option="{option}">{{option.o}}</template>
             </selectableoptions>
+          </template>
+          <template v-if="i.type=='pregunta30'">
+            <div class="choose">
+              <div class="label"><strong>30.</strong><span>¿Cuál es el resultado de las siguientes operaciones?</span></div>
+              <div class="options">
+                <div class="position-relative">
+                  <inputbox :key="29" v-model="r[29]" :ref="refCount()" @isright="right++" type="number" placeh="-" :answer="[225,80,40,60]" :before="['15 × 15 =', '4 × 20 =', '400 ÷ 10 =', '420 ÷ 7 =']"></inputbox>
+                </div>
+              </div>
+            </div>
           </template>
         </div>
       </div>
@@ -87,7 +112,7 @@
               '$208',
               '$221'
           ],
-          respuestaNum: 0
+          respuestaNum: 2
           }, {
           instruction: '',
           popper: '',
@@ -101,12 +126,12 @@
               '50 bolos.',
               '24 bolos.'
           ],
-          respuestaNum: 0
+          respuestaNum: 1
           }, {
           instruction: '',
           popper: '',
           type: 'choose',
-          pregunta: 'Tania tiene 200 bolitas de alimento para sus y 5 peces y debe repartirlas en partes iguales. ¿Cuántas le tocará a cada uno?',
+          pregunta: 'Tania tiene 200 bolitas de alimento para sus 5 peces y debe repartirlas en partes iguales. ¿Cuántas le tocará a cada uno?',
       
           opcionesImgsPrefix: null,
           opciones: [
@@ -115,7 +140,7 @@
               '35 bolitas.',
               '20 bolitas.'
           ],
-          respuestaNum: 0
+          respuestaNum: 1
           }, {
           instruction: '',
           popper: '',
@@ -129,7 +154,7 @@
               '72 limones.',
               '90 limones.'
           ],
-          respuestaNum: 0
+          respuestaNum: 3
           }, {
           instruction: '',
           popper: '',
@@ -143,7 +168,7 @@
               '8',
               '6'
           ],
-          respuestaNum: 0
+          respuestaNum: 2
           }, {
           instruction: '',
           popper: '',
@@ -157,7 +182,7 @@
               '75°',
               '90°'
           ],
-          respuestaNum: 0
+          respuestaNum: 1
           }, {
           instruction: '',
           popper: '',
@@ -199,7 +224,7 @@
               'Agudo.',
               'Recto.'
           ],
-          respuestaNum: 0
+          respuestaNum: 1
           }, {
           instruction: '',
           popper: '',
@@ -213,7 +238,7 @@
               'Arco.',
               'Giro.'
           ],
-          respuestaNum: 0
+          respuestaNum: 1
           }, {
           instruction: '',
           popper: '',
@@ -232,7 +257,7 @@
           instruction: '',
           popper: '',
           type: 'choose',
-          pregunta: 'Observa las figuras, ¿cuántos grados giró el triángulo verde para cambiar a la figura 20 <img src="aimg/12.png" class="img-fluid">',
+          pregunta: 'Observa las figuras, ¿cuántos grados giró el triángulo verde para cambiar a la figura 2? <img src="aimg/12.png" class="img-fluid">',
       
           opcionesImgsPrefix: null,
           opciones: [
@@ -255,7 +280,7 @@
               '10 balones.',
               '6 balones.'
           ],
-          respuestaNum: 0
+          respuestaNum: 1
           }, {
           instruction: '',
           popper: '',
@@ -269,7 +294,7 @@
               '120',
               '110'
           ],
-          respuestaNum: 0
+          respuestaNum: 2
           }, {
           instruction: 'Lee el siguiente texto y contesta las preguntas 15 a 17.',
           popper: '<img src="aimg/15.png" class="img-fluid">',
@@ -283,7 +308,7 @@
               '5 kg',
               '7 kg'
           ],
-          respuestaNum: 0
+          respuestaNum: 1
           }, {
           instruction: 'Lee el siguiente texto y contesta las preguntas 15 a 17.',
           popper: '<img src="aimg/15.png" class="img-fluid">',
@@ -297,7 +322,7 @@
               '15 kg',
               '12 kg'
           ],
-          respuestaNum: 0
+          respuestaNum: 3
           }, {
           instruction: 'Lee el siguiente texto y contesta las preguntas 15 a 17.',
           popper: '<img src="aimg/15.png" class="img-fluid">',
@@ -311,7 +336,7 @@
               '12 kg',
               '17 kg'
           ],
-          respuestaNum: 0
+          respuestaNum: 1
           }, {
           instruction: '',
           popper: '',
@@ -325,7 +350,7 @@
               '10 bufandas.',
               '9 bufandas.'
           ],
-          respuestaNum: 0
+          respuestaNum: 1
           }, {
           instruction: '',
           popper: '',
@@ -339,7 +364,7 @@
               '3 <div class=fr>2<hr>4</div> kg',
               '3 <div class=fr>5<hr>8</div> kg'
           ],
-          respuestaNum: 0
+          respuestaNum: 1
           }, {
           instruction: '',
           popper: '',
@@ -353,7 +378,7 @@
               '81',
               '84'
           ],
-          respuestaNum: 0
+          respuestaNum: 2
           }, {
           instruction: '',
           popper: '',
@@ -361,8 +386,8 @@
           pregunta: 'Es el reloj cuyas manecillas representan un ángulo de 130°.',
           opcionesImgsPrefix: '21',
           opciones: [],
-          respuestaNum: 0
-      
+          respuestaNum: 1,
+          settings: {imgs:4}
           }, {
           instruction: '',
           popper: '',
@@ -376,7 +401,7 @@
               '$70',
               '$60'
           ],
-          respuestaNum: 0
+          respuestaNum: 2
           }, {
           instruction: '',
           popper: '',
@@ -390,7 +415,7 @@
               'Vértice.',
               'Segmento de recta.'
           ],
-          respuestaNum: 0
+          respuestaNum: 3
           }, {
           instruction: '',
           popper: '',
@@ -418,7 +443,7 @@
               'Llano.',
               'Recto.'
           ],
-          respuestaNum: 0
+          respuestaNum: 3
           }, {
           instruction: '',
           popper: '',
@@ -432,7 +457,7 @@
               'Agudo.',
               'Recto.'
           ],
-          respuestaNum: 0
+          respuestaNum: 2
           }, {
           instruction: '',
           popper: '',
@@ -446,7 +471,7 @@
               'Obtuso.',
               'Agudo.'
           ],
-          respuestaNum: 0
+          respuestaNum: 2
           }, {
           instruction: '',
           popper: '',
@@ -460,12 +485,12 @@
               '1 <div class=fr>1<hr>4</div> kg',
               '2 <div class=fr>3<hr>4</div> kg'
           ],
-          respuestaNum: 0
+          respuestaNum: 1
           }, {
           instruction: '',
           popper: '',
           type: 'choose',
-          pregunta: 'En la paletería venden aguas frescas, si los botes tienen capacidad de 5 litros y el agua de limón se encuentra a 3 4 de la capacidad, ¿cuánta agua de limón se vendió?',
+          pregunta: 'En la paletería venden aguas frescas, si los botes tienen capacidad de 5 litros y el agua de limón se encuentra a <div class=fr>3<hr>4</div> de la capacidad, ¿cuánta agua de limón se vendió?',
       
           opcionesImgsPrefix: null,
           opciones: [
@@ -474,11 +499,11 @@
               '4 <div class=fr>1<hr>4</div> litros.',
               '3 <div class=fr>1<hr>8</div> litros.'
           ],
-          respuestaNum: 0
+          respuestaNum: 2
           }, {
           instruction: '',
           popper: '',
-          type: 'choose',
+          type: 'pregunta30',
           pregunta: '¿Cuál es el resultado de las siguientes operaciones?',
       
           opcionesImgsPrefix: null,
@@ -488,7 +513,7 @@
               '400 ÷ 10 = 40',
               '420 ÷ 7 = 60',
           ],
-          respuestaNum: 0
+          respuestaNum: 3
           },
       
           
