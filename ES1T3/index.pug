@@ -24,7 +24,7 @@ html(lang="es")
             if subtitle.length>1
                 h2 #{subtitle}
 
-            +body(autosec(120,25))
+            +body(60*60)
                 template(v-if="i.type=='pregunta25'")
                     .choose
                         .label

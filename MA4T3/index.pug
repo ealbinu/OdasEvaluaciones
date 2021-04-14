@@ -40,7 +40,7 @@ html(lang="es")
             if subtitle.length>1
                 h2 #{subtitle}
 
-            +body(autosec(120, 26))
+            +body(65*60)
                 template(v-if="i.type=='pregunta25'")
                     .choose.pregunta25
                         .label #[strong 25.] #[span Enumera los recipientes de mayor a menor según su capacidad.]

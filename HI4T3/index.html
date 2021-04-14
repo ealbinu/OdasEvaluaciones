@@ -60,7 +60,7 @@
       <!-- TEST SCREENSHOTS ####-->
       <!-- .row: .col-3(v-for="(i, index) in screen"): img(:src="i").w-100-->
       <!-- Counter >>>>>>>>>>-->
-      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total" :segundos="1800"></counter>
+      <counter @started="started=true" @ended="finalizar" :resultado="resultado" :current-time="currentTime" @settime="currentTime=$event" :right="right" :total="total" :segundos="2400"></counter>
       <!-- Navigation >>>>>>>>>>>>>>>-->
       <navigation v-if="started &amp;&amp; resultado==false" :current-scene="currentScene" :scenes="scenes" @back="currentScene -= 1" @next="currentScene += 1" @goto="currentScene = $event" :answereds="r"></navigation>
     </div>
