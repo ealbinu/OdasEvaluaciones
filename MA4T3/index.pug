@@ -30,6 +30,9 @@ html(lang="es")
                 max-width: 120px;
             }
 
+            .fr {
+                white-space: nowrap;
+            }
 
 
     body
@@ -51,14 +54,14 @@ html(lang="es")
                     .choose.pregunta26
                         .label #[strong 26.] #[span Resuelve las siguientes divisiones y escribe el resultado.]
                         .options: .position-relative
-                                inputbox(:key="25" v-model="r[25]" :ref="refCount()" @isright="right++" type="number" placeh="#" :before="['1 236 ÷ 8 =', '5 676 ÷ 12 =', '9 748 ÷ 48 =']" :answer="[154, 473, 9748]")
+                                inputbox(:key="25" v-model="r[25]" :ref="refCount()" @isright="right++" type="number" placeh="#" :before="['1 236 ÷ 8 =', '5 676 ÷ 12 =', '9 748 ÷ 48 =']" :answer="[154, 473, 203]")
                 
         +scripts
             script.
 
                 app.$set(app, 'scenes', [
                     {
-                    instruction: '',
+                    instruction: 'Selecciona la respuesta correcta.',
                     popper: '',
                     type: 'choose',
                     pregunta: 'Un carpintero usó 324 clavos en el armado de varias sillas. Si en cada silla utilizó 9 clavos, ¿cuántas sillas armó?',
@@ -131,14 +134,14 @@ html(lang="es")
                     instruction: '',
                     popper: '',
                     type: 'choose',
-                    pregunta: 'Es el área de la siguiente figura. Considera que cada cuadrado equivale a 1 cm2. <img src="aimg/6.png" class="img-fluid">',
+                    pregunta: 'Es el área de la siguiente figura. Considera que cada cuadrado equivale a 1 cm<sup>2</sup>. <img src="aimg/6.png" class="img-fluid">',
 
                     opcionesImgsPrefix: null,
                     opciones: [
-                        '17 cm2',
-                        '36 cm2',
-                        '71 cm2',
-                        '63 cm2'
+                        '17 cm<sup>2</sup>',
+                        '36 cm<sup>2</sup>',
+                        '71 cm<sup>2</sup>',
+                        '63 cm<sup>2</sup>'
                     ],
                     respuestaNum: 0
                     }, {
@@ -360,9 +363,9 @@ html(lang="es")
                     opcionesImgsPrefix: null,
                     opciones: [
                         'Perímetro 24 cm y área 29 cm?.',
-                        'Perímetro 29 cm y área 23 cm2.',
-                        'Perímetro 28 cm y área 27 cm2.',
-                        'Perímetro 32 cm área 21 cm2.'
+                        'Perímetro 29 cm y área 23 cm<sup>2</sup>.',
+                        'Perímetro 28 cm y área 27 cm<sup>2</sup>.',
+                        'Perímetro 32 cm área 21 cm<sup>2</sup>.'
                     ],
                     respuestaNum: 2
                     }, {
