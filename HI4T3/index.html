@@ -38,7 +38,7 @@
           </template>
           <template v-if="i.type=='pregunta15'">
             <div class="choose">
-              <div class="label"><strong>15.</strong><span>Marca así las causas de la Independencia de México.</span></div>
+              <div class="label"><strong>15.</strong><span>Selecciona las causas de la Independencia de México.</span></div>
               <div class="options">
                 <div class="position-relative">
                   <check :key="14" v-model="r[14]" :ref="refCount()" @isright="right++" :answer="[true, false, false, true, true, true]" :text="['Las reformas borbónicas.', 'La toma de Constantinopla.', 'El descubrimiento de América.', 'La invasión napoleónica a España.', 'El nacionalismo criollo.', 'El pensamiento ilustrado.']"></check>
